@@ -1,0 +1,134 @@
+#!/usr/bin/env python3
+"""Scaffold a new Harbor Now edition.
+
+Usage:
+  python3 new.py --date 2026-07-13 --title "The harbor is behaving as designed" \
+                 --weather chop --posture receive \
+                 --body "The axis is stable..."
+
+Creates harbor-now/archive/<date>.html from the shared template, then prints the
+list-entry HTML to prepend to the archive list in harbor-now/index.html (and to
+the homepage's Past Harbor Nows list). One edition per day; one source of truth.
+"""
+import argparse, html, pathlib, sys, datetime as dt
+
+ROOT = pathlib.Path(__file__).resolve().parent
+ARCHIVE = ROOT / "archive"
+ARCHIVE.mkdir(exist_ok=True)
+
+TEMPLATE = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harbor Now — {pretty} | Lime Signalworks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap" rel="stylesheet">
+<style>
+:root{{--text-xs:clamp(.75rem,.7rem+.25vw,.875rem);--text-sm:clamp(.875rem,.8rem+.35vw,1rem);--text-base:clamp(1rem,.95rem+.25vw,1.125rem);--text-lg:clamp(1.125rem,1rem+.75vw,1.5rem);--text-xl:clamp(1.5rem,1.2rem+1.25vw,2.25rem);--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;--radius-md:.5rem;--radius-xl:1rem;--radius-full:9999px;--transition:180ms cubic-bezier(.16,1,.3,1);--font-display:'Instrument Serif',Georgia,serif;--font-body:'General Sans','Helvetica Neue',sans-serif;}}
+:root,[data-theme="dark"]{{--color-bg:#0a131c;--color-surface:#0f1c28;--color-border:#1f3346;--color-divider:#1a2c3c;--color-text:#e6edf2;--color-text-muted:#8fa3b3;--color-text-faint:#5d7286;--color-primary:#9ad14a;--color-primary-hover:#b4e06a;--color-beam:#e8b659;--shadow-md:0 4px 24px rgba(0,0,0,.35);}}
+[data-theme="light"]{{--color-bg:#f4f7f5;--color-surface:#fff;--color-border:#dbe4dd;--color-divider:#e4ece6;--color-text:#15241c;--color-text-muted:#56685e;--color-text-faint:#8a9c92;--color-primary:#4f7a1f;--color-primary-hover:#3d6017;--color-beam:#b07d1f;--shadow-md:0 4px 24px rgba(20,40,28,.08);}}
+*,*::before,*::after{{box-sizing:border-box;margin:0;padding:0;}}
+html{{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;}}
+body{{min-height:100dvh;line-height:1.6;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg);}}
+a,button{{transition:color var(--transition),background var(--transition),border-color var(--transition);}}
+h1,h2{{text-wrap:balance;line-height:1.12;font-family:var(--font-display);font-weight:400;letter-spacing:-.01em;}}
+p{{text-wrap:pretty;max-width:70ch;}}
+:focus-visible{{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-md);}}
+.wrap{{max-width:760px;margin:0 auto;padding:0 var(--space-6);}}
+header{{position:sticky;top:0;z-index:10;backdrop-filter:blur(12px);background:color-mix(in oklab,var(--color-bg) 82%,transparent);border-bottom:1px solid var(--color-divider);}}
+.hdr{{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0;gap:var(--space-4);}}
+.back{{display:inline-flex;align-items:center;gap:var(--space-2);text-decoration:none;color:var(--color-text-muted);font-size:var(--text-sm);font-weight:500;}}
+.back:hover{{color:var(--color-primary);}}
+.brand{{font-family:var(--font-body);font-weight:600;font-size:var(--text-base);color:var(--color-text);text-decoration:none;}} .brand b{{font-weight:700;color:var(--color-primary);}}
+.icon-btn{{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:var(--radius-full);border:1px solid var(--color-border);color:var(--color-text-muted);background:var(--color-surface);cursor:pointer;}}
+main{{padding:clamp(var(--space-16),8vw,var(--space-24)) 0 var(--space-24);}}
+.kicker{{font-size:var(--text-xs);letter-spacing:.22em;text-transform:uppercase;color:var(--color-primary);font-weight:600;margin-bottom:var(--space-5);}}
+.report{{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:clamp(var(--space-8),5vw,var(--space-12)/*cut*/);box-shadow:var(--shadow-md);position:relative;overflow:hidden;}}
+.report::before{{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(in oklab,var(--color-primary),var(--color-beam));}}
+.report h1{{font-size:var(--text-xl);margin-bottom:var(--space-6);}}
+.report .weather{{font-size:var(--text-lg);color:var(--color-text);margin-bottom:var(--space-5);}} .report .weather strong{{color:var(--color-primary);font-weight:600;}}
+.report p.body{{color:var(--color-text);margin-bottom:var(--space-5);}} .report p.body.muted{{color:var(--color-text-muted);margin-bottom:0;}}
+footer{{border-top:1px solid var(--color-divider);padding:var(--space-12) 0;background:var(--color-surface);text-align:center;font-size:var(--text-sm);color:var(--color-text-muted);}}
+footer a{{color:var(--color-text-muted);text-decoration:none;border-bottom:1px solid var(--color-border);}} footer a:hover{{color:var(--color-primary);border-color:var(--color-primary);}}
+</style>
+</head>
+<body>
+<header><div class="wrap hdr">
+  <a class="back" href="../index.html">← <span>Back to Harbor Now</span></a>
+  <a class="brand" href="../../index.html">Lime <b>Signalworks</b></a>
+  <button class="icon-btn" data-theme-toggle aria-label="Switch theme"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
+</div></header>
+<main><div class="wrap">
+  <p class="kicker">Harbor Now · {pretty}</p>
+  <div class="report">
+    <h1>{title}</h1>
+    <p class="weather">Market weather: <strong>{weather}</strong>. Posture: <strong>{posture}</strong>.</p>
+    {body_html}
+  </div>
+</div></main>
+<footer><div class="wrap"><a href="../index.html">← All Harbor Nows</a> &nbsp;·&nbsp; <a href="../../index.html">Return to the harbor</a></div></footer>
+<script>
+(function(){{var t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;var d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';r.setAttribute('data-theme',d);function ic(k){{return k?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';}}if(t){{t.innerHTML=ic(d==='dark');t.addEventListener('click',function(){{d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);t.innerHTML=ic(d==='dark');}});}}}})();
+</script>
+</body>
+</html>
+"""
+
+
+def parse_date(s: str) -> dt.date:
+    return dt.datetime.strptime(s, "%Y-%m-%d").date()
+
+
+def pretty(d: dt.date) -> str:
+    return d.strftime("%B %-d, %Y")
+
+
+def short(d: dt.date) -> str:
+    return d.strftime("%b %-d, %Y")
+
+
+def body_to_html(body: str) -> str:
+    paras = [p.strip() for p in body.split("\n") if p.strip()]
+    out = []
+    for i, p in enumerate(paras):
+        cls = ' class="body muted"' if i == len(paras) - 1 else ' class="body"'
+        out.append(f'<p{cls}>{html.escape(p)}</p>')
+    return "\n    ".join(out)
+
+
+def main():
+    ap = argparse.ArgumentParser(description="Scaffold a Harbor Now edition.")
+    ap.add_argument("--date", required=True, help="ISO date, e.g. 2026-07-13")
+    ap.add_argument("--title", required=True)
+    ap.add_argument("--weather", required=True, help="regime, e.g. chop / trend_up / exhaustion")
+    ap.add_argument("--posture", required=True, help="receive / pause / act / reduce / reset")
+    ap.add_argument("--body", required=True, help="Report body. Use \\n between paragraphs; last para renders muted.")
+    args = ap.parse_args()
+
+    d = parse_date(args.date)
+    body_html = body_to_html(args.body.replace("\\n", "\n"))
+    page = TEMPLATE.format(
+        pretty=pretty(d), short=short(d), date=d.isoformat(),
+        title=html.escape(args.title),
+        weather=html.escape(args.weather), posture=html.escape(args.posture),
+        body_html=body_html,
+    )
+    out = ARCHIVE / f"{d.isoformat()}.html"
+    out.write_text(page, encoding="utf-8")
+    print(f"wrote {out.relative_to(ROOT)}")
+
+    # Print the list entry to prepend to the archive index(es).
+    entry = (
+        f'      <li><a href="archive/{d.isoformat()}.html">'
+        f'<span class="date">{short(d)}</span>'
+        f'<span class="title">{html.escape(args.title)}</span>'
+        f'<span class="arr">→</span></a></li>'
+    )
+    print("\n--- prepend this list entry to harbor-now/index.html (and the homepage list) ---")
+    print(entry)
+
+
+if __name__ == "__main__":
+    main()
