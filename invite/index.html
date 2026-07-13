@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lime Signalworks — Your invitation</title>
+<meta name="description" content="A personal invitation to the Lime Signalworks Rosie cockpit. Personalize it and run it from home." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0b1020; --surface:#0f1830; --surface-2:#13203f; --border:#1f2f55; --border-strong:#2c3f6b;
+    --lime:#00FF7F; --lime-glow:rgba(0,255,127,0.45); --lime-soft:rgba(0,255,127,0.12); --lime-faint:rgba(0,255,127,0.06);
+    --fire:#FF4500; --text:#f2f6ff; --text-muted:#9fb0d4;
+    --font-display:'Cabinet Grotesk',system-ui,sans-serif; --font-body:'Satoshi',system-ui,sans-serif;
+    --radius-lg:16px; --radius-full:999px; --space-3:.75rem; --space-4:1rem; --space-5:1.5rem; --space-6:2rem; --space-8:3rem;
+    --content:760px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;
+    background-image:radial-gradient(900px 500px at 80% -10%, rgba(0,255,127,0.10), transparent 60%), radial-gradient(700px 400px at 0% 110%, rgba(255,69,0,0.06), transparent 60%);}
+  .wrap{max-width:var(--content);margin:0 auto;padding:0 var(--space-5)}
+  header.bar{position:sticky;top:0;z-index:50;background:rgba(11,16,32,0.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+  .bar-inner{max-width:var(--content);margin:0 auto;padding:0 var(--space-5);height:62px;display:flex;align-items:center;gap:var(--space-3)}
+  .brand{display:flex;align-items:center;gap:var(--space-3);margin-right:auto}
+  .brand svg{width:30px;height:30px;color:var(--lime);filter:drop-shadow(0 0 6px var(--lime-glow))}
+  .b-name{font-family:var(--font-display);font-weight:800;font-size:1rem;letter-spacing:-0.01em}
+  .b-name span{display:block;font-family:var(--font-body);font-weight:500;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-top:2px}
+  .hero{padding:var(--space-8) 0 var(--space-6)}
+  .kicker{font-family:var(--font-body);font-size:0.72rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--lime)}
+  h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.1rem,5vw,3rem);line-height:1.05;letter-spacing:-0.02em;margin:var(--space-3) 0}
+  .lime-word{color:var(--lime);text-shadow:0 0 18px var(--lime-glow)}
+  .lead{color:var(--text-muted);font-size:1.05rem;max-width:620px;margin-top:var(--space-3)}
+  .card{background:linear-gradient(180deg,var(--surface),var(--surface-2));border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-6);margin-top:var(--space-6)}
+  .card h2{font-family:var(--font-display);font-weight:700;font-size:1.25rem;margin-bottom:var(--space-4)}
+  .field{margin-bottom:var(--space-4)}
+  .field label{display:block;font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.5rem}
+  .field input,.field textarea{width:100%;background:var(--bg);border:1px solid var(--border-strong);border-radius:10px;padding:.8rem 1rem;color:var(--text);font-family:var(--font-body);font-size:1rem;transition:border-color .2s,box-shadow .2s}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 4px var(--lime-faint)}
+  .field textarea{resize:vertical;min-height:84px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)}
+  @media (max-width:560px){.row{grid-template-columns:1fr}}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-body);font-weight:700;font-size:0.95rem;padding:.8rem 1.4rem;border-radius:var(--radius-full);border:1px solid var(--border-strong);color:var(--text);background:transparent;cursor:pointer;text-decoration:none;transition:all .2s}
+  .btn-primary{background:var(--lime);color:#06210f;border-color:var(--lime);box-shadow:0 0 22px var(--lime-glow)}
+  .btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
+  .btn-ghost{color:var(--lime)}
+  .btn-ghost:hover{background:var(--lime-soft)}
+  .btn[disabled]{opacity:.4;cursor:not-allowed}
+  .actions{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-4)}
+  .preview-wrap{margin-top:var(--space-6)}
+  .preview-wrap h3{font-family:var(--font-display);font-weight:700;font-size:1.05rem;margin-bottom:var(--space-3);color:var(--text-muted)}
+  .frame{border:1px solid var(--border-strong);border-radius:var(--radius-lg);overflow:hidden;background:#000;height:620px}
+  .frame iframe{width:100%;height:100%;border:0}
+  .status{margin-top:var(--space-3);font-size:0.88rem;color:var(--text-muted);min-height:1.2em}
+  .status.ok{color:var(--lime)}
+  .status.err{color:var(--fire)}
+  .hint{font-size:0.82rem;color:var(--text-muted);margin-top:var(--space-3)}
+  .ember-note{margin-top:var(--space-6);color:var(--text-muted);font-size:0.9rem}
+  footer{padding:var(--space-6) 0;color:var(--text-muted);font-size:0.82rem;border-top:1px solid var(--border);margin-top:var(--space-8)}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-inner">
+    <a href="#" class="brand" aria-label="Lime Signalworks">
+      <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M24 4 L24 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M24 14 a9 9 0 0 1 9 9 v17 a3 3 0 0 1 -3 3 H14 a3 3 0 0 1 -3 -3 V23 a9 9 0 0 1 9 -9 z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="rgba(0,255,127,0.06)"/>
+        <circle cx="24" cy="23" r="6" fill="currentColor"/>
+      </svg>
+      <div class="b-name">Lime Signalworks<span>An invitation</span></div>
+    </a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="kicker">Your personal harbor</span>
+    <h1>A calm harbor, <span class="lime-word">made for you.</span></h1>
+    <p class="lead">Someone at Lime Signalworks thought of you. Enter your name below and we'll prepare a personal copy of the Rosie cockpit — warm, calm, and yours. You can preview it right here, then download it to run from your own home. Nothing to install, no account, no noise.</p>
+  </section>
+
+  <section class="card">
+    <h2>Prepare your cockpit</h2>
+    <form id="inviteForm">
+      <div class="row">
+        <div class="field">
+          <label for="first">Your first name</label>
+          <input id="first" name="first" type="text" placeholder="Tony" autocomplete="given-name" required />
+        </div>
+        <div class="field">
+          <label for="last">Last name (optional)</label>
+          <input id="last" name="last" type="text" placeholder="Rini" autocomplete="family-name" />
+        </div>
+      </div>
+      <div class="field">
+        <label for="note">A note to carry into your harbor (optional)</label>
+        <textarea id="note" name="note" placeholder="A line from your inviter — a blessing, a wager, a quiet welcome."></textarea>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" type="submit" id="genBtn">Open my harbor</button>
+        <button class="btn btn-ghost" type="button" id="dlBtn" disabled>Download to run from home</button>
+      </div>
+      <p class="status" id="status"></p>
+      <p class="hint">The download is a single self-contained HTML file. Save it, double-click it, and your harbor opens in any browser — no internet required after that.</p>
+    </form>
+  </section>
+
+  <div class="preview-wrap" id="previewWrap" style="display:none">
+    <h3>Live preview — your harbor</h3>
+    <div class="frame"><iframe id="preview" title="Your personalized cockpit preview"></iframe></div>
+  </div>
+
+  <p class="ember-note">Rosie watches the storm so a family's money can rest. Four disciplined tools, one lighthouse beacon, nothing armed until you say so.</p>
+</main>
+
+<footer>
+  <div class="wrap">A lighthouse beacon in any storm. Prepared by Lime Signalworks LLC.</div>
+</footer>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  // Pre-fill from ?to=FirstName
+  try{
+    const params = new URLSearchParams(location.search);
+    const to = params.get('to');
+    if(to){ $('first').value = to; }
+  }catch(e){}
+
+  let lastHtml = '';
+  let lastName = 'friend';
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function slug(s){
+    return String(s||'harbor').toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'') || 'harbor';
+  }
+
+  async function personalize(){
+    const first = $('first').value.trim() || 'friend';
+    const last = $('last').value.trim();
+    const note = $('note').value.trim();
+    const name = last ? (first + ' ' + last) : first;
+    lastName = first;
+    let res;
+    try{
+      res = await fetch('template.html', {cache:'no-store'});
+    }catch(e){
+      throw new Error('Could not load the template. If you opened this file directly, it needs to be on a server — ask your inviter for the hosted link, or use the downloaded copy.');
+    }
+    if(!res.ok) throw new Error('Template could not be reached (' + res.status + ').');
+    let html = await res.text();
+    html = html.split('{{RECIPI_FIRST}}').join(escapeHtml(first))
+               .split('{{RECIPI_NAME}}').join(escapeHtml(name))
+               .split('{{INVITE_NOTE}}').join(escapeHtml(note));
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    doc.querySelectorAll('.invite-note').forEach(el => { if(!el.textContent.trim()) el.remove(); });
+    return '<!DOCTYPE html>\n' + doc.documentElement.outerHTML;
+  }
+
+  $('inviteForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const st = $('status'); st.className='status'; st.textContent='Preparing your harbor…';
+    $('genBtn').disabled = true;
+    try{
+      lastHtml = await personalize();
+      $('preview').srcdoc = lastHtml;
+      $('previewWrap').style.display = 'block';
+      $('dlBtn').disabled = false;
+      st.className='status ok';
+      st.textContent = 'Ready, ' + lastName + '. Your harbor is below — and the download button is live.';
+      $('previewWrap').scrollIntoView({behavior:'smooth', block:'start'});
+    }catch(err){
+      st.className='status err';
+      st.textContent = err.message;
+    }finally{
+      $('genBtn').disabled = false;
+    }
+  });
+
+  $('dlBtn').addEventListener('click', () => {
+    if(!lastHtml) return;
+    const blob = new Blob([lastHtml], {type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = slug(lastName) + '-harbor.html';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url), 1500);
+  });
+})();
+</script>
+</body>
+</html>
