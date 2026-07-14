@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lime Signalworks — Stay in the Harbor</title>
-<meta name="description" content="Sign up for occasional Lime Signalworks notices — calm, useful, never spam.">
+<title>Begin — Lime Signalworks</title>
+<meta name="description" content="Begin your ninety days. Request Harbor Member access — loss-prevention-first AI assistance. No spam; the ninety-day promise stands.">
 <link rel="canonical" href="https://limesignalworks.com/subscribe/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://limesignalworks.com/subscribe/">
-<meta property="og:title" content="Subscribe — Lime Signalworks">
-<meta property="og:description" content="Sign up for occasional Lime Signalworks notices — calm, useful, never spam.">
+<meta property="og:title" content="Begin — Lime Signalworks">
+<meta property="og:description" content="Begin your ninety days. Request Harbor Member access — loss-prevention-first AI assistance.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -53,8 +53,9 @@
   .row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);}
   @media(max-width:520px){.row{grid-template-columns:1fr;}}
   label{font-size:var(--text-xs);letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text-muted);font-weight:600;}
-  input{width:100%;padding:var(--space-3) var(--space-4);border-radius:var(--radius-md);border:1px solid var(--color-border);background:var(--color-bg);color:var(--color-text);font-size:var(--text-base);font-family:var(--font-body);}
-  input:focus{outline:none;border-color:var(--color-primary);box-shadow:0 0 0 3px var(--color-primary-soft);}
+  input,textarea{width:100%;padding:var(--space-3) var(--space-4);border-radius:var(--radius-md);border:1px solid var(--color-border);background:var(--color-bg);color:var(--color-text);font-size:var(--text-base);font-family:var(--font-body);}
+  textarea{min-height:5.5rem;resize:vertical;line-height:1.5;}
+  input:focus,textarea:focus{outline:none;border-color:var(--color-primary);box-shadow:0 0 0 3px var(--color-primary-soft);}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);font-family:var(--font-body);font-weight:600;font-size:var(--text-base);text-decoration:none;color:var(--color-bg);background:var(--color-primary);padding:var(--space-3) var(--space-6);border-radius:var(--radius-full);border:1px solid var(--color-primary);cursor:pointer;box-shadow:var(--shadow-md);margin-top:var(--space-2);}
   .btn:hover{background:var(--color-primary-hover);border-color:var(--color-primary-hover);}
   .btn:disabled{opacity:0.5;cursor:not-allowed;}
@@ -78,9 +79,9 @@
 <main>
   <div class="wrap">
     <div class="hero">
-      <p class="kicker">Subscribe</p>
-      <h1>Stay in the harbor.</h1>
-      <p>Occasional Lime Signalworks notices — calm, useful, never spam. Loss-prevention-first thinking, straight to your inbox.</p>
+      <p class="kicker">Join</p>
+      <h1>Begin your ninety days.</h1>
+      <p>Tell us where to reach you. We'll start a conversation and set up your Harbor Member access — no spam, no pressure, and the ninety-day promise stands.</p>
     </div>
     <div class="form-card">
       <form id="subForm" novalidate>
@@ -88,10 +89,11 @@
           <div><label for="name">First name</label><input id="name" name="name" type="text" placeholder="Your name" required></div>
           <div><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" required></div>
         </div>
-        <button class="btn" type="submit" id="subBtn">Sign up for notices →</button>
+        <div><label for="note">What brings you to the harbor? <span style="text-transform:none;font-weight:400;color:var(--color-text-faint);">(optional)</span></label><textarea id="note" name="note" placeholder="A line about where you are and what you're looking for."></textarea></div>
+        <button class="btn" type="submit" id="subBtn">Begin →</button>
         <p class="msg" id="subMsg"></p>
       </form>
-      <p class="fineprint">Your details are used only to send LIME Signalworks notices. No sharing, no spam, unsubscribe anytime.</p>
+      <p class="fineprint">Your details are used only to start your Harbor Member access. No sharing, no spam, unsubscribe anytime. The ninety-day promise applies.</p>
     </div>
   </div>
 </main>
@@ -105,14 +107,15 @@
     e.preventDefault();
     const name=document.getElementById('name').value.trim();
     const email=document.getElementById('email').value.trim();
+    const note=document.getElementById('note').value.trim();
     if(!name||!email){msg.className='msg';msg.textContent='Please add your name and email.';return;}
     btn.disabled=true;msg.className='msg';msg.textContent='Opening your email…';
-    // Google Form not wired yet — graceful mailto fallback so the rail is never broken.
+    // Member join request — graceful mailto fallback so the rail is never broken.
     const to='nrini49@gmail.com';
-    const subj=encodeURIComponent('LIME Signalworks — sign me up');
-    const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\nRail: '+location.hostname);
+    const subj=encodeURIComponent('LIME Signalworks — Harbor Member request');
+    const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+(note?'\nNote: '+note:'')+'\nRail: '+location.hostname);
     window.location.href='mailto:'+to+'?subject='+subj+'&body='+body;
-    setTimeout(function(){msg.className='msg ok';msg.textContent="Thank you — your email client should have opened. You're in the harbor.";f.reset();btn.disabled=false;},1200);
+    setTimeout(function(){msg.className='msg ok';msg.textContent="Thank you — your email client should have opened. We'll be in touch to begin your ninety days.";f.reset();btn.disabled=false;},1200);
   });
 })();
 (function(){const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;let d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';r.setAttribute('data-theme',d);function icon(dark){return dark?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';}if(t){t.innerHTML=icon(d==='dark');t.addEventListener('click',()=>{d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);t.innerHTML=icon(d==='dark');});}})();
