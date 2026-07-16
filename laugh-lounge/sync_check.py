@@ -21,7 +21,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 JOKES_FILE = BASE_DIR / "jokes.json"
 LOGS_DIR = BASE_DIR.parent / "logs"
-LANGUAGES = ["en", "es", "zh"]
+LANGUAGES = ["en", "es", "zh", "fr"]
 
 
 def load_jokes():
