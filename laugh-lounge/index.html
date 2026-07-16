@@ -112,6 +112,10 @@
 </header>
 
 <main>
+  <div id="gateway-wrap" style="display:none;">
+    <div id="gateway-scene-root" style="position:relative;height:480px;border-radius:1.25rem;overflow:hidden;border:1px solid var(--border-strong);margin:2rem auto 1.25rem;max-width:640px;"></div>
+    <p id="gateway-note" style="text-align:center;color:var(--text-muted);font-size:0.85rem;margin-bottom:2rem;">Door 8's Joker-archetype gateway — a brief pause before the jokes. Prefer the simple version? <a href="#" id="skip-gateway" style="color:var(--lime);">Skip straight to the jokes</a>.</p>
+  </div>
   <div class="wrap">
     <div class="joke-card">
       <span class="tag">Fresh joke</span>
@@ -272,6 +276,142 @@
     })
     .catch(() => { jokeTextEl.textContent = "Couldn't load the joke library right now — try refreshing."; });
 })();
+</script>
+
+<script type="module">
+// The Keeper of Wit — Door 8's WebXR gateway, layered in front of the plain
+// joke card above. Real WebGL feature-detection first: if it fails for any
+// reason (old device, no WebGL2, blocked context), this silently leaves the
+// plain 2D joke card as the only thing visible — nothing breaks for the
+// family/gramma audience this page is actually built for. The gateway is an
+// enhancement layered on top of a page that already works without it, not a
+// replacement that requires it.
+function webglAvailable() {
+  try {
+    const c = document.createElement('canvas');
+    return !!(window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl')));
+  } catch (e) { return false; }
+}
+
+if (webglAvailable()) {
+  try {
+    const THREE = await import('https://esm.sh/three@0.160.0');
+    const gatewayWrap = document.getElementById('gateway-wrap');
+    const jokeWrap = document.querySelector('main > .wrap');
+    const sceneRoot = document.getElementById('gateway-scene-root');
+
+    gatewayWrap.style.display = 'block';
+    jokeWrap.style.display = 'none';
+    document.getElementById('skip-gateway').addEventListener('click', (e) => {
+      e.preventDefault();
+      gatewayWrap.style.display = 'none';
+      jokeWrap.style.display = '';
+    });
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x0b1020); // matches Rosie dashboard --bg
+    scene.fog = new THREE.FogExp2(0x0e1426, 0.03);
+
+    const width = sceneRoot.clientWidth, height = sceneRoot.clientHeight;
+    const camera = new THREE.PerspectiveCamera(58, width / height, 0.1, 200);
+    camera.position.set(0, 1.4, 5.5);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    sceneRoot.appendChild(renderer.domElement);
+
+    scene.add(new THREE.AmbientLight(0x1a2a3a, 1.0));
+    const beacon = new THREE.PointLight(0x00ff7f, 0.5, 30);
+    beacon.position.set(-5, 2, -10);
+    scene.add(beacon);
+
+    const orbGroup = new THREE.Group();
+    orbGroup.position.set(0, 1.2, -2.5);
+    scene.add(orbGroup);
+    const core = new THREE.Mesh(
+      new THREE.SphereGeometry(0.35, 32, 32),
+      new THREE.MeshStandardMaterial({ color: 0xe6b980, emissive: 0xe6b980, emissiveIntensity: 0.6, roughness: 0.3 })
+    );
+    orbGroup.add(core);
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(0.6, 0.018, 16, 64),
+      new THREE.MeshStandardMaterial({ color: 0xe6b980, emissive: 0xe6b980, emissiveIntensity: 0.3, transparent: true, opacity: 0.5 })
+    );
+    orbGroup.add(ring);
+
+    // burst particles on release, same pattern as the dashboard gateway
+    const burstCount = 40;
+    const burstGeo = new THREE.BufferGeometry();
+    const burstPos = new Float32Array(burstCount * 3);
+    const burstVel = [];
+    for (let i = 0; i < burstCount; i++) {
+      const theta = Math.random() * Math.PI * 2, phi = Math.random() * Math.PI;
+      const speed = 0.5 + Math.random() * 0.7;
+      burstVel.push([Math.sin(phi)*Math.cos(theta)*speed, Math.sin(phi)*Math.sin(theta)*speed, Math.cos(phi)*speed]);
+    }
+    burstGeo.setAttribute('position', new THREE.BufferAttribute(burstPos, 3));
+    const burstMat = new THREE.PointsMaterial({ color: 0xffd9a0, size: 0.08, transparent: true, opacity: 0 });
+    const burstPoints = new THREE.Points(burstGeo, burstMat);
+    orbGroup.add(burstPoints);
+    let burstActive = false, burstStart = 0;
+
+    // overlay text — reuses the label/cta pattern already on this page
+    const label = document.createElement('div');
+    label.style.cssText = 'position:absolute;bottom:1.5rem;left:0;right:0;text-align:center;color:var(--text-muted);font-family:var(--font-body);pointer-events:none;';
+    label.textContent = 'Gathering…';
+    sceneRoot.appendChild(label);
+
+    const CYCLE_MS = 8000;
+    let cyclePhase = 'gather', cycleStart = performance.now();
+    function animate() {
+      const now = performance.now();
+      const t = (now - cycleStart) % CYCLE_MS;
+      const inGather = t < CYCLE_MS / 2;
+      const phase = inGather ? 'gather' : 'release';
+      if (phase !== cyclePhase) {
+        cyclePhase = phase;
+        label.textContent = phase === 'gather' ? 'Gathering…' : 'Release — there it is.';
+        if (phase === 'release') { burstActive = true; burstStart = now; burstMat.opacity = 0.9; beacon.intensity = 1.2; }
+        else { beacon.intensity = 0.5; }
+      }
+      const half = CYCLE_MS / 2;
+      const localT = inGather ? (t / half) : ((t - half) / half);
+      const eased = 0.5 - 0.5 * Math.cos(Math.PI * localT);
+      orbGroup.scale.setScalar(inGather ? 0.7 + eased * 0.1 : 0.8 + eased * 0.6);
+      ring.rotation.z += 0.004;
+      if (burstActive) {
+        const bt = (now - burstStart) / 900;
+        if (bt >= 1) { burstActive = false; burstMat.opacity = 0; }
+        else {
+          const arr = burstGeo.attributes.position.array;
+          for (let i = 0; i < burstCount; i++) {
+            arr[i*3] = burstVel[i][0]*bt*1.4; arr[i*3+1] = burstVel[i][1]*bt*1.4; arr[i*3+2] = burstVel[i][2]*bt*1.4;
+          }
+          burstGeo.attributes.position.needsUpdate = true;
+          burstMat.opacity = 0.9 * (1 - bt);
+        }
+      }
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    sceneRoot.addEventListener('click', () => {
+      gatewayWrap.style.display = 'none';
+      jokeWrap.style.display = '';
+      document.getElementById('library').scrollIntoView({ behavior: 'smooth' });
+    });
+    const enterHint = document.createElement('div');
+    enterHint.style.cssText = 'position:absolute;top:1.2rem;left:0;right:0;text-align:center;color:var(--text-faint);font-size:0.8rem;pointer-events:none;';
+    enterHint.textContent = 'Click anywhere to enter the Laugh Lounge';
+    sceneRoot.appendChild(enterHint);
+  } catch (e) {
+    // any Three.js/WebGL runtime failure -> the plain joke card (already
+    // visible by default) stays as the real, working experience.
+    console.warn('Keeper of Wit gateway failed to load, falling back to the plain joke card:', e);
+  }
+}
 </script>
 </body>
 </html>
