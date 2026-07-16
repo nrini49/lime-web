@@ -41,6 +41,14 @@
   .kicker{font-size:var(--text-xs);letter-spacing:.22em;text-transform:uppercase;color:var(--color-primary);font-weight:600;margin-bottom:var(--space-5);}
   .hero h1{font-size:var(--text-2xl);margin-bottom:var(--space-5);max-width:20ch;margin-inline:auto;}
   .hero p{font-size:var(--text-lg);color:var(--color-text-muted);margin-inline:auto;max-width:54ch;}
+  .hw-promo{background:linear-gradient(135deg,var(--color-surface) 0%,var(--color-surface-2) 100%);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:clamp(var(--space-6),4vw,var(--space-10));box-shadow:var(--shadow-md);margin-bottom:var(--space-10);display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);flex-wrap:wrap;}
+  .hw-promo-text{flex:1;min-width:220px;}
+  .hw-promo .kicker{margin-bottom:var(--space-3);}
+  .hw-promo h3{font-size:var(--text-lg);font-family:var(--font-display);margin-bottom:var(--space-3);}
+  .hw-promo p{color:var(--color-text-muted);font-size:var(--text-sm);max-width:48ch;}
+  .hw-promo-cta{flex:0 0 auto;display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);border-radius:var(--radius-full);background:var(--color-primary);color:var(--color-bg);font-weight:600;font-size:var(--text-sm);text-decoration:none;white-space:nowrap;}
+  .hw-promo-cta:hover{background:var(--color-primary-hover);}
+
   .report{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:clamp(var(--space-8),5vw,var(--space-12));box-shadow:var(--shadow-md);position:relative;overflow:hidden;margin-bottom:var(--space-20);}
   .report::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(in oklab,var(--color-primary),var(--color-beam));}
   .report .meta{font-size:var(--text-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-muted);font-weight:600;margin-bottom:var(--space-5);}
@@ -78,6 +86,15 @@
       <p class="kicker">Harbor Now</p>
       <h1>Today’s harbor — Wednesday, July 15, 2026</h1>
       <p>The live market-weather report. Posted when conditions move; archived when they pass.</p>
+    </div>
+
+    <div class="hw-promo">
+      <div class="hw-promo-text">
+        <p class="kicker">New — a LIME Signalworks game</p>
+        <h3>Harbor Watch</h3>
+        <p>Guide ships into harbor. Wait for the signals to align across Weather, Compass, the Ark, and Exhaustion — the same discipline behind every Harbor Now report, now playable.</p>
+      </div>
+      <a class="hw-promo-cta" href="https://harbor-watch.pplx.app" target="_blank" rel="noopener">Take the watch &rarr;</a>
     </div>
 
     <div class="report">
