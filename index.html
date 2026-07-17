@@ -628,9 +628,10 @@
 })();
 </script>
 
-<!-- Keeper hero portrait: single image rotating through all 38 Keepers, synced with the promise card.
+<!-- Keeper hero portrait: single image rotating through all 46 Keepers, synced with the promise card.
      11 Patriarchs (Adam through Abraham, carrying the promise made at the garden's edge) +
-     22 Fire Messengers (New Testament figures who proclaimed or witnessed that promise fulfilled) +
+     30 Fire Messengers (New Testament figures who proclaimed or witnessed that promise fulfilled,
+     including a second pass of women selected for proven fiery devotion) +
      5 legacy Keepers kept in rotation alongside them (Solomon, Daniel, Esther, Ruth, David). -->
 <script>
 (function(){
@@ -672,7 +673,15 @@
     { file: '35_priscilla.webp', name: 'Priscilla' },
     { file: '36_aquila.webp', name: 'Aquila' },
     { file: '37_apollos.webp', name: 'Apollos' },
-    { file: '38_cornelius.webp', name: 'Cornelius' }
+    { file: '38_cornelius.webp', name: 'Cornelius' },
+    { file: '39_martha_of_bethany.webp', name: 'Martha of Bethany' },
+    { file: '40_salome.webp', name: 'Salome' },
+    { file: '41_mary_mother_of_james.webp', name: 'Mary, Mother of James and Joses' },
+    { file: '42_samaritan_woman.webp', name: 'The Samaritan Woman' },
+    { file: '43_junia.webp', name: 'Junia' },
+    { file: '44_dorcas.webp', name: 'Dorcas' },
+    { file: '45_phoebe.webp', name: 'Phoebe' },
+    { file: '46_joanna.webp', name: 'Joanna' }
   ];
   var KEEPER_TRAITS = {
     '01_peter.webp':                 'Stood at the gate. Denied. Returned. Held the position anyway.',
@@ -712,7 +721,15 @@
     '35_priscilla.webp':             'Taught with precision, corrected gently, and never needed to be the loudest voice in the room.',
     '36_aquila.webp':                'Stood next to Priscilla in every account. Steady is its own kind of ministry.',
     '37_apollos.webp':               'Described, in scripture itself, as fervent in spirit. The fire was visible from the outside.',
-    '38_cornelius.webp':             'A Gentile soldier who received the same fire as the apostles \u2014 proof the promise had no borders left.'
+    '38_cornelius.webp':             'A Gentile soldier who received the same fire as the apostles \u2014 proof the promise had no borders left.',
+    '39_martha_of_bethany.webp':     'Served with her hands while her sister sat at His feet, then said the boldest line in the chapter out loud: You are the Christ.',
+    '40_salome.webp':                'Stood at the cross when the disciples ran. Went back to the tomb before sunrise with nothing but spices and nerve.',
+    '41_mary_mother_of_james.webp':  'Stayed through the worst Friday in history and showed up again Sunday morning to finish what grief started.',
+    '42_samaritan_woman.webp':       'Left her water jar at the well and ran to tell the whole town before she\u2019d even processed it herself.',
+    '43_junia.webp':                 'Named an apostle in the same sentence as the men. The text never blinked, so neither should we.',
+    '44_dorcas.webp':                'Spent her life sewing for widows. Peter raised her from the dead because the work wasn\u2019t finished.',
+    '45_phoebe.webp':                'Trusted to carry Paul\u2019s letter to Rome by hand. The whole book of Romans traveled because she did.',
+    '46_joanna.webp':                'Funded the ministry from her own purse, then ran to tell the apostles the tomb was empty before they believed her.'
   };
 
   var portrait = document.getElementById('kh-portrait');
@@ -749,7 +766,7 @@
 </script>
 
 <!-- Keeper portrait carousel: the door cards draw from the full pool of
-     38 Keepers (11 Patriarchs + 22 Fire Messengers + 5 legacy Keepers) and
+     46 Keepers (11 Patriarchs + 30 Fire Messengers + 5 legacy Keepers) and
      swap every 5 seconds, so the set keeps rotating in real time as more
      portraits are generated later. Slots alternate man/woman by card
      position (01 man, 02 woman, 03 man, ...) per Noal's instruction
@@ -796,7 +813,15 @@
     { file: '23_mary_mother_of_jesus.webp', name: 'Mary, Mother of Jesus' },
     { file: '24_elizabeth.webp', name: 'Elizabeth' },
     { file: '34_lydia.webp', name: 'Lydia' },
-    { file: '35_priscilla.webp', name: 'Priscilla' }
+    { file: '35_priscilla.webp', name: 'Priscilla' },
+    { file: '39_martha_of_bethany.webp', name: 'Martha of Bethany' },
+    { file: '40_salome.webp', name: 'Salome' },
+    { file: '41_mary_mother_of_james.webp', name: 'Mary, Mother of James and Joses' },
+    { file: '42_samaritan_woman.webp', name: 'The Samaritan Woman' },
+    { file: '43_junia.webp', name: 'Junia' },
+    { file: '44_dorcas.webp', name: 'Dorcas' },
+    { file: '45_phoebe.webp', name: 'Phoebe' },
+    { file: '46_joanna.webp', name: 'Joanna' }
   ];
   var slots = document.querySelectorAll('.keeper-portrait');
   if (!slots.length) return;
