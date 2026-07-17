@@ -619,5 +619,85 @@
   setInterval(pollCount, 8000);
 })();
 </script>
+
+<!-- Flame — a small ember trail that follows wherever the visitor's attention is
+     (cursor on desktop, touch point on mobile, last-focused element via keyboard).
+     Fire Spirit motif carried onto the homepage itself, kept subtle and non-intrusive. -->
+<canvas id="flame-canvas" aria-hidden="true" style="position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:60;"></canvas>
+<script>
+(function(){
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return; // respect accessibility preference — no flame trail
+
+  var canvas = document.getElementById('flame-canvas');
+  var ctx = canvas.getContext && canvas.getContext('2d');
+  if (!ctx) return;
+
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  function resize(){
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  var target = { x: window.innerWidth / 2, y: window.innerHeight * 0.3, active: false };
+  var embers = [];
+  var MAX_EMBERS = 60;
+  var palette = ['#e8b659', '#e2823f', '#c65a2e', '#f4d38a'];
+
+  function spawn(x, y){
+    if (embers.length >= MAX_EMBERS) return;
+    embers.push({
+      x: x + (Math.random() - 0.5) * 10,
+      y: y + (Math.random() - 0.5) * 6,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: -0.4 - Math.random() * 0.6,
+      r: 1 + Math.random() * 2.2,
+      life: 1,
+      decay: 0.012 + Math.random() * 0.012,
+      color: palette[Math.floor(Math.random() * palette.length)]
+    });
+  }
+
+  function setTarget(x, y){
+    target.x = x; target.y = y; target.active = true;
+    if (Math.random() < 0.6) spawn(x, y);
+  }
+
+  window.addEventListener('mousemove', function(e){ setTarget(e.clientX, e.clientY); }, { passive: true });
+  window.addEventListener('touchmove', function(e){
+    if (e.touches && e.touches[0]) setTarget(e.touches[0].clientX, e.touches[0].clientY);
+  }, { passive: true });
+  // Keyboard users: follow whatever element currently has focus, so the flame
+  // still marks "where the visitor is" without requiring a mouse.
+  document.addEventListener('focusin', function(e){
+    var el = e.target;
+    if (!el || el === document.body) return;
+    var r = el.getBoundingClientRect();
+    setTarget(r.left + r.width / 2, r.top + r.height / 2);
+  });
+
+  function step(){
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    for (var i = embers.length - 1; i >= 0; i--) {
+      var p = embers[i];
+      p.x += p.vx; p.y += p.vy; p.life -= p.decay;
+      if (p.life <= 0) { embers.splice(i, 1); continue; }
+      ctx.globalAlpha = Math.max(p.life, 0) * 0.55;
+      ctx.beginPath();
+      ctx.fillStyle = p.color;
+      ctx.arc(p.x, p.y, p.r * p.life, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+})();
+</script>
 </body>
 </html>
