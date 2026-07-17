@@ -519,7 +519,7 @@
     });
   });
 
-  // On any <details> toggle — jump to that section's heading when expanding
+  // On any <details> toggle — scroll heading to top of viewport when expanding
   document.querySelectorAll('main details').forEach(function(det) {
     det.addEventListener('toggle', function() {
       if (det.open) {
@@ -535,8 +535,14 @@
             });
             currentWord = sectionWords[matched];
           }
-          moveToSummary(summary);
-          setTimeout(say, 120);
+          // Scroll summary to top of viewport, offset for sticky header
+          setTimeout(function() {
+            var headerH = (document.querySelector('header') || {offsetHeight: 0}).offsetHeight || 0;
+            var top = summary.getBoundingClientRect().top + window.scrollY - headerH - 8;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+            moveToSummary(summary);
+          }, 30);
+          setTimeout(say, 150);
         }
       }
     });
