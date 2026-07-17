@@ -163,7 +163,7 @@
   @keyframes emberFadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   /* Flame rail — fixed column aligned to right edge of content area */
   .flame-rail { position:fixed; right:max(8px, calc(50vw - 580px)); top:0; bottom:0; width:52px; z-index:60; pointer-events:none; display:flex; flex-direction:column; align-items:center; }
-  .flame-rail-line { position:absolute; top:60px; bottom:60px; left:50%; transform:translateX(-50%); width:1px; background:linear-gradient(to bottom, transparent, color-mix(in oklab, var(--color-primary) 25%, transparent) 20%, color-mix(in oklab, var(--color-primary) 25%, transparent) 80%, transparent); pointer-events:none; }
+  .flame-rail-line { display:none; }
   .ember { position:absolute; right:4px; width:44px; height:60px; cursor:pointer; opacity:0; pointer-events:none; transition:opacity 600ms ease, top 420ms cubic-bezier(0.34,1.56,0.64,1); }
   .ember.shown{opacity:1;pointer-events:auto;}
   .ember.shown svg{animation:emberFadeIn 1.2s ease forwards}
@@ -200,7 +200,7 @@
   .hn-list a:hover .arr { color: var(--color-primary); transform: translateX(3px); }
   .hn-all { display: inline-block; font-size: var(--text-sm); font-weight: 600; color: var(--color-primary); text-decoration: none; }
   .hn-all:hover { color: var(--color-primary-hover); }
-  details.collapsible > summary { list-style: none; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: var(--space-4); padding: var(--space-4) 0; margin-bottom: var(--space-2); border-bottom: 1px solid var(--color-divider); }
+  details.collapsible > summary { list-style: none; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: var(--space-4); padding: var(--space-4) 0; margin-bottom: var(--space-2); }
   details.collapsible > summary::-webkit-details-marker { display: none; }
   details.collapsible > summary h2 { font-size: var(--text-xl); margin: 0; text-align: center; }
   details.collapsible > summary h3 { font-size: var(--text-lg); margin: 0; text-align: center; font-family: var(--font-display); font-weight: 400; letter-spacing: -0.01em; }
