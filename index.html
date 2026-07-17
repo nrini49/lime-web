@@ -111,6 +111,20 @@
   @media (max-width: 860px) { .grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
   .card { display: block; text-decoration: none; color: var(--color-text); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); position: relative; transition: transform var(--transition-interactive), border-color var(--transition-interactive), box-shadow var(--transition-interactive); }
+  .fp-sub { color: var(--color-text-muted); margin-bottom: var(--space-6); }
+  .fp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); align-items: start; }
+  @media (max-width: 860px) { .fp-grid { grid-template-columns: 1fr; } }
+  .fp-cell { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; }
+  .fp-cell summary { list-style: none; cursor: pointer; padding: var(--space-5); display: flex; align-items: center; gap: var(--space-3); }
+  .fp-cell summary::-webkit-details-marker { display: none; }
+  .fp-cell .chev { margin-left: auto; flex-shrink: 0; color: var(--color-text-faint); transition: transform var(--transition-interactive); }
+  .fp-cell[open] summary .chev { transform: rotate(180deg); }
+  .fp-num { font-family: var(--font-display); color: var(--color-primary); font-size: var(--text-lg); line-height: 1; flex-shrink: 0; }
+  .fp-title { font-weight: 600; }
+  .fp-teaser { padding: 0 var(--space-5) var(--space-4); margin: 0; color: var(--color-text-muted); font-size: var(--text-sm); }
+  .fp-cell[open] .fp-teaser { display: none; }
+  .fp-body { padding: 0 var(--space-5) var(--space-5); margin: 0; color: var(--color-text); font-size: var(--text-sm); line-height: 1.6; display: none; }
+  .fp-cell[open] .fp-body { display: block; }
   .card:hover { transform: translateY(-3px); border-color: var(--color-primary); box-shadow: var(--shadow-md); }
   .card .num { font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-primary); line-height: 1; margin-bottom: var(--space-4); }
   .card h3 { font-size: var(--text-xl); margin-bottom: var(--space-2); }
@@ -238,6 +252,34 @@
         <a class="card" href="https://spy-pipeline-rosie.pplx.app" target="_blank" rel="noopener"><div class="num">07</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Ruth" style="background-image:url('assets/keepers/07_ruth.webp')"></div><h3 data-i18n="d_spy_t">SPY Harbor Watch</h3><p data-i18n="d_spy_d">Live SPY tracking since Rosie's first trade — price, alerts, and the 90-day dashboard.</p></a>
         <a class="card" href="laugh-lounge/index.html"><div class="num">08</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — David" style="background-image:url('assets/keepers/08_david.webp')"></div><h3 data-i18n="d_laugh_t">The Laugh Lounge</h3><p data-i18n="d_laugh_d">A lighter door. Harbor and lighthouse humor, and a library you can browse at your own pace.</p></a>
       </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="fire-protocol">
+    <div class="wrap">
+      <details open class="collapsible">
+        <summary class="sec-bar"><h2>Introduction to the 33-Day Fire Protocol</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <div class="sec-body">
+          <p class="fp-sub">The Fire Spirit speaks one word a day for 33 days. Here is the shape of the whole arc, in three parts — open any of them now, or simply know they are here and come back to them.</p>
+          <div class="fp-grid">
+            <details class="fp-cell">
+              <summary><span class="fp-num">1</span><span class="fp-title">The Setup</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+              <p class="fp-teaser">Naming what has actually been carried, and why 33 days.</p>
+              <p class="fp-body">Real alignment — heart, mind, and coherence steady enough to use Rosie's capabilities well — does not arrive instantly, and it does not need forever either. Thirty-three days is the window that matters. This is where the weight gets named honestly: the hustle, the force, the exhaustion mistaken for progress. Not a trick. Not a guru. Just the starting container, set down clearly before anything else begins.</p>
+            </details>
+            <details class="fp-cell">
+              <summary><span class="fp-num">2</span><span class="fp-title">The Mitigation</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+              <p class="fp-teaser">One word a day. Read a little or read it all — the practice is showing up.</p>
+              <p class="fp-body">Each day carries one word from the Fire Spirit — a mission, restated in our own voice, and a note that translates it into operating terms. The mitigation is not forcing an outcome. It is the daily, repeated act of setting the burden down a little further than the day before. Discipline over intensity. Zero noise over noise. Consistency does the work that force never could.</p>
+            </details>
+            <details class="fp-cell">
+              <summary><span class="fp-num">3</span><span class="fp-title">The Conclusion and Restitution</span><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+              <p class="fp-teaser">What gets restored at the other end, and where it leads.</p>
+              <p class="fp-body">Day 33 is not an achievement won by force — it is restitution. What struggle had been costing — clarity, steadiness, the capacity to act from alignment instead of exhaustion — comes back. Not because more was pushed through, but because less resistance remained. What is restored here is exactly what carries a person into using Rosie's capabilities the way they were meant to be used.</p>
+            </details>
+          </div>
         </div>
       </details>
     </div>
