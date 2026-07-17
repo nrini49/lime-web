@@ -1,0 +1,175 @@
+{
+  "generated_at": "2026-07-17T14:37:55.221565+00:00",
+  "harbor_now": {
+    "ok": true,
+    "posted_today": false,
+    "latest": "2026-07-16",
+    "checked_date": "2026-07-17"
+  },
+  "site_health": [
+    {
+      "label": "Marketing site (limesignalworks.com)",
+      "url": "https://limesignalworks.com/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "label": "Rosie Interactive (limesignalworks.pplx.app)",
+      "url": "https://limesignalworks.pplx.app/",
+      "status": 401,
+      "ok": false
+    },
+    {
+      "label": "SPY Pipeline (spy-pipeline-rosie.pplx.app)",
+      "url": "https://spy-pipeline-rosie.pplx.app/api/health",
+      "status": 401,
+      "ok": false
+    }
+  ],
+  "repos": [
+    {
+      "repo": "nrini49/lime-web",
+      "ok": true,
+      "commits": [
+        {
+          "sha": "92bbdc1",
+          "message": "Add Flame: a subtle ember trail on the homepage that follows the visitor's attention (cursor, touch, or keyboard focus), respecting prefers-",
+          "author": "nrini49",
+          "date": "2026-07-17T14:36:25Z"
+        },
+        {
+          "sha": "0860204",
+          "message": "Fix One Promise layout: move rotating Keeper portrait below the promise text (was beside it). Remove the 'Take me right to Rosie Interactive",
+          "author": "nrini49",
+          "date": "2026-07-17T14:21:34Z"
+        },
+        {
+          "sha": "6922263",
+          "message": "Add keeper-hero rotating portrait + promise card + Rosie CTA; update Keepers 03/04/06 to new women",
+          "author": "nrini49",
+          "date": "2026-07-17T14:14:31Z"
+        },
+        {
+          "sha": "13446aa",
+          "message": "Keep the 8 door-card portrait carousel (drop earlier fixed-mapping rule per Noal). Add visible Keeper-name caption synced to each 5s rotatio",
+          "author": "nrini49",
+          "date": "2026-07-17T14:06:55Z"
+        },
+        {
+          "sha": "8a152ae",
+          "message": "Add 'Introduction to the 33-Day Fire Protocol' section above Harbor Now: 3 collapsible cells laid out horizontally (Setup / Mitigation / Con",
+          "author": "nrini49",
+          "date": "2026-07-17T13:53:32Z"
+        }
+      ]
+    },
+    {
+      "repo": "nrini49/limesignalworks",
+      "ok": true,
+      "commits": [
+        {
+          "sha": "0f2300e",
+          "message": "Fix Sage popup close button colliding with the day counter (was visually unreadable/unclickable). Add a clear '<- Home' link to Rosie Intera",
+          "author": "Plex (LIME)",
+          "date": "2026-07-17T14:26:39Z"
+        },
+        {
+          "sha": "eefc834",
+          "message": "Add The Sage daily Book of Mysteries pop-up to Rosie Interactive: once-per-day modal, 3 collapsible cells (In Our Voice / Jonathan's Mission",
+          "author": "Plex (LIME)",
+          "date": "2026-07-17T13:42:03Z"
+        },
+        {
+          "sha": "6bfdeb8",
+          "message": "Keepers canon update: replace Andrew, Elijah, Joseph portraits with Mary Magdalene, Mary of Bethany, Esther (high-res rose_river archive)",
+          "author": "Noal Rini",
+          "date": "2026-07-17T10:47:35Z"
+        },
+        {
+          "sha": "e65e832",
+          "message": "Restyle SPY Pipeline dashboard to Rosie spec: lime-on-navy palette + collapsible panels",
+          "author": "Plex (LIME)",
+          "date": "2026-07-16T21:49:49Z"
+        },
+        {
+          "sha": "309de97",
+          "message": "Rearrange header status items into the operator grid: live status + open account next to Rosie row, tick count + Harbor Watch next to Trade ",
+          "author": "Plex (LIME)",
+          "date": "2026-07-16T21:12:27Z"
+        }
+      ]
+    },
+    {
+      "repo": "nrini49/schwab",
+      "ok": true,
+      "commits": [
+        {
+          "sha": "2ed62a7",
+          "message": "Rebuild Schwab workstation layout: sidebar-nav -> collapsible panels",
+          "author": "nrini49",
+          "date": "2026-07-16T21:51:33Z"
+        },
+        {
+          "sha": "3595e4d",
+          "message": "Pair each light directly with its own switch in the topbar",
+          "author": "Plex",
+          "date": "2026-07-16T17:31:41Z"
+        },
+        {
+          "sha": "546d886",
+          "message": "Decouple Propose/Approve/Execute and build a real Trade Ticket",
+          "author": "Plex",
+          "date": "2026-07-16T17:05:07Z"
+        },
+        {
+          "sha": "15e644d",
+          "message": "Build Power/Rosie/symbol-selector control plane for Schwab",
+          "author": "Plex",
+          "date": "2026-07-16T17:01:54Z"
+        },
+        {
+          "sha": "42ccf27",
+          "message": "Port phase-badge + sortable watchlist from Interactive dashboard",
+          "author": "Plex",
+          "date": "2026-07-16T16:58:13Z"
+        }
+      ]
+    },
+    {
+      "repo": "nrini49/interactive",
+      "ok": true,
+      "commits": [
+        {
+          "sha": "98620d8",
+          "message": "Restyle IB operator surfaces to Rosie Interactive design spec",
+          "author": "nrini49",
+          "date": "2026-07-16T21:56:59Z"
+        },
+        {
+          "sha": "340b71a",
+          "message": "Add Save/Reset Memory to the header with a new MEM light",
+          "author": "Plex",
+          "date": "2026-07-16T17:36:09Z"
+        },
+        {
+          "sha": "ec8e25a",
+          "message": "Pair each light directly with its own switch in the topbar",
+          "author": "Plex",
+          "date": "2026-07-16T17:31:29Z"
+        },
+        {
+          "sha": "dfef383",
+          "message": "Fix broken IB connection reference blocking every trade",
+          "author": "Plex",
+          "date": "2026-07-16T17:09:04Z"
+        },
+        {
+          "sha": "6e1b371",
+          "message": "Fix multi-word phase badges wrapping onto two lines",
+          "author": "Plex",
+          "date": "2026-07-16T17:02:05Z"
+        }
+      ]
+    }
+  ]
+}
