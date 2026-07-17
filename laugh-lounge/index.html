@@ -52,10 +52,10 @@
   .btn:hover{border-color:var(--lime);color:var(--lime);}
   .btn.primary{background:var(--lime);color:var(--harbor-black);border-color:var(--lime);}
   .btn.primary:hover{box-shadow:0 0 18px var(--lime-glow);color:var(--harbor-black);}
-  .lang-row{display:flex;justify-content:center;gap:0.4rem;margin-top:0.75rem;}
-  .lang-btn{font-size:0.8rem;padding:0.3rem 0.7rem;border-radius:999px;border:1px solid var(--border);
-    background:transparent;color:var(--text-faint);cursor:pointer;}
-  .lang-btn.active{border-color:var(--lime);color:var(--lime);}
+  .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:999px;
+    border:1px solid var(--border-strong);background:transparent;color:var(--text-muted);cursor:pointer;}
+  .icon-btn:hover{color:var(--lime);border-color:var(--lime);}
+  .nav-tools{display:flex;align-items:center;gap:0.75rem;}
 
   .cadence-box{max-width:640px;margin:0 auto 3rem;background:var(--surface-2);border:1px solid var(--border);
     border-radius:var(--radius-lg);padding:1.5rem 1.75rem;}
@@ -100,9 +100,22 @@
       </svg>
       Lime Signalworks
     </a>
-    <a href="../index.html" class="back">&larr; Back to the harbor</a>
+    <div class="nav-tools">
+      <button class="icon-btn" data-translate aria-label="Translate this page">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </button>
+      <a href="../index.html" class="back">&larr; Back to the harbor</a>
+    </div>
   </div>
 </nav>
+<script>
+(function(){
+  var tr=document.querySelector('[data-translate]');
+  if(tr){tr.addEventListener('click',function(){
+    window.open('https://translate.google.com/translate?sl=auto&tl=auto&u='+encodeURIComponent(window.location.href),'_blank','noopener');
+  });}
+})();
+</script>
 
 <header class="hero">
   <div class="wrap">
@@ -123,12 +136,6 @@
       <div id="joke-text">Loading...</div>
       <div class="controls-row">
         <button class="btn primary" id="another-btn">Give me another →</button>
-      </div>
-      <div class="lang-row">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="es">ES</button>
-        <button class="lang-btn" data-lang="zh">ZH</button>
-        <button class="lang-btn" data-lang="fr">FR</button>
       </div>
     </div>
 
@@ -167,10 +174,9 @@
 
 <script>
 (function(){
-  const STORAGE_LANG = "lime_laugh_lang";
   const STORAGE_CADENCE = "lime_laugh_cadence";
   let jokes = [];
-  let lang = localStorage.getItem(STORAGE_LANG) || "en";
+  const lang = "en";
   let cadence = localStorage.getItem(STORAGE_CADENCE) || "off";
   let timerHandle = null;
   let lastIndex = -1;
@@ -210,15 +216,6 @@
       });
   }
 
-  function setLang(newLang){
-    lang = newLang;
-    localStorage.setItem(STORAGE_LANG, lang);
-    document.querySelectorAll(".lang-btn").forEach(b => b.classList.toggle("active", b.dataset.lang === lang));
-    showJoke(lastIndex === -1 ? 0 : lastIndex);
-    const activeFilter = document.querySelector(".filter-chip.active");
-    renderLibrary(activeFilter ? activeFilter.dataset.cat : "all");
-  }
-
   function cadenceMs(){
     if (cadence === "off") return null;
     if (cadence === "random"){
@@ -248,9 +245,6 @@
     scheduleNext();
   }
 
-  document.querySelectorAll(".lang-btn").forEach(btn => {
-    btn.addEventListener("click", () => setLang(btn.dataset.lang));
-  });
   document.querySelectorAll(".chip").forEach(btn => {
     btn.addEventListener("click", () => setCadence(btn.dataset.cadence));
   });
@@ -267,7 +261,6 @@
     .then(r => r.json())
     .then(data => {
       jokes = data;
-      document.querySelectorAll(".lang-btn").forEach(b => b.classList.toggle("active", b.dataset.lang === lang));
       showJoke(pickRandomIndex()); // the "click the door, a joke pops up" moment
       renderLibrary("all");
       document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.cadence === cadence));

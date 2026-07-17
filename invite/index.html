@@ -24,6 +24,8 @@
   .wrap{max-width:var(--content);margin:0 auto;padding:0 var(--space-5)}
   header.bar{position:sticky;top:0;z-index:50;background:rgba(11,16,32,0.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
   .bar-inner{max-width:var(--content);margin:0 auto;padding:0 var(--space-5);height:62px;display:flex;align-items:center;gap:var(--space-3)}
+  .icon-btn{margin-left:auto;display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:var(--radius-full);border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer}
+  .icon-btn:hover{color:var(--lime);border-color:var(--lime)}
   .brand{display:flex;align-items:center;gap:var(--space-3);margin-right:auto;text-decoration:none;color:var(--text)}
   .brand svg{width:30px;height:30px;color:var(--lime);filter:drop-shadow(0 0 6px var(--lime-glow))}
   .b-name{font-family:var(--font-display);font-weight:800;font-size:1rem;letter-spacing:-0.01em}
@@ -72,8 +74,12 @@
       </svg>
       <div class="b-name">Lime Signalworks<span>An invitation</span></div>
     </a>
+    <button class="icon-btn" data-translate aria-label="Translate this page">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </button>
   </div>
 </header>
+<script>(function(){var tr=document.querySelector("[data-translate]");if(tr){tr.addEventListener("click",function(){window.open('https://translate.google.com/translate?sl=auto&tl=auto&u='+encodeURIComponent(window.location.href),"_blank","noopener");});}})();</script>
 
 <main class="wrap">
   <section class="hero">
