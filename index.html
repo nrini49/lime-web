@@ -98,6 +98,10 @@
   .keeper-hero { padding: var(--space-10) 0 var(--space-4); }
   .keeper-hero-inner { display: block; }
   .keeper-hero-portrait { width: 220px; height: 260px; margin: var(--space-6) auto 0; border-radius: var(--radius-lg); background-size: cover; background-position: center top; background-color: var(--color-bg); border: 1px solid var(--color-border); transition: background-image 0.4s ease, opacity 0.4s ease; }
+  .keeper-hero-desc { max-width: 440px; margin: var(--space-3) auto 0; text-align: center; transition: opacity 0.3s; }
+  .keeper-hero-desc .kh-name { font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-text); font-weight: 600; }
+  .keeper-hero-desc .kh-role { font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary); margin: 2px 0 6px; }
+  .keeper-hero-desc .kh-line { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; }
   .keeper-hero-note { max-width: 440px; margin: var(--space-4) auto 0; text-align: center; font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; }
   .keeper-hero-text { width: 100%; }
   .rosie-cta-wrap { padding: var(--space-8) 0 var(--space-6); margin-top: var(--space-6); border-top: 1px solid var(--color-border); text-align: center; }
@@ -228,6 +232,7 @@
                 <p data-i18n="promise_p1">We cannot and do not guarantee profits or eliminate risk — <strong>no honest system can</strong>. Markets go up, down, and sideways, and your decisions and results are your own.</p>
                 <p class="muted" data-i18n="promise_p2">What we do promise is our best work: clear teaching, honest tools, and a solid system built to serve real families and real companies by leaning first toward loss prevention, then toward profit. If that does not feel true in your experience after ninety days, you do not pay for it.</p>
                 <div class="keeper-hero-portrait" id="kh-portrait" role="img" aria-label="Keeper portrait"></div>
+                <div class="keeper-hero-desc" id="kh-desc"></div>
                 <p class="keeper-hero-note">This is one of the Keepers — eight figures, one for each door of the harbor, each carrying the role their door lives out. The face changes because all eight belong here, not just one. They're here so the system keeps a human face, not just numbers on a screen.</p>
               </div>
             </div>
@@ -395,24 +400,30 @@
 <script>
 (function(){
   var ALL_KEEPERS = [
-    { file: '01_peter.webp', name: 'Peter' },
-    { file: '02_solomon.webp', name: 'Solomon' },
-    { file: '03_mary_magdalene.webp', name: 'Mary Magdalene' },
-    { file: '04_mary_of_bethany.webp', name: 'Mary of Bethany' },
-    { file: '05_daniel.webp', name: 'Daniel' },
-    { file: '06_esther.webp', name: 'Esther' },
-    { file: '07_ruth.webp', name: 'Ruth' },
-    { file: '08_david.webp', name: 'David' }
+    { file: '01_peter.webp', name: 'Peter', role: 'The Guardian', line: 'Given the keys \u2014 \u201CI will give you the keys of the kingdom\u201D (Matthew 16:19).' },
+    { file: '02_solomon.webp', name: 'Solomon', role: 'The Sage', line: 'Wisdom made practical and legible, not mystical.' },
+    { file: '03_mary_magdalene.webp', name: 'Mary Magdalene', role: 'The Herald', line: 'She ran to tell the disciples \u2014 the original herald of resurrection, carrying an announcement no one believed.' },
+    { file: '04_mary_of_bethany.webp', name: 'Mary of Bethany', role: 'The Contemplative', line: 'She chose the one thing. Sat, listened, anointed at the exact right moment against all social pressure.' },
+    { file: '05_daniel.webp', name: 'Daniel', role: 'The Watchman', line: 'Reads what others can\u2019t, stays composed and clear under real pressure.' },
+    { file: '06_esther.webp', name: 'Esther', role: 'The Intercessor', line: '\u201CIf I perish, I perish.\u201D Presented terms at the exact right moment, at great personal risk to save her people.' },
+    { file: '07_ruth.webp', name: 'Ruth', role: 'The Shepherd', line: 'Steadfast loyalty through the whole dark stretch \u2014 doesn\u2019t leave the post.' },
+    { file: '08_david.webp', name: 'David', role: 'The Joker', line: 'Wit and heart together \u2014 danced unashamed.' }
   ];
   var portrait = document.getElementById('kh-portrait');
+  var descEl = document.getElementById('kh-desc');
   if (!portrait) return;
   var idx = Math.floor(Math.random() * ALL_KEEPERS.length);
   function setPortrait(k) {
     portrait.style.opacity = '0';
+    if (descEl) descEl.style.opacity = '0';
     setTimeout(function(){
       portrait.style.backgroundImage = "url('assets/keepers/" + k.file + "')";
       portrait.setAttribute('aria-label', 'Keeper portrait \u2014 ' + k.name);
       portrait.style.opacity = '1';
+      if (descEl) {
+        descEl.innerHTML = '<div class="kh-name">' + k.name + '</div><div class="kh-role">' + k.role + '</div><div class="kh-line">' + k.line + '</div>';
+        descEl.style.opacity = '1';
+      }
     }, 300);
   }
   setPortrait(ALL_KEEPERS[idx]);
