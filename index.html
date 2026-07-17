@@ -61,10 +61,10 @@
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; scroll-behavior: smooth; }
-  body { min-height: 100dvh; line-height: 1.6; font-family: var(--font-body); font-size: var(--text-base); color: var(--color-text); background-color: var(--color-bg); }
+  body { min-height: 100dvh; line-height: 1.65; letter-spacing: 0.01em; font-family: var(--font-body); font-size: var(--text-base); color: var(--color-text); background-color: var(--color-bg); }
   img, svg { display: block; max-width: 100%; height: auto; }
   a, button { transition: color var(--transition-interactive), background var(--transition-interactive), border-color var(--transition-interactive), box-shadow var(--transition-interactive); }
-  h1, h2, h3 { text-wrap: balance; line-height: 1.12; font-family: var(--font-display); font-weight: 400; letter-spacing: -0.01em; }
+  h1, h2, h3 { text-wrap: balance; line-height: 1.28; font-family: var(--font-display); font-weight: 400; letter-spacing: 0.015em; }
   p, li { text-wrap: pretty; max-width: 70ch; }
   ::selection { background: var(--color-primary-soft); }
   :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
@@ -212,7 +212,7 @@
   details.collapsible > summary { list-style: none; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: var(--space-4); padding: var(--space-4) 0; margin-bottom: var(--space-2); }
   details.collapsible > summary::-webkit-details-marker { display: none; }
   details.collapsible > summary h2 { font-size: var(--text-xl); margin: 0; text-align: center; }
-  details.collapsible > summary h3 { font-size: var(--text-xl); margin: 0; text-align: center; font-family: var(--font-display); font-weight: 400; letter-spacing: -0.01em; }
+  details.collapsible > summary h3 { font-size: var(--text-xl); margin: 0; text-align: center; }
   #harbor-now .wrap > details.collapsible + details.collapsible { margin-top: var(--space-12); }
   details.collapsible > summary .chev { color: var(--color-text-muted); transition: transform var(--transition-interactive); flex: 0 0 auto; }
   details.collapsible[open] > summary .chev { transform: rotate(180deg); }
