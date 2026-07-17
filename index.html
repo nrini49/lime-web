@@ -319,21 +319,25 @@
 
 <!-- Keeper portrait carousel: the 8 door cards draw from the full pool of
      generated Keeper portraits and swap every 5 seconds, so the set keeps
-     rotating in real time as more Keepers are added later. -->
+     rotating in real time as more Keepers are added later. Slots alternate
+     man/woman by card position (01 man, 02 woman, 03 man, ...) per Noal's
+     instruction (2026-07-17) so the grid always reads as a balanced mix. -->
 <script>
 (function(){
-  var KEEPERS = [
+  var MEN = [
     { file: '01_peter.webp', name: 'Peter' },
     { file: '02_solomon.webp', name: 'Solomon' },
     { file: '03_andrew.webp', name: 'Andrew' },
-    { file: '03_mary_magdalene.webp', name: 'Mary Magdalene' },
     { file: '04_elijah.webp', name: 'Elijah' },
-    { file: '04_mary_of_bethany.webp', name: 'Mary of Bethany' },
     { file: '05_daniel.webp', name: 'Daniel' },
     { file: '06_joseph.webp', name: 'Joseph' },
-    { file: '06_esther.webp', name: 'Esther' },
-    { file: '07_ruth.webp', name: 'Ruth' },
     { file: '08_david.webp', name: 'David' }
+  ];
+  var WOMEN = [
+    { file: '07_ruth.webp', name: 'Ruth' },
+    { file: '03_mary_magdalene.webp', name: 'Mary Magdalene' },
+    { file: '04_mary_of_bethany.webp', name: 'Mary of Bethany' },
+    { file: '06_esther.webp', name: 'Esther' }
   ];
   var slots = document.querySelectorAll('.keeper-portrait');
   if (!slots.length) return;
@@ -347,19 +351,26 @@
     return a;
   }
 
-  function rotate() {
-    var pick = shuffled(KEEPERS).slice(0, slots.length);
+  function rotate(instant) {
+    var menCount = Math.ceil(slots.length / 2);
+    var womenCount = Math.floor(slots.length / 2);
+    var men = shuffled(MEN).slice(0, menCount);
+    var women = shuffled(WOMEN).slice(0, womenCount);
     slots.forEach(function (el, i) {
-      var k = pick[i];
-      el.style.opacity = '0';
-      setTimeout(function () {
+      var k = (i % 2 === 0) ? men[i / 2] : women[(i - 1) / 2];
+      if (!k) return;
+      var apply = function () {
         el.style.backgroundImage = "url('assets/keepers/" + k.file + "')";
         el.setAttribute('aria-label', 'Keeper portrait \u2014 ' + k.name);
         el.style.opacity = '1';
-      }, 300);
+      };
+      if (instant) { apply(); return; }
+      el.style.opacity = '0';
+      setTimeout(apply, 300);
     });
   }
 
+  rotate(true); // balance the grid immediately, don't wait for the first 5s tick
   setInterval(rotate, 5000);
 })();
 </script>
