@@ -99,8 +99,9 @@
   .keeper-hero-inner { display: flex; gap: var(--space-8); align-items: flex-start; }
   .keeper-hero-portrait { width: 180px; height: 220px; flex: 0 0 180px; border-radius: var(--radius-lg); background-size: cover; background-position: center top; background-color: var(--color-surface); border: 1px solid var(--color-border); transition: background-image 0.4s ease, opacity 0.4s ease; }
   .keeper-hero-text { flex: 1; }
-  .rosie-cta-wrap { padding: var(--space-4) 0 var(--space-6); }
-  .rosie-cta-btn { display: inline-block; background: linear-gradient(135deg, var(--color-primary), var(--color-beam, #a0e080)); color: #04140c; font-weight: 700; font-size: var(--text-sm); letter-spacing: 0.04em; text-transform: uppercase; padding: 0.75rem 1.5rem; border-radius: 999px; text-decoration: none; box-shadow: 0 0 16px color-mix(in oklab, var(--color-primary) 40%, transparent); transition: filter 0.2s, box-shadow 0.2s; }
+  .keeper-hero-name { text-align: center; font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-muted); margin-top: var(--space-2); transition: opacity 0.3s; }
+  .rosie-cta-wrap { padding: var(--space-6) 0 var(--space-6); border-top: 1px solid var(--color-divider); margin-top: var(--space-4); text-align: center; }
+  .rosie-cta-btn { display: inline-block; background: linear-gradient(135deg, var(--color-primary), var(--color-beam, #a0e080)); color: #04140c; font-weight: 700; font-size: var(--text-sm); letter-spacing: 0.04em; text-transform: uppercase; padding: 0.85rem 2rem; border-radius: 999px; text-decoration: none; box-shadow: 0 0 16px color-mix(in oklab, var(--color-primary) 40%, transparent); transition: filter 0.2s, box-shadow 0.2s; }
   .rosie-cta-btn:hover { filter: brightness(1.1); box-shadow: 0 0 24px color-mix(in oklab, var(--color-primary) 60%, transparent); }
   @media (max-width: 540px) { .keeper-hero-inner { flex-direction: column; } .keeper-hero-portrait { width: 100%; height: 220px; flex: none; } }
   .promise { padding: var(--space-12) 0 var(--space-16); }
@@ -240,6 +241,7 @@
         <div class="sec-body">
           <div class="keeper-hero-inner">
             <div class="keeper-hero-portrait" id="kh-portrait" role="img" aria-label="Keeper portrait"></div>
+            <div class="keeper-hero-name" id="kh-name"></div>
             <div class="keeper-hero-text">
               <div class="promise-card">
                 <p data-i18n="promise_p1">We cannot and do not guarantee profits or eliminate risk — <strong>no honest system can</strong>. Markets go up, down, and sideways, and your decisions and results are your own.</p>
@@ -534,16 +536,19 @@
     { file: '08_david.webp', name: 'David' }
   ];
   var portrait = document.getElementById('kh-portrait');
+  var nameEl = document.getElementById('kh-name');
   var card = document.getElementById('keeper-hero-card');
   var ctaWrap = document.getElementById('rosie-cta-wrap');
   if (!portrait) return;
   var idx = Math.floor(Math.random() * ALL_KEEPERS.length);
   function setPortrait(k) {
     portrait.style.opacity = '0';
+    if (nameEl) nameEl.style.opacity = '0';
     setTimeout(function(){
       portrait.style.backgroundImage = "url('assets/keepers/" + k.file + "')";
       portrait.setAttribute('aria-label', 'Keeper portrait \u2014 ' + k.name);
       portrait.style.opacity = '1';
+      if (nameEl) { nameEl.textContent = k.name; nameEl.style.opacity = '1'; }
     }, 300);
   }
   setPortrait(ALL_KEEPERS[idx]);
