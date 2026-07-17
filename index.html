@@ -261,6 +261,19 @@
 </header>
 
 <main>
+  <!-- Founder's introduction — the top section, always open. Not a numbered
+       chapter; this is Noal speaking directly, before the book below. -->
+  <section class="founder-intro">
+    <div class="wrap" style="max-width:720px;margin:0 auto;padding:var(--space-12) 0 var(--space-8);">
+      <p class="kicker" style="text-align:center;">From the Founder</p>
+      <div class="promise-card">
+        <p>Every deep truth arrives wrapped in metaphor &mdash; that's not decoration, it's translation. This site is built to open the same door to two different readers at once: the one who thinks in scripture, and the one who thinks in energy, evidence, or neither. You shouldn't need a concordance to follow what's here, and you shouldn't have to leave your reason at the door either. What's offered should be plain enough to explain and grounded enough to test.</p>
+        <p style="color:var(--color-text-muted);">This isn't only about markets. Noise shows up everywhere &mdash; in decisions, attention, the body, relationships &mdash; and clearing it is the real work of the next 33 days. Not a new personality. Just less static, more signal, across however many parts of your life need it.</p>
+        <p style="color:var(--color-text-muted);">Take what's useful. Leave what isn't. There's no clock running against you &mdash; come back whenever you're ready.</p>
+      </div>
+    </div>
+  </section>
+
   <p class="book-intro">Think of what follows the way Leonardo kept his notebooks &mdash; where the scientific and the sacred were never separate pages, only one continuous study of what's true. Open them in the order that describes where your heart is at now. Nothing here is locked, and nothing needs to be read first. Let what's behind each one surprise you, and glorify our Creator.</p>
 
   <!-- Single rotating Keeper portrait + promise text — collapses as one card -->
@@ -880,7 +893,7 @@
      arrives, plus a small running count badge bottom-right. -->
 <div id="wg-badge" class="wg-badge" aria-live="polite">
   <span class="wg-dot"></span>
-  <span id="wg-count-text">moving along the rosy way</span>
+  <span id="wg-count-text">moving along the Rosie Way</span>
 </div>
 <div id="wg-toast" class="wg-toast" role="status"></div>
 <canvas id="wg-sparkle-canvas" aria-hidden="true"></canvas>
@@ -925,7 +938,7 @@
   }
 
   function setCountText(n){
-    countText.textContent = fmtCount(n) + ' moving along the rosy way';
+    countText.textContent = fmtCount(n) + ' moving along the Rosie Way';
   }
 
   function pulseBadge(){
