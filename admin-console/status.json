@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T18:17:49.309402+00:00",
+  "generated_at": "2026-07-17T20:19:59.820452+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "74b6a7f",
-          "message": "Flame bubble display time: 18 seconds for all messages",
+          "sha": "5d5a593",
+          "message": "Rename Chapter One heading: 'The One Promise' -> 'The Bezalel Promise'",
           "author": "nrini49",
-          "date": "2026-07-17T18:16:03Z"
+          "date": "2026-07-17T20:12:23Z"
         },
         {
-          "sha": "e2ae345",
-          "message": "Scroll section heading to top of viewport on expand",
+          "sha": "7b74715",
+          "message": "Replace the book-intro opening line with the Leonardo-notebook framing, and swap the closing to Noal's own wording: open in heart-order, not",
           "author": "nrini49",
-          "date": "2026-07-17T18:13:42Z"
+          "date": "2026-07-17T20:11:01Z"
         },
         {
-          "sha": "6ffce01",
-          "message": "Mitigation teaser: 'The practice is \u2014 stay on the Rosy Path.'",
+          "sha": "14257a6",
+          "message": "Fix typo: 'The Rosy Way' -> 'The Rosie Way' (Chapter Two heading)",
           "author": "nrini49",
-          "date": "2026-07-17T18:11:50Z"
+          "date": "2026-07-17T20:01:33Z"
         },
         {
-          "sha": "f380478",
-          "message": "Restore original fp-cell content from session \u2014 Setup, Mitigation, Conclusion",
+          "sha": "1e970e8",
+          "message": "Restructure chapter headers into a true two-column grid: chapter number in a fixed left column, title in the right column, same left edge on",
           "author": "nrini49",
-          "date": "2026-07-17T18:10:00Z"
+          "date": "2026-07-17T19:59:55Z"
         },
         {
-          "sha": "4b07640",
-          "message": "Fix: fp-cell clicks no longer collapse parent section (accordion scoped to .collapsible only)",
+          "sha": "2501e6c",
+          "message": "Notebook-style presentation: added a short introduction above the section list, numbered all 7 sections as Chapter One through Seven, normal",
           "author": "nrini49",
-          "date": "2026-07-17T18:03:46Z"
+          "date": "2026-07-17T19:54:53Z"
         }
       ]
     },
@@ -67,6 +67,18 @@
       "repo": "nrini49/limesignalworks",
       "ok": true,
       "commits": [
+        {
+          "sha": "011da8f",
+          "message": "Add Keeper portraits for Priscilla, Phoebe, Lydia (rose_river style, full color, matching established pattern) -- proposals, not yet locked ",
+          "author": "Plex (LIME)",
+          "date": "2026-07-17T19:18:00Z"
+        },
+        {
+          "sha": "b3a115d",
+          "message": "Add Creation Doctrine PR review template",
+          "author": "nrini49",
+          "date": "2026-07-17T18:42:29Z"
+        },
         {
           "sha": "631aabe",
           "message": "Add System Files table to the Rosie Way panel: every entry-point file across the ecosystem, with its exact repo/path and role, sourced from ",
@@ -84,18 +96,6 @@
           "message": "Fix Sage popup close button colliding with the day counter (was visually unreadable/unclickable). Add a clear '<- Home' link to Rosie Intera",
           "author": "Plex (LIME)",
           "date": "2026-07-17T14:26:39Z"
-        },
-        {
-          "sha": "eefc834",
-          "message": "Add The Sage daily Book of Mysteries pop-up to Rosie Interactive: once-per-day modal, 3 collapsible cells (In Our Voice / Jonathan's Mission",
-          "author": "Plex (LIME)",
-          "date": "2026-07-17T13:42:03Z"
-        },
-        {
-          "sha": "6bfdeb8",
-          "message": "Keepers canon update: replace Andrew, Elijah, Joseph portraits with Mary Magdalene, Mary of Bethany, Esther (high-res rose_river archive)",
-          "author": "Noal Rini",
-          "date": "2026-07-17T10:47:35Z"
         }
       ]
     },
