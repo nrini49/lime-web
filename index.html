@@ -283,9 +283,9 @@
   <section class="harbor">
     <div class="wrap">
       <details open class="collapsible">
-        <summary class="sec-bar"><h2 data-i18n="doors_h">Eight Harbor Doors</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><h2 data-i18n="doors_h">The Harbor</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
-          <p class="doors-sub" data-i18n="doors_sub">Eight doors into the harbor. Start wherever fits you today.</p>
+          <p class="doors-sub" data-i18n="doors_sub">Eight doors. Start wherever fits you today.</p>
           <div class="grid">
         <a class="card" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener"><div class="num">01</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Peter" style="background-image:url('assets/keepers/01_peter.webp')"></div><div class="keeper-name" data-slot="0">Peter</div><h3 data-i18n="d_gate_t">System Access</h3><p data-i18n="d_gate_d">Authorized? Unlock your personalized Rosie sandbox and Fire Spirit materials here.</p></a>
         <a class="card" href="seed/index.html"><div class="num">02</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Solomon" style="background-image:url('assets/keepers/02_solomon.webp')"></div><div class="keeper-name" data-slot="1">Solomon</div><h3 data-i18n="d_seed_t">What LIME Is</h3><p data-i18n="d_seed_d">LIME in plain language — the problem it solves and how it works.</p></a>
@@ -444,41 +444,60 @@
   var currentWord = sectionWords['_default'];
   var shown = false;
 
-  // Track which section is most visible
+  // Move Flame to align with a section's summary heading
+  function moveToSummary(summaryEl) {
+    if (!shown) return;
+    var rect = summaryEl.getBoundingClientRect();
+    var midY = rect.top + rect.height / 2;
+    var targetTop = Math.max(80, Math.min(window.innerHeight - 120, midY - 37));
+    ember.style.top = targetTop + 'px';
+    ember.style.bottom = 'auto';
+  }
+
+  // On any <details> toggle — jump to that section's heading when expanding
+  document.querySelectorAll('main details').forEach(function(det) {
+    det.addEventListener('toggle', function() {
+      if (det.open) {
+        var summary = det.querySelector('summary');
+        if (summary) {
+          // Match section word
+          var section = det.closest('section');
+          if (section) {
+            var key = section.id || section.className.split(' ')[0];
+            var matched = '_default';
+            Object.keys(sectionWords).forEach(function(k){
+              if (key.indexOf(k) !== -1) matched = k;
+            });
+            currentWord = sectionWords[matched];
+          }
+          moveToSummary(summary);
+          setTimeout(say, 120);
+        }
+      }
+    });
+  });
+
+  // Also track scroll for passive repositioning between clicks
   var sections = document.querySelectorAll('main > section');
-  if ('IntersectionObserver' in window) {
-    var visMap = {};
-    var sectionIO = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        visMap[en.target.id || en.target.className.split(' ')[0]] = en.intersectionRatio;
-      });
-      // Find most visible
-      var best = '_default', bestRatio = 0;
-      Object.keys(visMap).forEach(function(k){
-        if (visMap[k] > bestRatio) { bestRatio = visMap[k]; best = k; }
-      });
-      // Match to sectionWords keys
+  window.addEventListener('scroll', function() {
+    if (!shown) return;
+    var best = null, bestDist = Infinity;
+    sections.forEach(function(s) {
+      var rect = s.getBoundingClientRect();
+      var dist = Math.abs(rect.top - window.innerHeight * 0.3);
+      if (dist < bestDist) { bestDist = dist; best = s; }
+    });
+    if (best) {
+      var key = best.id || best.className.split(' ')[0];
       var matched = '_default';
       Object.keys(sectionWords).forEach(function(k){
-        if (best.indexOf(k) !== -1) matched = k;
+        if (key.indexOf(k) !== -1) matched = k;
       });
       currentWord = sectionWords[matched];
-
-      // Move ember to align vertically with the top of the most-visible section
-      var bestEl = null;
-      sections.forEach(function(s){
-        var key = s.id || s.className.split(' ')[0];
-        if (key.indexOf(matched) !== -1) bestEl = s;
-      });
-      if (bestEl && shown) {
-        var rect = bestEl.getBoundingClientRect();
-        var targetTop = Math.max(80, Math.min(window.innerHeight - 120, rect.top + 40));
-        ember.style.top = targetTop + 'px';
-        ember.style.bottom = 'auto';
-      }
-    }, { threshold: [0.1, 0.3, 0.5, 0.7] });
-    sections.forEach(function(s){ sectionIO.observe(s); });
-  }
+      var summary = best.querySelector('summary');
+      if (summary) moveToSummary(summary);
+    }
+  }, { passive: true });
 
   var sayTimer = null;
   function say() {
