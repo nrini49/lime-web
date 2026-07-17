@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-17T20:19:59.820452+00:00",
+  "generated_at": "2026-07-17T22:12:10.498593+00:00",
   "harbor_now": {
     "ok": true,
-    "posted_today": false,
-    "latest": "2026-07-16",
+    "posted_today": true,
+    "latest": "2026-07-17",
     "checked_date": "2026-07-17"
   },
   "site_health": [
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "5d5a593",
-          "message": "Rename Chapter One heading: 'The One Promise' -> 'The Bezalel Promise'",
+          "sha": "71c0462",
+          "message": "Restore the fire-spirit character sentence on all 9 Wicket Gate door cards (Peter, Solomon, Mary Magdalene, Mary of Bethany, Daniel, Esther,",
           "author": "nrini49",
-          "date": "2026-07-17T20:12:23Z"
+          "date": "2026-07-17T21:52:30Z"
         },
         {
-          "sha": "7b74715",
-          "message": "Replace the book-intro opening line with the Leonardo-notebook framing, and swap the closing to Noal's own wording: open in heart-order, not",
+          "sha": "51bc42e",
+          "message": "Add John the Baptist fire spirit line to metaphor gate keeper block",
           "author": "nrini49",
-          "date": "2026-07-17T20:11:01Z"
+          "date": "2026-07-17T21:43:40Z"
         },
         {
-          "sha": "14257a6",
-          "message": "Fix typo: 'The Rosy Way' -> 'The Rosie Way' (Chapter Two heading)",
+          "sha": "d4af1fd",
+          "message": "Harbor Now 2026-07-17: SPY 743.29 (-0.99%), QQQ 695.33 (-1.50%), DIA 520.81 (-0.77%), IWM 294.04 (-0.52%), VIX 18.77 (+12.19%) (finance tool",
           "author": "nrini49",
-          "date": "2026-07-17T20:01:33Z"
+          "date": "2026-07-17T21:40:18Z"
         },
         {
-          "sha": "1e970e8",
-          "message": "Restructure chapter headers into a true two-column grid: chapter number in a fixed left column, title in the right column, same left edge on",
+          "sha": "623ac9d",
+          "message": "Restore homepage to last known-good state -- a parallel-session commit had re-added the gated CTA button ('Take me right to Rosie Interactiv",
           "author": "nrini49",
-          "date": "2026-07-17T19:59:55Z"
+          "date": "2026-07-17T21:37:28Z"
         },
         {
-          "sha": "2501e6c",
-          "message": "Notebook-style presentation: added a short introduction above the section list, numbered all 7 sections as Chapter One through Seven, normal",
+          "sha": "bad8e17",
+          "message": "Add fire spirit sentence to all 9 keeper cards",
           "author": "nrini49",
-          "date": "2026-07-17T19:54:53Z"
+          "date": "2026-07-17T21:33:37Z"
         }
       ]
     },
