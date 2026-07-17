@@ -96,9 +96,13 @@
 
   /* Keeper hero card */
   .keeper-hero { padding: var(--space-10) 0 var(--space-4); }
-  .keeper-hero-inner { display: flex; flex-direction: column; align-items: center; gap: var(--space-6); }
-  .keeper-hero-portrait { width: 220px; height: 260px; border-radius: var(--radius-lg); background-size: cover; background-position: center top; background-color: var(--color-surface); border: 1px solid var(--color-border); transition: background-image 0.4s ease, opacity 0.4s ease; }
-  .keeper-hero-text { width: 100%; }
+  .keeper-hero-inner { display: flex; gap: var(--space-8); align-items: flex-start; }
+  .keeper-hero-portrait { width: 180px; height: 220px; flex: 0 0 180px; border-radius: var(--radius-lg); background-size: cover; background-position: center top; background-color: var(--color-surface); border: 1px solid var(--color-border); transition: background-image 0.4s ease, opacity 0.4s ease; }
+  .keeper-hero-text { flex: 1; }
+  .rosie-cta-wrap { padding: var(--space-4) 0 var(--space-6); }
+  .rosie-cta-btn { display: inline-block; background: linear-gradient(135deg, var(--color-primary), var(--color-beam, #a0e080)); color: #04140c; font-weight: 700; font-size: var(--text-sm); letter-spacing: 0.04em; text-transform: uppercase; padding: 0.75rem 1.5rem; border-radius: 999px; text-decoration: none; box-shadow: 0 0 16px color-mix(in oklab, var(--color-primary) 40%, transparent); transition: filter 0.2s, box-shadow 0.2s; }
+  .rosie-cta-btn:hover { filter: brightness(1.1); box-shadow: 0 0 24px color-mix(in oklab, var(--color-primary) 60%, transparent); }
+  @media (max-width: 540px) { .keeper-hero-inner { flex-direction: column; } .keeper-hero-portrait { width: 100%; height: 220px; flex: none; } }
   .promise { padding: var(--space-12) 0 var(--space-16); }
   .promise-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: clamp(var(--space-8), 5vw, var(--space-12)); box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
   .promise-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: linear-gradient(in oklab, var(--color-primary), var(--color-beam)); }
@@ -218,16 +222,20 @@
         <summary class="sec-bar"><h2 data-i18n="promise_h">The one promise</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <div class="keeper-hero-inner">
+            <div class="keeper-hero-portrait" id="kh-portrait" role="img" aria-label="Keeper portrait"></div>
             <div class="keeper-hero-text">
               <div class="promise-card">
                 <p data-i18n="promise_p1">We cannot and do not guarantee profits or eliminate risk — <strong>no honest system can</strong>. Markets go up, down, and sideways, and your decisions and results are your own.</p>
                 <p class="muted" data-i18n="promise_p2">What we do promise is our best work: clear teaching, honest tools, and a solid system built to serve real families and real companies by leaning first toward loss prevention, then toward profit. If that does not feel true in your experience after ninety days, you do not pay for it.</p>
               </div>
             </div>
-            <div class="keeper-hero-portrait" id="kh-portrait" role="img" aria-label="Keeper portrait"></div>
           </div>
         </div>
       </details>
+      <!-- CTA — visible only when the card is open -->
+      <div class="rosie-cta-wrap" id="rosie-cta-wrap">
+        <a class="rosie-cta-btn" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Take me right to Rosie Interactive now →</a>
+      </div>
     </div>
   </section>
 
@@ -268,6 +276,7 @@
         <a class="card" href="offer/index.html"><div class="num">06</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Esther" style="background-image:url('assets/keepers/06_esther.webp')"></div><div class="keeper-name" data-slot="5">Esther</div><h3 data-i18n="d_sub_t">The Offer</h3><p data-i18n="d_sub_d">What you get, what it costs, how to join. Loss-prevention-first AI assistance.</p></a>
         <a class="card" href="https://spy-pipeline-rosie.pplx.app" target="_blank" rel="noopener"><div class="num">07</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Ruth" style="background-image:url('assets/keepers/07_ruth.webp')"></div><div class="keeper-name" data-slot="6">Ruth</div><h3 data-i18n="d_spy_t">SPY Harbor Watch</h3><p data-i18n="d_spy_d">Live SPY tracking since Rosie's first trade — price, alerts, and the 90-day dashboard.</p></a>
         <a class="card" href="laugh-lounge/index.html"><div class="num">08</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — David" style="background-image:url('assets/keepers/08_david.webp')"></div><div class="keeper-name" data-slot="7">David</div><h3 data-i18n="d_laugh_t">The Laugh Lounge</h3><p data-i18n="d_laugh_d">A lighter door. Harbor and lighthouse humor, and a library you can browse at your own pace.</p></a>
+        <a class="card" href="metaphor-gate/index.html"><div class="num">09</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — John the Baptist" style="background-image:url('assets/keepers/09_john_the_baptist.webp')"></div><div class="keeper-name" data-slot="8">John the Baptist</div><h3>The Metaphor Gate</h3><p>The teaching layer. Learn to hear what is actually being said — in markets, in leadership, in scripture.</p></a>
       </div>
       <a class="sage-library-link" href="fire-spirit/index.html">Explore the full Sage Missions Library →</a>
         </div>
@@ -392,6 +401,8 @@
     { file: '08_david.webp', name: 'David' }
   ];
   var portrait = document.getElementById('kh-portrait');
+  var card = document.getElementById('keeper-hero-card');
+  var ctaWrap = document.getElementById('rosie-cta-wrap');
   if (!portrait) return;
   var idx = Math.floor(Math.random() * ALL_KEEPERS.length);
   function setPortrait(k) {
@@ -407,6 +418,12 @@
     idx = (idx + 1) % ALL_KEEPERS.length;
     setPortrait(ALL_KEEPERS[idx]);
   }, 5000);
+  // Show CTA only when card is open
+  if (card && ctaWrap) {
+    function syncCTA() { ctaWrap.style.display = card.open ? 'block' : 'none'; }
+    syncCTA();
+    card.addEventListener('toggle', syncCTA);
+  }
 })();
 </script>
 
@@ -617,86 +634,6 @@
 
   recordSelfVisit();
   setInterval(pollCount, 8000);
-})();
-</script>
-
-<!-- Flame — a small ember trail that follows wherever the visitor's attention is
-     (cursor on desktop, touch point on mobile, last-focused element via keyboard).
-     Fire Spirit motif carried onto the homepage itself, kept subtle and non-intrusive. -->
-<canvas id="flame-canvas" aria-hidden="true" style="position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:60;"></canvas>
-<script>
-(function(){
-  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion) return; // respect accessibility preference — no flame trail
-
-  var canvas = document.getElementById('flame-canvas');
-  var ctx = canvas.getContext && canvas.getContext('2d');
-  if (!ctx) return;
-
-  var dpr = Math.min(window.devicePixelRatio || 1, 2);
-  function resize(){
-    canvas.width = window.innerWidth * dpr;
-    canvas.height = window.innerHeight * dpr;
-    canvas.style.width = window.innerWidth + 'px';
-    canvas.style.height = window.innerHeight + 'px';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  var target = { x: window.innerWidth / 2, y: window.innerHeight * 0.3, active: false };
-  var embers = [];
-  var MAX_EMBERS = 60;
-  var palette = ['#e8b659', '#e2823f', '#c65a2e', '#f4d38a'];
-
-  function spawn(x, y){
-    if (embers.length >= MAX_EMBERS) return;
-    embers.push({
-      x: x + (Math.random() - 0.5) * 10,
-      y: y + (Math.random() - 0.5) * 6,
-      vx: (Math.random() - 0.5) * 0.35,
-      vy: -0.4 - Math.random() * 0.6,
-      r: 1 + Math.random() * 2.2,
-      life: 1,
-      decay: 0.012 + Math.random() * 0.012,
-      color: palette[Math.floor(Math.random() * palette.length)]
-    });
-  }
-
-  function setTarget(x, y){
-    target.x = x; target.y = y; target.active = true;
-    if (Math.random() < 0.6) spawn(x, y);
-  }
-
-  window.addEventListener('mousemove', function(e){ setTarget(e.clientX, e.clientY); }, { passive: true });
-  window.addEventListener('touchmove', function(e){
-    if (e.touches && e.touches[0]) setTarget(e.touches[0].clientX, e.touches[0].clientY);
-  }, { passive: true });
-  // Keyboard users: follow whatever element currently has focus, so the flame
-  // still marks "where the visitor is" without requiring a mouse.
-  document.addEventListener('focusin', function(e){
-    var el = e.target;
-    if (!el || el === document.body) return;
-    var r = el.getBoundingClientRect();
-    setTarget(r.left + r.width / 2, r.top + r.height / 2);
-  });
-
-  function step(){
-    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    for (var i = embers.length - 1; i >= 0; i--) {
-      var p = embers[i];
-      p.x += p.vx; p.y += p.vy; p.life -= p.decay;
-      if (p.life <= 0) { embers.splice(i, 1); continue; }
-      ctx.globalAlpha = Math.max(p.life, 0) * 0.55;
-      ctx.beginPath();
-      ctx.fillStyle = p.color;
-      ctx.arc(p.x, p.y, p.r * p.life, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    ctx.globalAlpha = 1;
-    requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
 })();
 </script>
 </body>
