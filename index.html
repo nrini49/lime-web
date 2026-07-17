@@ -87,7 +87,7 @@
   .beam-sweep { transform-origin: 90px 70px; animation: sweep 9s ease-in-out infinite; }
   @keyframes sweep { 0%,100% { transform: rotate(-14deg); opacity: 0.55; } 50% { transform: rotate(14deg); opacity: 0.9; } }
   @media (prefers-reduced-motion: reduce) { .beam-sweep { animation: none; opacity: 0.7; } }
-  .kicker { font-size: var(--text-xs); letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-primary); font-weight: 600; margin-bottom: var(--space-5); }
+  .kicker { font-size: var(--text-xs); letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-text); font-weight: 600; margin-bottom: var(--space-5); }
   .hero h1 { font-size: var(--text-3xl); margin: 0 auto var(--space-6); max-width: 16ch; }
   .hero .lede { font-size: var(--text-lg); color: var(--color-text-muted); max-width: 58ch; margin: 0 auto; }
   .hero .lede strong { color: var(--color-primary); font-weight: 600; }
@@ -869,7 +869,7 @@
      arrives, plus a small running count badge bottom-right. -->
 <div id="wg-badge" class="wg-badge" aria-live="polite">
   <span class="wg-dot"></span>
-  <span id="wg-count-text">moving along the rosy path</span>
+  <span id="wg-count-text">moving along the rosy way</span>
 </div>
 <div id="wg-toast" class="wg-toast" role="status"></div>
 <canvas id="wg-sparkle-canvas" aria-hidden="true"></canvas>
@@ -914,7 +914,7 @@
   }
 
   function setCountText(n){
-    countText.textContent = fmtCount(n) + ' moving along the rosy path';
+    countText.textContent = fmtCount(n) + ' moving along the rosy way';
   }
 
   function pulseBadge(){
