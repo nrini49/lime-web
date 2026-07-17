@@ -731,12 +731,13 @@
 })();
 </script>
 
+
 <!-- Harbor visitor counter: records this visit, then polls so anyone
      with the homepage open sees a sparkle burst + toast when someone new
      arrives, plus a small running count badge bottom-right. -->
 <div id="wg-badge" class="wg-badge" aria-live="polite">
   <span class="wg-dot"></span>
-  <span id="wg-count-text">— through the harbor</span>
+  <span id="wg-count-text">moving along the rosy path</span>
 </div>
 <div id="wg-toast" class="wg-toast" role="status"></div>
 <canvas id="wg-sparkle-canvas" aria-hidden="true"></canvas>
@@ -781,7 +782,7 @@
   }
 
   function setCountText(n){
-    countText.textContent = fmtCount(n) + ' through the harbor';
+    countText.textContent = fmtCount(n) + ' moving along the rosy path';
   }
 
   function pulseBadge(){
