@@ -493,6 +493,18 @@
     ember.style.bottom = 'auto';
   }
 
+  // Accordion — close all other details when one opens
+  var allDetails = document.querySelectorAll('main details');
+  allDetails.forEach(function(det) {
+    det.addEventListener('toggle', function() {
+      if (det.open) {
+        allDetails.forEach(function(other) {
+          if (other !== det && other.open) other.removeAttribute('open');
+        });
+      }
+    });
+  });
+
   // On any <details> toggle — jump to that section's heading when expanding
   document.querySelectorAll('main details').forEach(function(det) {
     det.addEventListener('toggle', function() {
