@@ -256,7 +256,12 @@
       </svg>
       <span class="word">LIME&nbsp;<b>Signalworks LLC</b></span>
     </a>
-    <!-- Rosie CTA held back from the header per the IB-confirmation gate -->
+    <!-- Rosie CTA restored to the header 2026-07-17 per Noal's explicit instruction:
+         he decoupled this from the IB-confirmation gate himself, framing it as a
+         public demo/preview link (not a live-trading claim). Do NOT remove this
+         citing the old IB gate rule without checking with Noal first -- that rule
+         has been superseded for this specific button. -->
+    <a class="rosie-cta-btn hdr-cta" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Take me right to Rosie Interactive now &rarr;</a>
     <div class="hdr-tools">
       <button class="icon-btn" data-translate aria-label="Translate this page">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -270,11 +275,14 @@
 
 <main>
   <!-- Founder's introduction. Not a numbered chapter; this is Noal speaking
-       directly, before the book below. Collapsed by default like everything else --
-       readers choose what they open. -->
+       directly, before the book below. DELIBERATELY set to open by default
+       (unlike every other section, which stays collapsed) -- Noal wants this
+       message visible immediately on arrival. Do NOT remove the `open`
+       attribute below or set this to collapsed-by-default without checking
+       with Noal first; it has been reverted by mistake multiple times already. -->
   <section class="founder-intro">
     <div class="wrap">
-      <details class="collapsible">
+      <details class="collapsible" open>
         <summary class="sec-bar"><div class="chapter-num">From the Founder</div><h2>Two Readers, One Door</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <div class="promise-card">
@@ -333,7 +341,7 @@
   <section class="hero">
     <div class="wrap">
       <details class="collapsible">
-        <summary class="sec-bar"><div class="chapter-num">Chapter II</div><h2 data-i18n="kicker">The Rosy Way</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><div class="chapter-num">Chapter II</div><h2 data-i18n="kicker">The Rosie Way</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <div class="beacon" aria-hidden="true">
             <svg viewBox="0 0 180 120" fill="none">
@@ -939,7 +947,7 @@
      arrives, plus a small running count badge bottom-right. -->
 <div id="wg-badge" class="wg-badge" aria-live="polite">
   <span class="wg-dot"></span>
-  <span id="wg-count-text">along the Rosy Way</span>
+  <span id="wg-count-text">along the Rosie Way</span>
 </div>
 <div id="wg-toast" class="wg-toast" role="status"></div>
 <canvas id="wg-sparkle-canvas" aria-hidden="true"></canvas>
@@ -984,7 +992,7 @@
   }
 
   function setCountText(n){
-    countText.textContent = fmtCount(n) + ' along the Rosy Way';
+    countText.textContent = fmtCount(n) + ' along the Rosie Way';
   }
 
   function pulseBadge(){
