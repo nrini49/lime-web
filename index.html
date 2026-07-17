@@ -160,7 +160,7 @@
   .ember .flame-body{transform-origin:center bottom;animation:flicker 2.4s ease-in-out infinite}
   .ember .flame-glow{transform-origin:center bottom;animation:flickerGlow 3.1s ease-in-out infinite}
   .ember .eye{animation:wink 5s ease-in-out infinite}
-  .ember-bubble{position:absolute;right:62px;bottom:8px;width:210px;min-width:210px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:12px;padding:0.7rem 0.9rem;font-size:0.82rem;line-height:1.45;color:var(--color-text);box-shadow:0 8px 24px rgba(0,0,0,0.18);opacity:0;transform:translateX(8px) scale(0.9);pointer-events:none;transition:all 280ms cubic-bezier(0.16,1,0.3,1)}
+  .ember-bubble{position:absolute;right:62px;bottom:8px;width:240px;min-width:210px;max-width:280px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:12px;padding:0.7rem 0.9rem;font-size:0.82rem;line-height:1.45;color:var(--color-text);box-shadow:0 8px 24px rgba(0,0,0,0.18);opacity:0;transform:translateX(8px) scale(0.9);pointer-events:none;transition:all 280ms cubic-bezier(0.16,1,0.3,1)}
   .ember.show .ember-bubble{opacity:1;transform:translateX(0) scale(1)}
   .ember-bubble::after{content:"";position:absolute;right:-6px;bottom:16px;width:12px;height:12px;background:var(--color-surface);border-right:1px solid var(--color-border);border-top:1px solid var(--color-border);transform:rotate(45deg)}
   @media(max-width:560px){.ember{width:44px;height:60px;right:12px}.ember-bubble{right:50px;width:170px;min-width:170px}}
@@ -441,8 +441,35 @@
     '_default':      'The harbor holds still. Everything else arrives.'
   };
 
+  var MYSTERIES = [
+    { day: 1, title: 'The Infinite in a Jar', mission: 'Open your mind, your heart, and your life to that which you do not yet know — so that you may contain that which is greater than yourself.' },
+    { day: 2, title: 'The I Am of All I Ams', mission: 'Learn the secret of living each moment from His life — doing from His doing, loving from His love, and being from His being.' },
+    { day: 3, title: 'The Shana', mission: 'Leave your old ways, habits, and steps. Do what you have never done before, but should have done. Walk in the newness of the Spirit.' },
+    { day: 4, title: 'The Ruach', mission: 'What part of your life runs against the direction of the Spirit? Turn it around and begin walking with the wind at your back.' },
+    { day: 5, title: 'Designating Your Days', mission: 'Prepare the days to come. Set them apart. Designate the days for the fulfillment of His purposes.' },
+    { day: 6, title: 'The Mystery of the Bride', mission: 'Set apart everything that substitutes for His presence. Join yourself to everything that is His.' },
+    { day: 16, title: 'The Claw', mission: 'Live in the spirit of the Lamb. Let everything you do be done in love. Make your life a blessing to others.' },
+    { day: 17, title: 'How to Alter Your Past', mission: 'Receive from Heaven your changed past — innocent, pure, and loved. A past as white as snow.' },
+    { day: 18, title: 'Yeshua', mission: 'God has become your Yeshua — the specific answer to your deepest needs. Let Him in and live accordingly.' },
+    { day: 19, title: 'Aliyah', mission: 'Choose the higher step, the higher act, the higher ground — in every decision. Begin making your life an Aliyah.' },
+    { day: 20, title: 'The Footstool World', mission: 'See the world in a new way — as the footstool world, with only footstool matters. Live accordingly.' },
+    { day: 21, title: 'The Heartbeat of the Miracle', mission: 'Live this day inside the miracle of your existence. Make your moments worthy of each heartbeat.' },
+    { day: 22, title: 'The Elohim Mystery', mission: 'Seek to know God as one who knows not even half of Him — as if for the first time.' },
+    { day: 23, title: 'Whose Name Is Like Oil', mission: 'Delight in the name of your beloved. Let it pour out of your lips, your mind, and your heart.' },
+    { day: 24, title: 'The Secret Place', mission: 'Enter the secret place — apart from the world, away from everything except His presence.' },
+    { day: 25, title: 'The Lord of Eden', mission: 'Bring the thorns, the wounds, the shame, the sorrows of your life to the King of Thorns.' },
+    { day: 26, title: 'The Power of Emunah', mission: 'Take a word from the Word of God and give it your strongest amen — the total yes of heart, soul, mind, and will.' },
+    { day: 27, title: 'The Ivrim', mission: 'What barriers stand between you and the will of God? Identify them. Then begin to cross your Jordan. You are born to cross to the other side.' },
+    { day: 28, title: 'The Mystery of Masada', mission: 'Bring your most hopeless situations to God. Believe for the impossible. Live and move in the power of the impossible.' },
+    { day: 29, title: 'The Identical One', mission: 'Live as someone condemned who has instead been set free — with a second chance at life through His love.' },
+    { day: 30, title: 'The Non-Possessive Divine', mission: 'Learn the secret of living without having. Release your possessions, your burdens, your life. Possess God.' },
+    { day: 31, title: 'The Portal', mission: "Use God's door to leave what you could never leave and go where you could never go. Enter through the portal." }
+  ];
+
   var currentWord = sectionWords['_default'];
   var shown = false;
+  var sayCount = 0;
+  var mysteryIdx = Math.floor(Math.random() * MYSTERIES.length);
 
   // Move Flame to align with a section's summary heading
   function moveToSummary(summaryEl) {
@@ -501,10 +528,23 @@
 
   var sayTimer = null;
   function say() {
-    bubble.textContent = currentWord;
+    sayCount++;
+    var text;
+    // Every 3rd say, pull a mystery mission instead of the section word
+    if (sayCount % 3 === 0) {
+      var m = MYSTERIES[mysteryIdx % MYSTERIES.length];
+      mysteryIdx++;
+      text = '\u2015 Day ' + m.day + ', ' + m.title + ':\n' + m.mission;
+    } else {
+      text = currentWord;
+    }
+    // Render line breaks for mystery format
+    bubble.innerHTML = text.replace(/\n/g, '<br><br>');
     ember.classList.add('show');
     clearTimeout(sayTimer);
-    sayTimer = setTimeout(function(){ ember.classList.remove('show'); }, 4800);
+    // Mysteries are longer — give them more time
+    var dur = (sayCount % 3 === 0) ? 7500 : 4800;
+    sayTimer = setTimeout(function(){ ember.classList.remove('show'); }, dur);
   }
 
   ember.addEventListener('click', say);
