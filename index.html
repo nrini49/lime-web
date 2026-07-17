@@ -135,7 +135,10 @@
   @media (max-width: 860px) { .grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
   .card { display: block; text-decoration: none; color: var(--color-text); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); position: relative; transition: transform var(--transition-interactive), border-color var(--transition-interactive), box-shadow var(--transition-interactive); }
-  .keeper-name { text-align: center; font-size: var(--text-sm); color: var(--color-text-muted); margin: -2px 0 var(--space-3); letter-spacing: 0.02em; transition: opacity 0.3s; }
+  .keeper-name { display: inline; text-align: left; font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; color: var(--color-text); margin: 0; letter-spacing: 0.015em; transition: opacity 0.3s; }
+  .keeper-name::after { content: "\2014"; margin: 0 0.35em; color: var(--color-text-muted); }
+  .card .keeper-name, .card h3 { display: inline; }
+  .card h3 { margin-bottom: var(--space-2); }
   .sage-library-link { display: inline-block; margin-top: var(--space-5); font-size: var(--text-sm); color: var(--color-text); text-decoration: none; }
   .sage-library-link:hover { text-decoration: underline; color: var(--color-primary); }
   .fp-sub { color: var(--color-text-muted); margin-bottom: var(--space-6); }
