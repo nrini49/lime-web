@@ -185,7 +185,7 @@
   @media(max-width:560px){.flame-rail{width:38px}.ember{width:32px;height:44px;right:3px}.ember-bubble{right:44px;bottom:80px;width:160px;min-width:140px}}
   .harbor-now { padding: var(--space-6) 0; }
   .harbor-now .kicker { text-align: center; margin-bottom: var(--space-4); }
-  .harbor-now h2 { text-align: center; font-size: var(--text-2xl); margin-bottom: var(--space-5); }
+  .harbor-now h2 { margin-bottom: var(--space-5); }
   .hn-report { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: clamp(var(--space-6),4vw,var(--space-10)); box-shadow: var(--shadow-md); max-width: 640px; margin: 0 auto var(--space-12); position: relative; overflow: hidden; }
   .hn-report::before { content:""; position:absolute; inset:0 auto 0 0; width:3px; background:linear-gradient(in oklab,var(--color-primary),var(--color-beam,#e8b659)); }
   .hn-weather { font-size: var(--text-lg); color: var(--color-text); margin-bottom: var(--space-4); }
@@ -211,7 +211,10 @@
   .hn-all:hover { color: var(--color-primary); }
   details.collapsible > summary { list-style: none; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: var(--space-4); padding: var(--space-2) 0; margin-bottom: 0; }
   details.collapsible > summary::-webkit-details-marker { display: none; }
-  details.collapsible > summary h2 { font-size: var(--text-xl); margin: 0; text-align: center; }
+  details.collapsible > summary h2, details.collapsible > summary h3 { font-size: var(--text-xl); margin: 0; text-align: center; color: var(--color-text); font-weight: 400; }
+  .chapter-num { font-family: var(--font-body); font-size: var(--text-xs); letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-muted); font-weight: 600; margin-bottom: var(--space-1); text-align: center; }
+  .sec-bar-inner { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); }
+  .book-intro { max-width: 640px; margin: 0 auto; padding: var(--space-10) 0 var(--space-4); text-align: center; color: var(--color-text-muted); font-size: var(--text-base); line-height: 1.6; }
   details.collapsible > summary h3 { font-size: var(--text-xl); margin: 0; text-align: center; }
   #harbor-now .wrap > details.collapsible + details.collapsible { margin-top: var(--space-12); }
   details.collapsible > summary .chev { color: var(--color-text-muted); transition: transform var(--transition-interactive); flex: 0 0 auto; }
@@ -220,7 +223,7 @@
   details.collapsible > .sec-body { padding-top: var(--space-4); animation: secOpen .25s ease; }
   @keyframes secOpen { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { details.collapsible > .sec-body { animation: none; } details.collapsible > summary .chev { transition: none; } }
-  footer { padding: 0; background: var(--color-surface); }
+  footer { padding: 0; }
   .foot { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--space-12); align-items: start; }
   @media (max-width: 700px) { .foot { grid-template-columns: 1fr; gap: var(--space-8); } }
   .foot-collapsible { border-top: 1px solid var(--color-divider); }
@@ -258,12 +261,13 @@
 </header>
 
 <main>
+  <p class="book-intro">Seven chapters wait below. Open them in whatever order feels right &mdash; nothing here is locked, and nothing needs to be read first. Let what's behind each one surprise you.</p>
 
   <!-- Single rotating Keeper portrait + promise text — collapses as one card -->
   <section class="keeper-hero">
     <div class="wrap">
       <details class="collapsible" id="keeper-hero-card">
-        <summary class="sec-bar"><h2 data-i18n="promise_h">The One Promise</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><div class="sec-bar-inner"><div class="chapter-num">Chapter One</div><h2 data-i18n="promise_h">The One Promise</h2></div><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <div class="keeper-hero-inner">
             <div class="keeper-hero-text">
@@ -293,7 +297,7 @@
   <section class="hero">
     <div class="wrap">
       <details class="collapsible">
-        <summary class="sec-bar"><h2 class="kicker" data-i18n="kicker">The Rosy Way</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><div class="sec-bar-inner"><div class="chapter-num">Chapter Two</div><h2 data-i18n="kicker">The Rosy Way</h2></div><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <div class="beacon" aria-hidden="true">
             <svg viewBox="0 0 180 120" fill="none">
@@ -313,7 +317,7 @@
   <section class="fire-protocol" style="padding: var(--space-10) 0;">
     <div class="wrap">
       <details class="collapsible">
-        <summary class="sec-bar"><h2>Introduction to the 33-Day Fire Protocol</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><div class="sec-bar-inner"><div class="chapter-num">Chapter Three</div><h2>Introduction to the 33-Day Fire Protocol</h2></div><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <p class="fp-sub">The Fire Spirit speaks one word a day for 33 days. Here is the shape of the whole arc, in three parts — open any of them now, or simply know they are here and come back to them.</p>
           <div class="fp-grid">
@@ -341,7 +345,7 @@
   <section class="harbor">
     <div class="wrap">
       <details class="collapsible">
-        <summary class="sec-bar"><h2 data-i18n="doors_h">The Wicket Gate</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><div class="sec-bar-inner"><div class="chapter-num">Chapter Four</div><h2 data-i18n="doors_h">The Wicket Gate</h2></div><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <p class="doors-sub" data-i18n="doors_sub">Nine doors. Start wherever fits you today.</p>
           <div class="grid">
@@ -364,7 +368,7 @@
   <section id="harbor-now" class="harbor-now">
     <div class="wrap">
       <details class="collapsible" id="hn-details">
-        <summary class="sec-bar"><h2 data-i18n="hn_h">Today’s harbor — Thursday, July 16, 2026</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><div class="sec-bar-inner"><div class="chapter-num">Chapter Five</div><h2 data-i18n="hn_h">Today’s harbor — Thursday, July 16, 2026</h2></div><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <div class="hn-report">
             <p class="hn-asof" data-i18n="hn_asof">As of close · Thursday, July 16, 2026</p>
@@ -374,7 +378,7 @@
         </div>
       </details>
       <details class="collapsible">
-        <summary class="sec-bar"><h3 data-i18n="hn_archive_h">Past Harbor Nows</h3><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><div class="sec-bar-inner"><div class="chapter-num">Chapter Six</div><h3 data-i18n="hn_archive_h">Past Harbor Nows</h3></div><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <ul class="hn-list">
             <li><a href="harbor-now/archive/2026-07-16.html"><span class="date">Jul 16, 2026</span><span class="title">Tech hit, volatility pops — breadth uncertain into earnings</span><span class="arr">→</span></a></li>
@@ -391,7 +395,7 @@
 
 <footer>
   <details class="collapsible foot-collapsible">
-    <summary class="sec-bar foot-bar"><h2 class="foot-heading">Lime Signalworks LLC</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+    <summary class="sec-bar foot-bar"><div class="sec-bar-inner"><div class="chapter-num">Chapter Seven</div><h2>Lime Signalworks LLC</h2></div><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
     <div class="wrap foot">
       <div>
         <p class="creed" data-i18n="creed">Different worlds, same problem: how to face market chaos without handing your life to a guru.</p>
