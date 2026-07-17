@@ -506,8 +506,9 @@
     ember.style.bottom = 'auto';
   }
 
-  // Accordion — close all other details when one opens
-  var allDetails = document.querySelectorAll('main details');
+  // Accordion — close all other SECTION-level details when one opens
+  // Excludes fp-cell (inner cards) so they don't collapse the parent section
+  var allDetails = document.querySelectorAll('main details.collapsible');
   allDetails.forEach(function(det) {
     det.addEventListener('toggle', function() {
       if (det.open) {
