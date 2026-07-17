@@ -97,9 +97,14 @@
   /* Keeper hero card */
   .keeper-hero { padding: var(--space-10) 0 var(--space-4); }
   .keeper-hero-inner { display: flex; gap: var(--space-8); align-items: flex-start; }
-  .keeper-hero-portrait { width: 180px; height: 220px; flex: 0 0 180px; border-radius: var(--radius-lg); background-size: cover; background-position: center top; background-color: var(--color-surface); border: 1px solid var(--color-border); transition: background-image 0.4s ease, opacity 0.4s ease; }
+  .keeper-hero-col { display: flex; flex-direction: column; align-items: center; flex: 0 0 180px; width: 180px; }
+  .keeper-hero-portrait { width: 180px; height: 220px; border-radius: var(--radius-lg); background-size: cover; background-position: center top; background-color: var(--color-surface); border: 1px solid var(--color-border); transition: opacity 0.4s ease; }
+  .keeper-hero-trait { text-align: center; font-size: var(--text-xs); letter-spacing: 0.04em; color: var(--color-text-muted); margin-top: var(--space-3); line-height: 1.4; font-style: italic; min-height: 2.4em; transition: opacity 0.3s; }
   .keeper-hero-text { flex: 1; }
-  .keeper-hero-name { text-align: center; font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-muted); margin-top: var(--space-2); transition: opacity 0.3s; }
+  /* 3-cell intro grid below CTA */
+  .intro-cells { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin-top: var(--space-6); }
+  .intro-cell { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-5); min-height: 90px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: var(--text-sm); color: var(--color-text-muted); font-style: italic; }
+  @media (max-width: 600px) { .intro-cells { grid-template-columns: 1fr; } }
   .rosie-cta-wrap { padding: var(--space-6) 0 var(--space-10); border-top: 1px solid var(--color-divider); margin-top: var(--space-4); text-align: center; }
   .rosie-cta-btn { display: inline-block; background: linear-gradient(135deg, var(--color-primary), var(--color-beam, #a0e080)); color: #04140c; font-weight: 700; font-size: var(--text-sm); letter-spacing: 0.04em; text-transform: uppercase; padding: 0.85rem 2rem; border-radius: 999px; text-decoration: none; box-shadow: 0 0 16px color-mix(in oklab, var(--color-primary) 40%, transparent); transition: filter 0.2s, box-shadow 0.2s; }
   .rosie-cta-btn:hover { filter: brightness(1.1); box-shadow: 0 0 24px color-mix(in oklab, var(--color-primary) 60%, transparent); }
@@ -240,8 +245,10 @@
         <summary class="sec-bar"><h2 data-i18n="promise_h">The one promise</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <div class="keeper-hero-inner">
-            <div class="keeper-hero-portrait" id="kh-portrait" role="img" aria-label="Keeper portrait"></div>
-            <div class="keeper-hero-name" id="kh-name"></div>
+            <div class="keeper-hero-col">
+              <div class="keeper-hero-portrait" id="kh-portrait" role="img" aria-label="Keeper portrait"></div>
+              <div class="keeper-hero-trait" id="kh-trait"></div>
+            </div>
             <div class="keeper-hero-text">
               <div class="promise-card">
                 <p data-i18n="promise_p1">We cannot and do not guarantee profits or eliminate risk — <strong>no honest system can</strong>. Markets go up, down, and sideways, and your decisions and results are your own.</p>
@@ -251,9 +258,14 @@
           </div>
         </div>
       </details>
-      <!-- CTA — visible only when the card is open -->
+      <!-- CTA + 3 intro cells — visible only when the card is open -->
       <div class="rosie-cta-wrap" id="rosie-cta-wrap">
         <a class="rosie-cta-btn" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Take me right to Rosie Interactive now →</a>
+        <div class="intro-cells">
+          <div class="intro-cell" id="intro-cell-1">Coming soon.</div>
+          <div class="intro-cell" id="intro-cell-2">Coming soon.</div>
+          <div class="intro-cell" id="intro-cell-3">Coming soon.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -594,20 +606,34 @@
     { file: '07_ruth.webp', name: 'Ruth' },
     { file: '08_david.webp', name: 'David' }
   ];
+  var KEEPER_TRAITS = {
+    '01_peter.webp':           'Stood at the gate. Denied. Returned. Held the position anyway.',
+    '02_solomon.webp':         'Asked for wisdom when he could have asked for anything else.',
+    '03_mary_magdalene.webp':  'First to the tomb. First to carry the news. Carried the signal when no one else did.',
+    '04_mary_of_bethany.webp': 'Chose the one thing. Sat at the feet when the room said get up and work.',
+    '05_daniel.webp':          'Read the room correctly every time. Never once adjusted the report to please the audience.',
+    '06_esther.webp':          'Held the position until the right moment. Did not move before the setup was clear.',
+    '07_ruth.webp':            'Stayed when leaving was the easier, more reasonable choice.',
+    '08_david.webp':           'Wrote songs in caves. Praised in the dark before the light arrived.'
+  };
+
   var portrait = document.getElementById('kh-portrait');
-  var nameEl = document.getElementById('kh-name');
+  var traitEl = document.getElementById('kh-trait');
   var card = document.getElementById('keeper-hero-card');
   var ctaWrap = document.getElementById('rosie-cta-wrap');
   if (!portrait) return;
   var idx = Math.floor(Math.random() * ALL_KEEPERS.length);
   function setPortrait(k) {
     portrait.style.opacity = '0';
-    if (nameEl) nameEl.style.opacity = '0';
+    if (traitEl) traitEl.style.opacity = '0';
     setTimeout(function(){
       portrait.style.backgroundImage = "url('assets/keepers/" + k.file + "')";
       portrait.setAttribute('aria-label', 'Keeper portrait \u2014 ' + k.name);
       portrait.style.opacity = '1';
-      if (nameEl) { nameEl.textContent = k.name; nameEl.style.opacity = '1'; }
+      if (traitEl) {
+        traitEl.textContent = KEEPER_TRAITS[k.file] || '';
+        traitEl.style.opacity = '1';
+      }
     }, 300);
   }
   setPortrait(ALL_KEEPERS[idx]);
