@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T16:13:30.713742+00:00",
+  "generated_at": "2026-07-17T18:17:49.309402+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "973284f",
-          "message": "Keeper hero: trait below portrait, no name; 3 placeholder intro cells below CTA",
+          "sha": "74b6a7f",
+          "message": "Flame bubble display time: 18 seconds for all messages",
           "author": "nrini49",
-          "date": "2026-07-17T16:11:34Z"
+          "date": "2026-07-17T18:16:03Z"
         },
         {
-          "sha": "8ef45f4",
-          "message": "Add breathing room below Rosie CTA button",
+          "sha": "e2ae345",
+          "message": "Scroll section heading to top of viewport on expand",
           "author": "nrini49",
-          "date": "2026-07-17T16:08:45Z"
+          "date": "2026-07-17T18:13:42Z"
         },
         {
-          "sha": "ae76da9",
-          "message": "Flame: speak mystery missions from Book of Mysteries every 3rd appearance",
+          "sha": "6ffce01",
+          "message": "Mitigation teaser: 'The practice is \u2014 stay on the Rosy Path.'",
           "author": "nrini49",
-          "date": "2026-07-17T16:00:29Z"
+          "date": "2026-07-17T18:11:50Z"
         },
         {
-          "sha": "64c2d16",
-          "message": "Rename 'Eight Harbor Doors' to 'The Harbor'; Flame jumps to section heading on expand",
+          "sha": "f380478",
+          "message": "Restore original fp-cell content from session \u2014 Setup, Mitigation, Conclusion",
           "author": "nrini49",
-          "date": "2026-07-17T15:58:30Z"
+          "date": "2026-07-17T18:10:00Z"
         },
         {
-          "sha": "f750236",
-          "message": "CTA: center + divider separator + Keeper name label below portrait",
+          "sha": "4b07640",
+          "message": "Fix: fp-cell clicks no longer collapse parent section (accordion scoped to .collapsible only)",
           "author": "nrini49",
-          "date": "2026-07-17T15:53:25Z"
+          "date": "2026-07-17T18:03:46Z"
         }
       ]
     },
@@ -67,6 +67,12 @@
       "repo": "nrini49/limesignalworks",
       "ok": true,
       "commits": [
+        {
+          "sha": "631aabe",
+          "message": "Add System Files table to the Rosie Way panel: every entry-point file across the ecosystem, with its exact repo/path and role, sourced from ",
+          "author": "nrini49",
+          "date": "2026-07-17T16:30:19Z"
+        },
         {
           "sha": "07280b6",
           "message": "Add Rosie Way footer section: groups Harbor Watch with a new Admin Console public read-only widget (Harbor Now posting status, live site hea",
@@ -90,12 +96,6 @@
           "message": "Keepers canon update: replace Andrew, Elijah, Joseph portraits with Mary Magdalene, Mary of Bethany, Esther (high-res rose_river archive)",
           "author": "Noal Rini",
           "date": "2026-07-17T10:47:35Z"
-        },
-        {
-          "sha": "e65e832",
-          "message": "Restyle SPY Pipeline dashboard to Rosie spec: lime-on-navy palette + collapsible panels",
-          "author": "Plex (LIME)",
-          "date": "2026-07-16T21:49:49Z"
         }
       ]
     },
