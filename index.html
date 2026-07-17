@@ -161,7 +161,10 @@
   @keyframes flickerGlow{0%,100%{opacity:0.5;transform:scale(1)}50%{opacity:0.8;transform:scale(1.15)}}
   @keyframes wink{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(0.1)}}
   @keyframes emberFadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-  .ember{position:fixed;left:20px;z-index:60;width:44px;height:60px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity 600ms ease, top 420ms cubic-bezier(0.34,1.56,0.64,1);}
+  /* Flame rail — fixed right column, full viewport height */
+  .flame-rail { position:fixed; right:0; top:0; bottom:0; width:52px; z-index:60; pointer-events:none; display:flex; flex-direction:column; align-items:center; }
+  .flame-rail-line { position:absolute; top:60px; bottom:60px; left:50%; transform:translateX(-50%); width:1px; background:linear-gradient(to bottom, transparent, color-mix(in oklab, var(--color-primary) 25%, transparent) 20%, color-mix(in oklab, var(--color-primary) 25%, transparent) 80%, transparent); pointer-events:none; }
+  .ember { position:absolute; right:4px; width:44px; height:60px; cursor:pointer; opacity:0; pointer-events:none; transition:opacity 600ms ease, top 420ms cubic-bezier(0.34,1.56,0.64,1); }
   .ember.shown{opacity:1;pointer-events:auto;}
   .ember.shown svg{animation:emberFadeIn 1.2s ease forwards}
   .ember.docked{opacity:0!important;pointer-events:none;}
@@ -169,10 +172,10 @@
   .ember .flame-body{transform-origin:center bottom;animation:flicker 2.4s ease-in-out infinite}
   .ember .flame-glow{transform-origin:center bottom;animation:flickerGlow 3.1s ease-in-out infinite}
   .ember .eye{animation:wink 5s ease-in-out infinite}
-  .ember-bubble{position:absolute;left:52px;bottom:8px;width:240px;min-width:210px;max-width:280px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:12px;padding:0.7rem 0.9rem;font-size:0.82rem;line-height:1.45;color:var(--color-text);box-shadow:0 8px 24px rgba(0,0,0,0.18);opacity:0;transform:translateX(-8px) scale(0.9);pointer-events:none;transition:all 280ms cubic-bezier(0.16,1,0.3,1)}
+  .ember-bubble{position:absolute;right:52px;bottom:8px;width:240px;min-width:200px;max-width:260px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:12px;padding:0.7rem 0.9rem;font-size:0.82rem;line-height:1.45;color:var(--color-text);box-shadow:0 8px 24px rgba(0,0,0,0.18);opacity:0;transform:translateX(8px) scale(0.9);pointer-events:none;transition:all 280ms cubic-bezier(0.16,1,0.3,1)}
   .ember.show .ember-bubble{opacity:1;transform:translateX(0) scale(1)}
-  .ember-bubble::after{content:"";position:absolute;left:-6px;bottom:16px;width:12px;height:12px;background:var(--color-surface);border-left:1px solid var(--color-border);border-bottom:1px solid var(--color-border);transform:rotate(45deg)}
-  @media(max-width:560px){.ember{width:36px;height:50px;left:8px}.ember-bubble{left:44px;width:200px;min-width:160px}}
+  .ember-bubble::after{content:"";position:absolute;right:-6px;bottom:16px;width:12px;height:12px;background:var(--color-surface);border-right:1px solid var(--color-border);border-top:1px solid var(--color-border);transform:rotate(45deg)}
+  @media(max-width:560px){.flame-rail{width:38px}.ember{width:32px;height:44px;right:3px}.ember-bubble{right:38px;width:180px;min-width:150px}}
   .harbor-now { padding: var(--space-16) 0 var(--space-20); border-top: 1px solid var(--color-divider); }
   .harbor-now .kicker { text-align: center; margin-bottom: var(--space-4); }
   .harbor-now h2 { text-align: center; font-size: var(--text-2xl); margin-bottom: var(--space-10); }
@@ -273,8 +276,6 @@
       </div>
     </div>
   </section>
-
-  <!-- original promise section removed — content moved into keeper-hero card above -->
 
   <section class="hero">
     <div class="wrap">
@@ -422,6 +423,8 @@
 </script>
 
 <!-- Flame / Ember companion -->
+<div class="flame-rail" id="flame-rail">
+<div class="flame-rail-line"></div>
 <div class="ember" id="ember" role="button" tabindex="0" aria-label="Flame — the harbor's companion">
   <svg viewBox="0 0 54 74" fill="none" aria-hidden="true">
     <ellipse class="flame-glow" cx="27" cy="60" rx="22" ry="8" fill="#FF4500" opacity="0.25"/>
@@ -439,6 +442,7 @@
   </svg>
   <div class="ember-bubble" id="emberBubble">The harbor is calm. Read before you act.</div>
 </div>
+</div><!-- /flame-rail -->
 
 <script>
 (function(){
@@ -486,7 +490,7 @@
   var sayCount = 0;
   var mysteryIdx = Math.floor(Math.random() * MYSTERIES.length);
 
-  // Move Flame to align vertically with a section's summary heading — left side
+  // Move Flame within the rail to align with a section's summary heading
   function moveToSummary(summaryEl) {
     if (!shown) return;
     var rect = summaryEl.getBoundingClientRect();
