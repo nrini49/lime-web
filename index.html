@@ -24,7 +24,7 @@
   </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -40,7 +40,7 @@
     --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
     --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.75rem; --radius-xl: 1rem;
     --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
-    --font-display: 'Cinzel', Georgia, serif;
+    --font-display: 'Instrument Serif', Georgia, serif;
     --font-body: 'General Sans', 'Helvetica Neue', sans-serif;
   }
   :root, [data-theme="dark"] {
@@ -61,10 +61,10 @@
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; scroll-behavior: smooth; }
-  body { min-height: 100dvh; line-height: 1.65; letter-spacing: 0.01em; font-family: var(--font-body); font-size: var(--text-base); color: var(--color-text); background-color: var(--color-bg); }
+  body { min-height: 100dvh; line-height: 1.6; font-family: var(--font-body); font-size: var(--text-base); color: var(--color-text); background-color: var(--color-bg); }
   img, svg { display: block; max-width: 100%; height: auto; }
   a, button { transition: color var(--transition-interactive), background var(--transition-interactive), border-color var(--transition-interactive), box-shadow var(--transition-interactive); }
-  h1, h2, h3 { text-wrap: balance; line-height: 1.28; font-family: var(--font-display); font-weight: 400; letter-spacing: 0.015em; }
+  h1, h2, h3 { text-wrap: balance; line-height: 1.12; font-family: var(--font-display); font-weight: 400; letter-spacing: -0.01em; }
   p, li { text-wrap: pretty; max-width: 70ch; }
   ::selection { background: var(--color-primary-soft); }
   :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
@@ -75,23 +75,22 @@
   .brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
   .brand svg { width: 30px; height: 30px; }
   .brand .word { font-family: var(--font-body); font-weight: 600; font-size: var(--text-base); letter-spacing: 0.01em; }
-  .brand .word b { font-weight: 700; }
+  .brand .word b { font-weight: 700; color: var(--color-primary); }
   .brand:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
   .hdr-tools { display: flex; align-items: center; gap: var(--space-2); }
   .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-text-muted); background: var(--color-surface); cursor: pointer; }
   .icon-btn:hover { color: var(--color-text); border-color: var(--color-primary); }
 
-  .hero { padding: 0; text-align: center; position: relative; overflow: hidden; }
+  .hero { padding: clamp(var(--space-16), 8vw, var(--space-24)) 0 var(--space-6); text-align: center; position: relative; overflow: hidden; }
   .beacon { width: clamp(120px, 22vw, 180px); margin: 0 auto var(--space-8); }
   .beacon svg { width: 100%; }
   .beam-sweep { transform-origin: 90px 70px; animation: sweep 9s ease-in-out infinite; }
   @keyframes sweep { 0%,100% { transform: rotate(-14deg); opacity: 0.55; } 50% { transform: rotate(14deg); opacity: 0.9; } }
   @media (prefers-reduced-motion: reduce) { .beam-sweep { animation: none; opacity: 0.7; } }
-  .kicker { font-size: var(--text-xs); letter-spacing: 0.22em; color: var(--color-text); font-weight: 600; margin-bottom: var(--space-5); }
+  .kicker { font-size: var(--text-xs); letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-primary); font-weight: 600; margin-bottom: var(--space-5); }
   .hero h1 { font-size: var(--text-3xl); margin: 0 auto var(--space-6); max-width: 16ch; }
   .hero .lede { font-size: var(--text-lg); color: var(--color-text-muted); max-width: 58ch; margin: 0 auto; }
-  .hero .lede strong { color: var(--color-text); font-weight: 600; }
-  .hero .lede strong:hover { color: var(--color-primary); }
+  .hero .lede strong { color: var(--color-primary); font-weight: 600; }
   .hero-cta { margin-top: var(--space-8); display: flex; justify-content: center; }
   .btn { display: inline-flex; align-items: center; gap: var(--space-2); font-family: var(--font-body); font-weight: 600; font-size: var(--text-base); text-decoration: none; color: var(--color-bg); background: var(--color-primary); padding: var(--space-3) var(--space-6); border-radius: var(--radius-full); border: 1px solid var(--color-primary); box-shadow: var(--shadow-md); }
   .btn:hover { background: var(--color-primary-hover); border-color: var(--color-primary-hover); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
@@ -99,7 +98,7 @@
   .btn:hover .arr { transform: translateX(3px); }
 
   /* Keeper hero card */
-  .keeper-hero { padding: 0; }
+  .keeper-hero { padding: var(--space-10) 0 var(--space-4); }
   .keeper-hero-inner { display: flex; gap: var(--space-8); align-items: flex-start; }
   .keeper-hero-col { display: flex; flex-direction: column; align-items: center; flex: 0 0 180px; width: 180px; }
   .keeper-hero-portrait { width: 180px; height: 220px; border-radius: var(--radius-lg); background-size: cover; background-position: center top; background-color: var(--color-surface); border: 1px solid var(--color-border); transition: opacity 0.4s ease; }
@@ -111,10 +110,11 @@
   .intro-cell { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); min-height: 90px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; text-align: left; font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; }
   .intro-cell strong { color: var(--color-text); font-size: var(--text-xs); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--space-2); display: block; }
   @media (max-width: 640px) { .intro-cells { grid-template-columns: 1fr; } }
-  .rosie-cta-wrap { padding: var(--space-6) 0 0; margin-top: var(--space-4); text-align: center; }
+  .rosie-cta-wrap { padding: var(--space-6) 0 var(--space-10); margin-top: var(--space-4); text-align: center; }
   .rosie-cta-btn { display: inline-block; background: linear-gradient(135deg, var(--color-primary), var(--color-beam, #a0e080)); color: #04140c; font-weight: 700; font-size: var(--text-sm); letter-spacing: 0.04em; text-transform: uppercase; padding: 0.85rem 2rem; border-radius: 999px; text-decoration: none; box-shadow: 0 0 16px color-mix(in oklab, var(--color-primary) 40%, transparent); transition: filter 0.2s, box-shadow 0.2s; }
   .rosie-cta-btn:hover { filter: brightness(1.1); box-shadow: 0 0 24px color-mix(in oklab, var(--color-primary) 60%, transparent); }
-  .hdr-cta { font-size: 0.72rem; padding: 0.5rem 1.1rem; white-space: nowrap; }
+  .hdr-cta { font-size: 0.72rem; padding: 0.45rem 1.1rem; white-space: nowrap; background: var(--color-beam); color: #0a1a08 !important; font-weight: 600; border-radius: 999px; text-decoration: none; letter-spacing: 0.02em; box-shadow: none; background-image: none; }
+  .hdr-cta:hover { filter: brightness(1.08); }
   @media (max-width: 480px) { .hdr-cta { display: none; } }
   @media (max-width: 540px) { .keeper-hero-inner { flex-direction: column; } .keeper-hero-portrait { width: 100%; height: 220px; flex: none; } }
   .promise { padding: var(--space-2) 0 var(--space-16); }
@@ -124,11 +124,10 @@
   .promise p { font-size: var(--text-lg); color: var(--color-text); margin-bottom: var(--space-5); }
   .promise p:last-child { margin-bottom: 0; }
   .promise .muted { color: var(--color-text-muted); }
-  .promise strong { color: var(--color-text); font-weight: 600; }
-  .promise strong:hover { color: var(--color-primary); }
+  .promise strong { color: var(--color-primary); font-weight: 600; }
 
-  .harbor { padding: 0; }
-  .harbor-head { text-align: center; margin-bottom: var(--space-6); }
+  .harbor { padding: var(--space-8) 0 var(--space-10); }
+  .harbor-head { text-align: center; margin-bottom: var(--space-12); }
   .harbor-head h2 { font-size: var(--text-2xl); margin-bottom: var(--space-3); }
   .harbor-head p { color: var(--color-text-muted); margin: 0 auto; }
   .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
@@ -136,8 +135,8 @@
   @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
   .card { display: block; text-decoration: none; color: var(--color-text); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); position: relative; transition: transform var(--transition-interactive), border-color var(--transition-interactive), box-shadow var(--transition-interactive); }
   .keeper-name { text-align: center; font-size: var(--text-sm); color: var(--color-text-muted); margin: -2px 0 var(--space-3); letter-spacing: 0.02em; transition: opacity 0.3s; }
-  .sage-library-link { display: inline-block; margin-top: var(--space-5); font-size: var(--text-sm); color: var(--color-text); text-decoration: none; }
-  .sage-library-link:hover { text-decoration: underline; color: var(--color-primary); }
+  .sage-library-link { display: inline-block; margin-top: var(--space-5); font-size: var(--text-sm); color: var(--color-primary); text-decoration: none; }
+  .sage-library-link:hover { text-decoration: underline; }
   .fp-sub { color: var(--color-text-muted); margin-bottom: var(--space-6); }
   .fp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); align-items: start; }
   @media (max-width: 860px) { .fp-grid { grid-template-columns: 1fr; } }
@@ -146,16 +145,14 @@
   .fp-cell summary::-webkit-details-marker { display: none; }
   .fp-cell .chev { margin-left: auto; flex-shrink: 0; color: var(--color-text-faint); transition: transform var(--transition-interactive); }
   .fp-cell[open] summary .chev { transform: rotate(180deg); }
-  .fp-num { font-family: var(--font-display); color: var(--color-text); font-size: var(--text-lg); line-height: 1; flex-shrink: 0; }
-  .fp-cell summary:hover .fp-num { color: var(--color-primary); }
+  .fp-num { font-family: var(--font-display); color: var(--color-primary); font-size: var(--text-lg); line-height: 1; flex-shrink: 0; }
   .fp-title { font-weight: 600; }
   .fp-teaser { padding: 0 var(--space-5) var(--space-4); margin: 0; color: var(--color-text-muted); font-size: var(--text-sm); }
   .fp-cell[open] .fp-teaser { display: none; }
   .fp-body { padding: 0 var(--space-5) var(--space-5); margin: 0; color: var(--color-text); font-size: var(--text-sm); line-height: 1.6; display: none; }
   .fp-cell[open] .fp-body { display: block; }
   .card:hover { transform: translateY(-3px); border-color: var(--color-primary); box-shadow: var(--shadow-md); }
-  .card:hover .num { color: var(--color-primary); }
-  .card .num { font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-text); line-height: 1; margin-bottom: var(--space-4); }
+  .card .num { font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-primary); line-height: 1; margin-bottom: var(--space-4); }
   .card h3 { font-size: var(--text-xl); margin-bottom: var(--space-2); }
   .card p { font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 0; }
   .card .arrow { position: absolute; top: var(--space-6); right: var(--space-6); color: var(--color-text-faint); transition: color var(--transition-interactive), transform var(--transition-interactive); }
@@ -183,21 +180,18 @@
   .ember.show .ember-bubble{opacity:1;transform:translateX(0) scale(1)}
   .ember-bubble::after{content:"";position:absolute;right:-6px;bottom:16px;width:12px;height:12px;background:var(--color-surface);border-right:1px solid var(--color-border);border-top:1px solid var(--color-border);transform:rotate(45deg)}
   @media(max-width:560px){.flame-rail{width:38px}.ember{width:32px;height:44px;right:3px}.ember-bubble{right:44px;bottom:80px;width:160px;min-width:140px}}
-  .harbor-now { padding: 0; }
-  .conclusion-section { padding: 0 0 var(--space-10); }
+  .harbor-now { padding: var(--space-16) 0 var(--space-20); }
   .harbor-now .kicker { text-align: center; margin-bottom: var(--space-4); }
-  .harbor-now h2 { margin-bottom: var(--space-5); }
+  .harbor-now h2 { text-align: center; font-size: var(--text-2xl); margin-bottom: var(--space-10); }
   .hn-report { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: clamp(var(--space-6),4vw,var(--space-10)); box-shadow: var(--shadow-md); max-width: 640px; margin: 0 auto var(--space-12); position: relative; overflow: hidden; }
   .hn-report::before { content:""; position:absolute; inset:0 auto 0 0; width:3px; background:linear-gradient(in oklab,var(--color-primary),var(--color-beam,#e8b659)); }
   .hn-weather { font-size: var(--text-lg); color: var(--color-text); margin-bottom: var(--space-4); }
-  .hn-weather strong { color: var(--color-text); font-weight: 600; }
-  .hn-weather strong:hover { color: var(--color-primary); }
+  .hn-weather strong { color: var(--color-primary); font-weight: 600; }
   .hn-report p:last-child { color: var(--color-text-muted); margin-bottom: 0; }
   .hn-asof { font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-muted); font-weight: 600; margin-bottom: var(--space-4); }
   .hn-body p { font-size: var(--text-base); color: var(--color-text); margin-bottom: var(--space-4); }
   .hn-body p:last-child { color: var(--color-text-muted); margin-bottom: 0; }
-  .hn-body strong { color: var(--color-text); font-weight: 600; }
-  .hn-body strong:hover { color: var(--color-primary); }
+  .hn-body strong { color: var(--color-primary); font-weight: 600; }
   .hn-archive { max-width: 640px; margin: 0 auto; text-align: center; }
   .hn-archive h3 { font-size: var(--text-lg); margin-bottom: var(--space-5); color: var(--color-text); }
   .hn-list { list-style: none; padding: 0; margin: 0 auto var(--space-6); max-width: 640px; text-align: left; }
@@ -208,29 +202,19 @@
   .hn-list .title { flex: 1; font-size: var(--text-base); }
   .hn-list .arr { color: var(--color-text-faint); transition: transform var(--transition-interactive), color var(--transition-interactive); }
   .hn-list a:hover .arr { color: var(--color-primary); transform: translateX(3px); }
-  .hn-all { display: inline-block; font-size: var(--text-sm); font-weight: 600; color: var(--color-text); text-decoration: none; }
-  .hn-all:hover { color: var(--color-primary); }
-  details.collapsible > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 9em 1fr auto; align-items: baseline; gap: var(--space-5); padding: var(--space-2) 0; margin-bottom: 0; max-width: none; }
+  .hn-all { display: inline-block; font-size: var(--text-sm); font-weight: 600; color: var(--color-primary); text-decoration: none; }
+  .hn-all:hover { color: var(--color-primary-hover); }
+  details.collapsible > summary { list-style: none; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: var(--space-4); padding: var(--space-4) 0; margin-bottom: var(--space-2); }
   details.collapsible > summary::-webkit-details-marker { display: none; }
-  details.collapsible > summary h2, details.collapsible > summary h3 { font-size: var(--text-base); margin: 0; text-align: left; color: var(--color-text); font-weight: 400; grid-column: 2; }
-  .chapter-num { font-family: var(--font-body); font-size: var(--text-xs); letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-muted); font-weight: 600; margin: 0; text-align: left; grid-column: 1; align-self: baseline; }
-  details.collapsible > summary .chev { grid-column: 3; }
-  @media (max-width: 640px) { details.collapsible > summary { grid-template-columns: 1fr auto; grid-template-rows: auto auto; row-gap: var(--space-1); } .chapter-num { text-align: left; grid-column: 1; grid-row: 1; } details.collapsible > summary h2, details.collapsible > summary h3 { grid-column: 1; grid-row: 2; } details.collapsible > summary .chev { grid-column: 2; grid-row: 1 / 3; } }
-  /* Founder heading stands apart -- one line, flush to the true left edge, everything else reads as subordinate to it */
-  .founder-intro summary { grid-template-columns: 1fr auto !important; grid-template-rows: auto auto; row-gap: var(--space-1); max-width: none; }
-  .founder-intro .chapter-num { grid-column: 1 !important; grid-row: 1; text-align: left !important; }
-  .founder-intro summary h2 { grid-column: 1 !important; grid-row: 2; white-space: nowrap; font-size: var(--text-xl) !important; text-align: left !important; }
-  .founder-intro summary .chev { grid-column: 2; grid-row: 1 / 3; }
-  @media (max-width: 640px) { .founder-intro summary h2 { font-size: var(--text-lg) !important; white-space: normal; } }
-  .book-intro { max-width: 640px; margin: 0 auto; padding: var(--space-10) 0 var(--space-4); text-align: center; color: var(--color-text-muted); font-size: var(--text-base); line-height: 1.6; }
-  #harbor-now .wrap > details.collapsible + details.collapsible { margin-top: 0; }
+  details.collapsible > summary h2 { font-size: var(--text-xl); margin: 0; text-align: center; }
+  details.collapsible > summary h3 { font-size: var(--text-lg); margin: 0; text-align: center; font-family: var(--font-display); font-weight: 400; letter-spacing: -0.01em; }
   details.collapsible > summary .chev { color: var(--color-text-muted); transition: transform var(--transition-interactive); flex: 0 0 auto; }
   details.collapsible[open] > summary .chev { transform: rotate(180deg); }
   details.collapsible > summary:hover h2, details.collapsible > summary:hover h3, details.collapsible > summary:hover .chev { color: var(--color-primary); }
-  details.collapsible > .sec-body { padding-top: var(--space-4); animation: secOpen .25s ease; }
+  details.collapsible > .sec-body { padding-top: var(--space-8); animation: secOpen .25s ease; }
   @keyframes secOpen { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { details.collapsible > .sec-body { animation: none; } details.collapsible > summary .chev { transition: none; } }
-  footer { padding: 0; }
+  footer { padding: 0; background: var(--color-surface); }
   .foot { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--space-12); align-items: start; }
   @media (max-width: 700px) { .foot { grid-template-columns: 1fr; gap: var(--space-8); } }
   .foot-collapsible { border-top: 1px solid var(--color-divider); }
@@ -246,16 +230,16 @@
 <body>
 <header>
   <div class="wrap hdr">
-    <a class="brand" href="index.html" aria-label="LIME Signalworks LLC home">
+    <a class="brand" href="index.html" aria-label="Lime Signalworks home">
       <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
         <g class="beam-sweep"><path d="M62 46 L118 22 L118 70 L62 58 Z" fill="var(--color-primary)" opacity="0.16"/><path d="M62 46 L6 22 L6 70 L62 58 Z" fill="var(--color-beam)" opacity="0.12"/></g>
         <path d="M62 18 L72 30 L72 36 L66 36 L66 52 L70 52 L70 104 L54 104 L54 52 L58 52 L58 36 L52 36 L52 30 Z" fill="var(--color-text)"/>
         <rect x="50" y="100" width="24" height="6" rx="2" fill="var(--color-text)"/>
         <circle cx="62" cy="42" r="7" fill="var(--color-primary)"/><circle cx="62" cy="42" r="3" fill="var(--color-bg)"/>
       </svg>
-      <span class="word">LIME&nbsp;<b>Signalworks LLC</b></span>
+      <span class="word">Lime&nbsp;<b>Signalworks</b></span>
     </a>
-    <!-- Rosie CTA held back from the header per the IB-confirmation gate -->
+    <a class="rosie-cta-btn hdr-cta" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Take me right to Rosie Interactive now →</a>
     <div class="hdr-tools">
       <button class="icon-btn" data-translate aria-label="Translate this page">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -268,41 +252,12 @@
 </header>
 
 <main>
-  <!-- Founder's introduction. Not a numbered chapter; this is Noal speaking
-       directly, before the book below. Collapsed by default like everything else --
-       readers choose what they open. -->
-  <section class="founder-intro">
-    <div class="wrap">
-      <details class="collapsible">
-        <summary class="sec-bar"><div class="chapter-num">From the Founder</div><h2>Two Readers, One Door</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
-        <div class="sec-body">
-          <div class="promise-card">
-            <p>Every deep truth arrives wrapped in metaphor &mdash; that's not decoration, it's translation. Metaphor lets meaning cross between frameworks without asking either side to abandon its own: the reader who thinks in scripture doesn't have to set faith aside, and the reader who thinks in energy, evidence, or neither doesn't have to adopt one either. This site is built to open the same door to both at once. You shouldn't need a concordance to follow what's here, and you shouldn't have to leave your reason at the door either. What's offered should be plain enough to explain and grounded enough to test.</p>
-            <p style="color:var(--color-text-muted);">This isn't only about markets. Noise shows up everywhere &mdash; in decisions, attention, the body, money, relationships, the quiet places nobody else sees &mdash; and clearing it, layer by layer, is the real work of the next 33 days. Not a new personality. Not a performance for anyone watching. Just less static and more signal, in however many parts of your life still need it.</p>
-            <p style="color:var(--color-text-muted);">Take what's useful. Leave what isn't. There's no clock running against you &mdash; come back whenever you're ready, today or any day after.</p>
-            <p style="border-top:1px solid var(--color-border);padding-top:var(--space-5);margin-top:var(--space-2);"><strong>In short:</strong> this page exists so two very different readers can stand in the same room without either one translating for the other first &mdash; so the actual work, clearing the noise across every layer of a life, can start today instead of waiting on permission from either side.</p>
-          </div>
-        </div>
-      </details>
-    </div>
-  </section>
-
-  <section class="book-intro-section">
-    <div class="wrap">
-      <details class="collapsible">
-        <summary class="sec-bar"><div class="chapter-num">Introduction</div><h2>A Note Before You Begin</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
-        <div class="sec-body">
-          <p class="book-intro">Think of what follows the way Leonardo kept his notebooks &mdash; where the scientific and the sacred were never separate pages, only one continuous study of what's true. Open them in the order that describes where your heart is at now. Nothing here is locked, and nothing needs to be read first. Let what's behind each one surprise you, and glorify our Creator.</p>
-        </div>
-      </details>
-    </div>
-  </section>
 
   <!-- Single rotating Keeper portrait + promise text — collapses as one card -->
   <section class="keeper-hero">
     <div class="wrap">
       <details class="collapsible" id="keeper-hero-card">
-        <summary class="sec-bar"><div class="chapter-num">Chapter I</div><h2 data-i18n="promise_h">The Bezalel Promise</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><h2 data-i18n="promise_h">The one promise</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <div class="keeper-hero-inner">
             <div class="keeper-hero-text">
@@ -323,7 +278,7 @@
         <div class="intro-cells">
           <div class="intro-cell" id="intro-cell-1"><strong>The Setup</strong><br>The burdens you have actually been carrying — and the 33-day protocol designed to hand them over.</div>
           <div class="intro-cell" id="intro-cell-2"><strong>The Mitigation</strong><br>Three returns in the morning. Six at midday. Nine at close. One word a day. This is the practice.</div>
-          <div class="intro-cell" id="intro-cell-3"><strong>The Conclusion</strong><br>Two readers, one door &mdash; no translation required. Clear the noise, layer by layer, and let the work start today.</div>
+          <div class="intro-cell" id="intro-cell-3"><strong>The Conclusion</strong><br>Everything you have ever wanted is looking for a place to land. You are no longer the ship. You have become the shore.</div>
         </div>
       </div>
     </div>
@@ -332,7 +287,7 @@
   <section class="hero">
     <div class="wrap">
       <details class="collapsible">
-        <summary class="sec-bar"><div class="chapter-num">Chapter II</div><h2 data-i18n="kicker">The Rosy Way</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><h2 class="kicker" data-i18n="kicker">The Rosy Way</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <div class="beacon" aria-hidden="true">
             <svg viewBox="0 0 180 120" fill="none">
@@ -352,7 +307,7 @@
   <section class="fire-protocol">
     <div class="wrap">
       <details class="collapsible">
-        <summary class="sec-bar"><div class="chapter-num">Chapter III</div><h2>Introduction to the 33-Day Fire Protocol</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><h2>Introduction to the 33-Day Fire Protocol</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <p class="fp-sub">The Fire Spirit speaks one word a day for 33 days. Here is the shape of the whole arc, in three parts — open any of them now, or simply know they are here and come back to them.</p>
           <div class="fp-grid">
@@ -380,7 +335,7 @@
   <section class="harbor">
     <div class="wrap">
       <details class="collapsible">
-        <summary class="sec-bar"><div class="chapter-num">Chapter IV</div><h2 data-i18n="doors_h">The Wicket Gate</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><h2 data-i18n="doors_h">The Wicket Gate</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <p class="doors-sub" data-i18n="doors_sub">Nine doors. Start wherever fits you today.</p>
           <div class="grid">
@@ -403,17 +358,17 @@
   <section id="harbor-now" class="harbor-now">
     <div class="wrap">
       <details class="collapsible" id="hn-details">
-        <summary class="sec-bar"><div class="chapter-num">Chapter V</div><h2 data-i18n="hn_h">Today's Harbor Weather</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><h2 data-i18n="hn_h">Today’s harbor — Thursday, July 16, 2026</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <div class="hn-report">
-            <p class="hn-asof" data-i18n="hn_asof">As of last close</p>
+            <p class="hn-asof" data-i18n="hn_asof">As of close · Thursday, July 16, 2026</p>
             <p class="hn-weather" data-i18n="hn_weather">Market weather: <strong>uncertain</strong>. Posture: <strong>patience</strong>.</p>
             <div class="hn-body" data-i18n="hn_body"><p>QQQ led the downside (-1.64%) while SPY (-0.54%), DIA (-0.21%), and IWM (-0.06%) held steadier. Volatility rose; the VIX sits at 16.73, up 6.76% on the day.</p><p><a href="harbor-now/archive/2026-07-16.html">Read the full Harbor Now →</a></p></div>
           </div>
         </div>
       </details>
       <details class="collapsible">
-        <summary class="sec-bar"><div class="chapter-num">Chapter VI</div><h3 data-i18n="hn_archive_h">Past Harbor Now Reports</h3><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><h3 data-i18n="hn_archive_h">Past Harbor Nows</h3><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <ul class="hn-list">
             <li><a href="harbor-now/archive/2026-07-16.html"><span class="date">Jul 16, 2026</span><span class="title">Tech hit, volatility pops — breadth uncertain into earnings</span><span class="arr">→</span></a></li>
@@ -429,42 +384,28 @@
 </main>
 
 <footer>
-  <div class="wrap">
-    <details class="collapsible foot-collapsible">
-      <summary class="sec-bar foot-bar"><div class="chapter-num">Chapter VII</div><h2>Lime Signalworks LLC</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
-      <div class="foot">
-        <div>
-          <p class="creed" data-i18n="creed">Different worlds, same problem: how to face market chaos without handing your life to a guru.</p>
-          <p class="meta">
-            <a href="tel:+13802000288">+1 380-200-0288</a> &nbsp;·&nbsp;
-            <a href="mailto:contact@limesignalworks.com">contact@limesignalworks.com</a><br>
-            2722 Erie Ave, Suite 219, Cincinnati, OH 45208<br>
-            <span data-i18n="by_appt">By appointment.</span>
-          </p>
-          <p class="copy" data-i18n="copy">© 2026 Lime Signalworks LLC. Loss prevention first. Always.</p>
-        </div>
-        <div>
-          <p class="meta">
-            <strong style="color:var(--color-text);" data-i18n="rails_h">The harbor before the rails.</strong><br><br>
-            <span data-i18n="rails_p">The homepage routes to the Gate; the Gate is where system access happens. The high-voltage work stays behind it.</span>
-          </p>
-        </div>
+  <details class="collapsible foot-collapsible">
+    <summary class="sec-bar foot-bar"><h2 class="foot-heading">Lime Signalworks</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+    <div class="wrap foot">
+      <div>
+        <p class="creed" data-i18n="creed">Different worlds, same problem: how to face market chaos without handing your life to a guru.</p>
+        <p class="meta">
+          <a href="tel:+13802000288">+1 380-200-0288</a> &nbsp;·&nbsp;
+          <a href="mailto:contact@limesignalworks.com">contact@limesignalworks.com</a><br>
+          2722 Erie Ave, Suite 219, Cincinnati, OH 45208<br>
+          <span data-i18n="by_appt">By appointment.</span>
+        </p>
+        <p class="copy" data-i18n="copy">© 2026 Lime Signalworks LLC. Loss prevention first. Always.</p>
       </div>
-    </details>
-  </div>
+      <div>
+        <p class="meta">
+          <strong style="color:var(--color-text);" data-i18n="rails_h">The harbor before the rails.</strong><br><br>
+          <span data-i18n="rails_p">The homepage routes to the Gate; the Gate is where system access happens. The high-voltage work stays behind it.</span>
+        </p>
+      </div>
+    </div>
+  </details>
 </footer>
-
-<!-- Conclusion -- frame only, content pending from Noal. -->
-<section class="conclusion-section">
-  <div class="wrap">
-    <details class="collapsible">
-      <summary class="sec-bar"><div class="chapter-num">Conclusion</div><h2>Coming Soon</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
-      <div class="sec-body">
-        <p class="muted" style="text-align:center;">This chapter is being written. Check back soon.</p>
-      </div>
-    </details>
-  </div>
-</section>
 
 <script>
 
@@ -688,11 +629,7 @@
 })();
 </script>
 
-<!-- Keeper hero portrait: single image rotating through all 46 Keepers, synced with the promise card.
-     11 Patriarchs (Adam through Abraham, carrying the promise made at the garden's edge) +
-     30 Fire Messengers (New Testament figures who proclaimed or witnessed that promise fulfilled,
-     including a second pass of women selected for proven fiery devotion) +
-     5 legacy Keepers kept in rotation alongside them (Solomon, Daniel, Esther, Ruth, David). -->
+<!-- Keeper hero portrait: single image rotating through all 8 Keepers, synced with the promise card -->
 <script>
 (function(){
   var ALL_KEEPERS = [
@@ -703,93 +640,17 @@
     { file: '05_daniel.webp', name: 'Daniel' },
     { file: '06_esther.webp', name: 'Esther' },
     { file: '07_ruth.webp', name: 'Ruth' },
-    { file: '08_david.webp', name: 'David' },
-    { file: '09_adam.webp', name: 'Adam' },
-    { file: '10_seth.webp', name: 'Seth' },
-    { file: '11_enosh.webp', name: 'Enosh' },
-    { file: '12_kenan.webp', name: 'Kenan' },
-    { file: '13_mahalalel.webp', name: 'Mahalalel' },
-    { file: '14_jared.webp', name: 'Jared' },
-    { file: '15_enoch.webp', name: 'Enoch' },
-    { file: '16_methuselah.webp', name: 'Methuselah' },
-    { file: '17_lamech.webp', name: 'Lamech' },
-    { file: '18_noah.webp', name: 'Noah' },
-    { file: '19_abraham.webp', name: 'Abraham' },
-    { file: '20_john_the_baptist.webp', name: 'John the Baptist' },
-    { file: '21_simeon.webp', name: 'Simeon' },
-    { file: '22_anna.webp', name: 'Anna' },
-    { file: '23_mary_mother_of_jesus.webp', name: 'Mary, Mother of Jesus' },
-    { file: '24_elizabeth.webp', name: 'Elizabeth' },
-    { file: '25_andrew.webp', name: 'Andrew' },
-    { file: '26_james_zebedee.webp', name: 'James, Son of Zebedee' },
-    { file: '27_john_apostle.webp', name: 'John the Apostle' },
-    { file: '28_philip_evangelist.webp', name: 'Philip the Evangelist' },
-    { file: '29_stephen.webp', name: 'Stephen' },
-    { file: '30_paul.webp', name: 'Paul' },
-    { file: '31_barnabas.webp', name: 'Barnabas' },
-    { file: '32_timothy.webp', name: 'Timothy' },
-    { file: '33_silas.webp', name: 'Silas' },
-    { file: '34_lydia.webp', name: 'Lydia' },
-    { file: '35_priscilla.webp', name: 'Priscilla' },
-    { file: '36_aquila.webp', name: 'Aquila' },
-    { file: '37_apollos.webp', name: 'Apollos' },
-    { file: '38_cornelius.webp', name: 'Cornelius' },
-    { file: '39_martha_of_bethany.webp', name: 'Martha of Bethany' },
-    { file: '40_salome.webp', name: 'Salome' },
-    { file: '41_mary_mother_of_james.webp', name: 'Mary, Mother of James and Joses' },
-    { file: '42_samaritan_woman.webp', name: 'The Samaritan Woman' },
-    { file: '43_junia.webp', name: 'Junia' },
-    { file: '44_dorcas.webp', name: 'Dorcas' },
-    { file: '45_phoebe.webp', name: 'Phoebe' },
-    { file: '46_joanna.webp', name: 'Joanna' }
+    { file: '08_david.webp', name: 'David' }
   ];
   var KEEPER_TRAITS = {
-    '01_peter.webp':                 'Stood at the gate. Denied. Returned. Held the position anyway.',
-    '02_solomon.webp':               'Asked for wisdom when he could have asked for anything else.',
-    '03_mary_magdalene.webp':        'First to the tomb. First to carry the news. Carried the signal when no one else did.',
-    '04_mary_of_bethany.webp':       'Chose the one thing. Sat at the feet when the room said get up and work.',
-    '05_daniel.webp':                'Read the room correctly every time. Never once adjusted the report to please the audience.',
-    '06_esther.webp':                'Held the position until the right moment. Did not move before the setup was clear.',
-    '07_ruth.webp':                  'Stayed when leaving was the easier, more reasonable choice.',
-    '08_david.webp':                 'Wrote songs in caves. Praised in the dark before the light arrived.',
-    '09_adam.webp':                  'Carried the first promise out of the garden. Never once stopped believing it was still good.',
-    '10_seth.webp':                  'Was born after the fall and still walked with God anyway. Passed the line forward without dropping it.',
-    '11_enosh.webp':                 'Called on the name of the Lord when the whole world was going quiet. Kept the practice alive.',
-    '12_kenan.webp':                 'Left no recorded words behind. Only the fact that he did not break the chain.',
-    '13_mahalalel.webp':             'His name means praise of God \u2014 and that was the entire inheritance he left.',
-    '14_jared.webp':                 'Held the middle of the line. Neither the first nor the last, just faithful in between.',
-    '15_enoch.webp':                 'Walked so closely with God that he simply stopped needing to die.',
-    '16_methuselah.webp':            'Outlasted almost everyone he knew. Patience was the whole assignment.',
-    '17_lamech.webp':                'Named his son relief before relief had ever come. Believed the promise before he could see it.',
-    '18_noah.webp':                  'Built for a hundred years toward a rain no one else could see coming.',
-    '19_abraham.webp':               'Left everything he knew on the word of a promise with no proof yet attached to it.',
-    '20_john_the_baptist.webp':      'Wore camel\u2019s hair in the wilderness and pointed at someone else the entire time.',
-    '21_simeon.webp':                'Waited his whole life for one moment, then let go the second he held it.',
-    '22_anna.webp':                  'Never left the temple. Kept speaking the promise long after everyone stopped expecting it.',
-    '23_mary_mother_of_jesus.webp':  'Said yes to the impossible before anyone else in the story did.',
-    '24_elizabeth.webp':             'Recognized the sign the instant it walked into the room. No one had to tell her.',
-    '25_andrew.webp':                'Found the one thing worth having and immediately went to get his brother.',
-    '26_james_zebedee.webp':        'Left the boat, followed the call, and was the first apostle to pay for it in full.',
-    '27_john_apostle.webp':          'Stood at the foot of the cross when the others ran. Later saw fire in the eyes of the risen Christ.',
-    '28_philip_evangelist.webp':     'Ran when the Spirit said run. Explained scripture to a stranger in a chariot and never asked for credit.',
-    '29_stephen.webp':               'Kept preaching while the stones were already in the air.',
-    '30_paul.webp':                  'Was struck blind on the road and spent the rest of his life carrying light to people who never asked for it.',
-    '31_barnabas.webp':              'Was called Son of Encouragement \u2014 and lived up to the name every single time.',
-    '32_timothy.webp':               'Was told, directly, to fan into flame the gift he already had. Did not need a second instruction.',
-    '33_silas.webp':                 'Sang hymns in a locked cell with his feet still in chains.',
-    '34_lydia.webp':                 'Opened her house the moment she believed. Did not wait for permission.',
-    '35_priscilla.webp':             'Taught with precision, corrected gently, and never needed to be the loudest voice in the room.',
-    '36_aquila.webp':                'Stood next to Priscilla in every account. Steady is its own kind of ministry.',
-    '37_apollos.webp':               'Described, in scripture itself, as fervent in spirit. The fire was visible from the outside.',
-    '38_cornelius.webp':             'A Gentile soldier who received the same fire as the apostles \u2014 proof the promise had no borders left.',
-    '39_martha_of_bethany.webp':     'Served with her hands while her sister sat at His feet, then said the boldest line in the chapter out loud: You are the Christ.',
-    '40_salome.webp':                'Stood at the cross when the disciples ran. Went back to the tomb before sunrise with nothing but spices and nerve.',
-    '41_mary_mother_of_james.webp':  'Stayed through the worst Friday in history and showed up again Sunday morning to finish what grief started.',
-    '42_samaritan_woman.webp':       'Left her water jar at the well and ran to tell the whole town before she\u2019d even processed it herself.',
-    '43_junia.webp':                 'Named an apostle in the same sentence as the men. The text never blinked, so neither should we.',
-    '44_dorcas.webp':                'Spent her life sewing for widows. Peter raised her from the dead because the work wasn\u2019t finished.',
-    '45_phoebe.webp':                'Trusted to carry Paul\u2019s letter to Rome by hand. The whole book of Romans traveled because she did.',
-    '46_joanna.webp':                'Funded the ministry from her own purse, then ran to tell the apostles the tomb was empty before they believed her.'
+    '01_peter.webp':           'Stood at the gate. Denied. Returned. Held the position anyway.',
+    '02_solomon.webp':         'Asked for wisdom when he could have asked for anything else.',
+    '03_mary_magdalene.webp':  'First to the tomb. First to carry the news. Carried the signal when no one else did.',
+    '04_mary_of_bethany.webp': 'Chose the one thing. Sat at the feet when the room said get up and work.',
+    '05_daniel.webp':          'Read the room correctly every time. Never once adjusted the report to please the audience.',
+    '06_esther.webp':          'Held the position until the right moment. Did not move before the setup was clear.',
+    '07_ruth.webp':            'Stayed when leaving was the easier, more reasonable choice.',
+    '08_david.webp':           'Wrote songs in caves. Praised in the dark before the light arrived.'
   };
 
   var portrait = document.getElementById('kh-portrait');
@@ -825,63 +686,27 @@
 })();
 </script>
 
-<!-- Keeper portrait carousel: the door cards draw from the full pool of
-     46 Keepers (11 Patriarchs + 30 Fire Messengers + 5 legacy Keepers) and
-     swap every 5 seconds, so the set keeps rotating in real time as more
-     portraits are generated later. Slots alternate man/woman by card
-     position (01 man, 02 woman, 03 man, ...) per Noal's instruction
-     (2026-07-17) so the grid always reads as a balanced mix. -->
+<!-- Keeper portrait carousel: the 8 door cards draw from the full pool of
+     generated Keeper portraits and swap every 5 seconds, so the set keeps
+     rotating in real time as more Keepers are added later. Slots alternate
+     man/woman by card position (01 man, 02 woman, 03 man, ...) per Noal's
+     instruction (2026-07-17) so the grid always reads as a balanced mix. -->
 <script>
 (function(){
   var MEN = [
     { file: '01_peter.webp', name: 'Peter' },
     { file: '02_solomon.webp', name: 'Solomon' },
+    { file: '03_andrew.webp', name: 'Andrew' },
+    { file: '04_elijah.webp', name: 'Elijah' },
     { file: '05_daniel.webp', name: 'Daniel' },
-    { file: '08_david.webp', name: 'David' },
-    { file: '09_adam.webp', name: 'Adam' },
-    { file: '10_seth.webp', name: 'Seth' },
-    { file: '11_enosh.webp', name: 'Enosh' },
-    { file: '12_kenan.webp', name: 'Kenan' },
-    { file: '13_mahalalel.webp', name: 'Mahalalel' },
-    { file: '14_jared.webp', name: 'Jared' },
-    { file: '15_enoch.webp', name: 'Enoch' },
-    { file: '16_methuselah.webp', name: 'Methuselah' },
-    { file: '17_lamech.webp', name: 'Lamech' },
-    { file: '18_noah.webp', name: 'Noah' },
-    { file: '19_abraham.webp', name: 'Abraham' },
-    { file: '20_john_the_baptist.webp', name: 'John the Baptist' },
-    { file: '21_simeon.webp', name: 'Simeon' },
-    { file: '25_andrew.webp', name: 'Andrew' },
-    { file: '26_james_zebedee.webp', name: 'James, Son of Zebedee' },
-    { file: '27_john_apostle.webp', name: 'John the Apostle' },
-    { file: '28_philip_evangelist.webp', name: 'Philip the Evangelist' },
-    { file: '29_stephen.webp', name: 'Stephen' },
-    { file: '30_paul.webp', name: 'Paul' },
-    { file: '31_barnabas.webp', name: 'Barnabas' },
-    { file: '32_timothy.webp', name: 'Timothy' },
-    { file: '33_silas.webp', name: 'Silas' },
-    { file: '36_aquila.webp', name: 'Aquila' },
-    { file: '37_apollos.webp', name: 'Apollos' },
-    { file: '38_cornelius.webp', name: 'Cornelius' }
+    { file: '06_joseph.webp', name: 'Joseph' },
+    { file: '08_david.webp', name: 'David' }
   ];
   var WOMEN = [
     { file: '07_ruth.webp', name: 'Ruth' },
     { file: '03_mary_magdalene.webp', name: 'Mary Magdalene' },
     { file: '04_mary_of_bethany.webp', name: 'Mary of Bethany' },
-    { file: '06_esther.webp', name: 'Esther' },
-    { file: '22_anna.webp', name: 'Anna' },
-    { file: '23_mary_mother_of_jesus.webp', name: 'Mary, Mother of Jesus' },
-    { file: '24_elizabeth.webp', name: 'Elizabeth' },
-    { file: '34_lydia.webp', name: 'Lydia' },
-    { file: '35_priscilla.webp', name: 'Priscilla' },
-    { file: '39_martha_of_bethany.webp', name: 'Martha of Bethany' },
-    { file: '40_salome.webp', name: 'Salome' },
-    { file: '41_mary_mother_of_james.webp', name: 'Mary, Mother of James and Joses' },
-    { file: '42_samaritan_woman.webp', name: 'The Samaritan Woman' },
-    { file: '43_junia.webp', name: 'Junia' },
-    { file: '44_dorcas.webp', name: 'Dorcas' },
-    { file: '45_phoebe.webp', name: 'Phoebe' },
-    { file: '46_joanna.webp', name: 'Joanna' }
+    { file: '06_esther.webp', name: 'Esther' }
   ];
   var slots = document.querySelectorAll('.keeper-portrait');
   if (!slots.length) return;
@@ -929,7 +754,7 @@
      arrives, plus a small running count badge bottom-right. -->
 <div id="wg-badge" class="wg-badge" aria-live="polite">
   <span class="wg-dot"></span>
-  <span id="wg-count-text">moving along the Rosy Way</span>
+  <span id="wg-count-text">moving along the rosy path</span>
 </div>
 <div id="wg-toast" class="wg-toast" role="status"></div>
 <canvas id="wg-sparkle-canvas" aria-hidden="true"></canvas>
@@ -974,7 +799,7 @@
   }
 
   function setCountText(n){
-    countText.textContent = 'moving along the Rosy Way ' + fmtCount(n);
+    countText.textContent = fmtCount(n) + ' moving along the rosy path';
   }
 
   function pulseBadge(){
