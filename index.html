@@ -101,10 +101,12 @@
   .keeper-hero-portrait { width: 180px; height: 220px; border-radius: var(--radius-lg); background-size: cover; background-position: center top; background-color: var(--color-surface); border: 1px solid var(--color-border); transition: opacity 0.4s ease; }
   .keeper-hero-trait { text-align: center; font-size: var(--text-xs); letter-spacing: 0.04em; color: var(--color-text-muted); margin-top: var(--space-3); line-height: 1.4; font-style: italic; min-height: 2.4em; transition: opacity 0.3s; }
   .keeper-hero-text { flex: 1; }
-  /* 3-cell intro grid below CTA */
-  .intro-cells { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin-top: var(--space-6); }
-  .intro-cell { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5) var(--space-5); min-height: 90px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: var(--text-sm); color: var(--color-text-muted); font-style: italic; }
-  @media (max-width: 600px) { .intro-cells { grid-template-columns: 1fr; } }
+  /* Fire Protocol 3-cell grid — always visible */
+  .intro-cells-section { padding: var(--space-6) 0 var(--space-10); }
+  .intro-cells { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+  .intro-cell { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); min-height: 90px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; text-align: left; font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; }
+  .intro-cell strong { color: var(--color-text); font-size: var(--text-xs); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--space-2); display: block; }
+  @media (max-width: 640px) { .intro-cells { grid-template-columns: 1fr; } }
   .rosie-cta-wrap { padding: var(--space-6) 0 var(--space-10); border-top: 1px solid var(--color-divider); margin-top: var(--space-4); text-align: center; }
   .rosie-cta-btn { display: inline-block; background: linear-gradient(135deg, var(--color-primary), var(--color-beam, #a0e080)); color: #04140c; font-weight: 700; font-size: var(--text-sm); letter-spacing: 0.04em; text-transform: uppercase; padding: 0.85rem 2rem; border-radius: 999px; text-decoration: none; box-shadow: 0 0 16px color-mix(in oklab, var(--color-primary) 40%, transparent); transition: filter 0.2s, box-shadow 0.2s; }
   .rosie-cta-btn:hover { filter: brightness(1.1); box-shadow: 0 0 24px color-mix(in oklab, var(--color-primary) 60%, transparent); }
@@ -258,14 +260,20 @@
           </div>
         </div>
       </details>
-      <!-- CTA + 3 intro cells — visible only when the card is open -->
+      <!-- CTA — visible only when keeper hero card is open -->
       <div class="rosie-cta-wrap" id="rosie-cta-wrap">
         <a class="rosie-cta-btn" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Take me right to Rosie Interactive now →</a>
-        <div class="intro-cells">
-          <div class="intro-cell" id="intro-cell-1"><strong>The Setup</strong><br>The burdens you have actually been carrying — and the 33-day protocol designed to hand them over.</div>
-          <div class="intro-cell" id="intro-cell-2"><strong>The Mitigation</strong><br>Three returns in the morning. Six at midday. Nine at close. One word a day. This is the practice.</div>
-          <div class="intro-cell" id="intro-cell-3"><strong>The Conclusion</strong><br>Everything you have ever wanted is looking for a place to land. You are no longer the ship. You have become the shore.</div>
-        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fire Protocol intro cells — always visible -->
+  <section class="intro-cells-section">
+    <div class="wrap">
+      <div class="intro-cells">
+        <div class="intro-cell" id="intro-cell-1"><strong>The Setup</strong><br>The burdens you have actually been carrying — and the 33-day protocol designed to hand them over.</div>
+        <div class="intro-cell" id="intro-cell-2"><strong>The Mitigation</strong><br>Three returns in the morning. Six at midday. Nine at close. One word a day. This is the practice.</div>
+        <div class="intro-cell" id="intro-cell-3"><strong>The Conclusion</strong><br>Everything you have ever wanted is looking for a place to land. You are no longer the ship. You have become the shore.</div>
       </div>
     </div>
   </section>
