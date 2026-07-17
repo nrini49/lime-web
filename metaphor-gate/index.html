@@ -44,7 +44,6 @@
     position:sticky;top:0;z-index:50;
     background:color-mix(in oklab, var(--color-bg) 88%, transparent);
     backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--color-border);
   }
   .hdr-inner{
     max-width:var(--max);margin:0 auto;padding:16px 24px;
@@ -123,7 +122,7 @@
   h2.section-title{
     font-family:var(--font-body);font-weight:700;font-size:0.85rem;
     letter-spacing:0.2em;text-transform:uppercase;color:var(--lime);
-    margin:56px 0 18px;padding-bottom:12px;border-bottom:1px solid var(--color-border);
+    margin:56px 0 18px;padding-bottom:0;
   }
   .prose p{margin-bottom:18px;color:var(--color-text)}
   .prose p:last-child{margin-bottom:0}
@@ -193,7 +192,7 @@
   details.worked-toggle > summary::-webkit-details-marker{display:none}
   details.worked-toggle > summary .chev{margin-left:auto;color:var(--color-text-faint);font-size:0.75rem;transition:transform 0.2s;flex:none}
   details.worked-toggle[open] > summary .chev{transform:rotate(90deg);color:var(--accent)}
-  details.worked-toggle[open] > summary{border-bottom:1px solid var(--color-border)}
+  details.worked-toggle[open] > summary{}
   details.worked-toggle .layer{padding:14px 18px 0}
   details.worked-toggle .layer:last-child{padding-bottom:18px}
 
@@ -214,9 +213,9 @@
   ol.diagnostic li{
     counter-increment:diag;
     position:relative;padding:14px 0 14px 42px;
-    border-bottom:1px solid var(--color-border);
+    padding-bottom:16px;
   }
-  ol.diagnostic li:last-child{border-bottom:none}
+  ol.diagnostic li:last-child{padding-bottom:0}
   ol.diagnostic li::before{
     content:counter(diag);
     position:absolute;left:0;top:14px;
@@ -272,7 +271,6 @@
 
   /* ---------- Footer ---------- */
   footer{
-    border-top:1px solid var(--color-border);
     padding:32px 24px;
     text-align:center;
     color:var(--color-text-faint);
