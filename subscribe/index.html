@@ -72,6 +72,15 @@
 </style>
 </head>
 <body>
+<button id="lime-translate-btn" aria-label="Translate this page" style="position:fixed;top:14px;right:14px;z-index:999;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);background:rgba(20,20,20,0.85);color:#eee;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(6px);">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+</button>
+<script>
+  document.getElementById('lime-translate-btn').addEventListener('click', function(){
+    window.open('https://translate.google.com/translate?sl=auto&tl=auto&u=' + encodeURIComponent(window.location.href), '_blank', 'noopener');
+  });
+</script>
+
 <header><div class="wrap hdr">
   <a class="back" href="../index.html">← <span>Back to the harbor</span></a>
   <a class="brand" href="../index.html" aria-label="Lime Signalworks home">Lime <b>Signalworks</b></a>

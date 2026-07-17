@@ -1,0 +1,10 @@
+=== Site translation sync — 2026-07-17 13:53 UTC ===
+
+-- laugh-lounge/jokes.json (33 jokes, tracking en/es/zh/fr) --
+Clean. No missing translations, no duplicate ids.
+
+-- index.html I18N (en/es/zh, French not tracked here) --
+Clean. 0 keys present in all 3 languages.
+
+Material changes to review: no
+
