@@ -587,7 +587,7 @@
     ember.classList.add('show');
     clearTimeout(sayTimer);
     // Mysteries are longer — give them more time
-    var dur = (sayCount % 3 === 0) ? 7500 : 4800;
+    var dur = 18000;
     sayTimer = setTimeout(function(){ ember.classList.remove('show'); }, dur);
   }
 
