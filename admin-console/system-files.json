@@ -1,0 +1,30 @@
+{
+  "updated_at": "2026-07-17",
+  "note": "Every entry-point file that starts a page or service in the system, with its exact repo and path. Add columns here later (status, last modified, owner, etc.) \u2014 the table on the dashboard will pick them up automatically as long as each row has the field.",
+  "files": [
+    { "name": "index.html", "repo": "lime-web", "path": "index.html", "role": "Homepage", "live_url": "https://limesignalworks.com/" },
+    { "name": "index.html", "repo": "lime-web", "path": "seed/index.html", "role": "What LIME Is", "live_url": "https://limesignalworks.com/seed/" },
+    { "name": "index.html", "repo": "lime-web", "path": "invite/index.html", "role": "Bring Someone / invitation", "live_url": "https://limesignalworks.com/invite/" },
+    { "name": "index.html", "repo": "lime-web", "path": "fire-spirit/index.html", "role": "Inner Rail / Fire Spirit", "live_url": "https://limesignalworks.com/fire-spirit/" },
+    { "name": "index.html", "repo": "lime-web", "path": "offer/index.html", "role": "The Offer", "live_url": "https://limesignalworks.com/offer/" },
+    { "name": "index.html", "repo": "lime-web", "path": "pyramid-dashboard/index.html", "role": "Situation Report (Pyramid module, retired)", "live_url": "https://limesignalworks.com/pyramid-dashboard/" },
+    { "name": "index.html", "repo": "lime-web", "path": "gate/index.html", "role": "System Access gate", "live_url": "https://limesignalworks.com/gate/" },
+    { "name": "index.html", "repo": "lime-web", "path": "harbor-now/index.html", "role": "Harbor Now section", "live_url": "https://limesignalworks.com/harbor-now/" },
+    { "name": "2026-07-16.html (and 5 more)", "repo": "lime-web", "path": "harbor-now/archive/", "role": "Harbor Now daily archive pages", "live_url": "https://limesignalworks.com/harbor-now/archive/" },
+    { "name": "index.html", "repo": "lime-web", "path": "subscribe/index.html", "role": "Subscribe", "live_url": "https://limesignalworks.com/subscribe/" },
+    { "name": "index.html", "repo": "lime-web", "path": "laugh-lounge/index.html", "role": "The Laugh Lounge", "live_url": "https://limesignalworks.com/laugh-lounge/" },
+
+    { "name": "index.html", "repo": "limesignalworks", "path": "static/index.html", "role": "Rosie Interactive \u2014 main dashboard (this page)", "live_url": "https://limesignalworks.pplx.app/" },
+    { "name": "index.html", "repo": "limesignalworks", "path": "static/harbor-watch/index.html", "role": "Harbor Watch \u2014 WebXR night-watch game", "live_url": "https://limesignalworks.pplx.app/harbor-watch/" },
+    { "name": "index.html", "repo": "limesignalworks", "path": "static/onboarding/index.html", "role": "Onboarding flow", "live_url": "https://limesignalworks.pplx.app/onboarding/" },
+    { "name": "index.html", "repo": "limesignalworks", "path": "static/snorestop/index.html", "role": "SnoreStop mini-tool", "live_url": "https://limesignalworks.pplx.app/snorestop/" },
+    { "name": "index.html", "repo": "limesignalworks", "path": "static/keeper-of-wit/index.html", "role": "Keeper of Wit gateway", "live_url": "https://limesignalworks.pplx.app/keeper-of-wit/" },
+    { "name": "index.html", "repo": "limesignalworks", "path": "spy-pipeline/client/index.html", "role": "SPY Pipeline dashboard (separate app)", "live_url": "https://spy-pipeline-rosie.pplx.app/" },
+
+    { "name": "main.py", "repo": "schwab", "path": "main.py", "role": "Schwab broker integration service (backend, not a page)", "live_url": null },
+    { "name": "main.py", "repo": "interactive", "path": "main.py", "role": "Interactive Brokers integration service (backend, not a page)", "live_url": null },
+
+    { "name": "generate_snapshot.py", "repo": "lime-web", "path": "admin-console/generate_snapshot.py", "role": "Admin Console \u2014 status snapshot generator (runs on a schedule)", "live_url": null },
+    { "name": "book-of-mysteries.json", "repo": "lime-web", "path": "book-of-mysteries.json", "role": "Book of Mysteries \u2014 daily Sage pop-up data source", "live_url": "https://limesignalworks.com/book-of-mysteries.json" }
+  ]
+}
