@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T14:37:55.221565+00:00",
+  "generated_at": "2026-07-17T16:13:30.713742+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "92bbdc1",
-          "message": "Add Flame: a subtle ember trail on the homepage that follows the visitor's attention (cursor, touch, or keyboard focus), respecting prefers-",
+          "sha": "973284f",
+          "message": "Keeper hero: trait below portrait, no name; 3 placeholder intro cells below CTA",
           "author": "nrini49",
-          "date": "2026-07-17T14:36:25Z"
+          "date": "2026-07-17T16:11:34Z"
         },
         {
-          "sha": "0860204",
-          "message": "Fix One Promise layout: move rotating Keeper portrait below the promise text (was beside it). Remove the 'Take me right to Rosie Interactive",
+          "sha": "8ef45f4",
+          "message": "Add breathing room below Rosie CTA button",
           "author": "nrini49",
-          "date": "2026-07-17T14:21:34Z"
+          "date": "2026-07-17T16:08:45Z"
         },
         {
-          "sha": "6922263",
-          "message": "Add keeper-hero rotating portrait + promise card + Rosie CTA; update Keepers 03/04/06 to new women",
+          "sha": "ae76da9",
+          "message": "Flame: speak mystery missions from Book of Mysteries every 3rd appearance",
           "author": "nrini49",
-          "date": "2026-07-17T14:14:31Z"
+          "date": "2026-07-17T16:00:29Z"
         },
         {
-          "sha": "13446aa",
-          "message": "Keep the 8 door-card portrait carousel (drop earlier fixed-mapping rule per Noal). Add visible Keeper-name caption synced to each 5s rotatio",
+          "sha": "64c2d16",
+          "message": "Rename 'Eight Harbor Doors' to 'The Harbor'; Flame jumps to section heading on expand",
           "author": "nrini49",
-          "date": "2026-07-17T14:06:55Z"
+          "date": "2026-07-17T15:58:30Z"
         },
         {
-          "sha": "8a152ae",
-          "message": "Add 'Introduction to the 33-Day Fire Protocol' section above Harbor Now: 3 collapsible cells laid out horizontally (Setup / Mitigation / Con",
+          "sha": "f750236",
+          "message": "CTA: center + divider separator + Keeper name label below portrait",
           "author": "nrini49",
-          "date": "2026-07-17T13:53:32Z"
+          "date": "2026-07-17T15:53:25Z"
         }
       ]
     },
@@ -67,6 +67,12 @@
       "repo": "nrini49/limesignalworks",
       "ok": true,
       "commits": [
+        {
+          "sha": "07280b6",
+          "message": "Add Rosie Way footer section: groups Harbor Watch with a new Admin Console public read-only widget (Harbor Now posting status, live site hea",
+          "author": "nrini49",
+          "date": "2026-07-17T14:42:14Z"
+        },
         {
           "sha": "0f2300e",
           "message": "Fix Sage popup close button colliding with the day counter (was visually unreadable/unclickable). Add a clear '<- Home' link to Rosie Intera",
@@ -90,12 +96,6 @@
           "message": "Restyle SPY Pipeline dashboard to Rosie spec: lime-on-navy palette + collapsible panels",
           "author": "Plex (LIME)",
           "date": "2026-07-16T21:49:49Z"
-        },
-        {
-          "sha": "309de97",
-          "message": "Rearrange header status items into the operator grid: live status + open account next to Rosie row, tick count + Harbor Watch next to Trade ",
-          "author": "Plex (LIME)",
-          "date": "2026-07-16T21:12:27Z"
         }
       ]
     },
