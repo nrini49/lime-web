@@ -628,7 +628,10 @@
 })();
 </script>
 
-<!-- Keeper hero portrait: single image rotating through all 8 Keepers, synced with the promise card -->
+<!-- Keeper hero portrait: single image rotating through all 38 Keepers, synced with the promise card.
+     11 Patriarchs (Adam through Abraham, carrying the promise made at the garden's edge) +
+     22 Fire Messengers (New Testament figures who proclaimed or witnessed that promise fulfilled) +
+     5 legacy Keepers kept in rotation alongside them (Solomon, Daniel, Esther, Ruth, David). -->
 <script>
 (function(){
   var ALL_KEEPERS = [
@@ -639,17 +642,77 @@
     { file: '05_daniel.webp', name: 'Daniel' },
     { file: '06_esther.webp', name: 'Esther' },
     { file: '07_ruth.webp', name: 'Ruth' },
-    { file: '08_david.webp', name: 'David' }
+    { file: '08_david.webp', name: 'David' },
+    { file: '09_adam.webp', name: 'Adam' },
+    { file: '10_seth.webp', name: 'Seth' },
+    { file: '11_enosh.webp', name: 'Enosh' },
+    { file: '12_kenan.webp', name: 'Kenan' },
+    { file: '13_mahalalel.webp', name: 'Mahalalel' },
+    { file: '14_jared.webp', name: 'Jared' },
+    { file: '15_enoch.webp', name: 'Enoch' },
+    { file: '16_methuselah.webp', name: 'Methuselah' },
+    { file: '17_lamech.webp', name: 'Lamech' },
+    { file: '18_noah.webp', name: 'Noah' },
+    { file: '19_abraham.webp', name: 'Abraham' },
+    { file: '20_john_the_baptist.webp', name: 'John the Baptist' },
+    { file: '21_simeon.webp', name: 'Simeon' },
+    { file: '22_anna.webp', name: 'Anna' },
+    { file: '23_mary_mother_of_jesus.webp', name: 'Mary, Mother of Jesus' },
+    { file: '24_elizabeth.webp', name: 'Elizabeth' },
+    { file: '25_andrew.webp', name: 'Andrew' },
+    { file: '26_james_zebedee.webp', name: 'James, Son of Zebedee' },
+    { file: '27_john_apostle.webp', name: 'John the Apostle' },
+    { file: '28_philip_evangelist.webp', name: 'Philip the Evangelist' },
+    { file: '29_stephen.webp', name: 'Stephen' },
+    { file: '30_paul.webp', name: 'Paul' },
+    { file: '31_barnabas.webp', name: 'Barnabas' },
+    { file: '32_timothy.webp', name: 'Timothy' },
+    { file: '33_silas.webp', name: 'Silas' },
+    { file: '34_lydia.webp', name: 'Lydia' },
+    { file: '35_priscilla.webp', name: 'Priscilla' },
+    { file: '36_aquila.webp', name: 'Aquila' },
+    { file: '37_apollos.webp', name: 'Apollos' },
+    { file: '38_cornelius.webp', name: 'Cornelius' }
   ];
   var KEEPER_TRAITS = {
-    '01_peter.webp':           'Stood at the gate. Denied. Returned. Held the position anyway.',
-    '02_solomon.webp':         'Asked for wisdom when he could have asked for anything else.',
-    '03_mary_magdalene.webp':  'First to the tomb. First to carry the news. Carried the signal when no one else did.',
-    '04_mary_of_bethany.webp': 'Chose the one thing. Sat at the feet when the room said get up and work.',
-    '05_daniel.webp':          'Read the room correctly every time. Never once adjusted the report to please the audience.',
-    '06_esther.webp':          'Held the position until the right moment. Did not move before the setup was clear.',
-    '07_ruth.webp':            'Stayed when leaving was the easier, more reasonable choice.',
-    '08_david.webp':           'Wrote songs in caves. Praised in the dark before the light arrived.'
+    '01_peter.webp':                 'Stood at the gate. Denied. Returned. Held the position anyway.',
+    '02_solomon.webp':               'Asked for wisdom when he could have asked for anything else.',
+    '03_mary_magdalene.webp':        'First to the tomb. First to carry the news. Carried the signal when no one else did.',
+    '04_mary_of_bethany.webp':       'Chose the one thing. Sat at the feet when the room said get up and work.',
+    '05_daniel.webp':                'Read the room correctly every time. Never once adjusted the report to please the audience.',
+    '06_esther.webp':                'Held the position until the right moment. Did not move before the setup was clear.',
+    '07_ruth.webp':                  'Stayed when leaving was the easier, more reasonable choice.',
+    '08_david.webp':                 'Wrote songs in caves. Praised in the dark before the light arrived.',
+    '09_adam.webp':                  'Carried the first promise out of the garden. Never once stopped believing it was still good.',
+    '10_seth.webp':                  'Was born after the fall and still walked with God anyway. Passed the line forward without dropping it.',
+    '11_enosh.webp':                 'Called on the name of the Lord when the whole world was going quiet. Kept the practice alive.',
+    '12_kenan.webp':                 'Left no recorded words behind. Only the fact that he did not break the chain.',
+    '13_mahalalel.webp':             'His name means praise of God \u2014 and that was the entire inheritance he left.',
+    '14_jared.webp':                 'Held the middle of the line. Neither the first nor the last, just faithful in between.',
+    '15_enoch.webp':                 'Walked so closely with God that he simply stopped needing to die.',
+    '16_methuselah.webp':            'Outlasted almost everyone he knew. Patience was the whole assignment.',
+    '17_lamech.webp':                'Named his son relief before relief had ever come. Believed the promise before he could see it.',
+    '18_noah.webp':                  'Built for a hundred years toward a rain no one else could see coming.',
+    '19_abraham.webp':               'Left everything he knew on the word of a promise with no proof yet attached to it.',
+    '20_john_the_baptist.webp':      'Wore camel\u2019s hair in the wilderness and pointed at someone else the entire time.',
+    '21_simeon.webp':                'Waited his whole life for one moment, then let go the second he held it.',
+    '22_anna.webp':                  'Never left the temple. Kept speaking the promise long after everyone stopped expecting it.',
+    '23_mary_mother_of_jesus.webp':  'Said yes to the impossible before anyone else in the story did.',
+    '24_elizabeth.webp':             'Recognized the sign the instant it walked into the room. No one had to tell her.',
+    '25_andrew.webp':                'Found the one thing worth having and immediately went to get his brother.',
+    '26_james_zebedee.webp':        'Left the boat, followed the call, and was the first apostle to pay for it in full.',
+    '27_john_apostle.webp':          'Stood at the foot of the cross when the others ran. Later saw fire in the eyes of the risen Christ.',
+    '28_philip_evangelist.webp':     'Ran when the Spirit said run. Explained scripture to a stranger in a chariot and never asked for credit.',
+    '29_stephen.webp':               'Kept preaching while the stones were already in the air.',
+    '30_paul.webp':                  'Was struck blind on the road and spent the rest of his life carrying light to people who never asked for it.',
+    '31_barnabas.webp':              'Was called Son of Encouragement \u2014 and lived up to the name every single time.',
+    '32_timothy.webp':               'Was told, directly, to fan into flame the gift he already had. Did not need a second instruction.',
+    '33_silas.webp':                 'Sang hymns in a locked cell with his feet still in chains.',
+    '34_lydia.webp':                 'Opened her house the moment she believed. Did not wait for permission.',
+    '35_priscilla.webp':             'Taught with precision, corrected gently, and never needed to be the loudest voice in the room.',
+    '36_aquila.webp':                'Stood next to Priscilla in every account. Steady is its own kind of ministry.',
+    '37_apollos.webp':               'Described, in scripture itself, as fervent in spirit. The fire was visible from the outside.',
+    '38_cornelius.webp':             'A Gentile soldier who received the same fire as the apostles \u2014 proof the promise had no borders left.'
   };
 
   var portrait = document.getElementById('kh-portrait');
@@ -685,27 +748,55 @@
 })();
 </script>
 
-<!-- Keeper portrait carousel: the 8 door cards draw from the full pool of
-     generated Keeper portraits and swap every 5 seconds, so the set keeps
-     rotating in real time as more Keepers are added later. Slots alternate
-     man/woman by card position (01 man, 02 woman, 03 man, ...) per Noal's
-     instruction (2026-07-17) so the grid always reads as a balanced mix. -->
+<!-- Keeper portrait carousel: the door cards draw from the full pool of
+     38 Keepers (11 Patriarchs + 22 Fire Messengers + 5 legacy Keepers) and
+     swap every 5 seconds, so the set keeps rotating in real time as more
+     portraits are generated later. Slots alternate man/woman by card
+     position (01 man, 02 woman, 03 man, ...) per Noal's instruction
+     (2026-07-17) so the grid always reads as a balanced mix. -->
 <script>
 (function(){
   var MEN = [
     { file: '01_peter.webp', name: 'Peter' },
     { file: '02_solomon.webp', name: 'Solomon' },
-    { file: '03_andrew.webp', name: 'Andrew' },
-    { file: '04_elijah.webp', name: 'Elijah' },
     { file: '05_daniel.webp', name: 'Daniel' },
-    { file: '06_joseph.webp', name: 'Joseph' },
-    { file: '08_david.webp', name: 'David' }
+    { file: '08_david.webp', name: 'David' },
+    { file: '09_adam.webp', name: 'Adam' },
+    { file: '10_seth.webp', name: 'Seth' },
+    { file: '11_enosh.webp', name: 'Enosh' },
+    { file: '12_kenan.webp', name: 'Kenan' },
+    { file: '13_mahalalel.webp', name: 'Mahalalel' },
+    { file: '14_jared.webp', name: 'Jared' },
+    { file: '15_enoch.webp', name: 'Enoch' },
+    { file: '16_methuselah.webp', name: 'Methuselah' },
+    { file: '17_lamech.webp', name: 'Lamech' },
+    { file: '18_noah.webp', name: 'Noah' },
+    { file: '19_abraham.webp', name: 'Abraham' },
+    { file: '20_john_the_baptist.webp', name: 'John the Baptist' },
+    { file: '21_simeon.webp', name: 'Simeon' },
+    { file: '25_andrew.webp', name: 'Andrew' },
+    { file: '26_james_zebedee.webp', name: 'James, Son of Zebedee' },
+    { file: '27_john_apostle.webp', name: 'John the Apostle' },
+    { file: '28_philip_evangelist.webp', name: 'Philip the Evangelist' },
+    { file: '29_stephen.webp', name: 'Stephen' },
+    { file: '30_paul.webp', name: 'Paul' },
+    { file: '31_barnabas.webp', name: 'Barnabas' },
+    { file: '32_timothy.webp', name: 'Timothy' },
+    { file: '33_silas.webp', name: 'Silas' },
+    { file: '36_aquila.webp', name: 'Aquila' },
+    { file: '37_apollos.webp', name: 'Apollos' },
+    { file: '38_cornelius.webp', name: 'Cornelius' }
   ];
   var WOMEN = [
     { file: '07_ruth.webp', name: 'Ruth' },
     { file: '03_mary_magdalene.webp', name: 'Mary Magdalene' },
     { file: '04_mary_of_bethany.webp', name: 'Mary of Bethany' },
-    { file: '06_esther.webp', name: 'Esther' }
+    { file: '06_esther.webp', name: 'Esther' },
+    { file: '22_anna.webp', name: 'Anna' },
+    { file: '23_mary_mother_of_jesus.webp', name: 'Mary, Mother of Jesus' },
+    { file: '24_elizabeth.webp', name: 'Elizabeth' },
+    { file: '34_lydia.webp', name: 'Lydia' },
+    { file: '35_priscilla.webp', name: 'Priscilla' }
   ];
   var slots = document.querySelectorAll('.keeper-portrait');
   if (!slots.length) return;
