@@ -85,6 +85,9 @@
     .nav{position:sticky;top:0;z-index:60;background:rgba(10,20,40,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
     .nav-inner{max-width:var(--content);margin:0 auto;padding:0 var(--space-6);height:64px;display:flex;align-items:center;gap:var(--space-5)}
     .brand{display:flex;align-items:center;gap:var(--space-3);margin-right:auto}
+    .brand:hover{color:var(--lime);text-decoration:underline;text-underline-offset:2px;transition:color var(--transition)}
+    .back{font-size:.9rem;color:var(--text-muted);text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:color var(--transition)}
+    .back:hover{color:var(--lime)}
     .brand svg{width:36px;height:36px;color:var(--lime);filter:drop-shadow(0 0 6px var(--lime-glow))}
     .brand-name{font-family:var(--font-display);font-weight:800;font-size:1.05rem;letter-spacing:-0.01em;line-height:1}
     .brand-name span{display:block;font-family:var(--font-body);font-weight:500;font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-top:3px}
@@ -384,6 +387,7 @@
       </svg>
       <div class="brand-name">Lime Signalworks<span>Harbor for family capital</span></div>
     </a>
+    <a href="../index.html" class="back">&larr; Back to the harbor</a>
     <div class="nav-links">
       <a href="#cockpit">Cockpit</a>
       <a href="#rules">The Rules</a>
