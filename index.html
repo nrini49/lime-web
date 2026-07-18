@@ -807,7 +807,6 @@
       shown = true;
       ember.classList.add('shown');
       setTimeout(say, 1400);
-      setInterval(say, 24000);
     }
   }
 
@@ -917,15 +916,17 @@
   }
   setInterval(sayRandomMystery, 600000);
 
-  // Random wandering (2026-07-18, Noal's instruction: "set him free") --
-  // Flame drifts to a genuinely random spot ANYWHERE on the page (full
-  // top+left range, not confined to the old right-edge rail column) on its
-  // own, on top of the deliberate section-tracking above. Opening a section
-  // still snaps it there instantly; wandering just resumes from the new spot
-  // afterward. Paused while docked at the footer so it doesn't drift out of
-  // the docked position. Margins keep the full speech bubble on-screen.
+  // Random wandering (2026-07-18, Noal's instruction: "set him free", then
+  // "remain in place long enough to read, ~3 minutes, change the quote each
+  // time he moves") -- Flame drifts to a genuinely random spot ANYWHERE on
+  // the page (full top+left range) roughly every 3 minutes, holding still
+  // the rest of the time so there's actually time to read. Each move fires
+  // a fresh say() so the quote changes right when he lands in the new spot.
+  // Opening a section still snaps him there instantly (with its own say());
+  // wandering just resumes from the new spot afterward. Paused while docked
+  // at the footer. Margins keep the full speech bubble on-screen.
   function wander() {
-    var delay = 5000 + Math.random() * 6000; // 5-11s, organic not metronomic
+    var delay = 170000 + Math.random() * 20000; // ~2:50-3:10, organic not metronomic
     setTimeout(function() {
       if (shown && !ember.classList.contains('docked')) {
         var minTop = 80, maxTop = window.innerHeight - 140;
@@ -933,6 +934,7 @@
         ember.style.top = (minTop + Math.random() * (maxTop - minTop)) + 'px';
         ember.style.bottom = 'auto';
         ember.style.left = (minLeft + Math.random() * Math.max(40, maxLeft - minLeft)) + 'px';
+        say();
       }
       wander();
     }, delay);
@@ -949,7 +951,6 @@
     ember.style.left = (window.innerWidth - 90) + 'px';
     ember.classList.add('shown');
     setTimeout(say, 1400);
-    setInterval(say, 24000);
   }
   showEmberNow();
 
