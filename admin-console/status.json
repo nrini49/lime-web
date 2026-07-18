@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T16:29:49.174335+00:00",
+  "generated_at": "2026-07-18T18:16:16.828537+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -10,9 +10,8 @@
     {
       "label": "Marketing site (limesignalworks.com)",
       "url": "https://limesignalworks.com/",
-      "status": null,
-      "ok": false,
-      "error": "The read operation timed out"
+      "status": 200,
+      "ok": true
     },
     {
       "label": "Rosie Interactive (limesignalworks.pplx.app)",
@@ -32,6 +31,12 @@
       "repo": "nrini49/lime-web",
       "ok": true,
       "commits": [
+        {
+          "sha": "e1dc968",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-18T16:30:01Z"
+        },
         {
           "sha": "23bb84f",
           "message": "Replace the visitor counter's backend: spy-pipeline-rosie.pplx.app has been stuck behind Perplexity's Organization-visibility gate since 202",
@@ -55,12 +60,6 @@
           "message": "Port Flame companion to metaphor-gate/index.html: adapted section anchors (What Metaphor Is, Why It Matters, Three Layers, How Leaders Speak",
           "author": "Perplexity Computer",
           "date": "2026-07-18T14:47:37Z"
-        },
-        {
-          "sha": "7b3a080",
-          "message": "Merge: resolve conflicts with a parallel session's header standardization (removed old standalone lime-translate-btn floating buttons in fav",
-          "author": "nrini49",
-          "date": "2026-07-18T14:35:21Z"
         }
       ]
     },
