@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T00:14:27.328308+00:00",
+  "generated_at": "2026-07-18T02:12:44.082736+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "b78b1c8",
-          "message": "Backfill missing Harbor Now reports for July 13 and July 14, 2026 -- both real weekday trading days with no archive entry. Pulled real SPY/Q",
+          "sha": "79bf8a5",
+          "message": "Add 9th Keeper portrait (Adam) to Wicket Gate rotation pool, matching 9 door cards exactly",
           "author": "nrini49",
-          "date": "2026-07-18T00:13:11Z"
+          "date": "2026-07-18T01:28:26Z"
         },
         {
-          "sha": "e82f42d",
-          "message": "Add an interpretation key to the Conclusion (Take a Breath) -- a compact two-column list showing each energy/manifestation term alongside it",
+          "sha": "18e5cbb",
+          "message": "Wicket Gate cards: slow portrait rotation to 30s, restrict pool to 8 Keepers with real image files to stop blank portraits",
           "author": "nrini49",
-          "date": "2026-07-18T00:05:10Z"
+          "date": "2026-07-18T01:19:24Z"
         },
         {
-          "sha": "a4bac91",
-          "message": "Remove remnants of the old per-language system: dead data-i18n attributes across index.html (I18N JS object was already gone, these were dea",
+          "sha": "17aae0c",
+          "message": "Fix Wicket Gate card heading sizes to match site-wide heading standard (text-base)",
           "author": "nrini49",
-          "date": "2026-07-17T23:58:20Z"
+          "date": "2026-07-18T01:14:46Z"
         },
         {
-          "sha": "0d8fa59",
-          "message": "Rewrite the Conclusion (Take a Breath) using Noal's revised raw text, with energy/manifestation language reinterpreted into neo-Christian eq",
+          "sha": "99f2b09",
+          "message": "Clarify offer text: access automatically ends on day 33 unless enrolled",
           "author": "nrini49",
-          "date": "2026-07-17T23:41:37Z"
+          "date": "2026-07-18T01:09:57Z"
         },
         {
-          "sha": "be4139e",
-          "message": "Conclusion chapter: rename 'Coming Soon' to 'Take a Breath'. Condense each sentence of the raw dictated text to its minimum size without los",
+          "sha": "065f869",
+          "message": "Expand Mitigation teaser with practice explanation + benefit; resize footer creed to match chapter heading size with top spacing",
           "author": "nrini49",
-          "date": "2026-07-17T23:23:29Z"
+          "date": "2026-07-18T01:04:28Z"
         }
       ]
     },
