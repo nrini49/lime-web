@@ -411,7 +411,7 @@
   <section class="part-a-conclusion">
     <div class="wrap">
       <details class="collapsible">
-        <summary class="sec-bar"><div class="chapter-num">Conclusion</div><h2>Coming soon</h2></summary>
+        <summary class="sec-bar"><div class="chapter-num">Conclusion</div><h2>Light My Fire</h2></summary>
         <div class="sec-body">
           <p style="color:var(--color-text-muted);">Reserved for Noal's closing note on Part A.</p>
         </div>
@@ -757,6 +757,25 @@
   var bubble = document.getElementById('emberBubble');
   if (!ember) return;
 
+  // Flame's horizontal roaming must stay within the text column itself
+  // (2026-07-18, Noal's instruction) -- no further left or right than the
+  // .wrap content area defines, not the full viewport. Measured live off a
+  // real .wrap element so it adapts correctly at every screen size.
+  // Skip the header's own .wrap (it has its own zero-padding layout) --
+  // use a real body-content .wrap so padding reads correctly below.
+  var contentWrap = document.querySelector('main .wrap, section .wrap');
+  function textColumnBounds() {
+    if (!contentWrap) return { left: 20, right: window.innerWidth - 20 };
+    var r = contentWrap.getBoundingClientRect();
+    var cs = getComputedStyle(contentWrap);
+    // .wrap's own box spans full viewport width below its max-width
+    // breakpoint -- the padding (not the box edge) is what actually
+    // defines the readable text column, so account for it explicitly.
+    var padLeft = parseFloat(cs.paddingLeft) || 0;
+    var padRight = parseFloat(cs.paddingRight) || 0;
+    return { left: r.left + padLeft, right: r.right - padRight };
+  }
+
   // Section-specific words — keyed to section id or class
   var sectionWords = {
     'keeper-hero':   'The promise is plain. No honest system guarantees results.',
@@ -805,7 +824,8 @@
     var midY = rect.top + rect.height / 2;
     var targetTop = Math.max(80, Math.min(window.innerHeight - 120, midY - 30));
     var gap = 10;
-    var targetLeft = Math.max(20, Math.min(window.innerWidth - 64, rect.right + gap));
+    var bounds = textColumnBounds();
+    var targetLeft = Math.max(bounds.left, Math.min(bounds.right - 64, rect.right + gap));
     ember.style.top = targetTop + 'px';
     ember.style.bottom = 'auto';
     ember.style.left = targetLeft + 'px';
@@ -813,7 +833,6 @@
       shown = true;
       ember.classList.add('shown');
       setTimeout(say, 1400);
-      setInterval(say, 24000);
     }
   }
 
@@ -923,22 +942,26 @@
   }
   setInterval(sayRandomMystery, 600000);
 
-  // Random wandering (2026-07-18, Noal's instruction: "set him free") --
-  // Flame drifts to a genuinely random spot ANYWHERE on the page (full
-  // top+left range, not confined to the old right-edge rail column) on its
-  // own, on top of the deliberate section-tracking above. Opening a section
-  // still snaps it there instantly; wandering just resumes from the new spot
-  // afterward. Paused while docked at the footer so it doesn't drift out of
-  // the docked position. Margins keep the full speech bubble on-screen.
+  // Random wandering (2026-07-18, Noal's instruction: "set him free", then
+  // "remain in place long enough to read, ~3 minutes, change the quote each
+  // time he moves") -- Flame drifts to a genuinely random spot ANYWHERE on
+  // the page (full top+left range) roughly every 3 minutes, holding still
+  // the rest of the time so there's actually time to read. Each move fires
+  // a fresh say() so the quote changes right when he lands in the new spot.
+  // Opening a section still snaps him there instantly (with its own say());
+  // wandering just resumes from the new spot afterward. Paused while docked
+  // at the footer. Margins keep the full speech bubble on-screen.
   function wander() {
-    var delay = 5000 + Math.random() * 6000; // 5-11s, organic not metronomic
+    var delay = 170000 + Math.random() * 20000; // ~2:50-3:10, organic not metronomic
     setTimeout(function() {
       if (shown && !ember.classList.contains('docked')) {
         var minTop = 80, maxTop = window.innerHeight - 140;
-        var minLeft = 120, maxLeft = window.innerWidth - 120;
+        var bounds = textColumnBounds();
+        var minLeft = bounds.left, maxLeft = bounds.right - 44;
         ember.style.top = (minTop + Math.random() * (maxTop - minTop)) + 'px';
         ember.style.bottom = 'auto';
         ember.style.left = (minLeft + Math.random() * Math.max(40, maxLeft - minLeft)) + 'px';
+        say();
       }
       wander();
     }, delay);
@@ -950,12 +973,12 @@
   function showEmberNow() {
     if (shown) return;
     shown = true;
+    var bounds = textColumnBounds();
     ember.style.top = (window.innerHeight / 2) + 'px';
     ember.style.bottom = 'auto';
-    ember.style.left = (window.innerWidth - 90) + 'px';
+    ember.style.left = (bounds.right - 44) + 'px';
     ember.classList.add('shown');
     setTimeout(say, 1400);
-    setInterval(say, 24000);
   }
   showEmberNow();
 
