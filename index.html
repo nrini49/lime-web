@@ -936,20 +936,18 @@
   }
   wander();
 
-  // Appear after first scroll
-  function checkEmber() {
+  // Appear immediately on page load (2026-07-18, Noal's instruction --
+  // Flame should be visible from the start, not only after scrolling).
+  function showEmberNow() {
     if (shown) return;
-    if (window.scrollY > 200) {
-      shown = true;
-      ember.style.top = (window.innerHeight / 2) + 'px';
-      ember.style.bottom = 'auto';
-      ember.classList.add('shown');
-      setTimeout(say, 1400);
-      setInterval(say, 24000);
-    }
+    shown = true;
+    ember.style.top = (window.innerHeight / 2) + 'px';
+    ember.style.bottom = 'auto';
+    ember.classList.add('shown');
+    setTimeout(say, 1400);
+    setInterval(say, 24000);
   }
-  window.addEventListener('scroll', checkEmber, { passive: true });
-  checkEmber();
+  showEmberNow();
 
   // Dock when footer is visible
   var footer = document.querySelector('footer');
