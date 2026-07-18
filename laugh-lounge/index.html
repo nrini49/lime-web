@@ -274,7 +274,7 @@
       : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'; }
     if (t) { t.innerHTML = icon(d==='dark'); t.addEventListener('click', () => { d = d==='dark'?'light':'dark'; r.setAttribute('data-theme', d); t.innerHTML = icon(d==='dark'); }); }
     var tr = document.querySelector('[data-translate]');
-    if (tr) { tr.addEventListener('click', function(){ window.open('https://translate.google.com/translate?sl=auto&tl=auto&u=' + encodeURIComponent(window.location.href), '_blank', 'noopener'); }); }
+    if (tr) { tr.addEventListener('click', function(){ var _tl = (navigator.language || navigator.userLanguage || 'es').split('-')[0]; window.open('https://translate.google.com/translate?sl=auto&tl=' + _tl + '&u=' + encodeURIComponent(window.location.href), '_blank', 'noopener'); }); }
   })();
 
   fetch("jokes.json")
