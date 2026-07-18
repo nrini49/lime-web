@@ -226,6 +226,12 @@
   details.collapsible > summary::-webkit-details-marker { display: none; }
   details.collapsible > summary h2, details.collapsible > summary h3 { font-size: var(--text-base); margin: 0; text-align: left; color: var(--color-text); font-weight: 400; grid-column: 2; }
   .chapter-num { font-family: var(--font-body); font-size: var(--text-xs); letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-muted); font-weight: 600; margin: 0; text-align: left; grid-column: 1; align-self: baseline; }
+  .part-label { max-width: 1080px; margin: 0 auto; padding: var(--space-8) var(--space-6) var(--space-2); }
+  .part-label .part-name { font-family: var(--font-body); font-size: var(--text-xs); letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-primary); font-weight: 700; margin: 0; }
+  .part-label .part-title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; color: var(--color-text); margin: var(--space-1) 0 0; }
+  .part-label .part-attribution { font-family: var(--font-display); font-size: var(--text-base); font-style: italic; color: var(--color-text-muted); margin: var(--space-1) 0 0; }
+  .part-label.pending { opacity: 0.7; }
+  .part-label.pending .part-title::after { content: " \2014 in progress"; font-style: italic; font-size: var(--text-base); color: var(--color-text-faint); }
   details.collapsible > summary .chev { grid-column: 3; }
   @media (max-width: 640px) { details.collapsible > summary { grid-template-columns: 1fr auto; grid-template-rows: auto auto; row-gap: var(--space-1); } .chapter-num { text-align: left; grid-column: 1; grid-row: 1; } details.collapsible > summary h2, details.collapsible > summary h3 { grid-column: 1; grid-row: 2; } details.collapsible > summary .chev { grid-column: 2; grid-row: 1 / 3; } }
   /* Founder heading stands apart -- one line, flush to the true left edge, everything else reads as subordinate to it */
@@ -288,6 +294,24 @@
 </header>
 
 <main>
+  <!-- Part A: the fintech product showcase, being built in a separate thread.
+       This is a placeholder marker only -- no content lives here yet on this
+       page. Do not build product cards here without confirming with the
+       other thread's current state first, to avoid duplicating or
+       conflicting with what's already in progress there (2026-07-18). -->
+  <div class="part-label pending">
+    <p class="part-name">Part A</p>
+    <p class="part-title">Precision Accurate AI Assisted Investing Platform</p>
+  </div>
+
+  <!-- Part B label, per Noal's instruction (2026-07-18) -- sits directly
+       above "From the Founder" / "Two Readers, One Door". -->
+  <div class="part-label">
+    <p class="part-name">Part B</p>
+    <p class="part-title">The Wicket Gate</p>
+    <p class="part-attribution">John Bunyan &mdash; Pilgrim's Progress</p>
+  </div>
+
   <!-- Founder's introduction. Not a numbered chapter; this is Noal speaking
        directly, before the book below. Collapsed by default like every other
        section -- Noal's standing instruction is that every section starts
