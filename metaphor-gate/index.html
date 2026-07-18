@@ -153,6 +153,25 @@
     .door-badge{width:52px;height:52px;font-size:1.4rem}
     .content-top{padding-top:var(--space-6)}
   }
+
+  /* ---------- Flame companion (ported from the homepage, 2026-07-18) ---------- */
+  @keyframes flicker{0%,100%{transform:scaleY(1) scaleX(1) rotate(-1deg)}25%{transform:scaleY(1.08) scaleX(0.96) rotate(1.5deg)}50%{transform:scaleY(0.94) scaleX(1.04) rotate(-0.5deg)}75%{transform:scaleY(1.05) scaleX(0.98) rotate(1deg)}}
+  @keyframes flickerGlow{0%,100%{opacity:0.5;transform:scale(1)}50%{opacity:0.8;transform:scale(1.15)}}
+  @keyframes wink{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(0.1)}}
+  @keyframes emberFadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .flame-rail{position:fixed;inset:0;z-index:60;pointer-events:none}
+  .ember{position:absolute;left:0;top:0;width:44px;height:60px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity 600ms ease,top 420ms cubic-bezier(0.34,1.56,0.64,1),left 420ms cubic-bezier(0.34,1.56,0.64,1)}
+  .ember.shown{opacity:1;pointer-events:auto}
+  .ember.shown svg{animation:emberFadeIn 1.2s ease forwards}
+  .ember.docked{opacity:0!important;pointer-events:none}
+  .ember svg{width:100%;height:100%;filter:drop-shadow(0 0 10px rgba(255,120,0,0.55))}
+  .ember .flame-body{transform-origin:center bottom;animation:flicker 2.4s ease-in-out infinite}
+  .ember .flame-glow{transform-origin:center bottom;animation:flickerGlow 3.1s ease-in-out infinite}
+  .ember .eye{animation:wink 5s ease-in-out infinite}
+  .ember-bubble{position:absolute;left:50%;bottom:calc(100% + 14px);transform:translateX(-50%) translateY(8px) scale(0.9);width:220px;min-width:180px;max-width:220px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:12px;padding:0.7rem 0.9rem;font-size:0.82rem;line-height:1.45;color:var(--color-text);box-shadow:0 8px 24px rgba(0,0,0,0.18);opacity:0;pointer-events:none;transition:all 280ms cubic-bezier(0.16,1,0.3,1);z-index:59}
+  .ember.show .ember-bubble{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}
+  .ember-bubble::after{content:"";position:absolute;left:50%;bottom:-6px;width:12px;height:12px;background:var(--color-surface);border-right:1px solid var(--color-border);border-top:1px solid var(--color-border);transform:translateX(-50%) rotate(135deg)}
+  @media(max-width:560px){.ember{width:32px;height:44px}.ember-bubble{width:160px;min-width:140px}}
 </style>
 </head>
 <body>
@@ -348,5 +367,171 @@
 (function(){const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;let d='dark';r.setAttribute('data-theme',d);function icon(dark){return dark?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';}if(t){t.innerHTML=icon(d==='dark');t.addEventListener('click',()=>{d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);t.innerHTML=icon(d==='dark');});}})();
 </script>
 <script>(function(){var tr=document.querySelector('[data-translate]');if(tr){tr.addEventListener('click',function(){window.open('https://translate.google.com/translate?sl=auto&tl=auto&u='+encodeURIComponent(window.location.href),'_blank','noopener');});}})();</script>
+
+<div class="flame-rail" id="flame-rail">
+  <div class="ember" id="ember" role="button" tabindex="0" aria-label="Flame — the harbor's companion">
+    <svg viewBox="0 0 54 74" fill="none" aria-hidden="true">
+      <ellipse class="flame-glow" cx="27" cy="60" rx="22" ry="8" fill="#FF4500" opacity="0.25"/>
+      <path class="flame-body" d="M27 8 C20 18 14 26 14 40 a13 13 0 0 0 26 0 c0-9-5-16-9-24 -2 5-5 6-5 2 0-3 1-6 1-10 z" fill="url(#flameGradMG)"/>
+      <circle cx="22" cy="42" r="2.4" fill="#0A1428" class="eye"/>
+      <circle cx="32" cy="42" r="2.4" fill="#0A1428" class="eye"/>
+      <path d="M23 48 Q27 51 31 48" stroke="#0A1428" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      <defs>
+        <linearGradient id="flameGradMG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#FFD27A"/>
+          <stop offset="0.5" stop-color="#FF8A2A"/>
+          <stop offset="1" stop-color="#FF4500"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <div class="ember-bubble" id="emberBubble">Learning to hear what is actually being said.</div>
+  </div>
+</div><!-- /flame-rail -->
+
+<script>
+(function(){
+  var ember = document.getElementById('ember');
+  var bubble = document.getElementById('emberBubble');
+  if (!ember) return;
+
+  // Flame's roaming stays within the text column (.wrap in main), same rule
+  // as the homepage version.
+  var contentWrap = document.querySelector('main .wrap');
+  function textColumnBounds() {
+    if (!contentWrap) return { left: 20, right: window.innerWidth - 20 };
+    var r = contentWrap.getBoundingClientRect();
+    var cs = getComputedStyle(contentWrap);
+    var padLeft = parseFloat(cs.paddingLeft) || 0;
+    var padRight = parseFloat(cs.paddingRight) || 0;
+    return { left: r.left + padLeft, right: r.right - padRight };
+  }
+
+  // Anchor points tied to this page's own seven numbered sections plus the
+  // closing declaration and CTA -- a short line of Flame's own per anchor.
+  var anchorWords = [
+    ['1. What Metaphor Is', 'Strip the image away and you get silence, not the plain truth.'],
+    ['2. Why It Matters For LIME', 'Harbor. Fire. The Ark. Load-bearing, not decorative.'],
+    ['3. Three Layers of Metaphor', 'Surface. Structure. Living application. Walk all three.'],
+    ['4. How Leaders Speak In Metaphor', 'Listen for what plain language would have cost them to say.'],
+    ['5. Scripture and Metaphor', 'Enter the image. Metaphor is entered, not decoded like a puzzle.'],
+    ['6. The Self-Diagnostic', 'Does this meaning ask anything of you today? That is the real test.']
+  ];
+  var anchors = [];
+  document.querySelectorAll('h2.section-title').forEach(function(h){
+    for (var i = 0; i < anchorWords.length; i++) {
+      if (h.textContent.indexOf(anchorWords[i][0]) !== -1) { anchors.push({ el: h, word: anchorWords[i][1] }); break; }
+    }
+  });
+  var closingEl = document.querySelector('.closing');
+  if (closingEl) anchors.push({ el: closingEl, word: 'The ship truth arrives in. Read it, don\u2019t just admire it.' });
+  var ctaEl = document.querySelector('.cta');
+  if (ctaEl) anchors.push({ el: ctaEl, word: 'Ready to go deeper? The fire is kept in the next room.' });
+
+  var currentWord = 'Learning to hear what is actually being said.';
+  var shown = false;
+  var sayTimer = null;
+
+  function moveTo(el, align) {
+    var rect = el.getBoundingClientRect();
+    var midY = rect.top + rect.height / 2;
+    var targetTop = Math.max(80, Math.min(window.innerHeight - 120, midY - 30));
+    var bounds = textColumnBounds();
+    var targetLeft = align === 'left'
+      ? Math.max(bounds.left, Math.min(bounds.right - 64, rect.left - 54))
+      : Math.max(bounds.left, Math.min(bounds.right - 64, rect.right + 10));
+    ember.style.top = targetTop + 'px';
+    ember.style.bottom = 'auto';
+    ember.style.left = targetLeft + 'px';
+    if (!shown) { shown = true; ember.classList.add('shown'); setTimeout(say, 1400); }
+  }
+
+  function say() {
+    bubble.textContent = currentWord;
+    ember.classList.add('show');
+    clearTimeout(sayTimer);
+    sayTimer = setTimeout(function(){ ember.classList.remove('show'); }, 18000);
+  }
+
+  ember.addEventListener('click', say);
+  ember.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); say(); }
+  });
+
+  // Snap to whichever <details> the reader opens, speaking the nearest
+  // preceding anchor's word.
+  document.querySelectorAll('main details').forEach(function(det){
+    det.addEventListener('toggle', function(){
+      if (!det.open) return;
+      var summary = det.querySelector('summary');
+      if (!summary) return;
+      var detRect = det.getBoundingClientRect();
+      var best = null, bestDist = Infinity;
+      anchors.forEach(function(a){
+        var d = detRect.top - a.el.getBoundingClientRect().top;
+        if (d >= -40 && d < bestDist) { bestDist = d; best = a; }
+      });
+      if (best) currentWord = best.word;
+      setTimeout(function(){ moveTo(summary, 'right'); setTimeout(say, 150); }, 30);
+    });
+  });
+
+  // Passive scroll tracking between the numbered anchors.
+  window.addEventListener('scroll', function(){
+    if (!shown || !anchors.length) return;
+    var best = null, bestDist = Infinity;
+    anchors.forEach(function(a){
+      var rect = a.el.getBoundingClientRect();
+      var dist = Math.abs(rect.top - window.innerHeight * 0.3);
+      if (dist < bestDist) { bestDist = dist; best = a; }
+    });
+    if (best) { currentWord = best.word; moveTo(best.el, 'right'); }
+  }, { passive: true });
+
+  // Random wandering, roughly every 3 minutes, holding still the rest of
+  // the time -- same cadence as the homepage.
+  function wander(){
+    var delay = 170000 + Math.random() * 20000;
+    setTimeout(function(){
+      if (shown && !ember.classList.contains('docked')) {
+        var minTop = 80, maxTop = window.innerHeight - 140;
+        var bounds = textColumnBounds();
+        var minLeft = bounds.left, maxLeft = bounds.right - 44;
+        ember.style.top = (minTop + Math.random() * (maxTop - minTop)) + 'px';
+        ember.style.bottom = 'auto';
+        ember.style.left = (minLeft + Math.random() * Math.max(40, maxLeft - minLeft)) + 'px';
+        say();
+      }
+      wander();
+    }, delay);
+  }
+  wander();
+
+  // Appear immediately, positioned beside the door badge/keeper portrait.
+  function showEmberNow(){
+    if (shown) return;
+    shown = true;
+    var bounds = textColumnBounds();
+    ember.style.top = '140px';
+    ember.style.bottom = 'auto';
+    ember.style.left = (bounds.right - 44) + 'px';
+    ember.classList.add('shown');
+    setTimeout(say, 1400);
+  }
+  showEmberNow();
+
+  // Dock when the footer is visible.
+  var footer = document.querySelector('footer');
+  if (footer && 'IntersectionObserver' in window) {
+    var footIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { ember.classList.add('docked'); ember.classList.remove('show'); }
+        else if (shown) { ember.classList.remove('docked'); }
+      });
+    }, { threshold: 0.2 });
+    footIO.observe(footer);
+  }
+})();
+</script>
+
 </body>
 </html>
