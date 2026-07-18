@@ -235,13 +235,12 @@
   details.collapsible > summary .chev { grid-column: 3; }
   @media (max-width: 640px) { details.collapsible > summary { grid-template-columns: 1fr auto; grid-template-rows: auto auto; row-gap: var(--space-1); } .chapter-num { text-align: left; grid-column: 1; grid-row: 1; } details.collapsible > summary h2, details.collapsible > summary h3 { grid-column: 1; grid-row: 2; } details.collapsible > summary .chev { grid-column: 2; grid-row: 1 / 3; } }
   /* Founder heading stands apart -- one line, flush to the true left edge, everything else reads as subordinate to it */
-  .founder-intro summary { grid-template-columns: 1fr auto !important; grid-template-rows: auto auto auto auto; row-gap: var(--space-1); max-width: none; }
+  .founder-intro summary { grid-template-columns: 1fr auto !important; grid-template-rows: auto auto auto; row-gap: var(--space-1); max-width: none; }
   .founder-intro .chapter-num { grid-column: 1 !important; grid-row: 1; text-align: left !important; }
   .founder-intro summary h2 { grid-column: 1 !important; grid-row: 2; white-space: nowrap; font-size: var(--text-xl) !important; text-align: left !important; }
-  .founder-intro .founder-subtitle { grid-column: 1; grid-row: 3; font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; color: var(--color-text); text-align: left; }
-  .founder-intro .founder-tagline { grid-column: 1; grid-row: 4; font-family: var(--font-display); font-size: var(--text-base); font-style: italic; color: var(--color-text-muted); text-align: left; }
-  .founder-intro summary .chev { grid-column: 2; grid-row: 1 / 5; }
-  @media (max-width: 640px) { .founder-intro summary h2 { font-size: var(--text-lg) !important; white-space: normal; } .founder-intro .founder-subtitle { font-size: var(--text-lg); } }
+  .founder-intro .founder-tagline { grid-column: 1; grid-row: 3; font-family: var(--font-display); font-size: var(--text-base); font-style: italic; color: var(--color-text-muted); text-align: left; }
+  .founder-intro summary .chev { grid-column: 2; grid-row: 1 / 4; }
+  @media (max-width: 640px) { .founder-intro summary h2 { font-size: var(--text-lg) !important; white-space: normal; } }
   .book-intro { max-width: 640px; margin: 0 auto; padding: var(--space-10) 0 var(--space-4); text-align: center; color: var(--color-text-muted); font-size: var(--text-base); line-height: 1.6; }
   #harbor-now .wrap > details.collapsible + details.collapsible { margin-top: 0; }
   details.collapsible > summary .chev { color: var(--color-text-muted); transition: transform var(--transition-interactive); flex: 0 0 auto; }
@@ -322,7 +321,7 @@
   <section class="founder-intro">
     <div class="wrap">
       <details class="collapsible">
-        <summary class="sec-bar"><div class="chapter-num">From the Founder</div><h2>Two Readers, One Door</h2><div class="founder-subtitle">Lime Signalworks, LLC</div><div class="founder-tagline">&hellip; enter through the Wicket Gate</div><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><div class="chapter-num">From the Founder</div><h2>Two Readers, One Door</h2><div class="founder-tagline">&hellip; enter through the Wicket Gate</div><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <div class="promise-card">
             <p>Every deep truth arrives wrapped in metaphor &mdash; that's not decoration, it's translation. Metaphor lets meaning cross between frameworks without asking either side to abandon its own: the reader who thinks in scripture doesn't have to set faith aside, and the reader who thinks in energy, evidence, or neither doesn't have to adopt one either. This site is built to open the same door to both at once. You shouldn't need a concordance to follow what's here, and you shouldn't have to leave your reason at the door either. What's offered should be plain enough to explain and grounded enough to test.</p>
