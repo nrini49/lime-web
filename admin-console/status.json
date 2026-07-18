@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T20:25:46.350164+00:00",
+  "generated_at": "2026-07-18T22:25:41.964623+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "fdebde0",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-18T20:25:54Z"
+        },
+        {
           "sha": "ad7dee1",
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Fix Seed (Door 02) design drift: move translate button into the nav bar alongside a new theme toggle (matching the hdr-tools pattern everywh",
           "author": "Perplexity Computer",
           "date": "2026-07-18T15:09:43Z"
-        },
-        {
-          "sha": "2d136d5",
-          "message": "Merge: resolve concurrent edits (Flame port to metaphor-gate + translate URL fix from parallel session)",
-          "author": "Perplexity Computer",
-          "date": "2026-07-18T14:48:03Z"
         }
       ]
     },
