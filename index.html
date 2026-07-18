@@ -755,11 +755,19 @@
   // (2026-07-18, Noal's instruction) -- no further left or right than the
   // .wrap content area defines, not the full viewport. Measured live off a
   // real .wrap element so it adapts correctly at every screen size.
-  var contentWrap = document.querySelector('.wrap');
+  // Skip the header's own .wrap (it has its own zero-padding layout) --
+  // use a real body-content .wrap so padding reads correctly below.
+  var contentWrap = document.querySelector('main .wrap, section .wrap');
   function textColumnBounds() {
     if (!contentWrap) return { left: 20, right: window.innerWidth - 20 };
     var r = contentWrap.getBoundingClientRect();
-    return { left: r.left, right: r.right };
+    var cs = getComputedStyle(contentWrap);
+    // .wrap's own box spans full viewport width below its max-width
+    // breakpoint -- the padding (not the box edge) is what actually
+    // defines the readable text column, so account for it explicitly.
+    var padLeft = parseFloat(cs.paddingLeft) || 0;
+    var padRight = parseFloat(cs.paddingRight) || 0;
+    return { left: r.left + padLeft, right: r.right - padRight };
   }
 
   // Section-specific words — keyed to section id or class
