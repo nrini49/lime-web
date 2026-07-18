@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T14:17:31.965612+00:00",
+  "generated_at": "2026-07-18T16:29:49.174335+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -10,14 +10,15 @@
     {
       "label": "Marketing site (limesignalworks.com)",
       "url": "https://limesignalworks.com/",
-      "status": 200,
-      "ok": true
+      "status": null,
+      "ok": false,
+      "error": "The read operation timed out"
     },
     {
       "label": "Rosie Interactive (limesignalworks.pplx.app)",
       "url": "https://limesignalworks.pplx.app/",
-      "status": 200,
-      "ok": true
+      "status": 401,
+      "ok": false
     },
     {
       "label": "SPY Pipeline (spy-pipeline-rosie.pplx.app)",
@@ -32,34 +33,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "1bcecbb",
-          "message": "Merge: metaphor-gate rebuild + parallel fire-spirit language cleanup",
+          "sha": "23bb84f",
+          "message": "Replace the visitor counter's backend: spy-pipeline-rosie.pplx.app has been stuck behind Perplexity's Organization-visibility gate since 202",
           "author": "Perplexity Computer",
-          "date": "2026-07-18T13:59:40Z"
+          "date": "2026-07-18T15:35:56Z"
         },
         {
-          "sha": "e564314",
-          "message": "Rebuild Metaphor Gate page to match the standard sub-page format (Instrument Serif/General Sans, dark/light theme toggle, standard header/fo",
+          "sha": "9fe7820",
+          "message": "Fix Seed (Door 02) design drift: move translate button into the nav bar alongside a new theme toggle (matching the hdr-tools pattern everywh",
           "author": "Perplexity Computer",
-          "date": "2026-07-18T13:59:35Z"
+          "date": "2026-07-18T15:09:43Z"
         },
         {
-          "sha": "f88d38e",
-          "message": "Merge branch 'main' of https://git-agent-proxy.perplexity.ai/nrini49/lime-web",
+          "sha": "2d136d5",
+          "message": "Merge: resolve concurrent edits (Flame port to metaphor-gate + translate URL fix from parallel session)",
+          "author": "Perplexity Computer",
+          "date": "2026-07-18T14:48:03Z"
+        },
+        {
+          "sha": "df41e03",
+          "message": "Port Flame companion to metaphor-gate/index.html: adapted section anchors (What Metaphor Is, Why It Matters, Three Layers, How Leaders Speak",
+          "author": "Perplexity Computer",
+          "date": "2026-07-18T14:47:37Z"
+        },
+        {
+          "sha": "7b3a080",
+          "message": "Merge: resolve conflicts with a parallel session's header standardization (removed old standalone lime-translate-btn floating buttons in fav",
           "author": "nrini49",
-          "date": "2026-07-18T13:58:02Z"
-        },
-        {
-          "sha": "edd907f",
-          "message": "Remove the Language Rollout section, its nav link, and its dead CSS from fire-spirit/index.html, per Noal's instruction: nothing foreign-lan",
-          "author": "nrini49",
-          "date": "2026-07-18T13:58:01Z"
-        },
-        {
-          "sha": "bfd5940",
-          "message": "Merge: resolve concurrent index.html edits (flame roaming + mission copy placement)",
-          "author": "Perplexity Computer",
-          "date": "2026-07-18T13:54:48Z"
+          "date": "2026-07-18T14:35:21Z"
         }
       ]
     },
@@ -68,34 +69,34 @@
       "ok": true,
       "commits": [
         {
+          "sha": "f6f93e3",
+          "message": "Revert operator buttons (Power/Rosie/Guard/Trade) to always-visible on the Rosie demo, per Noal's instruction -- this is a demo meant to loo",
+          "author": "Plex (LIME)",
+          "date": "2026-07-18T15:27:40Z"
+        },
+        {
+          "sha": "ca9d7f4",
+          "message": "Fix header layout regression: hiding the 4 admin-only operator buttons (Power/Rosie/Guard/Trade) left gaps in the old shared 5-column op-gri",
+          "author": "Plex (LIME)",
+          "date": "2026-07-18T14:51:11Z"
+        },
+        {
+          "sha": "52f426e",
+          "message": "Merge branch 'master' of https://git-agent-proxy.perplexity.ai/nrini49/limesignalworks",
+          "author": "Plex (LIME)",
+          "date": "2026-07-18T14:43:20Z"
+        },
+        {
+          "sha": "540833c",
+          "message": "Trade Ticket now cycles every 30 seconds instead of 12, per Noal's report -- each buy/sell signal was disappearing too fast to read. Verifie",
+          "author": "Plex (LIME)",
+          "date": "2026-07-18T14:43:20Z"
+        },
+        {
           "sha": "2fe27d0",
           "message": "Security fix: escape GitHub API data before innerHTML in Repo Browser (XSS hardening)",
           "author": "Perplexity Computer",
           "date": "2026-07-18T13:42:24Z"
-        },
-        {
-          "sha": "82f7828",
-          "message": "Admin Console: add Repo Browser for lime-web (recent commits + full file tree, read-only via GitHub public API)",
-          "author": "Perplexity Computer",
-          "date": "2026-07-18T13:40:05Z"
-        },
-        {
-          "sha": "54db25f",
-          "message": "Restrict Power/Rosie/Guard/Trade operator toggles to administrators only, reusing the existing ?operator=1 admin-view convention. Inner circ",
-          "author": "Plex (LIME)",
-          "date": "2026-07-18T12:25:18Z"
-        },
-        {
-          "sha": "0da464f",
-          "message": "Rename 'Rosie Interactive' to 'Rosie AI Trading Assistant' in the page title, header brand, and footer note. Expand the top banner message t",
-          "author": "Plex (LIME)",
-          "date": "2026-07-17T22:50:55Z"
-        },
-        {
-          "sha": "e088f17",
-          "message": "Change top banner wording -- introduce Rosie as the AI trading assistant and explain what it does, no mention of Interactive Brokers yet (pe",
-          "author": "Plex (LIME)",
-          "date": "2026-07-17T22:47:49Z"
         }
       ]
     },
