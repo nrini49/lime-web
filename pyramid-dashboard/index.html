@@ -1,73 +1,82 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>LIME Signalworks — Situation Report</title>
-<meta name="description" content="The Pyramid module has been retired. A new orchestrator model is on the way." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Situation Report — Lime Signalworks</title>
+<meta name="description" content="The Pyramid module has been retired. A new orchestrator model is on the way.">
+<link rel="canonical" href="https://limesignalworks.com/pyramid-dashboard/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://limesignalworks.com/pyramid-dashboard/">
+<meta property="og:title" content="Situation Report — Lime Signalworks">
+<meta property="og:description" content="The Pyramid module has been retired. A new orchestrator model is on the way.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0b1020; --surface:#0f1830; --surface-2:#13203f; --border:#1f2f55; --border-strong:#2c3f6b;
-    --lime:#00FF7F; --lime-glow:rgba(0,255,127,0.45); --lime-soft:rgba(0,255,127,0.12);
-    --text:#f2f6ff; --text-muted:#9fb0d4;
-    --font-display:'Cabinet Grotesk',system-ui,sans-serif; --font-body:'Satoshi',system-ui,sans-serif;
-    --radius:14px; --radius-full:999px;
+  :root {
+    --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem); --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+    --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem); --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+    --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem); --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.25rem);
+    --space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;
+    --radius-sm:0.375rem;--radius-md:0.5rem;--radius-lg:0.75rem;--radius-xl:1rem;--radius-full:9999px;
+    --transition-interactive:180ms cubic-bezier(0.16,1,0.3,1);
+    --font-display:'Instrument Serif',Georgia,serif; --font-body:'General Sans','Helvetica Neue',sans-serif;
   }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth;background:var(--bg)}
-  body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;
-    background-image:radial-gradient(900px 520px at 82% -8%, rgba(0,255,127,0.08), transparent 60%);}
-  .wrap{max-width:720px;margin:0 auto;padding:0 1.5rem}
-  header.bar{position:sticky;top:0;z-index:60;background:rgba(11,16,32,0.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-  .bar-inner{max-width:1180px;margin:0 auto;padding:0 1.5rem;height:60px;display:flex;align-items:center;gap:.75rem}
-  .icon-btn{margin-left:auto;display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer}
-  .icon-btn:hover{color:var(--lime);border-color:var(--lime)}
-  .brand{display:flex;align-items:center;gap:.75rem;margin-right:auto;text-decoration:none;color:var(--text)}
-  .brand:hover{color:var(--lime);text-decoration:underline;text-underline-offset:2px;transition:color .2s}
-  .brand svg{width:28px;height:28px;color:var(--lime);filter:drop-shadow(0 0 6px var(--lime-glow))}
-  .b-name{font-family:var(--font-display);font-weight:800;font-size:.98rem}
-  .back{font-size:.85rem;color:var(--text-muted);text-decoration:none;display:flex;align-items:center;gap:.35rem}
-  .back:hover{color:var(--text)}
-  main{padding:4rem 0 6rem}
-  .kicker{font-family:var(--font-body);font-size:.7rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--lime)}
-  h1{font-family:var(--font-display);font-weight:800;font-size:clamp(1.9rem,4.4vw,2.5rem);line-height:1.1;letter-spacing:-.02em;margin:.75rem 0 1.2rem}
-  .lime-word{color:var(--lime);text-shadow:0 0 18px var(--lime-glow)}
-  p{color:var(--text-muted);font-size:1.02rem;margin-bottom:1rem}
-  .panel{background:linear-gradient(180deg,var(--surface),var(--surface-2));border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-top:2rem}
-  .panel h2{font-family:var(--font-display);font-weight:700;font-size:1rem;margin-bottom:.6rem;color:var(--text)}
-  .panel p{margin-bottom:0;font-size:.92rem}
-  .home-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:2rem;color:var(--lime);text-decoration:none;font-weight:700;font-size:.92rem}
-  .home-link:hover{text-shadow:0 0 10px var(--lime-glow)}
+  :root,[data-theme="dark"]{--color-bg:#0a131c;--color-surface:#0f1c28;--color-surface-2:#142433;--color-border:#1f3346;--color-divider:#1a2c3c;--color-text:#e6edf2;--color-text-muted:#8fa3b3;--color-text-faint:#5d7286;--color-primary:#9ad14a;--color-primary-hover:#b4e06a;--color-primary-soft:rgba(154,209,74,0.12);--color-beam:#e8b659;--shadow-md:0 4px 24px rgba(0,0,0,0.35);}
+  [data-theme="light"]{--color-bg:#e7e3dd;--color-surface:#ffffff;--color-surface-2:#f7faf8;--color-border:#dbe4dd;--color-divider:#e4ece6;--color-text:#15241c;--color-text-muted:#56685e;--color-text-faint:#8a9c92;--color-primary:#4f7a1f;--color-primary-hover:#3d6017;--color-primary-soft:rgba(79,122,31,0.10);--color-beam:#b07d1f;--shadow-md:0 4px 24px rgba(20,40,28,0.08);}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;}
+  body{min-height:100dvh;line-height:1.6;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg);}
+  a,button{transition:color var(--transition-interactive),background var(--transition-interactive),border-color var(--transition-interactive),box-shadow var(--transition-interactive);}
+  h1,h2,h3{text-wrap:balance;line-height:1.15;font-family:var(--font-display);font-weight:400;letter-spacing:-0.01em;}
+  p{text-wrap:pretty;max-width:70ch;}
+  :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm);}
+  .wrap{max-width:760px;margin:0 auto;padding:0 var(--space-6);}
+  header{position:sticky;top:0;z-index:10;backdrop-filter:blur(12px);background:color-mix(in oklab,var(--color-bg) 82%,transparent);border-bottom:1px solid var(--color-divider);}
+  .hdr{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0;}
+  .back{display:inline-flex;align-items:center;gap:var(--space-2);text-decoration:none;color:var(--color-text-muted);font-size:var(--text-sm);font-weight:500;}
+  .back:hover{color:var(--color-primary);}
+  .brand{font-family:var(--font-body);font-weight:600;font-size:var(--text-base);color:var(--color-text);text-decoration:none;}
+  .brand b{font-weight:700;color:var(--color-primary);}
+  .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:var(--radius-full);border:1px solid var(--color-border);color:var(--color-text-muted);background:var(--color-surface);cursor:pointer;}
+  .icon-btn:hover{color:var(--color-text);border-color:var(--color-primary);}
+  .hdr-tools{display:flex;align-items:center;gap:var(--space-2);}
+  main{padding:clamp(var(--space-16),8vw,var(--space-24)) 0 var(--space-24);}
+  .kicker{font-size:var(--text-xs);letter-spacing:0.22em;text-transform:uppercase;color:var(--color-primary);font-weight:600;margin-bottom:var(--space-5);}
+  h1{font-size:var(--text-2xl);margin-bottom:var(--space-5);max-width:20ch;}
+  .lime-word{color:var(--color-primary);}
+  p{font-size:var(--text-lg);color:var(--color-text-muted);margin-bottom:var(--space-4);}
+  .panel{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:clamp(var(--space-6),4vw,var(--space-8));margin-top:var(--space-8);}
+  .panel h2{font-size:var(--text-xl);margin-bottom:var(--space-3);color:var(--color-text);}
+  .panel p{margin-bottom:0;font-size:var(--text-base);}
+  .home-link{display:inline-flex;align-items:center;gap:var(--space-2);margin-top:var(--space-8);color:var(--color-primary);text-decoration:none;font-weight:600;font-size:var(--text-base);}
+  .home-link:hover{text-decoration:underline;text-underline-offset:3px;}
+  footer{border-top:1px solid var(--color-divider);padding:var(--space-12) 0;background:var(--color-surface);}
+  .foot{text-align:center;font-size:var(--text-sm);color:var(--color-text-muted);}
+  .foot a{color:var(--color-text-muted);text-decoration:none;border-bottom:1px solid var(--color-border);}
+  .foot a:hover{color:var(--color-primary);border-color:var(--color-primary);}
 </style>
 </head>
 <body>
-<button id="lime-translate-btn" aria-label="Translate this page" style="position:fixed;top:14px;right:14px;z-index:999;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);background:rgba(20,20,20,0.85);color:#eee;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(6px);">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-</button>
-<script>
-  document.getElementById('lime-translate-btn').addEventListener('click', function(){
-    window.open('https://translate.google.com/translate?sl=auto&tl=auto&u=' + encodeURIComponent(window.location.href), '_blank', 'noopener');
-  });
-</script>
-
-  <header class="bar">
-    <div class="bar-inner">
-      <a class="brand" href="../index.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2 2 20h20L12 2Z"/></svg>
-        <span class="b-name">Lime Signalworks</span>
-      </a>
-      <a href="../index.html" class="back">&larr; Back to the harbor</a>
+<header><div class="wrap hdr">
+  <a class="back" href="../index.html">← <span>Back to the harbor</span></a>
+  <a class="brand" href="../index.html" aria-label="Lime Signalworks home">Lime <b>Signalworks</b></a>
+  <div class="hdr-tools">
       <button class="icon-btn" data-translate aria-label="Translate this page">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </button>
+      <button class="icon-btn" data-theme-toggle aria-label="Switch theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
       </button>
     </div>
-  </header>
-  <script>(function(){var tr=document.querySelector("[data-translate]");if(tr){tr.addEventListener("click",function(){window.open('https://translate.google.com/translate?sl=auto&tl=auto&u='+encodeURIComponent(window.location.href),"_blank","noopener");});}})();</script>
-
-  <main class="wrap">
+</div></header>
+<main>
+  <div class="wrap">
     <p class="kicker">Situation Report</p>
     <h1>The Pyramid module is <span class="lime-word">retired.</span></h1>
     <p>The canon-locked Pyramid tactics layer — per-leg tracking, the 1.1x cap, structure stops, the state gate — has been closed out altogether. It is being replaced by an orchestrator model.</p>
@@ -79,6 +88,14 @@
     </div>
 
     <a class="home-link" href="../index.html">← Back to Lime Signalworks</a>
-  </main>
+  </div>
+</main>
+<footer><div class="wrap foot">
+  <a href="../index.html">← Return to the harbor</a>
+</div></footer>
+<script>
+(function(){const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;let d='dark';r.setAttribute('data-theme',d);function icon(dark){return dark?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';}if(t){t.innerHTML=icon(d==='dark');t.addEventListener('click',()=>{d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);t.innerHTML=icon(d==='dark');});}})();
+</script>
+<script>(function(){var tr=document.querySelector('[data-translate]');if(tr){tr.addEventListener('click',function(){window.open('https://translate.google.com/translate?sl=auto&tl=auto&u='+encodeURIComponent(window.location.href),'_blank','noopener');});}})();</script>
 </body>
 </html>

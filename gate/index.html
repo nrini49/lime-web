@@ -6,86 +6,100 @@
   <meta http-equiv="Expires" content="0">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Lime Signalworks — Your invitation</title>
+<title>System Access — Lime Signalworks</title>
 <meta name="description" content="A personal, gated invitation to the Lime Signalworks Rosie cockpit. Enter your details to unlock your harbor." />
+<link rel="canonical" href="https://limesignalworks.com/gate/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://limesignalworks.com/gate/">
+<meta property="og:title" content="System Access — Lime Signalworks">
+<meta property="og:description" content="A personal, gated invitation to the Lime Signalworks Rosie cockpit. Enter your details to unlock your harbor.">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0b1020; --surface:#0f1830; --surface-2:#13203f; --border:#1f2f55; --border-strong:#2c3f6b;
-    --lime:#00FF7F; --lime-glow:rgba(0,255,127,0.45); --lime-soft:rgba(0,255,127,0.12); --lime-faint:rgba(0,255,127,0.06);
-    --fire:#FF4500; --text:#f2f6ff; --text-muted:#9fb0d4;
-    --font-display:'Cabinet Grotesk',system-ui,sans-serif; --font-body:'Satoshi',system-ui,sans-serif;
-    --radius-lg:16px; --radius-full:999px; --space-3:.75rem; --space-4:1rem; --space-5:1.5rem; --space-6:2rem; --space-8:3rem;
-    --content:760px;
+  :root {
+    --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem); --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+    --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem); --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+    --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem); --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.25rem);
+    --space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;
+    --radius-sm:0.375rem;--radius-md:0.5rem;--radius-lg:0.75rem;--radius-xl:1rem;--radius-full:9999px;
+    --transition-interactive:180ms cubic-bezier(0.16,1,0.3,1);
+    --font-display:'Instrument Serif',Georgia,serif; --font-body:'General Sans','Helvetica Neue',sans-serif;
   }
+  :root,[data-theme="dark"]{--color-bg:#0a131c;--color-surface:#0f1c28;--color-surface-2:#142433;--color-border:#1f3346;--color-border-strong:#2c3f6b;--color-divider:#1a2c3c;--color-text:#e6edf2;--color-text-muted:#8fa3b3;--color-text-faint:#5d7286;--color-primary:#9ad14a;--color-primary-hover:#b4e06a;--color-primary-soft:rgba(154,209,74,0.12);--color-fire:#ff6a45;--shadow-md:0 4px 24px rgba(0,0,0,0.35);}
+  [data-theme="light"]{--color-bg:#e7e3dd;--color-surface:#ffffff;--color-surface-2:#f7faf8;--color-border:#dbe4dd;--color-border-strong:#c3d1c8;--color-divider:#e4ece6;--color-text:#15241c;--color-text-muted:#56685e;--color-text-faint:#8a9c92;--color-primary:#4f7a1f;--color-primary-hover:#3d6017;--color-primary-soft:rgba(79,122,31,0.10);--color-fire:#c1451f;--shadow-md:0 4px 24px rgba(20,40,28,0.08);}
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;
-    background-image:radial-gradient(900px 500px at 80% -10%, rgba(0,255,127,0.10), transparent 60%), radial-gradient(700px 400px at 0% 110%, rgba(255,69,0,0.06), transparent 60%);}
-  .wrap{max-width:var(--content);margin:0 auto;padding:0 var(--space-5)}
-  header.bar{position:sticky;top:0;z-index:50;background:rgba(11,16,32,0.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-  .bar-inner{max-width:var(--content);margin:0 auto;padding:0 var(--space-5);height:62px;display:flex;align-items:center;gap:var(--space-3)}
-  .brand{display:flex;align-items:center;gap:var(--space-3);margin-right:auto;text-decoration:none;color:var(--text)}
-  .brand svg{width:30px;height:30px;color:var(--lime);filter:drop-shadow(0 0 6px var(--lime-glow))}
-  .b-name{font-family:var(--font-display);font-weight:800;font-size:1rem;letter-spacing:-0.01em}
-  .b-name span{display:block;font-family:var(--font-body);font-weight:500;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-top:2px}
-  .lock-badge{display:inline-flex;align-items:center;gap:.4rem;font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--fire);border:1px solid var(--fire);border-radius:var(--radius-full);padding:.3rem .7rem}
-  .hero{padding:var(--space-8) 0 var(--space-6)}
-  .kicker{font-family:var(--font-body);font-size:0.72rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--lime)}
-  h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.1rem,5vw,3rem);line-height:1.05;letter-spacing:-0.02em;margin:var(--space-3) 0}
-  .lime-word{color:var(--lime);text-shadow:0 0 18px var(--lime-glow)}
-  .lead{color:var(--text-muted);font-size:1.05rem;max-width:620px;margin-top:var(--space-3)}
-  .card{background:linear-gradient(180deg,var(--surface),var(--surface-2));border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-6);margin-top:var(--space-6)}
-  .card h2{font-family:var(--font-display);font-weight:700;font-size:1.25rem;margin-bottom:var(--space-4)}
+  body{background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
+  h1,h2,h3{text-wrap:balance;line-height:1.15;font-family:var(--font-display);font-weight:400;letter-spacing:-0.01em;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 var(--space-6)}
+  header{position:sticky;top:0;z-index:50;background:color-mix(in oklab,var(--color-bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--color-divider)}
+  .hdr{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0}
+  .brand{display:flex;align-items:center;gap:var(--space-3);text-decoration:none;color:var(--color-text)}
+  .brand svg{width:28px;height:28px;color:var(--color-primary)}
+  .b-name{font-family:var(--font-body);font-weight:700;font-size:var(--text-base);letter-spacing:-0.01em}
+  .b-name span{display:block;font-family:var(--font-body);font-weight:500;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--color-text-muted);margin-top:2px}
+  .lock-badge{display:inline-flex;align-items:center;gap:0.4rem;font-size:var(--text-xs);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-fire);border:1px solid var(--color-fire);border-radius:var(--radius-full);padding:0.3rem 0.7rem;margin-left:auto}
+  .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:var(--radius-full);border:1px solid var(--color-border);color:var(--color-text-muted);background:var(--color-surface);cursor:pointer}
+  .icon-btn:hover{color:var(--color-text);border-color:var(--color-primary)}
+  .hdr-tools{display:flex;align-items:center;gap:var(--space-2);margin-left:var(--space-4)}
+  main{padding:clamp(var(--space-12),6vw,var(--space-16)) 0 var(--space-24)}
+  .hero{padding:0 0 var(--space-6)}
+  .kicker{font-size:var(--text-xs);font-weight:600;letter-spacing:0.26em;text-transform:uppercase;color:var(--color-primary)}
+  h1{font-size:var(--text-2xl);margin:var(--space-3) 0}
+  .lime-word{color:var(--color-primary)}
+  .lead{color:var(--color-text-muted);font-size:var(--text-lg);max-width:620px;margin-top:var(--space-3)}
+  .card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:clamp(var(--space-6),4vw,var(--space-8));margin-top:var(--space-6)}
+  .card h2{font-size:var(--text-xl);margin-bottom:var(--space-4);color:var(--color-text)}
   .field{margin-bottom:var(--space-4)}
-  .field label{display:block;font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.5rem}
-  .field input,.field textarea{width:100%;background:var(--bg);border:1px solid var(--border-strong);border-radius:10px;padding:.8rem 1rem;color:var(--text);font-family:var(--font-body);font-size:1rem;transition:border-color .2s,box-shadow .2s}
-  .field input:focus,.field textarea:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 4px var(--lime-faint)}
+  .field label{display:block;font-size:var(--text-xs);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:var(--space-2)}
+  .field input,.field textarea{width:100%;background:var(--color-bg);border:1px solid var(--color-border-strong);border-radius:var(--radius-md);padding:0.8rem 1rem;color:var(--color-text);font-family:var(--font-body);font-size:1rem}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--color-primary);box-shadow:0 0 0 4px var(--color-primary-soft)}
   .field textarea{resize:vertical;min-height:84px}
   .row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)}
   @media (max-width:560px){.row{grid-template-columns:1fr}}
-  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-body);font-weight:700;font-size:0.95rem;padding:.8rem 1.4rem;border-radius:var(--radius-full);border:1px solid var(--border-strong);color:var(--text);background:transparent;cursor:pointer;text-decoration:none;transition:all .2s}
-  .btn-primary{background:var(--lime);color:#06210f;border-color:var(--lime);box-shadow:0 0 22px var(--lime-glow)}
-  .btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
-  .btn-ghost{color:var(--lime)}
-  .btn-ghost:hover{background:var(--lime-soft)}
-  .btn[disabled]{opacity:.4;cursor:not-allowed}
+  .btn{display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-body);font-weight:600;font-size:var(--text-base);padding:0.8rem 1.4rem;border-radius:var(--radius-full);border:1px solid var(--color-border-strong);color:var(--color-text);background:transparent;cursor:pointer;text-decoration:none;transition:all var(--transition-interactive)}
+  .btn-primary{background:var(--color-primary);color:var(--color-bg);border-color:var(--color-primary);box-shadow:var(--shadow-md)}
+  .btn-primary:hover{background:var(--color-primary-hover);border-color:var(--color-primary-hover)}
+  .btn-ghost{color:var(--color-primary);border-color:var(--color-border)}
+  .btn-ghost:hover{background:var(--color-primary-soft)}
+  .btn[disabled]{opacity:0.4;cursor:not-allowed}
   .actions{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-4)}
   .preview-wrap{margin-top:var(--space-6)}
-  .preview-wrap h3{font-family:var(--font-display);font-weight:700;font-size:1.05rem;margin-bottom:var(--space-3);color:var(--text-muted)}
-  .frame{border:1px solid var(--border-strong);border-radius:var(--radius-lg);overflow:hidden;background:#000;height:620px}
+  .preview-wrap h3{font-size:var(--text-lg);margin-bottom:var(--space-3);color:var(--color-text-muted)}
+  .frame{border:1px solid var(--color-border-strong);border-radius:var(--radius-lg);overflow:hidden;background:#000;height:620px}
   .frame iframe{width:100%;height:100%;border:0}
-  .status{margin-top:var(--space-3);font-size:0.88rem;color:var(--text-muted);min-height:1.2em}
-  .status.ok{color:var(--lime)}
-  .status.err{color:var(--fire)}
-  .hint{font-size:0.82rem;color:var(--text-muted);margin-top:var(--space-3)}
-  .ember-note{margin-top:var(--space-6);color:var(--text-muted);font-size:0.9rem}
-  footer{padding:var(--space-6) 0;color:var(--text-muted);font-size:0.82rem;border-top:1px solid var(--border);margin-top:var(--space-8)}
+  .status{margin-top:var(--space-3);font-size:var(--text-sm);color:var(--color-text-muted);min-height:1.2em}
+  .status.ok{color:var(--color-primary)}
+  .status.err{color:var(--color-fire)}
+  .hint{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-3)}
+  .ember-note{margin-top:var(--space-6);color:var(--color-text-muted);font-size:var(--text-sm)}
+  footer{border-top:1px solid var(--color-divider);padding:var(--space-12) 0;background:var(--color-surface)}
+  .foot{text-align:center;font-size:var(--text-sm);color:var(--color-text-muted)}
+  .foot a{color:var(--color-text-muted);text-decoration:none;border-bottom:1px solid var(--color-border)}
+  .foot a:hover{color:var(--color-primary);border-color:var(--color-primary)}
 </style>
 </head>
 <body>
-<button id="lime-translate-btn" aria-label="Translate this page" style="position:fixed;top:14px;right:14px;z-index:999;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);background:rgba(20,20,20,0.85);color:#eee;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(6px);">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-</button>
-<script>
-  document.getElementById('lime-translate-btn').addEventListener('click', function(){
-    window.open('https://translate.google.com/translate?sl=auto&tl=auto&u=' + encodeURIComponent(window.location.href), '_blank', 'noopener');
-  });
-</script>
-
-<header class="bar">
-  <div class="bar-inner">
+<header>
+  <div class="wrap hdr">
     <a href="../index.html" class="brand" aria-label="Lime Signalworks home">
       <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
         <path d="M24 4 L24 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M24 14 a9 9 0 0 1 9 9 v17 a3 3 0 0 1 -3 3 H14 a3 3 0 0 1 -3 -3 V23 a9 9 0 0 1 9 -9 z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="rgba(0,255,127,0.06)"/>
+        <path d="M24 14 a9 9 0 0 1 9 9 v17 a3 3 0 0 1 -3 3 H14 a3 3 0 0 1 -3 -3 V23 a9 9 0 0 1 9 -9 z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="rgba(154,209,74,0.06)"/>
         <circle cx="24" cy="23" r="6" fill="currentColor"/>
       </svg>
       <div class="b-name">Lime Signalworks<span>An invitation</span></div>
     </a>
     <span class="lock-badge" id="lockBadge">Locked</span>
+    <div class="hdr-tools">
+      <button class="icon-btn" data-translate aria-label="Translate this page">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </button>
+      <button class="icon-btn" data-theme-toggle aria-label="Switch theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -140,10 +154,14 @@
   <p class="ember-note">Rosie watches the storm so a family's money can rest. Four disciplined tools, one lighthouse beacon, nothing armed until you say so.</p>
 </main>
 
-<footer>
-  <div class="wrap">A lighthouse beacon in any storm. Prepared by Lime Signalworks LLC.</div>
-</footer>
+<footer><div class="wrap foot">
+  <a href="../index.html">← Return to the harbor</a>
+</div></footer>
 
+<script>
+(function(){const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;let d='dark';r.setAttribute('data-theme',d);function icon(dark){return dark?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';}if(t){t.innerHTML=icon(d==='dark');t.addEventListener('click',()=>{d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);t.innerHTML=icon(d==='dark');});}})();
+</script>
+<script>(function(){var tr=document.querySelector('[data-translate]');if(tr){tr.addEventListener('click',function(){window.open('https://translate.google.com/translate?sl=auto&tl=auto&u='+encodeURIComponent(window.location.href),'_blank','noopener');});}})();</script>
 <script>
 (function(){
   const $ = id => document.getElementById(id);
@@ -183,11 +201,11 @@
         st.className='status ok';
         st.textContent = 'Unlocked. Welcome, ' + lastName + '. Your harbor is below — and the download button is live.';
         $('previewWrap').scrollIntoView({behavior:'smooth', block:'start'});
-        const lb = $('lockBadge'); lb.textContent='Unlocked'; lb.style.color='var(--lime)'; lb.style.borderColor='var(--lime)';
+        const lb = $('lockBadge'); lb.textContent='Unlocked'; lb.style.color='var(--color-primary)'; lb.style.borderColor='var(--color-primary)';
       } else {
         $('previewWrap').style.display = 'none';
         $('dlBtn').disabled = true;
-        const lb2 = $('lockBadge'); lb2.textContent='Locked'; lb2.style.color='var(--fire)'; lb2.style.borderColor='var(--fire)';
+        const lb2 = $('lockBadge'); lb2.textContent='Locked'; lb2.style.color='var(--color-fire)'; lb2.style.borderColor='var(--color-fire)';
         st.className='status err';
         st.textContent = data.message || ('Not authorized (HTTP ' + res.status + ').');
       }
