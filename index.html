@@ -111,7 +111,6 @@
   .intro-cell { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); min-height: 90px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; text-align: left; font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; }
   .intro-cell strong { color: var(--color-text); font-size: var(--text-xs); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--space-2); display: block; }
   @media (max-width: 640px) { .intro-cells { grid-template-columns: 1fr; } }
-  .rosie-cta-wrap { padding: var(--space-6) 0 0; margin-top: var(--space-4); text-align: center; }
   .rosie-cta-btn { display: inline-block; background: linear-gradient(135deg, var(--color-primary), var(--color-beam, #a0e080)); color: #04140c; font-weight: 700; font-size: var(--text-sm); letter-spacing: 0.04em; text-transform: uppercase; padding: 0.85rem 2rem; border-radius: 999px; text-decoration: none; box-shadow: 0 0 16px color-mix(in oklab, var(--color-primary) 40%, transparent); transition: filter 0.2s, box-shadow 0.2s; }
   .rosie-cta-btn:hover { filter: brightness(1.1); box-shadow: 0 0 24px color-mix(in oklab, var(--color-primary) 60%, transparent); }
   .hdr-cta { font-size: 0.72rem; padding: 0.5rem 1.1rem; white-space: nowrap; }
@@ -323,34 +322,28 @@
     </div>
   </section>
 
-  <!-- Single rotating Keeper portrait + promise text — collapses as one card -->
-  <section class="keeper-hero">
+  <!-- Chapter I: The Wicket Gate. Moved here from Chapter IV (2026-07-18, Noal's instruction) --
+       this is now the reader's first stop after the founder intro. -->
+  <section class="harbor">
     <div class="wrap">
-      <details class="collapsible" id="keeper-hero-card">
-        <summary class="sec-bar"><div class="chapter-num">Chapter I</div><h2>The Bezalel Promise</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+      <details class="collapsible">
+        <summary class="sec-bar"><div class="chapter-num">Chapter I</div><h2>The Wicket Gate</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
-          <div class="keeper-hero-inner">
-            <div class="keeper-hero-text">
-              <div class="promise-card">
-                <p>We cannot and do not guarantee profits or eliminate risk — <strong>no honest system can</strong>. Markets go up, down, and sideways, and your decisions and results are your own.</p>
-                <p class="muted">What we do promise is our best work: clear teaching, honest tools, and a solid system built to serve real families and real companies by leaning first toward loss prevention, then toward profit. If that does not feel true in your experience after ninety days, you do not pay for it.</p>
-              </div>
-            </div>
-            <div class="keeper-hero-col">
-              <div class="keeper-hero-portrait" id="kh-portrait" role="img" aria-label="Keeper portrait"></div>
-              <div class="keeper-hero-trait" id="kh-trait"></div>
-            </div>
-          </div>
+          <p class="doors-sub">Nine doors. Start wherever fits you today.</p>
+          <div class="grid">
+        <a class="card" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener"><div class="num">01</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Peter" style="background-image:url('assets/keepers/01_peter.webp')"></div><div class="keeper-name" data-slot="0">Peter</div><h3>System Access</h3><p>Authorized? Unlock your personalized Rosie sandbox and Fire Spirit materials here.</p><p class="card-fire">Peter's fire was forged in failure. He carried the flame back from his worst moment and held the gate anyway — that is the spirit that opens this door.</p></a>
+        <a class="card" href="seed/index.html"><div class="num">02</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Solomon" style="background-image:url('assets/keepers/02_solomon.webp')"></div><div class="keeper-name" data-slot="1">Solomon</div><h3>What LIME Is</h3><p>LIME in plain language — the problem it solves and how it works.</p><p class="card-fire">Solomon's fire was the audacity to ask for wisdom when he could have asked for anything else. That single ask is the spirit behind every honest explanation of what this system is built to do.</p></a>
+        <a class="card" href="invite/index.html"><div class="num">03</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Mary Magdalene" style="background-image:url('assets/keepers/03_mary_magdalene.webp')"></div><div class="keeper-name" data-slot="2">Mary Magdalene</div><h3>Bring Someone</h3><p>Bring someone you care about to the harbor. A personal welcome.</p><p class="card-fire">Mary Magdalene carried the signal before anyone else believed there was one to carry. Her fire is the courage to pass the word before the world confirms it.</p></a>
+        <a class="card" href="fire-spirit/index.html"><div class="num">04</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Mary of Bethany" style="background-image:url('assets/keepers/04_mary_of_bethany.webp')"></div><div class="keeper-name" data-slot="3">Mary of Bethany</div><h3>Inner Rail</h3><p>The Fire Spirit — inner work that turns posture into disciplined action.</p><p class="card-fire">Mary of Bethany's fire was stillness chosen on purpose — sitting at the feet when the room demanded she get up. That deliberate quiet is the whole inner rail.</p></a>
+        <a class="card" href="pyramid-dashboard/index.html"><div class="num">05</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Daniel" style="background-image:url('assets/keepers/05_daniel.webp')"></div><div class="keeper-name" data-slot="4">Daniel</div><h3>Situation Report</h3><p>Today's market weather — regime, fidelity, condition. Read before you act.</p><p class="card-fire">Daniel's fire was the refusal to adjust the report to please the room. He read what was there and said it plainly. That is the only acceptable posture for a situation report.</p></a>
+        <a class="card" href="offer/index.html"><div class="num">06</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Esther" style="background-image:url('assets/keepers/06_esther.webp')"></div><div class="keeper-name" data-slot="5">Esther</div><h3>The Offer</h3><p>What you get, what it costs, how to join. Loss-prevention-first AI assistance.</p><p class="card-fire">Esther's fire was timing — she held the position until the room was ready, then moved without hesitation. The offer stands the same way: not a pitch, a door opened at the right moment.</p></a>
+        <a class="card" href="https://spy-pipeline-rosie.pplx.app" target="_blank" rel="noopener"><div class="num">07</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Ruth" style="background-image:url('assets/keepers/07_ruth.webp')"></div><div class="keeper-name" data-slot="6">Ruth</div><h3>SPY Harbor Watch</h3><p>Live SPY tracking since Rosie's first trade — price, alerts, and the 90-day dashboard.</p><p class="card-fire">Ruth's fire was loyal presence — she stayed on the field when leaving was the easier, more reasonable choice. This watch runs the same way: it does not leave the position.</p></a>
+        <a class="card" href="laugh-lounge/index.html"><div class="num">08</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — David" style="background-image:url('assets/keepers/08_david.webp')"></div><div class="keeper-name" data-slot="7">David</div><h3>The Laugh Lounge</h3><p>A lighter door. Harbor and lighthouse humor, and a library you can browse at your own pace.</p><p class="card-fire">David's fire burned in caves, in grief, in battle, and in celebration equally. He wrote songs in the dark before the light arrived. Laughter held in that same frequency is not a distraction — it is a form of praise.</p></a>
+        <a class="card" href="metaphor-gate/index.html"><div class="num">09</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — John the Baptist" style="background-image:url('assets/keepers/09_john_the_baptist.webp')"></div><div class="keeper-name" data-slot="8">John the Baptist</div><h3>The Metaphor Gate</h3><p>The teaching layer. Learn to hear what is actually being said — in markets, in leadership, in scripture.</p><p class="card-fire">John the Baptist's fire was clarity — he spoke in the wilderness and the wilderness filled up. His spirit here is the same: cut through the noise until only the signal remains.</p></a>
+      </div>
+      <a class="sage-library-link" href="fire-spirit/index.html#song">Explore the full Sage Missions Library →</a>
         </div>
       </details>
-      <!-- CTA + Fire Protocol cells — inside promise section -->
-      <div class="rosie-cta-wrap" id="rosie-cta-wrap">
-        <div class="intro-cells">
-          <div class="intro-cell" id="intro-cell-1"><strong>The Setup</strong><br>The burdens you have actually been carrying — and the 33-day protocol designed to hand them over.</div>
-          <div class="intro-cell" id="intro-cell-2"><strong>The Mitigation</strong><br>A short check-in at three fixed points — morning, midday, close — built to interrupt the reflex to constantly watch, chase, or react. Repeated daily, it retrains you out of a hunting posture and into a steady one, so decisions come from a settled state, not urgency. The benefit: fewer impulsive trades, calmer follow-through on the plan you already set.</div>
-          <div class="intro-cell" id="intro-cell-3"><strong>The Conclusion</strong><br>Two readers, one door &mdash; no translation required. Clear the noise, layer by layer, and let the work start today.</div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -402,33 +395,10 @@
     </div>
   </section>
 
-  <section class="harbor">
-    <div class="wrap">
-      <details class="collapsible">
-        <summary class="sec-bar"><div class="chapter-num">Chapter IV</div><h2>The Wicket Gate</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
-        <div class="sec-body">
-          <p class="doors-sub">Nine doors. Start wherever fits you today.</p>
-          <div class="grid">
-        <a class="card" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener"><div class="num">01</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Peter" style="background-image:url('assets/keepers/01_peter.webp')"></div><div class="keeper-name" data-slot="0">Peter</div><h3>System Access</h3><p>Authorized? Unlock your personalized Rosie sandbox and Fire Spirit materials here.</p><p class="card-fire">Peter's fire was forged in failure. He carried the flame back from his worst moment and held the gate anyway — that is the spirit that opens this door.</p></a>
-        <a class="card" href="seed/index.html"><div class="num">02</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Solomon" style="background-image:url('assets/keepers/02_solomon.webp')"></div><div class="keeper-name" data-slot="1">Solomon</div><h3>What LIME Is</h3><p>LIME in plain language — the problem it solves and how it works.</p><p class="card-fire">Solomon's fire was the audacity to ask for wisdom when he could have asked for anything else. That single ask is the spirit behind every honest explanation of what this system is built to do.</p></a>
-        <a class="card" href="invite/index.html"><div class="num">03</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Mary Magdalene" style="background-image:url('assets/keepers/03_mary_magdalene.webp')"></div><div class="keeper-name" data-slot="2">Mary Magdalene</div><h3>Bring Someone</h3><p>Bring someone you care about to the harbor. A personal welcome.</p><p class="card-fire">Mary Magdalene carried the signal before anyone else believed there was one to carry. Her fire is the courage to pass the word before the world confirms it.</p></a>
-        <a class="card" href="fire-spirit/index.html"><div class="num">04</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Mary of Bethany" style="background-image:url('assets/keepers/04_mary_of_bethany.webp')"></div><div class="keeper-name" data-slot="3">Mary of Bethany</div><h3>Inner Rail</h3><p>The Fire Spirit — inner work that turns posture into disciplined action.</p><p class="card-fire">Mary of Bethany's fire was stillness chosen on purpose — sitting at the feet when the room demanded she get up. That deliberate quiet is the whole inner rail.</p></a>
-        <a class="card" href="pyramid-dashboard/index.html"><div class="num">05</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Daniel" style="background-image:url('assets/keepers/05_daniel.webp')"></div><div class="keeper-name" data-slot="4">Daniel</div><h3>Situation Report</h3><p>Today's market weather — regime, fidelity, condition. Read before you act.</p><p class="card-fire">Daniel's fire was the refusal to adjust the report to please the room. He read what was there and said it plainly. That is the only acceptable posture for a situation report.</p></a>
-        <a class="card" href="offer/index.html"><div class="num">06</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Esther" style="background-image:url('assets/keepers/06_esther.webp')"></div><div class="keeper-name" data-slot="5">Esther</div><h3>The Offer</h3><p>What you get, what it costs, how to join. Loss-prevention-first AI assistance.</p><p class="card-fire">Esther's fire was timing — she held the position until the room was ready, then moved without hesitation. The offer stands the same way: not a pitch, a door opened at the right moment.</p></a>
-        <a class="card" href="https://spy-pipeline-rosie.pplx.app" target="_blank" rel="noopener"><div class="num">07</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Ruth" style="background-image:url('assets/keepers/07_ruth.webp')"></div><div class="keeper-name" data-slot="6">Ruth</div><h3>SPY Harbor Watch</h3><p>Live SPY tracking since Rosie's first trade — price, alerts, and the 90-day dashboard.</p><p class="card-fire">Ruth's fire was loyal presence — she stayed on the field when leaving was the easier, more reasonable choice. This watch runs the same way: it does not leave the position.</p></a>
-        <a class="card" href="laugh-lounge/index.html"><div class="num">08</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — David" style="background-image:url('assets/keepers/08_david.webp')"></div><div class="keeper-name" data-slot="7">David</div><h3>The Laugh Lounge</h3><p>A lighter door. Harbor and lighthouse humor, and a library you can browse at your own pace.</p><p class="card-fire">David's fire burned in caves, in grief, in battle, and in celebration equally. He wrote songs in the dark before the light arrived. Laughter held in that same frequency is not a distraction — it is a form of praise.</p></a>
-        <a class="card" href="metaphor-gate/index.html"><div class="num">09</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — John the Baptist" style="background-image:url('assets/keepers/09_john_the_baptist.webp')"></div><div class="keeper-name" data-slot="8">John the Baptist</div><h3>The Metaphor Gate</h3><p>The teaching layer. Learn to hear what is actually being said — in markets, in leadership, in scripture.</p><p class="card-fire">John the Baptist's fire was clarity — he spoke in the wilderness and the wilderness filled up. His spirit here is the same: cut through the noise until only the signal remains.</p></a>
-      </div>
-      <a class="sage-library-link" href="fire-spirit/index.html#song">Explore the full Sage Missions Library →</a>
-        </div>
-      </details>
-    </div>
-  </section>
-
   <section id="harbor-now" class="harbor-now">
     <div class="wrap">
       <details class="collapsible" id="hn-details">
-        <summary class="sec-bar"><div class="chapter-num">Chapter V</div><h2>Today's Harbor Weather</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><div class="chapter-num">Chapter IV</div><h2>Today's Harbor Weather</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <div class="hn-report">
             <p class="hn-asof">As of last close</p>
@@ -438,7 +408,7 @@
         </div>
       </details>
       <details class="collapsible">
-        <summary class="sec-bar"><div class="chapter-num">Chapter VI</div><h3>Past Harbor Now Reports</h3><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><div class="chapter-num">Chapter V</div><h3>Past Harbor Now Reports</h3><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <ul class="hn-list">
             <li><a href="harbor-now/archive/2026-07-17.html"><span class="date">Jul 17, 2026</span><span class="title">Risk-off tape — tech led lower, VIX pops</span><span class="arr">→</span></a></li>
@@ -459,7 +429,7 @@
 <footer>
   <div class="wrap">
     <details class="collapsible foot-collapsible">
-      <summary class="sec-bar foot-bar"><div class="chapter-num">Chapter VII</div><h2>Lime Signalworks LLC</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+      <summary class="sec-bar foot-bar"><div class="chapter-num">Chapter VI</div><h2>Lime Signalworks LLC</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
       <div class="foot">
         <div>
           <p class="creed">Different worlds, same problem: how to face market chaos without handing your life to a guru.</p>
@@ -761,142 +731,7 @@
 })();
 </script>
 
-<!-- Keeper hero portrait: single image rotating through all 46 Keepers, synced with the promise card.
-     11 Patriarchs (Adam through Abraham, carrying the promise made at the garden's edge) +
-     30 Fire Messengers (New Testament figures who proclaimed or witnessed that promise fulfilled,
-     including a second pass of women selected for proven fiery devotion) +
-     5 legacy Keepers kept in rotation alongside them (Solomon, Daniel, Esther, Ruth, David). -->
-<script>
-(function(){
-  var ALL_KEEPERS = [
-    { file: '01_peter.webp', name: 'Peter' },
-    { file: '02_solomon.webp', name: 'Solomon' },
-    { file: '03_mary_magdalene.webp', name: 'Mary Magdalene' },
-    { file: '04_mary_of_bethany.webp', name: 'Mary of Bethany' },
-    { file: '05_daniel.webp', name: 'Daniel' },
-    { file: '06_esther.webp', name: 'Esther' },
-    { file: '07_ruth.webp', name: 'Ruth' },
-    { file: '08_david.webp', name: 'David' },
-    { file: '09_adam.webp', name: 'Adam' },
-    { file: '10_seth.webp', name: 'Seth' },
-    { file: '11_enosh.webp', name: 'Enosh' },
-    { file: '12_kenan.webp', name: 'Kenan' },
-    { file: '13_mahalalel.webp', name: 'Mahalalel' },
-    { file: '14_jared.webp', name: 'Jared' },
-    { file: '15_enoch.webp', name: 'Enoch' },
-    { file: '16_methuselah.webp', name: 'Methuselah' },
-    { file: '17_lamech.webp', name: 'Lamech' },
-    { file: '18_noah.webp', name: 'Noah' },
-    { file: '19_abraham.webp', name: 'Abraham' },
-    { file: '20_john_the_baptist.webp', name: 'John the Baptist' },
-    { file: '21_simeon.webp', name: 'Simeon' },
-    { file: '22_anna.webp', name: 'Anna' },
-    { file: '23_mary_mother_of_jesus.webp', name: 'Mary, Mother of Jesus' },
-    { file: '24_elizabeth.webp', name: 'Elizabeth' },
-    { file: '25_andrew.webp', name: 'Andrew' },
-    { file: '26_james_zebedee.webp', name: 'James, Son of Zebedee' },
-    { file: '27_john_apostle.webp', name: 'John the Apostle' },
-    { file: '28_philip_evangelist.webp', name: 'Philip the Evangelist' },
-    { file: '29_stephen.webp', name: 'Stephen' },
-    { file: '30_paul.webp', name: 'Paul' },
-    { file: '31_barnabas.webp', name: 'Barnabas' },
-    { file: '32_timothy.webp', name: 'Timothy' },
-    { file: '33_silas.webp', name: 'Silas' },
-    { file: '34_lydia.webp', name: 'Lydia' },
-    { file: '35_priscilla.webp', name: 'Priscilla' },
-    { file: '36_aquila.webp', name: 'Aquila' },
-    { file: '37_apollos.webp', name: 'Apollos' },
-    { file: '38_cornelius.webp', name: 'Cornelius' },
-    { file: '39_martha_of_bethany.webp', name: 'Martha of Bethany' },
-    { file: '40_salome.webp', name: 'Salome' },
-    { file: '41_mary_mother_of_james.webp', name: 'Mary, Mother of James and Joses' },
-    { file: '42_samaritan_woman.webp', name: 'The Samaritan Woman' },
-    { file: '43_junia.webp', name: 'Junia' },
-    { file: '44_dorcas.webp', name: 'Dorcas' },
-    { file: '45_phoebe.webp', name: 'Phoebe' },
-    { file: '46_joanna.webp', name: 'Joanna' }
-  ];
-  var KEEPER_TRAITS = {
-    '01_peter.webp':                 'Stood at the gate. Denied. Returned. Held the position anyway.',
-    '02_solomon.webp':               'Asked for wisdom when he could have asked for anything else.',
-    '03_mary_magdalene.webp':        'First to the tomb. First to carry the news. Carried the signal when no one else did.',
-    '04_mary_of_bethany.webp':       'Chose the one thing. Sat at the feet when the room said get up and work.',
-    '05_daniel.webp':                'Read the room correctly every time. Never once adjusted the report to please the audience.',
-    '06_esther.webp':                'Held the position until the right moment. Did not move before the setup was clear.',
-    '07_ruth.webp':                  'Stayed when leaving was the easier, more reasonable choice.',
-    '08_david.webp':                 'Wrote songs in caves. Praised in the dark before the light arrived.',
-    '09_adam.webp':                  'Carried the first promise out of the garden. Never once stopped believing it was still good.',
-    '10_seth.webp':                  'Was born after the fall and still walked with God anyway. Passed the line forward without dropping it.',
-    '11_enosh.webp':                 'Called on the name of the Lord when the whole world was going quiet. Kept the practice alive.',
-    '12_kenan.webp':                 'Left no recorded words behind. Only the fact that he did not break the chain.',
-    '13_mahalalel.webp':             'His name means praise of God \u2014 and that was the entire inheritance he left.',
-    '14_jared.webp':                 'Held the middle of the line. Neither the first nor the last, just faithful in between.',
-    '15_enoch.webp':                 'Walked so closely with God that he simply stopped needing to die.',
-    '16_methuselah.webp':            'Outlasted almost everyone he knew. Patience was the whole assignment.',
-    '17_lamech.webp':                'Named his son relief before relief had ever come. Believed the promise before he could see it.',
-    '18_noah.webp':                  'Built for a hundred years toward a rain no one else could see coming.',
-    '19_abraham.webp':               'Left everything he knew on the word of a promise with no proof yet attached to it.',
-    '20_john_the_baptist.webp':      'Wore camel\u2019s hair in the wilderness and pointed at someone else the entire time.',
-    '21_simeon.webp':                'Waited his whole life for one moment, then let go the second he held it.',
-    '22_anna.webp':                  'Never left the temple. Kept speaking the promise long after everyone stopped expecting it.',
-    '23_mary_mother_of_jesus.webp':  'Said yes to the impossible before anyone else in the story did.',
-    '24_elizabeth.webp':             'Recognized the sign the instant it walked into the room. No one had to tell her.',
-    '25_andrew.webp':                'Found the one thing worth having and immediately went to get his brother.',
-    '26_james_zebedee.webp':        'Left the boat, followed the call, and was the first apostle to pay for it in full.',
-    '27_john_apostle.webp':          'Stood at the foot of the cross when the others ran. Later saw fire in the eyes of the risen Christ.',
-    '28_philip_evangelist.webp':     'Ran when the Spirit said run. Explained scripture to a stranger in a chariot and never asked for credit.',
-    '29_stephen.webp':               'Kept preaching while the stones were already in the air.',
-    '30_paul.webp':                  'Was struck blind on the road and spent the rest of his life carrying light to people who never asked for it.',
-    '31_barnabas.webp':              'Was called Son of Encouragement \u2014 and lived up to the name every single time.',
-    '32_timothy.webp':               'Was told, directly, to fan into flame the gift he already had. Did not need a second instruction.',
-    '33_silas.webp':                 'Sang hymns in a locked cell with his feet still in chains.',
-    '34_lydia.webp':                 'Opened her house the moment she believed. Did not wait for permission.',
-    '35_priscilla.webp':             'Taught with precision, corrected gently, and never needed to be the loudest voice in the room.',
-    '36_aquila.webp':                'Stood next to Priscilla in every account. Steady is its own kind of ministry.',
-    '37_apollos.webp':               'Described, in scripture itself, as fervent in spirit. The fire was visible from the outside.',
-    '38_cornelius.webp':             'A Gentile soldier who received the same fire as the apostles \u2014 proof the promise had no borders left.',
-    '39_martha_of_bethany.webp':     'Served with her hands while her sister sat at His feet, then said the boldest line in the chapter out loud: You are the Christ.',
-    '40_salome.webp':                'Stood at the cross when the disciples ran. Went back to the tomb before sunrise with nothing but spices and nerve.',
-    '41_mary_mother_of_james.webp':  'Stayed through the worst Friday in history and showed up again Sunday morning to finish what grief started.',
-    '42_samaritan_woman.webp':       'Left her water jar at the well and ran to tell the whole town before she\u2019d even processed it herself.',
-    '43_junia.webp':                 'Named an apostle in the same sentence as the men. The text never blinked, so neither should we.',
-    '44_dorcas.webp':                'Spent her life sewing for widows. Peter raised her from the dead because the work wasn\u2019t finished.',
-    '45_phoebe.webp':                'Trusted to carry Paul\u2019s letter to Rome by hand. The whole book of Romans traveled because she did.',
-    '46_joanna.webp':                'Funded the ministry from her own purse, then ran to tell the apostles the tomb was empty before they believed her.'
-  };
 
-  var portrait = document.getElementById('kh-portrait');
-  var traitEl = document.getElementById('kh-trait');
-  var card = document.getElementById('keeper-hero-card');
-  var ctaWrap = document.getElementById('rosie-cta-wrap');
-  if (!portrait) return;
-  var idx = Math.floor(Math.random() * ALL_KEEPERS.length);
-  function setPortrait(k) {
-    portrait.style.opacity = '0';
-    if (traitEl) traitEl.style.opacity = '0';
-    setTimeout(function(){
-      portrait.style.backgroundImage = "url('assets/keepers/" + k.file + "')";
-      portrait.setAttribute('aria-label', 'Keeper portrait \u2014 ' + k.name);
-      portrait.style.opacity = '1';
-      if (traitEl) {
-        traitEl.textContent = KEEPER_TRAITS[k.file] || '';
-        traitEl.style.opacity = '1';
-      }
-    }, 300);
-  }
-  setPortrait(ALL_KEEPERS[idx]);
-  setInterval(function(){
-    idx = (idx + 1) % ALL_KEEPERS.length;
-    setPortrait(ALL_KEEPERS[idx]);
-  }, 18000);
-  // Show CTA only when card is open
-  if (card && ctaWrap) {
-    function syncCTA() { ctaWrap.style.display = card.open ? 'block' : 'none'; }
-    syncCTA();
-    card.addEventListener('toggle', syncCTA);
-  }
-})();
-</script>
 
 <!-- Keeper portrait carousel: the door cards draw from the full pool of
      46 Keepers (11 Patriarchs + 30 Fire Messengers + 5 legacy Keepers) and
