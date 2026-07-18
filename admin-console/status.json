@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T12:20:32.346261+00:00",
+  "generated_at": "2026-07-18T14:17:31.965612+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -16,8 +16,8 @@
     {
       "label": "Rosie Interactive (limesignalworks.pplx.app)",
       "url": "https://limesignalworks.pplx.app/",
-      "status": 401,
-      "ok": false
+      "status": 200,
+      "ok": true
     },
     {
       "label": "SPY Pipeline (spy-pipeline-rosie.pplx.app)",
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "e5e5f0e",
-          "message": "Remove chevron/caret icons from all 14 accordion summary rows -- each line already indicates its own clickable destination, so the extra che",
-          "author": "nrini49",
-          "date": "2026-07-18T12:08:53Z"
+          "sha": "1bcecbb",
+          "message": "Merge: metaphor-gate rebuild + parallel fire-spirit language cleanup",
+          "author": "Perplexity Computer",
+          "date": "2026-07-18T13:59:40Z"
         },
         {
-          "sha": "f61f15a",
-          "message": "Fix Rosy Way hero heading to render on a single line (was constrained to max-width: 16ch, forcing it to wrap across many lines); wraps norma",
-          "author": "nrini49",
-          "date": "2026-07-18T11:39:22Z"
+          "sha": "e564314",
+          "message": "Rebuild Metaphor Gate page to match the standard sub-page format (Instrument Serif/General Sans, dark/light theme toggle, standard header/fo",
+          "author": "Perplexity Computer",
+          "date": "2026-07-18T13:59:35Z"
         },
         {
-          "sha": "588cc1b",
-          "message": "Restore fire-spirit/index.html to English. A parallel-session commit (1c19750, 2026-07-17) silently reverted this page back to Spanish with ",
+          "sha": "f88d38e",
+          "message": "Merge branch 'main' of https://git-agent-proxy.perplexity.ai/nrini49/lime-web",
           "author": "nrini49",
-          "date": "2026-07-18T11:28:52Z"
+          "date": "2026-07-18T13:58:02Z"
         },
         {
-          "sha": "5b9c2a3",
-          "message": "Add Rosie x IBKR live demo CTA next to the dark/light toggle in the header. Explicitly NOT the IB-confirmation-gated CTA -- no affiliate/has",
+          "sha": "edd907f",
+          "message": "Remove the Language Rollout section, its nav link, and its dead CSS from fire-spirit/index.html, per Noal's instruction: nothing foreign-lan",
           "author": "nrini49",
-          "date": "2026-07-18T11:16:32Z"
+          "date": "2026-07-18T13:58:01Z"
         },
         {
-          "sha": "c1664e1",
-          "message": "Part A restructure to mirror Part B's shape: Introduction (was Our Promise), Chapter I (was Market Weather), Chapter II (was Report Archive,",
-          "author": "nrini49",
-          "date": "2026-07-18T11:09:01Z"
+          "sha": "bfd5940",
+          "message": "Merge: resolve concurrent index.html edits (flame roaming + mission copy placement)",
+          "author": "Perplexity Computer",
+          "date": "2026-07-18T13:54:48Z"
         }
       ]
     },
@@ -67,6 +67,24 @@
       "repo": "nrini49/limesignalworks",
       "ok": true,
       "commits": [
+        {
+          "sha": "2fe27d0",
+          "message": "Security fix: escape GitHub API data before innerHTML in Repo Browser (XSS hardening)",
+          "author": "Perplexity Computer",
+          "date": "2026-07-18T13:42:24Z"
+        },
+        {
+          "sha": "82f7828",
+          "message": "Admin Console: add Repo Browser for lime-web (recent commits + full file tree, read-only via GitHub public API)",
+          "author": "Perplexity Computer",
+          "date": "2026-07-18T13:40:05Z"
+        },
+        {
+          "sha": "54db25f",
+          "message": "Restrict Power/Rosie/Guard/Trade operator toggles to administrators only, reusing the existing ?operator=1 admin-view convention. Inner circ",
+          "author": "Plex (LIME)",
+          "date": "2026-07-18T12:25:18Z"
+        },
         {
           "sha": "0da464f",
           "message": "Rename 'Rosie Interactive' to 'Rosie AI Trading Assistant' in the page title, header brand, and footer note. Expand the top banner message t",
@@ -78,24 +96,6 @@
           "message": "Change top banner wording -- introduce Rosie as the AI trading assistant and explain what it does, no mention of Interactive Brokers yet (pe",
           "author": "Plex (LIME)",
           "date": "2026-07-17T22:47:49Z"
-        },
-        {
-          "sha": "8e4e454",
-          "message": "Remove 'Get started' button from the top banner on Rosie Interactive -- keep the informational message, drop the CTA link.",
-          "author": "Plex (LIME)",
-          "date": "2026-07-17T22:43:06Z"
-        },
-        {
-          "sha": "011da8f",
-          "message": "Add Keeper portraits for Priscilla, Phoebe, Lydia (rose_river style, full color, matching established pattern) -- proposals, not yet locked ",
-          "author": "Plex (LIME)",
-          "date": "2026-07-17T19:18:00Z"
-        },
-        {
-          "sha": "b3a115d",
-          "message": "Add Creation Doctrine PR review template",
-          "author": "nrini49",
-          "date": "2026-07-17T18:42:29Z"
         }
       ]
     },

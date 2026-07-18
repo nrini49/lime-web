@@ -8,26 +8,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Laugh Lounge — Lime Signalworks</title>
 <meta name="description" content="A lighter door at Lime Signalworks. Harbor and lighthouse humor, browse the library, or let it surface a joke on its own." />
+<link rel="canonical" href="https://limesignalworks.com/laugh-lounge/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://limesignalworks.com/laugh-lounge/">
+<meta property="og:title" content="The Laugh Lounge — Lime Signalworks">
+<meta property="og:description" content="A lighter door at Lime Signalworks. Harbor and lighthouse humor, browse the library, or let it surface a joke on its own.">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap" rel="stylesheet">
 <style>
-  :root{
+  :root,[data-theme="dark"]{
     --harbor-black:#0A1428; --harbor-deep:#0b1020; --harbor-night:#0d1729;
     --surface:#101a30; --surface-2:#142038; --surface-3:#182542;
-    --border:rgba(0,255,127,0.10); --border-strong:rgba(0,255,127,0.28); --divider:rgba(255,255,255,0.06);
-    --lime:#00FF7F; --lime-glow:rgba(0,255,127,0.50); --lime-soft:rgba(0,255,127,0.14); --lime-faint:rgba(0,255,127,0.06);
-    --fire:#FF4500; --fire-glow:rgba(255,69,0,0.45); --fire-soft:rgba(255,69,0,0.12);
-    --text:#f3f7f4; --text-muted:#9fb0ac; --text-faint:#5d6b6a;
-    --font-display:'Cabinet Grotesk','Inter',sans-serif; --font-body:'Satoshi','Inter',sans-serif;
+    --border:rgba(154,209,74,0.14); --border-strong:rgba(154,209,74,0.32); --divider:rgba(255,255,255,0.06);
+    --lime:#9ad14a; --lime-glow:rgba(154,209,74,0.50); --lime-soft:rgba(154,209,74,0.14); --lime-faint:rgba(154,209,74,0.06);
+    --fire:#ff6a45; --fire-glow:rgba(255,106,69,0.45); --fire-soft:rgba(255,106,69,0.12);
+    --text:#e6edf2; --text-muted:#8fa3b3; --text-faint:#5d7286;
+    --font-display:'Instrument Serif',Georgia,serif; --font-body:'General Sans','Helvetica Neue',sans-serif;
     --radius-sm:0.5rem; --radius-md:0.75rem; --radius-lg:1rem; --radius-xl:1.25rem;
     --content:880px;
+  }
+  [data-theme="light"]{
+    --harbor-black:#e7e3dd; --harbor-deep:#e7e3dd; --harbor-night:#e7e3dd;
+    --surface:#ffffff; --surface-2:#f7faf8; --surface-3:#eef3ef;
+    --border:rgba(79,122,31,0.18); --border-strong:rgba(79,122,31,0.36); --divider:rgba(21,36,28,0.08);
+    --lime:#4f7a1f; --lime-glow:rgba(79,122,31,0.35); --lime-soft:rgba(79,122,31,0.10); --lime-faint:rgba(79,122,31,0.06);
+    --fire:#c1451f; --fire-glow:rgba(193,69,31,0.35); --fire-soft:rgba(193,69,31,0.10);
+    --text:#15241c; --text-muted:#56685e; --text-faint:#8a9c92;
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{min-height:100dvh;line-height:1.6;font-family:var(--font-body);font-size:1.05rem;color:var(--text);
-    background:radial-gradient(circle at 20% -10%, rgba(0,255,127,0.07), transparent 45%),
-               radial-gradient(circle at 100% 0%, rgba(255,69,0,0.05), transparent 40%),
+    background:radial-gradient(circle at 20% -10%, var(--lime-faint), transparent 45%),
+               radial-gradient(circle at 100% 0%, var(--fire-soft), transparent 40%),
                var(--harbor-black);}
   a{color:inherit}
   .wrap{max-width:var(--content);margin:0 auto;padding:0 1.5rem;}
@@ -87,27 +101,25 @@
 </style>
 </head>
 <body>
-<button id="lime-translate-btn" aria-label="Translate this page" style="position:fixed;top:14px;right:14px;z-index:999;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);background:rgba(20,20,20,0.85);color:#eee;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(6px);">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-</button>
-<script>
-  document.getElementById('lime-translate-btn').addEventListener('click', function(){
-    var _tgtLang = (navigator.language || navigator.userLanguage || 'es').split('-')[0]; window.open('https://translate.google.com/translate?sl=auto&tl=' + _tgtLang + '&u=' + encodeURIComponent(window.location.href), '_blank', 'noopener');
-  });
-</script>
-
-
 <nav class="top">
-  <div class="wrap">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
     <a href="../index.html" class="brand" aria-label="Lime Signalworks home">
       <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
         <path d="M24 4 L24 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M24 14 a9 9 0 0 1 9 9 v17 a3 3 0 0 1 -3 3 H14 a3 3 0 0 1 -3 -3 V23 a9 9 0 0 1 9 -9 z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="rgba(0,255,127,0.06)"/>
+        <path d="M24 14 a9 9 0 0 1 9 9 v17 a3 3 0 0 1 -3 3 H14 a3 3 0 0 1 -3 -3 V23 a9 9 0 0 1 9 -9 z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="rgba(154,209,74,0.08)"/>
         <circle cx="24" cy="23" r="6" fill="currentColor"/>
       </svg>
       Lime Signalworks
     </a>
-    <a href="../index.html" class="back">&larr; Back to the harbor</a>
+    <div style="display:flex;align-items:center;gap:0.6rem;">
+      <a href="../index.html" class="back">&larr; Back to the harbor</a>
+      <button class="icon-btn" data-translate aria-label="Translate this page" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;border:1px solid var(--border);color:var(--text-muted);background:transparent;cursor:pointer;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </button>
+      <button class="icon-btn" data-theme-toggle aria-label="Switch theme" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;border:1px solid var(--border);color:var(--text-muted);background:transparent;cursor:pointer;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
   </div>
 </nav>
 
@@ -164,7 +176,10 @@
   </section>
 </main>
 
-<footer>&copy; 2026 Lime Signalworks LLC. Loss prevention first. Always.</footer>
+<footer style="text-align:center;">
+  <div>&copy; 2026 Lime Signalworks LLC. Loss prevention first. Always.</div>
+  <div style="margin-top:0.5rem;"><a href="../index.html" style="color:var(--text-muted);text-decoration:none;border-bottom:1px solid var(--border);">&larr; Return to the harbor</a></div>
+</footer>
 
 <script>
 (function(){
@@ -249,6 +264,18 @@
     });
   });
   document.getElementById("another-btn").addEventListener("click", () => showJoke(pickRandomIndex()));
+
+  (function(){
+    const t = document.querySelector('[data-theme-toggle]'), r = document.documentElement;
+    let d = 'dark';
+    r.setAttribute('data-theme', d);
+    function icon(dark){ return dark
+      ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'; }
+    if (t) { t.innerHTML = icon(d==='dark'); t.addEventListener('click', () => { d = d==='dark'?'light':'dark'; r.setAttribute('data-theme', d); t.innerHTML = icon(d==='dark'); }); }
+    var tr = document.querySelector('[data-translate]');
+    if (tr) { tr.addEventListener('click', function(){ var _tl = (navigator.language || navigator.userLanguage || 'es').split('-')[0]; window.open('https://translate.google.com/translate?sl=auto&tl=' + _tl + '&u=' + encodeURIComponent(window.location.href), '_blank', 'noopener'); }); }
+  })();
 
   fetch("jokes.json")
     .then(r => r.json())
