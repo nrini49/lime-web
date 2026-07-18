@@ -92,7 +92,7 @@
 </button>
 <script>
   document.getElementById('lime-translate-btn').addEventListener('click', function(){
-    window.open('https://translate.google.com/translate?sl=auto&tl=auto&u=' + encodeURIComponent(window.location.href), '_blank', 'noopener');
+    var _tgtLang = (navigator.language || navigator.userLanguage || 'es').split('-')[0]; window.open('https://translate.google.com/translate?sl=auto&tl=' + _tgtLang + '&u=' + encodeURIComponent(window.location.href), '_blank', 'noopener');
   });
 </script>
 
