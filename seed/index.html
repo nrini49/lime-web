@@ -53,8 +53,29 @@
       --font-display: 'Cabinet Grotesk', 'Inter', sans-serif;
       --font-body: 'Satoshi', 'Inter', sans-serif;
       --transition: 200ms cubic-bezier(0.16,1,0.3,1);
-      --radius-sm: 0.5rem; --radius-md: 0.75rem; --radius-lg: 1rem; --radius-xl: 1.25rem;
+      --radius-sm: 0.5rem; --radius-md: 0.75rem; --radius-lg: 1rem; --radius-xl: 1.25rem; --radius-full: 999px;
       --content: 1180px;
+    }
+
+    /* Light theme -- same variable names, cockpit accent colors (lime/fire) stay
+       constant since they're signal colors, not shell chrome. */
+    [data-theme="light"] {
+      --harbor-black: #eef1ea;
+      --harbor-deep: #e7e3dd;
+      --harbor-night: #ded9d0;
+      --surface: #f5f2ec;
+      --surface-2: #eee9e1;
+      --surface-3: #e3ddd2;
+      --border: rgba(23,90,58,0.14);
+      --border-strong: rgba(23,90,58,0.32);
+      --divider: rgba(0,0,0,0.08);
+      --lime: #1f7a3f;
+      --lime-glow: rgba(31,122,63,0.35);
+      --lime-soft: rgba(31,122,63,0.12);
+      --lime-faint: rgba(31,122,63,0.06);
+      --text: #16241c;
+      --text-muted: #5b6b60;
+      --text-faint: #8a9690;
     }
 
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -85,8 +106,12 @@
     .kicker{font-family:var(--font-body);font-size:var(--text-xs);font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--lime)}
 
     /* ============ NAV ============ */
-    .nav{position:sticky;top:0;z-index:60;background:rgba(10,20,40,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+    .nav{position:sticky;top:0;z-index:60;background:color-mix(in oklab, var(--harbor-deep) 82%, transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
     .nav-inner{max-width:var(--content);margin:0 auto;padding:0 var(--space-6);height:64px;display:flex;align-items:center;gap:var(--space-5)}
+    .hdr-tools{display:flex;align-items:center;gap:var(--space-2)}
+    .icon-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--border-strong);background:var(--surface-2);color:var(--text);display:flex;align-items:center;justify-content:center;transition:all var(--transition)}
+    .icon-btn:hover{background:var(--lime-soft);border-color:var(--lime)}
+    .icon-btn svg{width:18px;height:18px}
     .brand{display:flex;align-items:center;gap:var(--space-3);margin-right:auto}
     .brand svg{width:36px;height:36px;color:var(--lime);filter:drop-shadow(0 0 6px var(--lime-glow))}
     .brand-name{font-family:var(--font-display);font-weight:800;font-size:1.05rem;letter-spacing:-0.01em;line-height:1}
@@ -358,17 +383,33 @@
     .acc-lead{font-size:var(--text-lg);color:var(--text-muted);margin-bottom:var(--space-10);max-width:680px}
     @media(max-width:600px){.acc-header{padding:var(--space-4)}.acc-content-pad{padding:0 var(--space-4) var(--space-10)}.acc-title{font-size:var(--text-lg)}}
 
+    /* The trading cockpit, golden-rule callout, tools grid, and artifact cards
+       are a fixed dark terminal look, same in both themes -- like a live
+       product screenshot, not page chrome. Re-pin their tokens to the
+       original dark values so light mode never washes them out. */
+    .cockpit, .golden-rule, .tools-grid, .art-grid {
+      color: var(--text);
+      --harbor-black: #0A1428;
+      --harbor-deep: #0b1020;
+      --harbor-night: #0d1729;
+      --surface: #101a30;
+      --surface-2: #142038;
+      --surface-3: #182542;
+      --border: rgba(0,255,127,0.10);
+      --border-strong: rgba(0,255,127,0.28);
+      --divider: rgba(255,255,255,0.06);
+      --lime: #00FF7F;
+      --lime-glow: rgba(0,255,127,0.50);
+      --lime-soft: rgba(0,255,127,0.14);
+      --lime-faint: rgba(0,255,127,0.06);
+      --text: #f3f7f4;
+      --text-muted: #9fb0ac;
+      --text-faint: #5d6b6a;
+    }
+
   </style>
 </head>
 <body>
-<button id="lime-translate-btn" aria-label="Translate this page" style="position:fixed;top:14px;right:14px;z-index:999;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);background:rgba(20,20,20,0.85);color:#eee;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(6px);">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-</button>
-<script>
-  document.getElementById('lime-translate-btn').addEventListener('click', function(){
-    var _tgtLang = (navigator.language || navigator.userLanguage || 'es').split('-')[0]; window.open('https://translate.google.com/translate?sl=auto&tl=' + _tgtLang + '&u=' + encodeURIComponent(window.location.href), '_blank', 'noopener');
-  });
-</script>
 
 
 <!-- ===== ANNOUNCEMENT BAR ===== -->
@@ -400,6 +441,12 @@
       <a href="#how">How Rosie Works</a>
       <a href="#calm">Calm Account</a>
       <a href="#library">Library</a>
+    </div>
+    <div class="hdr-tools">
+      <button class="icon-btn" data-translate aria-label="Translate this page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle light and dark theme"></button>
     </div>
     <a href="#cta" class="nav-cta">Open the Harbor</a>
   </div>
@@ -1089,5 +1136,9 @@
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 })();
 </script>
+<script>
+(function(){const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;let d='dark';r.setAttribute('data-theme',d);function icon(dark){return dark?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';}if(t){t.innerHTML=icon(d==='dark');t.addEventListener('click',()=>{d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);t.innerHTML=icon(d==='dark');});}})();
+</script>
+<script>(function(){var tr=document.querySelector('[data-translate]');if(tr){tr.addEventListener('click',function(){var _tl=(navigator.language||navigator.userLanguage||'es').split('-')[0];window.open('https://translate.google.com/translate?sl=auto&tl='+_tl+'&u='+encodeURIComponent(window.location.href),'_blank','noopener');});}})();</script>
 </body>
 </html>
