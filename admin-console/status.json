@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T06:27:31.611268+00:00",
+  "generated_at": "2026-07-18T08:16:44.662121+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "5c3f0f6",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-18T06:27:39Z"
+        },
+        {
           "sha": "930e76b",
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Wicket Gate cards: slow portrait rotation to 30s, restrict pool to 8 Keepers with real image files to stop blank portraits",
           "author": "nrini49",
           "date": "2026-07-18T01:19:24Z"
-        },
-        {
-          "sha": "17aae0c",
-          "message": "Fix Wicket Gate card heading sizes to match site-wide heading standard (text-base)",
-          "author": "nrini49",
-          "date": "2026-07-18T01:14:46Z"
         }
       ]
     },
