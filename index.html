@@ -1009,6 +1009,10 @@
 <!-- Harbor visitor counter: records this visit, then polls so anyone
      with the homepage open sees a sparkle burst + toast when someone new
      arrives, plus a small running count badge bottom-right. -->
+<div id="wg-live-badge" class="wg-badge wg-badge-live" aria-live="polite">
+  <span class="wg-dot wg-dot-live"></span>
+  <span id="wg-live-text">checking who's here&hellip;</span>
+</div>
 <div id="wg-badge" class="wg-badge" aria-live="polite">
   <span class="wg-dot"></span>
   <span id="wg-count-text">along the Rosy Way</span>
@@ -1022,7 +1026,11 @@
     box-shadow:0 6px 20px rgba(0,0,0,.18);backdrop-filter:blur(8px);opacity:.92;transition:transform .2s;pointer-events:none;}
   [data-theme="light"] .wg-badge{background:rgba(255,255,255,.92);color:#15241c;border-color:rgba(0,0,0,.08);}
   .wg-badge.wg-pulse{transform:scale(1.06);}
+  .wg-badge-live{bottom:56px;}
+  @media (max-width:640px){.wg-badge-live{bottom:48px;}}
   .wg-dot{width:7px;height:7px;border-radius:50%;background:#9ad14a;box-shadow:0 0 8px rgba(154,209,74,.7);flex:none;}
+  .wg-dot-live{background:#e8b659;box-shadow:0 0 8px rgba(232,182,89,.7);animation:wgLivePulse 1.8s ease-in-out infinite;}
+  @keyframes wgLivePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.25)}}
   .wg-toast{position:fixed;left:50%;top:18px;transform:translate(-50%,-140%);z-index:71;
     background:var(--surface,#14261c);color:var(--text,#eef5ee);border:1px solid rgba(154,209,74,.5);
     border-radius:999px;padding:.55rem 1.1rem;font-size:.85rem;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);
@@ -1034,14 +1042,34 @@
 </style>
 <script>
 (function(){
-  var API_BASE = 'https://spy-pipeline-rosie.pplx.app';
+  var API_BASE = 'https://lime-presence.pplx.app';
   var badge = document.getElementById('wg-badge');
   var countText = document.getElementById('wg-count-text');
+  var liveBadge = document.getElementById('wg-live-badge');
+  var liveText = document.getElementById('wg-live-text');
   var toast = document.getElementById('wg-toast');
   var canvas = document.getElementById('wg-sparkle-canvas');
   var ctx = canvas.getContext ? canvas.getContext('2d') : null;
-  var lastKnownCount = null;
+  var lastKnownTotal = null;
   var dpr = window.devicePixelRatio || 1;
+
+  function getSessionId(){
+    try {
+      var key = 'lime-wg-session';
+      var id = localStorage.getItem(key);
+      if (!id) {
+        id = 'wg-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+        localStorage.setItem(key, id);
+      }
+      return id;
+    } catch (e) {
+      // localStorage unavailable (private mode, etc.) -- fall back to a
+      // per-page-load id; this just means this visit won't be de-duped
+      // against a future visit from the same browser.
+      return 'wg-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+    }
+  }
+  var sessionId = getSessionId();
 
   function resizeCanvas(){
     canvas.width = window.innerWidth * dpr;
@@ -1057,6 +1085,12 @@
 
   function setCountText(n){
     countText.textContent = fmtCount(n) + ' along the Rosy Way';
+  }
+
+  function setLiveText(n){
+    if (!liveText) return;
+    var label = n === 1 ? 'person here right now' : 'people here right now';
+    liveText.textContent = fmtCount(n) + ' ' + label;
   }
 
   function pulseBadge(){
@@ -1114,43 +1148,53 @@
     requestAnimationFrame(frame);
   }
 
-  function celebrate(newCount, isSelf){
+  function celebrate(newTotal, isSelf){
     sparkleBurst();
     pulseBadge();
     showToast(isSelf ? 'You just entered the harbor' : 'Someone just entered the harbor');
-    setCountText(newCount);
+    setCountText(newTotal);
   }
 
-  function recordSelfVisit(){
-    fetch(API_BASE + '/api/wicket-gate/visit', {
+  function sendHeartbeat(isFirst){
+    fetch(API_BASE + '/api/presence/heartbeat', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({page:'home'})
+      body: JSON.stringify({sessionId: sessionId, page: 'home'})
     }).then(function(r){ return r.json(); }).then(function(data){
-      if(typeof data.count === 'number'){
-        lastKnownCount = data.count;
-        celebrate(data.count, true);
-      }
-    }).catch(function(){ /* SPY Pipeline unreachable -- badge just won't update, no error shown */ });
-  }
-
-  function pollCount(){
-    fetch(API_BASE + '/api/wicket-gate/count').then(function(r){ return r.json(); }).then(function(data){
-      if(typeof data.count !== 'number') return;
-      if(lastKnownCount === null){
-        lastKnownCount = data.count;
-        setCountText(data.count);
+      if (typeof data.live === 'number') setLiveText(data.live);
+      if (typeof data.total !== 'number') return;
+      if (lastKnownTotal === null) {
+        lastKnownTotal = data.total;
+        setCountText(data.total);
+        if (isFirst && data.isNew) celebrate(data.total, true);
         return;
       }
-      if(data.count > lastKnownCount){
-        lastKnownCount = data.count;
-        celebrate(data.count, false);
+      if (data.total > lastKnownTotal) {
+        lastKnownTotal = data.total;
+        celebrate(data.total, false);
+      }
+    }).catch(function(){ /* presence service unreachable this cycle -- badges just won't update */ });
+  }
+
+  function pollStatus(){
+    fetch(API_BASE + '/api/presence/status').then(function(r){ return r.json(); }).then(function(data){
+      if (typeof data.live === 'number') setLiveText(data.live);
+      if (typeof data.total !== 'number') return;
+      if (lastKnownTotal === null) {
+        lastKnownTotal = data.total;
+        setCountText(data.total);
+        return;
+      }
+      if (data.total > lastKnownTotal) {
+        lastKnownTotal = data.total;
+        celebrate(data.total, false);
       }
     }).catch(function(){ /* quietly skip this poll cycle */ });
   }
 
-  recordSelfVisit();
-  setInterval(pollCount, 8000);
+  sendHeartbeat(true);
+  setInterval(function(){ sendHeartbeat(false); }, 15000);
+  setInterval(pollStatus, 8000);
 })();
 </script>
 </body>
