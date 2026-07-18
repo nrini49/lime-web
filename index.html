@@ -135,7 +135,7 @@
   @media (max-width: 860px) { .grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
   .card { display: block; text-decoration: none; color: var(--color-text); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); position: relative; transition: transform var(--transition-interactive), border-color var(--transition-interactive), box-shadow var(--transition-interactive); }
-  .keeper-name { display: inline; text-align: left; font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; color: var(--color-text); margin: 0; letter-spacing: 0.015em; transition: opacity 0.3s; }
+  .keeper-name { display: inline; text-align: left; font-family: var(--font-display); font-size: var(--text-base); font-weight: 400; color: var(--color-text); margin: 0; letter-spacing: 0.015em; transition: opacity 0.3s; }
   .keeper-name::after { content: "\2014"; margin: 0 0.35em; color: var(--color-text-muted); }
   .card .keeper-name, .card h3 { display: inline; }
   .card h3 { margin-bottom: var(--space-2); }
@@ -160,7 +160,7 @@
   .card:hover .num { color: var(--color-primary); }
   .card .num { font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-text); line-height: 1; margin-bottom: var(--space-4); }
   .card-fire { font-size: 0.75rem; color: var(--color-beam); line-height: 1.55; margin-top: var(--space-3); font-style: italic; opacity: 0.88; }
-  .card h3 { font-size: var(--text-xl); margin-bottom: var(--space-2); }
+  .card h3 { font-size: var(--text-base); font-weight: 400; margin-bottom: var(--space-2); }
   .card p { font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 0; }
   .card .arrow { position: absolute; top: var(--space-6); right: var(--space-6); color: var(--color-text-faint); transition: color var(--transition-interactive), transform var(--transition-interactive); }
   .keeper-portrait { aspect-ratio: 1 / 1; border-radius: var(--radius-md); border: 1px solid var(--color-border); background-color: var(--color-surface-2); background-size: cover; background-position: center; background-repeat: no-repeat; margin-bottom: var(--space-4); display: flex; align-items: center; justify-content: center; color: var(--color-text-faint); transition: opacity .3s ease; }
