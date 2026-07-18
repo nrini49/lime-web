@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T02:12:44.082736+00:00",
+  "generated_at": "2026-07-18T04:25:42.187580+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "35d3e2e",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-18T02:12:55Z"
+        },
+        {
           "sha": "79bf8a5",
           "message": "Add 9th Keeper portrait (Adam) to Wicket Gate rotation pool, matching 9 door cards exactly",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Clarify offer text: access automatically ends on day 33 unless enrolled",
           "author": "nrini49",
           "date": "2026-07-18T01:09:57Z"
-        },
-        {
-          "sha": "065f869",
-          "message": "Expand Mitigation teaser with practice explanation + benefit; resize footer creed to match chapter heading size with top spacing",
-          "author": "nrini49",
-          "date": "2026-07-18T01:04:28Z"
         }
       ]
     },
