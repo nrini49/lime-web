@@ -904,55 +904,21 @@
      (2026-07-17) so the grid always reads as a balanced mix. -->
 <script>
 (function(){
+  // NOTE: pool temporarily restricted to the 8 Keepers with real portrait
+  // files on disk (2026-07-17) — the other 38 names have no image asset yet
+  // and were causing blank portraits on rotation. Restore the full list once
+  // the remaining portraits are generated.
   var MEN = [
     { file: '01_peter.webp', name: 'Peter' },
     { file: '02_solomon.webp', name: 'Solomon' },
     { file: '05_daniel.webp', name: 'Daniel' },
-    { file: '08_david.webp', name: 'David' },
-    { file: '09_adam.webp', name: 'Adam' },
-    { file: '10_seth.webp', name: 'Seth' },
-    { file: '11_enosh.webp', name: 'Enosh' },
-    { file: '12_kenan.webp', name: 'Kenan' },
-    { file: '13_mahalalel.webp', name: 'Mahalalel' },
-    { file: '14_jared.webp', name: 'Jared' },
-    { file: '15_enoch.webp', name: 'Enoch' },
-    { file: '16_methuselah.webp', name: 'Methuselah' },
-    { file: '17_lamech.webp', name: 'Lamech' },
-    { file: '18_noah.webp', name: 'Noah' },
-    { file: '19_abraham.webp', name: 'Abraham' },
-    { file: '20_john_the_baptist.webp', name: 'John the Baptist' },
-    { file: '21_simeon.webp', name: 'Simeon' },
-    { file: '25_andrew.webp', name: 'Andrew' },
-    { file: '26_james_zebedee.webp', name: 'James, Son of Zebedee' },
-    { file: '27_john_apostle.webp', name: 'John the Apostle' },
-    { file: '28_philip_evangelist.webp', name: 'Philip the Evangelist' },
-    { file: '29_stephen.webp', name: 'Stephen' },
-    { file: '30_paul.webp', name: 'Paul' },
-    { file: '31_barnabas.webp', name: 'Barnabas' },
-    { file: '32_timothy.webp', name: 'Timothy' },
-    { file: '33_silas.webp', name: 'Silas' },
-    { file: '36_aquila.webp', name: 'Aquila' },
-    { file: '37_apollos.webp', name: 'Apollos' },
-    { file: '38_cornelius.webp', name: 'Cornelius' }
+    { file: '08_david.webp', name: 'David' }
   ];
   var WOMEN = [
     { file: '07_ruth.webp', name: 'Ruth' },
     { file: '03_mary_magdalene.webp', name: 'Mary Magdalene' },
     { file: '04_mary_of_bethany.webp', name: 'Mary of Bethany' },
-    { file: '06_esther.webp', name: 'Esther' },
-    { file: '22_anna.webp', name: 'Anna' },
-    { file: '23_mary_mother_of_jesus.webp', name: 'Mary, Mother of Jesus' },
-    { file: '24_elizabeth.webp', name: 'Elizabeth' },
-    { file: '34_lydia.webp', name: 'Lydia' },
-    { file: '35_priscilla.webp', name: 'Priscilla' },
-    { file: '39_martha_of_bethany.webp', name: 'Martha of Bethany' },
-    { file: '40_salome.webp', name: 'Salome' },
-    { file: '41_mary_mother_of_james.webp', name: 'Mary, Mother of James and Joses' },
-    { file: '42_samaritan_woman.webp', name: 'The Samaritan Woman' },
-    { file: '43_junia.webp', name: 'Junia' },
-    { file: '44_dorcas.webp', name: 'Dorcas' },
-    { file: '45_phoebe.webp', name: 'Phoebe' },
-    { file: '46_joanna.webp', name: 'Joanna' }
+    { file: '06_esther.webp', name: 'Esther' }
   ];
   var slots = document.querySelectorAll('.keeper-portrait');
   if (!slots.length) return;
@@ -967,11 +933,17 @@
     return a;
   }
 
+  function pickN(list, n) {
+    var result = [];
+    while (result.length < n) { result = result.concat(shuffled(list)); }
+    return result.slice(0, n);
+  }
+
   function rotate(instant) {
     var menCount = Math.ceil(slots.length / 2);
     var womenCount = Math.floor(slots.length / 2);
-    var men = shuffled(MEN).slice(0, menCount);
-    var women = shuffled(WOMEN).slice(0, womenCount);
+    var men = pickN(MEN, menCount);
+    var women = pickN(WOMEN, womenCount);
     slots.forEach(function (el, i) {
       var k = (i % 2 === 0) ? men[i / 2] : women[(i - 1) / 2];
       if (!k) return;
@@ -989,8 +961,8 @@
     });
   }
 
-  rotate(true); // balance the grid immediately, don't wait for the first 5s tick
-  setInterval(rotate, 5000);
+  rotate(true); // balance the grid immediately, don't wait for the first tick
+  setInterval(rotate, 30000);
 })();
 </script>
 
