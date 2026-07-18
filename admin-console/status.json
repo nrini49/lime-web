@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T18:16:16.828537+00:00",
+  "generated_at": "2026-07-18T20:25:46.350164+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "ad7dee1",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-18T18:16:31Z"
+        },
+        {
           "sha": "e1dc968",
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Merge: resolve concurrent edits (Flame port to metaphor-gate + translate URL fix from parallel session)",
           "author": "Perplexity Computer",
           "date": "2026-07-18T14:48:03Z"
-        },
-        {
-          "sha": "df41e03",
-          "message": "Port Flame companion to metaphor-gate/index.html: adapted section anchors (What Metaphor Is, Why It Matters, Three Layers, How Leaders Speak",
-          "author": "Perplexity Computer",
-          "date": "2026-07-18T14:47:37Z"
         }
       ]
     },
