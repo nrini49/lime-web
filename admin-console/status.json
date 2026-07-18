@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T08:16:44.662121+00:00",
+  "generated_at": "2026-07-18T10:19:47.029359+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "5c3f0f6",
-          "message": "Admin Console: refresh status snapshot",
+          "sha": "7ad5b74",
+          "message": "Remove Lime Signalworks, LLC subtitle line from founder heading block (was the middle line between Two Readers, One Door and the Wicket Gate",
           "author": "nrini49",
-          "date": "2026-07-18T06:27:39Z"
+          "date": "2026-07-18T10:18:42Z"
         },
         {
-          "sha": "930e76b",
-          "message": "Admin Console: refresh status snapshot",
+          "sha": "61b5875",
+          "message": "Add founder's message paragraph on why Two Readers, One Door exists -- the difficulty of honest interpretation across frameworks, the platfo",
           "author": "nrini49",
-          "date": "2026-07-18T04:25:44Z"
+          "date": "2026-07-18T10:13:58Z"
         },
         {
-          "sha": "35d3e2e",
-          "message": "Admin Console: refresh status snapshot",
+          "sha": "f6621a7",
+          "message": "Add Part A (Precision Accurate AI Assisted Investing Platform, placeholder for the other thread's product showcase) and Part B (The Wicket G",
           "author": "nrini49",
-          "date": "2026-07-18T02:12:55Z"
+          "date": "2026-07-18T10:01:25Z"
         },
         {
-          "sha": "79bf8a5",
-          "message": "Add 9th Keeper portrait (Adam) to Wicket Gate rotation pool, matching 9 door cards exactly",
+          "sha": "ce4a31c",
+          "message": "Move Chapter IV (The Wicket Gate) to Chapter I. Remove old Chapter I (The Bezalel Promise) from Part B -- extracted and staged in a handoff ",
           "author": "nrini49",
-          "date": "2026-07-18T01:28:26Z"
+          "date": "2026-07-18T09:45:35Z"
         },
         {
-          "sha": "18e5cbb",
-          "message": "Wicket Gate cards: slow portrait rotation to 30s, restrict pool to 8 Keepers with real image files to stop blank portraits",
+          "sha": "0d766b2",
+          "message": "Fix tagline spelling: Wicked Gate -> Wicket Gate (Bunyan's Pilgrim's Progress reference, confirmed by Noal)",
           "author": "nrini49",
-          "date": "2026-07-18T01:19:24Z"
+          "date": "2026-07-18T09:35:26Z"
         }
       ]
     },
