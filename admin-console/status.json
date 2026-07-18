@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T10:19:47.029359+00:00",
+  "generated_at": "2026-07-18T12:20:32.346261+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "7ad5b74",
-          "message": "Remove Lime Signalworks, LLC subtitle line from founder heading block (was the middle line between Two Readers, One Door and the Wicket Gate",
+          "sha": "e5e5f0e",
+          "message": "Remove chevron/caret icons from all 14 accordion summary rows -- each line already indicates its own clickable destination, so the extra che",
           "author": "nrini49",
-          "date": "2026-07-18T10:18:42Z"
+          "date": "2026-07-18T12:08:53Z"
         },
         {
-          "sha": "61b5875",
-          "message": "Add founder's message paragraph on why Two Readers, One Door exists -- the difficulty of honest interpretation across frameworks, the platfo",
+          "sha": "f61f15a",
+          "message": "Fix Rosy Way hero heading to render on a single line (was constrained to max-width: 16ch, forcing it to wrap across many lines); wraps norma",
           "author": "nrini49",
-          "date": "2026-07-18T10:13:58Z"
+          "date": "2026-07-18T11:39:22Z"
         },
         {
-          "sha": "f6621a7",
-          "message": "Add Part A (Precision Accurate AI Assisted Investing Platform, placeholder for the other thread's product showcase) and Part B (The Wicket G",
+          "sha": "588cc1b",
+          "message": "Restore fire-spirit/index.html to English. A parallel-session commit (1c19750, 2026-07-17) silently reverted this page back to Spanish with ",
           "author": "nrini49",
-          "date": "2026-07-18T10:01:25Z"
+          "date": "2026-07-18T11:28:52Z"
         },
         {
-          "sha": "ce4a31c",
-          "message": "Move Chapter IV (The Wicket Gate) to Chapter I. Remove old Chapter I (The Bezalel Promise) from Part B -- extracted and staged in a handoff ",
+          "sha": "5b9c2a3",
+          "message": "Add Rosie x IBKR live demo CTA next to the dark/light toggle in the header. Explicitly NOT the IB-confirmation-gated CTA -- no affiliate/has",
           "author": "nrini49",
-          "date": "2026-07-18T09:45:35Z"
+          "date": "2026-07-18T11:16:32Z"
         },
         {
-          "sha": "0d766b2",
-          "message": "Fix tagline spelling: Wicked Gate -> Wicket Gate (Bunyan's Pilgrim's Progress reference, confirmed by Noal)",
+          "sha": "c1664e1",
+          "message": "Part A restructure to mirror Part B's shape: Introduction (was Our Promise), Chapter I (was Market Weather), Chapter II (was Report Archive,",
           "author": "nrini49",
-          "date": "2026-07-18T09:35:26Z"
+          "date": "2026-07-18T11:09:01Z"
         }
       ]
     },
