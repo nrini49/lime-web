@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-17T22:12:10.498593+00:00",
+  "generated_at": "2026-07-18T00:14:27.328308+00:00",
   "harbor_now": {
     "ok": true,
-    "posted_today": true,
+    "posted_today": false,
     "latest": "2026-07-17",
-    "checked_date": "2026-07-17"
+    "checked_date": "2026-07-18"
   },
   "site_health": [
     {
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "71c0462",
-          "message": "Restore the fire-spirit character sentence on all 9 Wicket Gate door cards (Peter, Solomon, Mary Magdalene, Mary of Bethany, Daniel, Esther,",
+          "sha": "b78b1c8",
+          "message": "Backfill missing Harbor Now reports for July 13 and July 14, 2026 -- both real weekday trading days with no archive entry. Pulled real SPY/Q",
           "author": "nrini49",
-          "date": "2026-07-17T21:52:30Z"
+          "date": "2026-07-18T00:13:11Z"
         },
         {
-          "sha": "51bc42e",
-          "message": "Add John the Baptist fire spirit line to metaphor gate keeper block",
+          "sha": "e82f42d",
+          "message": "Add an interpretation key to the Conclusion (Take a Breath) -- a compact two-column list showing each energy/manifestation term alongside it",
           "author": "nrini49",
-          "date": "2026-07-17T21:43:40Z"
+          "date": "2026-07-18T00:05:10Z"
         },
         {
-          "sha": "d4af1fd",
-          "message": "Harbor Now 2026-07-17: SPY 743.29 (-0.99%), QQQ 695.33 (-1.50%), DIA 520.81 (-0.77%), IWM 294.04 (-0.52%), VIX 18.77 (+12.19%) (finance tool",
+          "sha": "a4bac91",
+          "message": "Remove remnants of the old per-language system: dead data-i18n attributes across index.html (I18N JS object was already gone, these were dea",
           "author": "nrini49",
-          "date": "2026-07-17T21:40:18Z"
+          "date": "2026-07-17T23:58:20Z"
         },
         {
-          "sha": "623ac9d",
-          "message": "Restore homepage to last known-good state -- a parallel-session commit had re-added the gated CTA button ('Take me right to Rosie Interactiv",
+          "sha": "0d8fa59",
+          "message": "Rewrite the Conclusion (Take a Breath) using Noal's revised raw text, with energy/manifestation language reinterpreted into neo-Christian eq",
           "author": "nrini49",
-          "date": "2026-07-17T21:37:28Z"
+          "date": "2026-07-17T23:41:37Z"
         },
         {
-          "sha": "bad8e17",
-          "message": "Add fire spirit sentence to all 9 keeper cards",
+          "sha": "be4139e",
+          "message": "Conclusion chapter: rename 'Coming Soon' to 'Take a Breath'. Condense each sentence of the raw dictated text to its minimum size without los",
           "author": "nrini49",
-          "date": "2026-07-17T21:33:37Z"
+          "date": "2026-07-17T23:23:29Z"
         }
       ]
     },
@@ -67,6 +67,24 @@
       "repo": "nrini49/limesignalworks",
       "ok": true,
       "commits": [
+        {
+          "sha": "0da464f",
+          "message": "Rename 'Rosie Interactive' to 'Rosie AI Trading Assistant' in the page title, header brand, and footer note. Expand the top banner message t",
+          "author": "Plex (LIME)",
+          "date": "2026-07-17T22:50:55Z"
+        },
+        {
+          "sha": "e088f17",
+          "message": "Change top banner wording -- introduce Rosie as the AI trading assistant and explain what it does, no mention of Interactive Brokers yet (pe",
+          "author": "Plex (LIME)",
+          "date": "2026-07-17T22:47:49Z"
+        },
+        {
+          "sha": "8e4e454",
+          "message": "Remove 'Get started' button from the top banner on Rosie Interactive -- keep the informational message, drop the CTA link.",
+          "author": "Plex (LIME)",
+          "date": "2026-07-17T22:43:06Z"
+        },
         {
           "sha": "011da8f",
           "message": "Add Keeper portraits for Priscilla, Phoebe, Lydia (rose_river style, full color, matching established pattern) -- proposals, not yet locked ",
@@ -78,24 +96,6 @@
           "message": "Add Creation Doctrine PR review template",
           "author": "nrini49",
           "date": "2026-07-17T18:42:29Z"
-        },
-        {
-          "sha": "631aabe",
-          "message": "Add System Files table to the Rosie Way panel: every entry-point file across the ecosystem, with its exact repo/path and role, sourced from ",
-          "author": "nrini49",
-          "date": "2026-07-17T16:30:19Z"
-        },
-        {
-          "sha": "07280b6",
-          "message": "Add Rosie Way footer section: groups Harbor Watch with a new Admin Console public read-only widget (Harbor Now posting status, live site hea",
-          "author": "nrini49",
-          "date": "2026-07-17T14:42:14Z"
-        },
-        {
-          "sha": "0f2300e",
-          "message": "Fix Sage popup close button colliding with the day counter (was visually unreadable/unclickable). Add a clear '<- Home' link to Rosie Intera",
-          "author": "Plex (LIME)",
-          "date": "2026-07-17T14:26:39Z"
         }
       ]
     },
