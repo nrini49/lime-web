@@ -915,6 +915,22 @@
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); say(); }
   });
 
+  // Randomly surface a mystery mission every 10 minutes (2026-07-18,
+  // Noal's instruction) -- separate from the click-driven say() cycle above,
+  // which still does its own thing on its own schedule. This picks a truly
+  // random mystery (not the sequential mysteryIdx used elsewhere) so it
+  // doesn't always match whatever say() would have shown next.
+  function sayRandomMystery() {
+    if (!shown || ember.classList.contains('docked')) return;
+    var m = MYSTERIES[Math.floor(Math.random() * MYSTERIES.length)];
+    var text = '\u2015 Day ' + m.day + ', ' + m.title + ':\n' + m.mission;
+    bubble.innerHTML = text.replace(/\n/g, '<br><br>');
+    ember.classList.add('show');
+    clearTimeout(sayTimer);
+    sayTimer = setTimeout(function(){ ember.classList.remove('show'); }, 18000);
+  }
+  setInterval(sayRandomMystery, 600000);
+
   // Random wandering (2026-07-18, Noal's instruction: "set him free") --
   // Flame drifts to a genuinely random spot ANYWHERE on the page (full
   // top+left range, not confined to the old right-edge rail column) on its
