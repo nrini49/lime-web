@@ -567,25 +567,22 @@
   var card = document.getElementById('keeper-hero-card');
   var ctaWrap = document.getElementById('rosie-cta-wrap');
   if (!portrait) return;
-  var idx = Math.floor(Math.random() * ALL_KEEPERS.length);
+  // Rotation removed 2026-07-18 (Noal's instruction) -- only 9 of the 46 Keepers
+  // have real portrait files, so the old random/rotating pick showed a blank
+  // background image most of the time. Locked to a single fixed, real image
+  // instead: Adam, whose line ("carried the first promise... never stopped
+  // believing it was still good") is a direct match for this Bezalel Promise intro.
+  var LOCKED_KEEPER = { file: '09_adam.webp', name: 'Adam' };
   function setPortrait(k) {
-    portrait.style.opacity = '0';
-    if (traitEl) traitEl.style.opacity = '0';
-    setTimeout(function(){
-      portrait.style.backgroundImage = "url('assets/keepers/" + k.file + "')";
-      portrait.setAttribute('aria-label', 'Keeper portrait \u2014 ' + k.name);
-      portrait.style.opacity = '1';
-      if (traitEl) {
-        traitEl.textContent = KEEPER_TRAITS[k.file] || '';
-        traitEl.style.opacity = '1';
-      }
-    }, 300);
+    portrait.style.backgroundImage = "url('assets/keepers/" + k.file + "')";
+    portrait.setAttribute('aria-label', 'Keeper portrait \u2014 ' + k.name);
+    portrait.style.opacity = '1';
+    if (traitEl) {
+      traitEl.textContent = KEEPER_TRAITS[k.file] || '';
+      traitEl.style.opacity = '1';
+    }
   }
-  setPortrait(ALL_KEEPERS[idx]);
-  setInterval(function(){
-    idx = (idx + 1) % ALL_KEEPERS.length;
-    setPortrait(ALL_KEEPERS[idx]);
-  }, 18000);
+  setPortrait(LOCKED_KEEPER);
   // Show CTA only when card is open
   if (card && ctaWrap) {
     function syncCTA() { ctaWrap.style.display = card.open ? 'block' : 'none'; }
@@ -612,7 +609,7 @@
         <a class="card" href="offer/index.html"><div class="num">06</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Esther" style="background-image:url('assets/keepers/06_esther.webp')"></div><div class="keeper-name" data-slot="5">Esther</div><h3>The Offer</h3><p>What you get, what it costs, how to join. Loss-prevention-first AI assistance.</p><p class="card-fire">Esther's fire was timing — she held the position until the room was ready, then moved without hesitation. The offer stands the same way: not a pitch, a door opened at the right moment.</p></a>
         <a class="card" href="https://spy-pipeline-rosie.pplx.app" target="_blank" rel="noopener"><div class="num">07</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Ruth" style="background-image:url('assets/keepers/07_ruth.webp')"></div><div class="keeper-name" data-slot="6">Ruth</div><h3>SPY Harbor Watch</h3><p>Live SPY tracking since Rosie's first trade — price, alerts, and the 90-day dashboard.</p><p class="card-fire">Ruth's fire was loyal presence — she stayed on the field when leaving was the easier, more reasonable choice. This watch runs the same way: it does not leave the position.</p></a>
         <a class="card" href="laugh-lounge/index.html"><div class="num">08</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — David" style="background-image:url('assets/keepers/08_david.webp')"></div><div class="keeper-name" data-slot="7">David</div><h3>The Laugh Lounge</h3><p>A lighter door. Harbor and lighthouse humor, and a library you can browse at your own pace.</p><p class="card-fire">David's fire burned in caves, in grief, in battle, and in celebration equally. He wrote songs in the dark before the light arrived. Laughter held in that same frequency is not a distraction — it is a form of praise.</p></a>
-        <a class="card" href="metaphor-gate/index.html"><div class="num">09</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — John the Baptist" style="background-image:url('assets/keepers/09_john_the_baptist.webp')"></div><div class="keeper-name" data-slot="8">John the Baptist</div><h3>The Metaphor Gate</h3><p>The teaching layer. Learn to hear what is actually being said — in markets, in leadership, in scripture.</p><p class="card-fire">John the Baptist's fire was clarity — he spoke in the wilderness and the wilderness filled up. His spirit here is the same: cut through the noise until only the signal remains.</p></a>
+        <a class="card" href="metaphor-gate/index.html"><div class="num">09</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Adam" style="background-image:url('assets/keepers/09_adam.webp')"></div><div class="keeper-name" data-slot="8">Adam</div><h3>The Metaphor Gate</h3><p>The teaching layer. Learn to hear what is actually being said — in markets, in leadership, in scripture.</p><p class="card-fire">Adam's fire was carrying a promise forward without any proof it would hold. That is the same posture this teaching layer asks of you — learn to trust the pattern before you can see how it resolves.</p></a>
       </div>
       <a class="sage-library-link" href="fire-spirit/index.html#song">Explore the full Sage Missions Library →</a>
         </div>
@@ -915,6 +912,30 @@
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); say(); }
   });
 
+  // Random wandering (2026-07-18, Noal's instruction) -- Flame drifts to a
+  // new random spot within the rail on its own, on top of the deliberate
+  // section-tracking above. Opening a section still snaps it there instantly;
+  // wandering just resumes from the new spot afterward. Paused while docked
+  // at the footer so it doesn't drift out of the docked position.
+  function wander() {
+    var delay = 5000 + Math.random() * 6000; // 5-11s, organic not metronomic
+    setTimeout(function() {
+      if (shown && !ember.classList.contains('docked')) {
+        var minTop = 80, maxTop = window.innerHeight - 120;
+        var newTop = minTop + Math.random() * (maxTop - minTop);
+        ember.style.top = newTop + 'px';
+        ember.style.bottom = 'auto';
+        // Small horizontal drift too, staying near the rail's usual column
+        var railWidth = flameRail.offsetWidth || 52;
+        var baseRight = window.innerWidth - (flameRail.getBoundingClientRect().right);
+        var jitter = (Math.random() * 40) - 20; // +/-20px
+        flameRail.style.right = Math.max(4, baseRight + jitter) + 'px';
+      }
+      wander();
+    }, delay);
+  }
+  wander();
+
   // Appear after first scroll
   function checkEmber() {
     if (shown) return;
@@ -946,76 +967,12 @@
 
 
 
-<!-- Keeper portrait carousel: the door cards draw from the full pool of
-     46 Keepers (11 Patriarchs + 30 Fire Messengers + 5 legacy Keepers) and
-     swap every 5 seconds, so the set keeps rotating in real time as more
-     portraits are generated later. Slots alternate man/woman by card
-     position (01 man, 02 woman, 03 man, ...) per Noal's instruction
-     (2026-07-17) so the grid always reads as a balanced mix. -->
-<script>
-(function(){
-  // NOTE: pool temporarily restricted to the 8 Keepers with real portrait
-  // files on disk (2026-07-17) — the other 38 names have no image asset yet
-  // and were causing blank portraits on rotation. Restore the full list once
-  // the remaining portraits are generated.
-  var MEN = [
-    { file: '01_peter.webp', name: 'Peter' },
-    { file: '02_solomon.webp', name: 'Solomon' },
-    { file: '05_daniel.webp', name: 'Daniel' },
-    { file: '08_david.webp', name: 'David' },
-    { file: '09_adam.webp', name: 'Adam' }
-  ];
-  var WOMEN = [
-    { file: '07_ruth.webp', name: 'Ruth' },
-    { file: '03_mary_magdalene.webp', name: 'Mary Magdalene' },
-    { file: '04_mary_of_bethany.webp', name: 'Mary of Bethany' },
-    { file: '06_esther.webp', name: 'Esther' }
-  ];
-  var slots = document.querySelectorAll('.keeper-portrait');
-  if (!slots.length) return;
-  var names = document.querySelectorAll('.keeper-name');
-
-  function shuffled(list) {
-    var a = list.slice();
-    for (var i = a.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var t = a[i]; a[i] = a[j]; a[j] = t;
-    }
-    return a;
-  }
-
-  function pickN(list, n) {
-    var result = [];
-    while (result.length < n) { result = result.concat(shuffled(list)); }
-    return result.slice(0, n);
-  }
-
-  function rotate(instant) {
-    var menCount = Math.ceil(slots.length / 2);
-    var womenCount = Math.floor(slots.length / 2);
-    var men = pickN(MEN, menCount);
-    var women = pickN(WOMEN, womenCount);
-    slots.forEach(function (el, i) {
-      var k = (i % 2 === 0) ? men[i / 2] : women[(i - 1) / 2];
-      if (!k) return;
-      var nameEl = names[i];
-      var apply = function () {
-        el.style.backgroundImage = "url('assets/keepers/" + k.file + "')";
-        el.setAttribute('aria-label', 'Keeper portrait \u2014 ' + k.name);
-        el.style.opacity = '1';
-        if (nameEl) { nameEl.textContent = k.name; nameEl.style.opacity = '1'; }
-      };
-      if (instant) { apply(); return; }
-      el.style.opacity = '0';
-      if (nameEl) { nameEl.style.opacity = '0'; }
-      setTimeout(apply, 300);
-    });
-  }
-
-  rotate(true); // balance the grid immediately, don't wait for the first tick
-  setInterval(rotate, 30000);
-})();
-</script>
+<!-- Keeper portraits on the door cards are hardcoded directly into each
+     card's HTML above (2026-07-18, Noal's instruction) -- no rotation.
+     Only 9 of the 46 Keepers have real portrait files, so the old
+     rotating pool was showing blank portraits and mismatched fire-sentence
+     text most of the time. Each of the 9 cards is now permanently locked
+     to the one real Keeper whose card-fire text was written for them. -->
 
 
 <!-- Harbor visitor counter: records this visit, then polls so anyone
