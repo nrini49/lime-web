@@ -269,6 +269,11 @@
   .sub-chapter:first-child { padding-top: 0; border-top: none; margin-top: 0; }
   .sub-chapter-h { display: flex; align-items: baseline; gap: var(--space-3); font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; margin: 0 0 var(--space-4); }
   .sub-chapter-h .chapter-num { margin: 0; }
+  /* No chapter-num badge on this one merged summary -- collapse back to a
+     2-column grid (heading + chevron) instead of leaving an empty 9em gap. */
+  #hn-details > summary { grid-template-columns: 1fr auto; }
+  #hn-details > summary h2 { grid-column: 1; }
+  #hn-details > summary .chev { grid-column: 2; }
   @keyframes secOpen { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { details.collapsible > .sec-body { animation: none; } details.collapsible > summary .chev { transition: none; } }
   footer { padding: 0; }
@@ -385,7 +390,7 @@
   <section id="harbor-now" class="harbor-now">
     <div class="wrap">
       <details class="collapsible" id="hn-details">
-        <summary class="sec-bar"><div class="chapter-num">I–III + Conclusion</div><h2>Harbor Now, The Firm &amp; The Close</h2></summary>
+        <summary class="sec-bar"><h2>Harbor Now, The Firm &amp; The Close</h2></summary>
         <div class="sec-body">
 
           <div class="sub-chapter">
