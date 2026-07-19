@@ -16,11 +16,18 @@ Usage: python3 generate_snapshot.py
 Writes: status.json (same directory)
 """
 import json
+import os
 import subprocess
 import sys
 import urllib.request
 import urllib.error
 from datetime import datetime, timezone
+
+# Always write next to this script, regardless of the caller's cwd -- a
+# previous bug wrote a stray status.json at the repo root when this was
+# invoked as `python3 admin-console/generate_snapshot.py` from the repo root.
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_PATH = os.path.join(SCRIPT_DIR, "status.json")
 
 REPOS = ["nrini49/lime-web", "nrini49/limesignalworks", "nrini49/schwab", "nrini49/interactive"]
 LIVE_URLS = {
@@ -92,7 +99,7 @@ def main():
         "site_health": site_health(),
         "repos": [recent_commits(r) for r in REPOS],
     }
-    with open("status.json", "w") as f:
+    with open(OUTPUT_PATH, "w") as f:
         json.dump(snapshot, f, indent=2)
     print(f"Wrote status.json — {len(snapshot['repos'])} repos, "
           f"Harbor Now posted today: {snapshot['harbor_now']['posted_today']}")
