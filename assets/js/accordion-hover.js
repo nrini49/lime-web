@@ -1,16 +1,15 @@
-/* LIME site-wide accordion behavior. FINAL CALL, 2026-07-19, per Noal
- * after live-testing on the real site: hover-to-open was tried twice
- * today and reverted both times -- it interferes with the page and
- * takes the choice away from the reader. Standing principle going
- * forward: sections open ONLY on click (native <details> behavior),
- * never on hover. "Let them decide what they want to look at."
+/* LIME site-wide accordion behavior. UPDATED 2026-07-19, per Noal --
+ * confirmed directly in-thread after the click-only "final call":
+ * individual <details> sections (opened by clicking their own summary,
+ * e.g. "The Bezalel Promise") stay click-only -- that part is unchanged.
  *
- * Do NOT re-add mouseenter-opens-a-section anywhere in this file again
- * without Noal confirming directly, in-thread, after this note.
- *
- * What this file still does: once a reader clicks a section open, it
- * auto-collapses again when they move off it (mouse leaves) -- that
- * part stays, since it's tidy-up, not an unwanted auto-reveal.
+ * But the .part-label heading itself ("Precision Accurate AI Assisted
+ * Investing Platform" under "Part A", etc.) is once again a rollover
+ * trigger: hovering it opens every <details> section scoped to that
+ * part, and moving off closes them again. Noal wants this specific
+ * interaction back -- "when you do a rollover of precision accurate,
+ * that's when the promise and the harbor show up." Complex to build,
+ * simple for the reader: a rollover, like a dance.
  *
  * Touch/no-hover devices (phones, tablets) keep plain native <details>
  * click-to-open / click-to-close behavior untouched -- no change there.
@@ -58,10 +57,10 @@
         el.querySelectorAll && scoped.push.apply(scoped, el.querySelectorAll('details'));
         el = el.nextElementSibling;
       }
-      // Opening is click-only, per the standing principle above -- a
-      // part-label heading no longer opens its sections on hover. It
-      // still tidies up: moving off the part closes anything the reader
-      // had open within it.
+      // Hover the part-label heading -> open everything scoped to that
+      // part. Move off -> close it back up. Re-confirmed by Noal in-thread,
+      // 2026-07-19.
+      label.addEventListener('mouseenter', function () { scoped.forEach(function (d) { d.open = true; }); });
       label.addEventListener('mouseleave', function () { scoped.forEach(function (d) { d.open = false; }); });
     });
   }

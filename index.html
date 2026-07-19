@@ -84,11 +84,12 @@
   header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); background: color-mix(in oklab, var(--color-bg) 82%, transparent); border-bottom: 1px solid var(--color-divider); }
   .hdr { display: flex; align-items: center; justify-content: flex-start; padding: var(--space-4) 0; gap: var(--space-4); }
   .brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
-  /* Icon at least 2x the brand word's font-size, and the word itself one
-     size larger than the major (part-title) headings -- per Noal, 2026-07-19,
-     so the company name reads as the most prominent thing in the header. */
-  .brand svg { width: calc(var(--text-2xl) * 2); height: calc(var(--text-2xl) * 2); flex-shrink: 0; }
-  .brand .word { font-family: var(--font-display); font-weight: 400; font-size: var(--text-2xl); letter-spacing: 0.01em; }
+  /* Icon sized to the two-line brand name (LIME Signalworks / LLC), slightly
+     taller than that two-line block -- per Noal, 2026-07-19. Word itself is
+     one size larger than the major (part-title) headings so the company
+     name reads as the most prominent thing in the header. */
+  .brand svg { width: calc(var(--text-2xl) * 2.5); height: calc(var(--text-2xl) * 2.5); flex-shrink: 0; }
+  .brand .word { font-family: var(--font-display); font-weight: 400; font-size: var(--text-2xl); line-height: 1.15; letter-spacing: 0.01em; }
   .brand .word b { font-weight: 700; }
   .brand:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
   /* No margin-left:auto -- brand, presence pills, and header tools now share
@@ -291,10 +292,12 @@
   #hn-details > summary, #keeper-hero-card > summary { grid-template-columns: 1fr auto; }
   #hn-details > summary h2, #keeper-hero-card > summary h2 { grid-column: 1; }
   #hn-details > summary .chev, #keeper-hero-card > summary .chev { grid-column: 2; }
-  /* Part-label headings ("Part A", "Part B", "Part C") now double as
-     rollover triggers for everything under that part -- green like the
-     part-name tag above them, consistent across all three parts. */
-  .part-label .part-title { color: var(--color-primary); cursor: default; }
+  /* Part-label headings ("Part A", "Part B", "Part C") are rollover
+     triggers for everything under that part (hover opens, mouseleave
+     closes -- see accordion-hover.js). Per Noal, 2026-07-19: title stays
+     white/text-color, not green -- the hover behavior itself is the
+     affordance, no color cue needed. */
+  .part-label .part-title { color: var(--color-text); cursor: default; }
   @keyframes secOpen { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { details.collapsible > .sec-body { animation: none; } details.collapsible > summary .chev { transition: none; } }
   footer { padding: 0; }
