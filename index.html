@@ -104,7 +104,10 @@
      align-items:stretch does this permanently: each row's two cells (icon +
      CTA) share one row height (the taller of the two), and both stretch to
      fill it, so they can never drift out of sync again. */
-  .hdr-tools { display: grid; grid-template-columns: auto auto; align-items: stretch; gap: var(--space-2); }
+  /* Column gap (control buttons -> CTA buttons) matched to the same gap
+     used between the presence pills and this whole tools group, per Noal
+     2026-07-19. Row gap (top/bottom pair spacing) left as-is. */
+  .hdr-tools { display: grid; grid-template-columns: auto auto; align-items: stretch; gap: var(--space-2) var(--space-4); }
   /* Globe stacked above light/dark toggle -- two vertical objects that
      match the CTA's and the presence pills' 2-line height. Per Noal,
      2026-07-19. Reverted to the small gap (2026-07-19 follow-up): balance
