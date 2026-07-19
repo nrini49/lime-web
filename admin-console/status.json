@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T00:21:32.249309+00:00",
+  "generated_at": "2026-07-19T02:11:49.757038+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "25f7fa4",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-19T00:21:39Z"
+        },
+        {
           "sha": "ab6ad3b",
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
           "date": "2026-07-18T16:30:01Z"
-        },
-        {
-          "sha": "23bb84f",
-          "message": "Replace the visitor counter's backend: spy-pipeline-rosie.pplx.app has been stuck behind Perplexity's Organization-visibility gate since 202",
-          "author": "Perplexity Computer",
-          "date": "2026-07-18T15:35:56Z"
         }
       ]
     },
