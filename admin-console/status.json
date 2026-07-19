@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T19:50:04.755422+00:00",
+  "generated_at": "2026-07-19T22:14:14.300584+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "451bfd7",
-          "message": "Refresh admin console snapshot with today's session activity",
+          "sha": "15c7cd0",
+          "message": "Move Rosy Way bloom image outside the collapsed Declaration section so it's always visible",
           "author": "Noal Rini",
-          "date": "2026-07-19T19:48:57Z"
+          "date": "2026-07-19T22:05:59Z"
         },
         {
-          "sha": "67eb087",
-          "message": "Restructure Part IV to match Parts I-III accordion pattern: Introduction + Declaration cells, personal comments housed in Declaration",
-          "author": "Perplexity Computer",
-          "date": "2026-07-19T19:46:40Z"
-        },
-        {
-          "sha": "a04ea18",
-          "message": "Merge branch 'main' of https://git-agent-proxy.perplexity.ai/nrini49/lime-web",
+          "sha": "a3e3a27",
+          "message": "Merge: bridge-scene-anchor-width alongside collapsible Anchor Point",
           "author": "Noal Rini",
-          "date": "2026-07-19T19:45:09Z"
+          "date": "2026-07-19T22:02:51Z"
         },
         {
-          "sha": "6efcea3",
-          "message": "Replicate the header spacing fix (icon buttons stretch to match CTA height, 1.5x gap between control buttons and the CTA) across every page ",
+          "sha": "80aacb2",
+          "message": "Make Anchor Point collapsible (click opens, mouseleave closes, same pattern as rest of site)",
           "author": "Noal Rini",
-          "date": "2026-07-19T19:44:36Z"
+          "date": "2026-07-19T22:01:40Z"
         },
         {
-          "sha": "277f7d1",
-          "message": "Add Part IV: A Salute to the World, housing the final-words render + renaissance declaration",
-          "author": "Perplexity Computer",
-          "date": "2026-07-19T19:42:59Z"
+          "sha": "fc1e594",
+          "message": "Fix triptych: show full height of man photo instead of cropping via object-fit:cover",
+          "author": "Noal Rini",
+          "date": "2026-07-19T21:55:10Z"
+        },
+        {
+          "sha": "ea4176a",
+          "message": "Left-align Leave a Memory heading, equalize its spacing, gate Lime Universe Bridge images behind click-to-reveal on the heading",
+          "author": "Noal Rini",
+          "date": "2026-07-19T21:53:57Z"
         }
       ]
     },
@@ -67,6 +67,12 @@
       "repo": "nrini49/limesignalworks",
       "ok": true,
       "commits": [
+        {
+          "sha": "6cec04c",
+          "message": "Update session handoff doc for 2026-07-19 with end-of-day summary and parallel-session warning",
+          "author": "Noal Rini",
+          "date": "2026-07-19T19:53:42Z"
+        },
         {
           "sha": "9168746",
           "message": "Add session handoff doc for 2026-07-19",
@@ -90,12 +96,6 @@
           "message": "Add patch doc: read-only /api/demo-snapshot endpoint + narrow public relay, for the live-Rosie public demo (mirrors existing health-relay pa",
           "author": "Noal Rini",
           "date": "2026-07-19T17:24:31Z"
-        },
-        {
-          "sha": "f6f93e3",
-          "message": "Revert operator buttons (Power/Rosie/Guard/Trade) to always-visible on the Rosie demo, per Noal's instruction -- this is a demo meant to loo",
-          "author": "Plex (LIME)",
-          "date": "2026-07-18T15:27:40Z"
         }
       ]
     },
