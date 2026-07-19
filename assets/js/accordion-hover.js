@@ -1,15 +1,17 @@
-/* LIME site-wide accordion behavior. UPDATED 2026-07-19, per Noal --
- * confirmed directly in-thread after the click-only "final call":
- * individual <details> sections (opened by clicking their own summary,
- * e.g. "The Bezalel Promise") stay click-only -- that part is unchanged.
+/* LIME site-wide accordion behavior. FINAL CALL #2, 2026-07-19, per Noal:
+ * hovering a .part-label heading ("Precision Accurate AI Assisted
+ * Investing Platform" under "Part A", etc.) must NEVER open any
+ * <details> content -- it was tried today and Noal flagged it as still
+ * not right: "roll over the top of any heading, it should not open
+ * anything except the name of the subheadings." Individual <details>
+ * sections open ONLY when their own summary is clicked -- that has
+ * never changed. This is the same standing principle Part C was built
+ * with from the start (reveal names on hover, click to actually open),
+ * now restored for Part A and Part B too.
  *
- * But the .part-label heading itself ("Precision Accurate AI Assisted
- * Investing Platform" under "Part A", etc.) is once again a rollover
- * trigger: hovering it opens every <details> section scoped to that
- * part, and moving off closes them again. Noal wants this specific
- * interaction back -- "when you do a rollover of precision accurate,
- * that's when the promise and the harbor show up." Complex to build,
- * simple for the reader: a rollover, like a dance.
+ * Do NOT re-add mouseenter-opens-a-section anywhere in this file again
+ * without Noal confirming directly, in-thread, after this note --
+ * this is the second time it's been added and removed today.
  *
  * Touch/no-hover devices (phones, tablets) keep plain native <details>
  * click-to-open / click-to-close behavior untouched -- no change there.
@@ -39,17 +41,13 @@
     new MutationObserver(wireAll).observe(document.body, { childList: true, subtree: true });
   }
 
-  // Part-label headings ("Part A", "Part B", "Part C") as master rollover
-  // triggers: hovering the part title opens every <details> section that
-  // belongs to that part (everything between this .part-label and the
-  // next one, or end of <main> if it's the last part). Added 2026-07-19
-  // per Noal -- this model applies to Part A and Part B. Part C (added
-  // 2026-07-19) intentionally opts out via data-reveal-only -- see the
-  // exclusion below and the HTML comment above the Part C block.
+  // Part-label headings ("Part A", "Part B", "Part C") -- tidy-up only.
+  // Hovering a part-label heading does NOT open anything (see the file
+  // header note above). This just makes sure nothing scoped to a part
+  // is left open if the reader's mouse passes back over the heading
+  // after clicking something open elsewhere on the part -- a safety
+  // net, not an auto-open trigger.
   function wirePartLabels() {
-    // :not([data-reveal-only]) excludes Part C's label -- it uses a
-    // separate, pure-CSS reveal-on-hover pattern (see index.html) instead
-    // of this hover-opens-content behavior. Per Noal, 2026-07-19.
     document.querySelectorAll('.part-label:not([data-reveal-only])').forEach(function (label) {
       if (label.dataset.rolloverWired) return;
       label.dataset.rolloverWired = '1';
@@ -60,10 +58,8 @@
         el.querySelectorAll && scoped.push.apply(scoped, el.querySelectorAll('details'));
         el = el.nextElementSibling;
       }
-      // Hover the part-label heading -> open everything scoped to that
-      // part. Move off -> close it back up. Re-confirmed by Noal in-thread,
-      // 2026-07-19.
-      label.addEventListener('mouseenter', function () { scoped.forEach(function (d) { d.open = true; }); });
+      // No mouseenter handler -- hovering the heading must never open
+      // content. mouseleave-closes stays as tidy-up only.
       label.addEventListener('mouseleave', function () { scoped.forEach(function (d) { d.open = false; }); });
     });
   }
