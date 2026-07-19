@@ -485,8 +485,10 @@
   /* End-of-page marker, per Noal 2026-07-19: a small image of the happy
      couple placed at the true bottom of the page so readers have a clear
      visual signal they've reached the end. */
-  .page-end-marker { max-width: 640px; margin: 0 auto; padding: var(--space-10) var(--space-6) var(--space-12); text-align: center; border-top: 1px solid var(--color-divider); }
-  .page-end-marker img { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; box-shadow: var(--shadow-md); margin: 0 auto var(--space-4); display: block; }
+  /* Widened per Noal 2026-07-19 ~6:24pm: image now spans the exact same
+     width as the Anchor Point panel (780px), edge to edge. */
+  .page-end-marker { max-width: 780px; margin: 0 auto; padding: var(--space-10) 0 var(--space-12); text-align: center; border-top: 1px solid var(--color-divider); }
+  .page-end-marker img { width: 100%; height: auto; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); margin: 0 auto var(--space-4); display: block; }
   .page-end-marker p { color: var(--color-text-muted); font-size: var(--text-sm); font-style: italic; margin: 0; }
 
   /* Changed from a 3-equal-column grid (which was cropping the taller
