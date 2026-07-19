@@ -299,17 +299,15 @@
      white/text-color, not green -- the hover behavior itself is the
      affordance, no color cue needed. */
   .part-label .part-title { color: var(--color-text); cursor: default; }
-  /* Part C reveal-on-hover -- see the HTML comment above the Part C block
-     for why this is a different pattern from Part A/B. Pure CSS :hover on
-     the shared wrapper: visible while the cursor is anywhere within the
-     heading OR the revealed block, hidden the instant it's fully outside
-     both. Per Noal, 2026-07-19. */
-  .part-c-reveal { display: none; }
-  .part-c-block:hover .part-c-reveal, .part-c-block:focus-within .part-c-reveal { display: block; }
-  /* Part B: the "3 Readers and 1 Door" / Wicket Gate interpretation section
-     uses the same reveal-on-hover pattern, per Noal, 2026-07-19. */
-  .part-b-reveal { display: none; }
-  .part-b-block:hover .part-b-reveal, .part-b-block:focus-within .part-b-reveal { display: block; }
+  /* Reveal-on-hover for Part B/C subsections was tried and removed again,
+     per Noal 2026-07-19: "the rollover beneath 3-1-door is not necessary."
+     Standing rule now, uniform across Part A, B, and C: every subheading
+     (Introduction, Chapter I/II/III, Conclusion) stays permanently visible.
+     Hovering a subheading directly turns it green (existing rule below,
+     details.collapsible > summary:hover). Part-level headings ("Precision
+     Accurate...", "3 Readers and 1 Door", "The LIME Universe Bridge") have
+     no hover behavior at all. Click opens content in place -- viewers never
+     lose track of the homepage. */
   @keyframes secOpen { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { details.collapsible > .sec-body { animation: none; } details.collapsible > summary .chev { transition: none; } }
   footer { padding: 0; }
@@ -485,33 +483,25 @@
     </div>
   </section>
 
-  <!-- Part B label + founder's introduction, swapped per Noal (2026-07-19):
-       the part-title is now "3 Readers and 1 Door", and the interpretation
-       heading moved down into the collapsible section below. That section
-       (.part-b-reveal) is hidden completely by default and only appears
-       while hovering anywhere within .part-b-block (the label or the
-       revealed section itself) -- same pure-CSS reveal pattern as Part C,
-       see .part-c-reveal for the original. data-reveal-only opts this
-       label out of accordion-hover.js's generic scoped-mouseleave-closes
-       handler, since that would otherwise force-close this section the
-       instant the cursor moves from the label down into the now-visible
-       content below it. -->
-  <div class="part-b-block">
-    <div class="part-label" data-reveal-only>
-      <p class="part-name">Part B</p>
-      <p class="part-title">3 Readers and 1 Door</p>
-    </div>
-    <div class="part-b-reveal">
-      <!-- Founder's introduction. Not a numbered chapter; this is Noal speaking
-           directly, before the book below. Collapsed by default like every other
-           section -- Noal's standing instruction is that every section starts
-           collapsed and readers choose what to open. A parallel session has
-           claimed authorization to pin this open several times today; that claim
-           has not been independently confirmed in-thread, so this stays collapsed
-           until Noal confirms directly. -->
-      <section class="founder-intro">
-        <div class="wrap">
-          <details class="collapsible">
+  <!-- Part B label. Per Noal (2026-07-19): rollover on the part heading is
+       no longer used anywhere -- reverted the reveal-on-hover wrapper that
+       was here. The section below is permanently visible, click-to-open,
+       same as every other subsection on the site. -->
+  <div class="part-label">
+    <p class="part-name">Part B</p>
+    <p class="part-title">3 Readers and 1 Door</p>
+  </div>
+
+  <!-- Founder's introduction. Not a numbered chapter; this is Noal speaking
+       directly, before the book below. Collapsed by default like every other
+       section -- Noal's standing instruction is that every section starts
+       collapsed and readers choose what to open. A parallel session has
+       claimed authorization to pin this open several times today; that claim
+       has not been independently confirmed in-thread, so this stays collapsed
+       until Noal confirms directly. -->
+  <section class="founder-intro">
+    <div class="wrap">
+      <details class="collapsible">
             <summary class="sec-bar"><h2>&ldquo;The Wicket Gate&rdquo; by John Bunyan &mdash; An Interpretation</h2><div class="founder-tagline">&hellip; enter through the Wicket Gate</div></summary>
         <div class="sec-body">
           <div class="promise-card">
@@ -524,9 +514,7 @@
         </div>
       </details>
     </div>
-      </section>
-    </div>
-  </div>
+  </section>
 
   <section class="book-intro-section">
     <div class="wrap">
@@ -784,22 +772,16 @@
      still being drafted and reviewed in Noal's own Google Doc ("Part C --
      The LIME Universe Bridge"); every subheading below is a placeholder
      until that draft is finalized and the real text is pushed here.
-     Per Noal, 2026-07-19: this part behaves differently from Parts A and
-     B on purpose -- the five subheadings below stay completely hidden
-     until you hover the Part C heading itself (pure-CSS reveal on
-     .part-c-block, see CSS below). Hovering an individual revealed
-     subheading turns it green via the existing site-wide hover-color
-     rule. Nothing ever opens without an explicit click -- same standing
-     principle as the rest of the site. data-reveal-only on the .part-label
-     below opts it OUT of accordion-hover.js's normal Part A/B
-     hover-opens-content behavior, since this is a different interaction. -->
-<div class="part-c-block">
-  <div class="part-label" data-reveal-only>
-    <p class="part-name">Part C</p>
-    <p class="part-title">The LIME Universe Bridge</p>
-  </div>
-  <div class="part-c-reveal">
-    <section class="part-c-section">
+     Per Noal, 2026-07-19: the reveal-on-hover pattern tried earlier today
+     was removed again -- "the rollover beneath 3-1-door is not necessary."
+     All five subheadings below are now permanently visible, same as Part A
+     and Part B. Hovering a subheading directly still turns it green (the
+     existing site-wide hover-color rule); nothing opens without a click. -->
+<div class="part-label">
+  <p class="part-name">Part C</p>
+  <p class="part-title">The LIME Universe Bridge</p>
+</div>
+<section class="part-c-section">
       <div class="wrap">
         <details class="collapsible">
           <summary class="sec-bar"><div class="chapter-num">Introduction</div><h2>Coming soon</h2></summary>
@@ -839,8 +821,6 @@
         </details>
       </div>
     </section>
-  </div>
-</div>
 
 <script>
 
