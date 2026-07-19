@@ -1,15 +1,19 @@
-/* LIME site-wide accordion behavior (added 2026-07-19, re-confirmed same
- * day per Noal after live walkthrough: rollover opens a section, moving
- * off it closes it again. Heading (<summary>) always visible either way.
+/* LIME site-wide accordion behavior. FINAL CALL, 2026-07-19, per Noal
+ * after live-testing on the real site: hover-to-open was tried twice
+ * today and reverted both times -- it interferes with the page and
+ * takes the choice away from the reader. Standing principle going
+ * forward: sections open ONLY on click (native <details> behavior),
+ * never on hover. "Let them decide what they want to look at."
  *
- * Note for whoever picks this up next: this exact on/off call was made
- * twice in one session (removed, then restored) based on Noal's direct
- * live testing feedback -- if it needs to change again, confirm with him
- * in-thread first rather than assuming either direction is settled.
+ * Do NOT re-add mouseenter-opens-a-section anywhere in this file again
+ * without Noal confirming directly, in-thread, after this note.
+ *
+ * What this file still does: once a reader clicks a section open, it
+ * auto-collapses again when they move off it (mouse leaves) -- that
+ * part stays, since it's tidy-up, not an unwanted auto-reveal.
  *
  * Touch/no-hover devices (phones, tablets) keep plain native <details>
- * click-to-open / click-to-close behavior untouched -- there's no hover
- * gesture on touch, so this rollover behavior doesn't apply there.
+ * click-to-open / click-to-close behavior untouched -- no change there.
  */
 (function () {
   if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
@@ -19,7 +23,8 @@
   function wire(details) {
     if (details.dataset.rolloverWired) return;
     details.dataset.rolloverWired = '1';
-    details.addEventListener('mouseenter', function () { details.open = true; });
+    // Opening is click-only (native <details>/<summary>). Closing on
+    // mouse-leave is the only automatic behavior here.
     details.addEventListener('mouseleave', function () { details.open = false; });
   }
 
@@ -53,7 +58,10 @@
         el.querySelectorAll && scoped.push.apply(scoped, el.querySelectorAll('details'));
         el = el.nextElementSibling;
       }
-      label.addEventListener('mouseenter', function () { scoped.forEach(function (d) { d.open = true; }); });
+      // Opening is click-only, per the standing principle above -- a
+      // part-label heading no longer opens its sections on hover. It
+      // still tidies up: moving off the part closes anything the reader
+      // had open within it.
       label.addEventListener('mouseleave', function () { scoped.forEach(function (d) { d.open = false; }); });
     });
   }
