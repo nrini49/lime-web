@@ -306,6 +306,10 @@
      both. Per Noal, 2026-07-19. */
   .part-c-reveal { display: none; }
   .part-c-block:hover .part-c-reveal, .part-c-block:focus-within .part-c-reveal { display: block; }
+  /* Part B: the "3 Readers and 1 Door" / Wicket Gate interpretation section
+     uses the same reveal-on-hover pattern, per Noal, 2026-07-19. */
+  .part-b-reveal { display: none; }
+  .part-b-block:hover .part-b-reveal, .part-b-block:focus-within .part-b-reveal { display: block; }
   @keyframes secOpen { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { details.collapsible > .sec-body { animation: none; } details.collapsible > summary .chev { transition: none; } }
   footer { padding: 0; }
@@ -481,24 +485,34 @@
     </div>
   </section>
 
-  <!-- Part B label, per Noal's instruction (2026-07-18) -- sits directly
-       above "From the Founder" / "Two Readers, One Door". -->
-  <div class="part-label">
-    <p class="part-name">Part B</p>
-    <p class="part-title">&ldquo;The Wicket Gate&rdquo; &mdash; An Interpretation of John Bunyan's Pilgrim's Progress</p>
-  </div>
-
-  <!-- Founder's introduction. Not a numbered chapter; this is Noal speaking
-       directly, before the book below. Collapsed by default like every other
-       section -- Noal's standing instruction is that every section starts
-       collapsed and readers choose what to open. A parallel session has
-       claimed authorization to pin this open several times today; that claim
-       has not been independently confirmed in-thread, so this stays collapsed
-       until Noal confirms directly. -->
-  <section class="founder-intro">
-    <div class="wrap">
-      <details class="collapsible">
-        <summary class="sec-bar"><h2>3 Readers and 1 Door</h2><div class="founder-tagline">&hellip; enter through the Wicket Gate</div></summary>
+  <!-- Part B label + founder's introduction, swapped per Noal (2026-07-19):
+       the part-title is now "3 Readers and 1 Door", and the interpretation
+       heading moved down into the collapsible section below. That section
+       (.part-b-reveal) is hidden completely by default and only appears
+       while hovering anywhere within .part-b-block (the label or the
+       revealed section itself) -- same pure-CSS reveal pattern as Part C,
+       see .part-c-reveal for the original. data-reveal-only opts this
+       label out of accordion-hover.js's generic scoped-mouseleave-closes
+       handler, since that would otherwise force-close this section the
+       instant the cursor moves from the label down into the now-visible
+       content below it. -->
+  <div class="part-b-block">
+    <div class="part-label" data-reveal-only>
+      <p class="part-name">Part B</p>
+      <p class="part-title">3 Readers and 1 Door</p>
+    </div>
+    <div class="part-b-reveal">
+      <!-- Founder's introduction. Not a numbered chapter; this is Noal speaking
+           directly, before the book below. Collapsed by default like every other
+           section -- Noal's standing instruction is that every section starts
+           collapsed and readers choose what to open. A parallel session has
+           claimed authorization to pin this open several times today; that claim
+           has not been independently confirmed in-thread, so this stays collapsed
+           until Noal confirms directly. -->
+      <section class="founder-intro">
+        <div class="wrap">
+          <details class="collapsible">
+            <summary class="sec-bar"><h2>&ldquo;The Wicket Gate&rdquo; &mdash; An Interpretation of John Bunyan's Pilgrim's Progress</h2><div class="founder-tagline">&hellip; enter through the Wicket Gate</div></summary>
         <div class="sec-body">
           <div class="promise-card">
             <p>Every deep truth arrives wrapped in metaphor &mdash; that's not decoration, it's translation. Metaphor lets meaning cross between frameworks without asking either side to abandon its own: the reader who thinks in scripture doesn't have to set faith aside, and the reader who thinks in energy, evidence, or neither doesn't have to adopt one either. This site is built to open the same door to both at once. You shouldn't need a concordance to follow what's here, and you shouldn't have to leave your reason at the door either. What's offered should be plain enough to explain and grounded enough to test.</p>
@@ -510,7 +524,9 @@
         </div>
       </details>
     </div>
-  </section>
+      </section>
+    </div>
+  </div>
 
   <section class="book-intro-section">
     <div class="wrap">
