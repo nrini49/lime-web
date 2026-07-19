@@ -658,6 +658,14 @@
   </section>
 
   <script>
+  // Wrapped in DOMContentLoaded, per Noal 2026-07-19 follow-up: the
+  // companion widget's HTML got moved further down the page (after
+  // Conclusion/Light My Fire) but this script tag stayed put earlier in
+  // the document, so document.querySelector('.cw-row') etc. were
+  // finding nothing yet and silently no-op'ing on every page load. This
+  // makes both IIFEs below run only once the whole DOM exists,
+  // independent of where the widget's markup ends up sitting.
+  document.addEventListener('DOMContentLoaded', function () {
     // Per Noal 2026-07-19: the two cells can never be wider than the
     // heading text above them ("...Before You Leave...") -- measured live
     // so it re-syncs automatically if the page is zoomed/magnified or the
@@ -668,9 +676,21 @@
       var details = document.getElementById('cw-details');
       if (!heading || !row) return;
       var wrapEl = row.closest('.wrap');
+      // Per Noal 2026-07-19 follow-up: no longer capped to the heading's
+      // own width ("too narrow" -- the intro sentence was wrapping into
+      // 3 lines). Now uses the full standard page width instead, same as
+      // every other section's content column.
       function syncWidth() {
-        var w = heading.getBoundingClientRect().width;
-        if (w > 0) row.style.width = w + 'px';
+        if (wrapEl) {
+          var wrapCS = getComputedStyle(wrapEl);
+          var padL = parseFloat(wrapCS.paddingLeft) || 0;
+          var padR = parseFloat(wrapCS.paddingRight) || 0;
+          var w = wrapEl.getBoundingClientRect().width - padL - padR;
+          if (w > 0) row.style.width = w + 'px';
+        } else {
+          var hw = heading.getBoundingClientRect().width;
+          if (hw > 0) row.style.width = hw + 'px';
+        }
         // Pin the row's left edge to the page's standard left margin
         // (same edge every "Chapter" heading starts at), per Noal
         // 2026-07-19. .cw-body's own width doesn't reliably resolve to
@@ -678,7 +698,6 @@
         // and correct with a margin instead of trusting that width.
         if (wrapEl) {
           row.style.marginLeft = '0px';
-          var wrapCS = getComputedStyle(wrapEl);
           var targetLeft = wrapEl.getBoundingClientRect().left + (parseFloat(wrapCS.paddingLeft) || 0);
           var currentLeft = row.getBoundingClientRect().left;
           row.style.marginLeft = (targetLeft - currentLeft) + 'px';
@@ -716,6 +735,7 @@
         }, 700);
       });
     })();
+  });
   </script>
 
   <!-- Chapters I-III + Conclusion un-merged back into separate top-level
