@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T12:23:58.940124+00:00",
+  "generated_at": "2026-07-19T14:26:03.091243+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "323fa84",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-19T10:19:56Z"
+          "sha": "51d5ac8",
+          "message": "Part B heading: one line, quoted title + attribution",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-19T14:25:02Z"
         },
         {
-          "sha": "e00a5ff",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-19T08:25:11Z"
+          "sha": "2da7c6e",
+          "message": "Final call: click-to-open only, never hover-to-open",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-19T14:05:39Z"
         },
         {
-          "sha": "7f96300",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-19T06:25:10Z"
+          "sha": "8ebae41",
+          "message": "Part headings become green rollover triggers, drop Introduction badge",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-19T14:03:34Z"
         },
         {
-          "sha": "8123fe1",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-19T04:25:27Z"
+          "sha": "ee983f7",
+          "message": "Restore hover-to-open per Noal's live walkthrough feedback",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-19T13:59:46Z"
         },
         {
-          "sha": "b74e83c",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-19T02:11:56Z"
+          "sha": "8d527f2",
+          "message": "Drop 'I-III + Conclusion' badge, keep only the section's own heading",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-19T13:58:14Z"
         }
       ]
     },
