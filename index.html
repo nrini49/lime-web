@@ -271,11 +271,12 @@
   details.collapsible > summary .chev { grid-column: 3; }
   @media (max-width: 640px) { details.collapsible > summary { grid-template-columns: 1fr auto; grid-template-rows: auto auto; row-gap: var(--space-1); } .chapter-num { text-align: left; grid-column: 1; grid-row: 1; } details.collapsible > summary h2, details.collapsible > summary h3 { grid-column: 1; grid-row: 2; } details.collapsible > summary .chev { grid-column: 2; grid-row: 1 / 3; } }
   /* Founder heading stands apart -- one line, flush to the true left edge, everything else reads as subordinate to it */
-  .founder-intro summary { grid-template-columns: 1fr auto !important; grid-template-rows: auto auto auto; row-gap: var(--space-1); max-width: none; }
-  .founder-intro .chapter-num { grid-column: 1 !important; grid-row: 1; text-align: left !important; }
-  .founder-intro summary h2 { grid-column: 1 !important; grid-row: 2; white-space: nowrap; font-size: var(--text-xl) !important; text-align: left !important; }
-  .founder-intro .founder-tagline { grid-column: 1; grid-row: 3; font-family: var(--font-display); font-size: var(--text-base); font-style: italic; color: var(--color-text-muted); text-align: left; }
-  .founder-intro summary .chev { grid-column: 2; grid-row: 1 / 4; }
+  /* "From the Founder" chapter-num tag removed per Noal, 2026-07-19 --
+     down to two rows now: heading, then tagline. */
+  .founder-intro summary { grid-template-columns: 1fr auto !important; grid-template-rows: auto auto; row-gap: var(--space-1); max-width: none; }
+  .founder-intro summary h2 { grid-column: 1 !important; grid-row: 1; white-space: nowrap; font-size: var(--text-xl) !important; text-align: left !important; }
+  .founder-intro .founder-tagline { grid-column: 1; grid-row: 2; font-family: var(--font-display); font-size: var(--text-base); font-style: italic; color: var(--color-text-muted); text-align: left; }
+  .founder-intro summary .chev { grid-column: 2; grid-row: 1 / 3; }
   @media (max-width: 640px) { .founder-intro summary h2 { font-size: var(--text-lg) !important; white-space: normal; } }
   .book-intro { max-width: 640px; margin: 0 auto; padding: var(--space-10) 0 var(--space-4); text-align: center; color: var(--color-text-muted); font-size: var(--text-base); line-height: 1.6; }
   #harbor-now .wrap > details.collapsible + details.collapsible { margin-top: 0; }
@@ -497,11 +498,11 @@
   <section class="founder-intro">
     <div class="wrap">
       <details class="collapsible">
-        <summary class="sec-bar"><div class="chapter-num">From the Founder</div><h2>Two Readers, One Door</h2><div class="founder-tagline">&hellip; enter through the Wicket Gate</div></summary>
+        <summary class="sec-bar"><h2>3 Readers and 1 Door</h2><div class="founder-tagline">&hellip; enter through the Wicket Gate</div></summary>
         <div class="sec-body">
           <div class="promise-card">
             <p>Every deep truth arrives wrapped in metaphor &mdash; that's not decoration, it's translation. Metaphor lets meaning cross between frameworks without asking either side to abandon its own: the reader who thinks in scripture doesn't have to set faith aside, and the reader who thinks in energy, evidence, or neither doesn't have to adopt one either. This site is built to open the same door to both at once. You shouldn't need a concordance to follow what's here, and you shouldn't have to leave your reason at the door either. What's offered should be plain enough to explain and grounded enough to test.</p>
-            <p style="color:var(--color-text-muted);">Interpreting language honestly, across frameworks, is genuinely hard &mdash; that difficulty is exactly why Two Readers, One Door exists. Everyone deserves to be served here, and there's only one way to actually do that: use this platform itself as the interpretive bridge. That bridge is what adds depth &mdash; decades of real, lived experience stand behind the Fire Spirit profile, which is precisely why a full, detailed explanation of it is offered rather than left as an unproven claim. The goal is plain: anyone &mdash; whatever their state of mind, spiritual orientation, education, or means &mdash; should be able to understand it and act on it, and start drawing the future they want into their now. It is finished. It is done.</p>
+            <p style="color:var(--color-text-muted);">Interpreting language honestly, across frameworks, is genuinely hard &mdash; that difficulty is exactly why 3 Readers and 1 Door exists. Everyone deserves to be served here, and there's only one way to actually do that: use this platform itself as the interpretive bridge. That bridge is what adds depth &mdash; decades of real, lived experience stand behind the Fire Spirit profile, which is precisely why a full, detailed explanation of it is offered rather than left as an unproven claim. The goal is plain: anyone &mdash; whatever their state of mind, spiritual orientation, education, or means &mdash; should be able to understand it and act on it, and start drawing the future they want into their now. It is finished. It is done.</p>
             <p style="color:var(--color-text-muted);">This isn't only about markets. Noise shows up everywhere &mdash; in decisions, attention, the body, money, relationships, the quiet places nobody else sees &mdash; and clearing it, layer by layer, is the real work of the next 33 days. Not a new personality. Not a performance for anyone watching. Just less static and more signal, in however many parts of your life still need it.</p>
             <p style="color:var(--color-text-muted);">Take what's useful. Leave what isn't. There's no clock running against you &mdash; come back whenever you're ready, today or any day after.</p>
             <p style="border-top:1px solid var(--color-border);padding-top:var(--space-5);margin-top:var(--space-2);"><strong>In short:</strong> this page exists so two very different readers can stand in the same room without either one translating for the other first &mdash; so the actual work, clearing the noise across every layer of a life, can start today instead of waiting on permission from either side.</p>
