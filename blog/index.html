@@ -61,8 +61,11 @@
   main{padding:var(--space-6) 0 var(--space-24);}
 
   .kicker{font-size:var(--text-xs);font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--color-primary);margin-bottom:var(--space-4)}
-  h1.page-title{font-size:var(--text-2xl);margin-bottom:var(--space-3);color:var(--color-text)}
-  .subtitle{font-family:var(--font-display);font-style:italic;font-size:var(--text-lg);color:var(--color-text-muted);margin-bottom:var(--space-12)}
+  /* Per Noal 2026-07-19 ~7:28pm: subtitle sits to the right of the title
+     instead of below it, keeping its own font-size unchanged. */
+  .title-row{display:flex;align-items:flex-start;gap:var(--space-6);flex-wrap:wrap;margin-bottom:var(--space-12);}
+  h1.page-title{font-size:var(--text-2xl);margin:0;color:var(--color-text);flex:0 0 auto;}
+  .subtitle{font-family:var(--font-display);font-style:italic;font-size:var(--text-lg);color:var(--color-text-muted);margin:0;flex:1 1 320px;}
 
   /* Per Noal 2026-07-19 ~6:13pm: 12pt Helvetica applies ONLY to actual
      entry content (the data itself) -- not the header, kicker, or page
@@ -100,8 +103,10 @@
 <main>
   <div class="wrap">
     <p class="kicker">Lime Signalworks</p>
-    <h1 class="page-title">The Blog</h1>
-    <p class="subtitle">Notes from the harbor — discipline, metaphor, and the work behind Rosie and the LIME system.</p>
+    <div class="title-row">
+      <h1 class="page-title">The Blog</h1>
+      <p class="subtitle">Notes from the harbor — discipline, metaphor, and the work behind Rosie and the LIME system.</p>
+    </div>
 
     <!-- Seed posts, first pass per Noal (2026-07-19). Placeholder content
          written in the established site voice so the blog can go live now;
