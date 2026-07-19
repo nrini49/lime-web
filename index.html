@@ -262,7 +262,7 @@
   .video-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius-lg); overflow: hidden; background: var(--color-surface); margin-bottom: var(--space-4); }
   .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
   .psalms-blues-list { list-style: none; padding: 0; margin: var(--space-5) 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2) var(--space-6); }
-  .psalms-blues-list li { color: var(--color-text-muted); font-size: var(--text-sm); padding: var(--space-2) 0; border-bottom: 1px solid var(--color-divider); }
+  .psalms-blues-list li { color: var(--color-text-muted); font-size: var(--text-sm); padding: var(--space-2) 0; }
   .psalms-blues-list li strong { color: var(--color-text); font-weight: 500; }
   @media (max-width: 640px) { .psalms-blues-list { grid-template-columns: 1fr; } }
   .hn-list li { border-bottom: 1px solid var(--color-divider); }
@@ -281,6 +281,10 @@
   .part-label { max-width: 1080px; margin: 0 auto; padding: var(--space-8) var(--space-6) var(--space-2); }
   /* Divider line above Part B only, per Noal 2026-07-19. */
   .part-label.with-divider { border-top: 1px solid var(--color-divider); padding-top: var(--space-10); margin-top: var(--space-6); }
+  /* Part A: same amount of top space as Part B's divider treatment, but
+     no border line (Noal asked for that border gone between header and
+     Part A specifically). Per Noal, 2026-07-19. */
+  .part-label.top-space { margin-top: var(--space-10); }
   .part-label .part-name { font-family: var(--font-body); font-size: var(--text-xl); letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-primary); font-weight: 700; margin: 0; }
   .part-label .part-title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; color: var(--color-text); margin: var(--space-1) 0 0; }
   .part-label .part-attribution { font-family: var(--font-display); font-size: var(--text-base); font-style: italic; color: var(--color-text-muted); margin: var(--space-1) 0 0; }
@@ -401,7 +405,7 @@
        page. Do not build product cards here without confirming with the
        other thread's current state first, to avoid duplicating or
        conflicting with what's already in progress there (2026-07-18). -->
-  <div class="part-label">
+  <div class="part-label top-space">
     <p class="part-name">Part A</p>
     <p class="part-title">Precision Accurate AI Assisted Investing Platform</p>
   </div>
