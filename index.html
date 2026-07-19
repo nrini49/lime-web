@@ -485,12 +485,16 @@
   .page-end-marker img { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; box-shadow: var(--shadow-md); margin: 0 auto var(--space-4); display: block; }
   .page-end-marker p { color: var(--color-text-muted); font-size: var(--text-sm); font-style: italic; margin: 0; }
 
-  .bridge-triptych { max-width: 1080px; margin: var(--space-6) auto 0; padding: 0 var(--space-6) var(--space-8); display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+  /* Changed from a 3-equal-column grid (which was cropping the taller
+     man photo via object-fit:cover) to a flex row with a shared height,
+     per Noal 2026-07-19: full uncropped height on every image, widths
+     follow each image's own aspect ratio naturally. */
+  .bridge-triptych { max-width: 1080px; margin: var(--space-6) auto 0; padding: 0 var(--space-6) var(--space-8); display: flex; justify-content: center; align-items: flex-end; gap: var(--space-4); flex-wrap: wrap; }
   .bridge-triptych figure { margin: 0; }
-  .bridge-triptych img { width: 100%; height: 260px; object-fit: cover; border-radius: var(--radius-md); display: block; box-shadow: var(--shadow-md); }
+  .bridge-triptych img { height: 260px; width: auto; max-width: 100%; border-radius: var(--radius-md); display: block; box-shadow: var(--shadow-md); }
   @media (max-width: 700px) { .bridge-triptych img { height: 220px; } }
   .bridge-triptych figcaption { text-align: center; font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-2); letter-spacing: 0.03em; }
-  @media (max-width: 700px) { .bridge-triptych { grid-template-columns: 1fr; } }
+  @media (max-width: 700px) { .bridge-triptych { flex-direction: column; align-items: center; } }
 
   /* Anchor Point card, per Noal 2026-07-19: a fixed, always-visible
      declaration near the top of Part IV -- not folded into the growing
