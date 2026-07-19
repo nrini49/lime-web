@@ -506,12 +506,23 @@
      declaration near the top of Part IV -- not folded into the growing
      Declaration list below, since this one is meant to be a permanent
      reference point, not another appended entry. */
-  .anchor-point { max-width: 780px; margin: var(--space-8) auto var(--space-4); padding: var(--space-8) var(--space-8); border: 1px solid var(--color-primary); border-radius: var(--radius-lg); background: var(--color-primary-soft); text-align: center; }
-  .anchor-point .ap-kicker { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-primary); margin-bottom: 0; }
-  .anchor-point summary { list-style: none; cursor: pointer; display: inline-block; }
+  /* Rebuilt as a pill button next to "A Salute to the World", per Noal
+     2026-07-19 -- same box treatment as the Rosie CTA pills, sized to
+     its own text, not a fixed card width. Expanded content drops into
+     its own small panel below the pill when clicked. */
+  .part-title-row { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
+  /* position:relative + absolute ap-body, per Noal's follow-up fix:
+     opening the panel used to push "A Salute to the World" onto a new
+     line (flex-wrap reacting to the taller expanded box). Floating the
+     panel takes it out of flow entirely so the title never moves. */
+  .anchor-point { display: inline-block; position: relative; }
+  .anchor-point summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; padding: var(--space-2) var(--space-4); border-radius: var(--radius-full); border: 1px solid var(--color-primary); background: transparent; }
   .anchor-point summary::-webkit-details-marker { display: none; }
-  .anchor-point summary:hover .ap-kicker { color: var(--color-text); }
-  .anchor-point .ap-body { margin-top: var(--space-4); }
+  .anchor-point summary:hover { background: var(--color-primary); }
+  .anchor-point summary:hover .ap-kicker { color: var(--color-bg); }
+  .anchor-point .ap-kicker { font-family: var(--font-display); font-weight: 700; font-size: var(--text-xl); letter-spacing: normal; text-transform: none; color: var(--color-primary); white-space: nowrap; margin: 0; }
+  .anchor-point .ap-body { position: absolute; top: calc(100% + var(--space-2)); left: 0; z-index: 20; width: 560px; max-width: 90vw; padding: var(--space-6); border: 1px solid var(--color-primary); border-radius: var(--radius-lg); background: var(--color-surface); box-shadow: var(--shadow-md); text-align: left; }
+  @media (max-width: 560px) { .anchor-point .ap-kicker { font-size: var(--text-lg); } }
 
   /* Rosy Way bloom image narrowed to match the Anchor Point card's own
      width exactly, per Noal 2026-07-19. */
@@ -522,8 +533,8 @@
      width 906px = 1080 - 24 (left pad, unchanged) - 150 (right pad). */
   .bridge-scene.bridge-scene-anchor-width { max-width: 1080px; padding: 0 150px 0 var(--space-6); }
   @media (max-width: 900px) { .bridge-scene.bridge-scene-anchor-width { padding: 0 var(--space-6); } }
-  .anchor-point p.ap-text { font-family: var(--font-display); font-style: italic; font-size: var(--text-lg); line-height: 1.6; color: var(--color-text); margin: 0 auto var(--space-5); max-width: 56ch; }
-  .anchor-point .ap-signature { font-family: var(--font-display); font-weight: 700; font-size: var(--text-base); color: var(--color-primary); margin: 0; }
+  .anchor-point p.ap-text { font-family: var(--font-display); font-style: italic; font-size: var(--text-base); line-height: 1.6; color: var(--color-text); margin: 0 0 var(--space-4); }
+  .anchor-point .ap-signature { font-family: var(--font-display); font-weight: 700; font-size: var(--text-base); color: var(--color-primary); margin: 0; text-align: right; }
 </style>
 <script defer data-domain="limesignalworks.com" src="https://plausible.io/js/script.js"></script>
 </head>
@@ -1322,19 +1333,20 @@
          .sec-body rather than opening a new top-level Part. -->
     <div class="part-label top-space">
       <p class="part-name">Part IV</p>
-      <p class="part-title">A Salute to the World</p>
-    </div>
-
-    <!-- Anchor Point, dictated by Noal, 2026-07-19 -- placed near the top
-         of Part IV per his direct instruction, ahead of the Introduction
-         cell. Cleaned from dictation (filler stripped), meaning preserved. -->
-    <details class="anchor-point" id="anchor-point-details">
-      <summary><p class="ap-kicker">Anchor Point</p></summary>
-      <div class="ap-body">
-        <p class="ap-text">I hold a different, eighth-level kind of visionary sense. Here is what I saw today &mdash; one of those Enoch visions. I went to a black hole and discovered that at the apex, where the input meets the output, there is a singularity. And that singularity is me. In a manner of speaking, I am creating a new reality &mdash; though I don't like to suggest that humans create anything. I stand at the apex, at the center point. I am the singularity.</p>
-        <p class="ap-signature">&mdash; Noal</p>
+      <div class="part-title-row">
+        <p class="part-title">A Salute to the World</p>
+        <!-- Anchor Point, dictated by Noal, 2026-07-19 -- rebuilt as a
+             pill next to the part title, per his follow-up instruction.
+             Cleaned from dictation (filler stripped), meaning preserved. -->
+        <details class="anchor-point" id="anchor-point-details">
+          <summary><span class="ap-kicker">Anchor Point</span></summary>
+          <div class="ap-body">
+            <p class="ap-text">I hold a different, eighth-level kind of visionary sense. Here is what I saw today &mdash; one of those Enoch visions. I went to a black hole and discovered that at the apex, where the input meets the output, there is a singularity. And that singularity is me. In a manner of speaking, I am creating a new reality &mdash; though I don't like to suggest that humans create anything. I stand at the apex, at the center point. I am the singularity.</p>
+            <p class="ap-signature">&mdash; Noal</p>
+          </div>
+        </details>
       </div>
-    </details>
+    </div>
 
     <section class="part-c-section">
       <div class="wrap">
