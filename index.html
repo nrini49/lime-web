@@ -401,8 +401,12 @@
      front-page blog teaser. Portrait is an AI-generated original
      face, not a real person's photo. */
   .companion-widget { padding: var(--space-8) 0 var(--space-12); }
-  /* Per Noal 2026-07-19 ~7:50pm: widget group matches the end-of-page image width (780px) exactly. */
-  .companion-widget .wrap { max-width: 780px; }
+  /* Per Noal 2026-07-19 ~7:50pm: widget group matches the bottom-of-page
+     image's width exactly, at every screen size -- same technique as
+     .bridge-scene-anchor-width (padding-based, not a fixed max-width),
+     so the two stay in sync instead of drifting apart on resize. */
+  .companion-widget .wrap { padding: 0 150px 0 var(--space-6); }
+  @media (max-width: 900px) { .companion-widget .wrap { padding: 0 var(--space-6); } }
   .companion-widget .wrap { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); text-align: center; }
   .companion-widget h3 { font-family: Helvetica, Arial, sans-serif; font-size: var(--text-lg); color: var(--color-text); margin: 0; }
   .companion-widget .cw-sub { color: var(--color-text-muted); font-size: calc(var(--text-sm) * 2); max-width: 42ch; margin: 0; }
