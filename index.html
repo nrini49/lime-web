@@ -445,6 +445,20 @@
   .cw-read-panel iframe { flex: 1; width: 100%; border: none; display: block; }
 
   @media (max-width: 640px) { .cw-stage { width: 320px; height: 320px; } .cw-panel { width: 100%; max-width: 320px; height: 220px; } }
+  @media (max-width: 640px) { .cw-stage { width: 240px; height: 240px; } }
+
+  /* Part III bridge imagery, per Noal 2026-07-19: the full scene, then
+     three cropped details (man, energy between them, woman) right below
+     it as a triptych. Man / energy / woman order matches the original
+     left-to-right composition. */
+  .bridge-scene { max-width: 1080px; margin: var(--space-8) auto 0; padding: 0 var(--space-6); }
+  .bridge-scene img { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); display: block; }
+  .bridge-scene-caption { text-align: center; font-family: var(--font-display); font-style: italic; color: var(--color-text-muted); font-size: var(--text-sm); margin-top: var(--space-3); }
+  .bridge-triptych { max-width: 1080px; margin: var(--space-6) auto 0; padding: 0 var(--space-6) var(--space-8); display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+  .bridge-triptych figure { margin: 0; }
+  .bridge-triptych img { width: 100%; border-radius: var(--radius-md); display: block; box-shadow: var(--shadow-md); }
+  .bridge-triptych figcaption { text-align: center; font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-2); letter-spacing: 0.03em; }
+  @media (max-width: 700px) { .bridge-triptych { grid-template-columns: 1fr; } }
 </style>
 <script defer data-domain="limesignalworks.com" src="https://plausible.io/js/script.js"></script>
 </head>
@@ -1001,6 +1015,28 @@
   <p class="part-name">Part III</p>
   <p class="part-title">The LIME Universe Bridge</p>
 </div>
+
+<!-- Bridge scene + triptych, per Noal 2026-07-19. Full scene first, then
+     the three cropped details right below it, man / energy / woman. -->
+<div class="bridge-scene">
+  <img src="assets/bridge/tree-man-moon-woman.webp" alt="A tree whose form echoes a man reaching toward a crescent moon whose form echoes a woman, with light bridging the space between them" loading="lazy">
+  <p class="bridge-scene-caption">The tree of man, the moon of woman &mdash; and what forms between them.</p>
+</div>
+<div class="bridge-triptych">
+  <figure>
+    <img src="assets/bridge/man-at-the-river.webp" alt="The man at the river's edge" loading="lazy">
+    <figcaption>The man, at the river's edge</figcaption>
+  </figure>
+  <figure>
+    <img src="assets/bridge/energy-between-them.webp" alt="The energy passing between the man and the woman" loading="lazy">
+    <figcaption>The energy between them</figcaption>
+  </figure>
+  <figure>
+    <img src="assets/bridge/woman-over-the-moon.webp" alt="The woman looking over him" loading="lazy">
+    <figcaption>The woman, looking over him</figcaption>
+  </figure>
+</div>
+
 <section class="part-c-section">
       <div class="wrap">
         <details class="collapsible">
