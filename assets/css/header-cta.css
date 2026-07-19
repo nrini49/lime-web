@@ -10,6 +10,14 @@
 .ibkr-demo-cta:hover { background: var(--color-primary, #5ca6a9); color: var(--color-bg, #fff); }
 @media (max-width: 640px) { .ibkr-demo-cta { display: none; } }
 
+/* Icon-buttons + CTA cluster, per Noal 2026-07-19: icon buttons stretch to
+ * match the CTA's height exactly, and the gap between the icon-button pair
+ * and the CTA is widened to 1.5x the pair's own internal gap so the CTA
+ * (the most important action) stands out slightly. Used on pages that
+ * don't define their own .hdr-tools rule inline. */
+.hdr-tools { display: flex; align-items: stretch; gap: var(--space-6, 1.5rem); }
+.icon-btn-pair { display: flex; align-items: stretch; gap: var(--space-2, 0.5rem); }
+
 /* Click toast: shown once the reader clicks the CTA, so "coming soon" is
  * disclosed after the click, not printed on the button itself. */
 .cta-toast {

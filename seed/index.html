@@ -118,7 +118,7 @@
     /* ============ NAV ============ */
     .nav{position:sticky;top:0;z-index:60;background:color-mix(in oklab, var(--harbor-deep) 82%, transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
     .nav-inner{max-width:var(--content);margin:0 auto;padding:0 var(--space-6);height:64px;display:flex;align-items:center;gap:var(--space-5)}
-    .hdr-tools{display:flex;align-items:center;gap:var(--space-2)}
+    .hdr-tools{display:flex;align-items:stretch;gap:var(--space-6)}
     .icon-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--border-strong);background:var(--surface-2);color:var(--text);display:flex;align-items:center;justify-content:center;transition:all var(--transition)}
     .icon-btn:hover{background:var(--lime-soft);border-color:var(--lime)}
     .icon-btn svg{width:18px;height:18px}
@@ -455,10 +455,10 @@
       <a href="#library">Library</a>
     </div>
     <div class="hdr-tools">
-      <button class="icon-btn" data-translate aria-label="Translate this page">
+      <div class="icon-btn-pair" style="display:flex;align-items:stretch;gap:var(--space-2);"><button class="icon-btn" data-translate aria-label="Translate this page">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       </button>
-      <button class="icon-btn" data-theme-toggle aria-label="Toggle light and dark theme"></button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle light and dark theme"></button></div>
     <a class="ibkr-demo-cta" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Rosie + IBKR &mdash; Live Data Demo</a>
     </div>
     <a href="#cta" class="nav-cta">Open the Harbor</a>
