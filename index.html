@@ -265,6 +265,10 @@
   details.collapsible[open] > summary .chev { transform: rotate(180deg); }
   details.collapsible > summary:hover h2, details.collapsible > summary:hover h3, details.collapsible > summary:hover .chev { color: var(--color-primary); }
   details.collapsible > .sec-body { padding-top: var(--space-4); animation: secOpen .25s ease; }
+  .sub-chapter { padding-top: var(--space-6); border-top: 1px solid var(--color-divider); margin-top: var(--space-6); }
+  .sub-chapter:first-child { padding-top: 0; border-top: none; margin-top: 0; }
+  .sub-chapter-h { display: flex; align-items: baseline; gap: var(--space-3); font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; margin: 0 0 var(--space-4); }
+  .sub-chapter-h .chapter-num { margin: 0; }
   @keyframes secOpen { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { details.collapsible > .sec-body { animation: none; } details.collapsible > summary .chev { transition: none; } }
   footer { padding: 0; }
@@ -374,72 +378,67 @@
     </div>
   </section>
 
+  <!-- Chapters I-III + Conclusion merged into one collapsed cell per Noal
+       (2026-07-19): only the Introduction (Bezalel Promise, above) stays
+       on its own. Everything below opens/closes together as a single unit.
+       Sub-headings kept inside so each original chapter is still labeled. -->
   <section id="harbor-now" class="harbor-now">
     <div class="wrap">
       <details class="collapsible" id="hn-details">
-        <summary class="sec-bar"><div class="chapter-num">Chapter I</div><h2>Today's Harbor Weather</h2></summary>
+        <summary class="sec-bar"><div class="chapter-num">I–III + Conclusion</div><h2>Harbor Now, The Firm &amp; The Close</h2></summary>
         <div class="sec-body">
-          <div class="hn-report">
-            <p class="hn-asof">As of last close</p>
-            <p class="hn-weather">Market weather: <strong>risk-off</strong>. Posture: <strong>protect-first</strong>.</p>
-            <div class="hn-body"><p>All four majors closed red: SPY (-0.99%), QQQ (-1.50%), DIA (-0.77%), IWM (-0.52%). Volatility jumped; the VIX closed at 18.77, up 12.19% on the day.</p><p><a href="harbor-now/archive/2026-07-17.html">Read the full Harbor Now →</a></p></div>
+
+          <div class="sub-chapter">
+            <h3 class="sub-chapter-h"><span class="chapter-num">Chapter I</span> Today's Harbor Weather</h3>
+            <div class="hn-report">
+              <p class="hn-asof">As of last close</p>
+              <p class="hn-weather">Market weather: <strong>risk-off</strong>. Posture: <strong>protect-first</strong>.</p>
+              <div class="hn-body"><p>All four majors closed red: SPY (-0.99%), QQQ (-1.50%), DIA (-0.77%), IWM (-0.52%). Volatility jumped; the VIX closed at 18.77, up 12.19% on the day.</p><p><a href="harbor-now/archive/2026-07-17.html">Read the full Harbor Now →</a></p></div>
+            </div>
           </div>
-        </div>
-      </details>
-      <details class="collapsible">
-        <summary class="sec-bar"><div class="chapter-num">Chapter II</div><h2>Past Harbor Now Reports</h2></summary>
-        <div class="sec-body">
-          <ul class="hn-list">
-            <li><a href="harbor-now/archive/2026-07-17.html"><span class="date">Jul 17, 2026</span><span class="title">Risk-off tape — tech led lower, VIX pops</span><span class="arr">→</span></a></li>
-            <li><a href="harbor-now/archive/2026-07-16.html"><span class="date">Jul 16, 2026</span><span class="title">Tech hit, volatility pops — breadth uncertain into earnings</span><span class="arr">→</span></a></li>
-            <li><a href="harbor-now/archive/2026-07-15.html"><span class="date">Jul 15, 2026</span><span class="title">Breadth broad, tech lags — a quiet day near highs</span><span class="arr">→</span></a></li>
-            <li><a href="harbor-now/archive/2026-07-14.html"><span class="date">Jul 14, 2026</span><span class="title">Big banks open earnings season — tape stabilizes</span><span class="arr">→</span></a></li>
-            <li><a href="harbor-now/archive/2026-07-13.html"><span class="date">Jul 13, 2026</span><span class="title">Risk-off open to the week — tech leads the pullback</span><span class="arr">→</span></a></li>
-            <li><a href="harbor-now/archive/2026-07-12.html"><span class="date">Jul 12, 2026</span><span class="title">Exhaustion holding, posture reduce</span><span class="arr">→</span></a></li>
-            <li><a href="harbor-now/archive/2026-07-11.html"><span class="date">Jul 11, 2026</span><span class="title">Trend up, clean and aligned</span><span class="arr">→</span></a></li>
-          </ul>
-          <a class="hn-all" href="harbor-now/index.html">View all Harbor Nows →</a>
-        </div>
-      </details>
-    </div>
-  </section>
 
-<div class="foot-as-section">
-  <div class="wrap">
-    <details class="collapsible foot-collapsible">
-      <summary class="sec-bar foot-bar"><div class="chapter-num">Chapter III</div><h2>Lime Signalworks LLC</h2></summary>
-      <div class="foot">
-        <div>
-          <p class="creed">Different worlds, same problem: how to face market chaos without handing your life to a guru.</p>
-          <p class="meta" style="margin-bottom:var(--space-5);"><strong style="color:var(--color-text);">The offer, in plain terms.</strong><br><br>The first 33 days cost nothing. Try Rosie in that window and see for yourself whether it actually helps — whether the discipline it asks of you fits how you already think, and whether leaning first toward loss prevention makes sense once you're using it day to day. Access automatically ends on day 33 — there's no obligation to continue, and nothing keeps running past that unless you choose to enroll. If you decide to enroll once the trial ends, Lime Signalworks will personally email you an activation link built around a version of Rosie set up specifically for you — your own name, your own phone number, your own email address wired into the account from the start, not a generic sign-up. Once that's live, you're the only one holding the key to it. Take good care of it. Use it well. It's genuinely valuable.</p>
-          <p class="meta">
-            <a href="tel:+13802000288">+1 380-200-0288</a> &nbsp;·&nbsp;
-            <a href="mailto:contact@limesignalworks.com">contact@limesignalworks.com</a><br>
-            2722 Erie Ave, Suite 219, Cincinnati, OH 45208<br>
-            <span>By appointment.</span>
-          </p>
-          <p class="copy">© 2026 Lime Signalworks LLC. Loss prevention first. Always.</p>
-        </div>
-        <div>
-          <p class="meta">
-            <strong style="color:var(--color-text);">The harbor before the rails.</strong><br><br>
-            <span>The homepage routes to the Gate; the Gate is where system access happens. The high-voltage work stays behind it.</span>
-          </p>
-        </div>
-      </div>
-    </details>
-  </div>
-</div>
+          <div class="sub-chapter">
+            <h3 class="sub-chapter-h"><span class="chapter-num">Chapter II</span> Past Harbor Now Reports</h3>
+            <ul class="hn-list">
+              <li><a href="harbor-now/archive/2026-07-17.html"><span class="date">Jul 17, 2026</span><span class="title">Risk-off tape — tech led lower, VIX pops</span><span class="arr">→</span></a></li>
+              <li><a href="harbor-now/archive/2026-07-16.html"><span class="date">Jul 16, 2026</span><span class="title">Tech hit, volatility pops — breadth uncertain into earnings</span><span class="arr">→</span></a></li>
+              <li><a href="harbor-now/archive/2026-07-15.html"><span class="date">Jul 15, 2026</span><span class="title">Breadth broad, tech lags — a quiet day near highs</span><span class="arr">→</span></a></li>
+              <li><a href="harbor-now/archive/2026-07-14.html"><span class="date">Jul 14, 2026</span><span class="title">Big banks open earnings season — tape stabilizes</span><span class="arr">→</span></a></li>
+              <li><a href="harbor-now/archive/2026-07-13.html"><span class="date">Jul 13, 2026</span><span class="title">Risk-off open to the week — tech leads the pullback</span><span class="arr">→</span></a></li>
+              <li><a href="harbor-now/archive/2026-07-12.html"><span class="date">Jul 12, 2026</span><span class="title">Exhaustion holding, posture reduce</span><span class="arr">→</span></a></li>
+              <li><a href="harbor-now/archive/2026-07-11.html"><span class="date">Jul 11, 2026</span><span class="title">Trend up, clean and aligned</span><span class="arr">→</span></a></li>
+            </ul>
+            <a class="hn-all" href="harbor-now/index.html">View all Harbor Nows →</a>
+          </div>
 
-  <!-- Part A Conclusion -- placeholder, save-the-place per Noal's instruction
-       (2026-07-18). He will insert his own content here; do not write it for
-       him. -->
-  <section class="part-a-conclusion">
-    <div class="wrap">
-      <details class="collapsible">
-        <summary class="sec-bar"><div class="chapter-num">Conclusion</div><h2>Light My Fire</h2></summary>
-        <div class="sec-body">
-          <p style="color:var(--color-text-muted);">Reserved for Noal's closing note on Part A.</p>
+          <div class="sub-chapter">
+            <h3 class="sub-chapter-h"><span class="chapter-num">Chapter III</span> Lime Signalworks LLC</h3>
+            <div class="foot">
+              <div>
+                <p class="creed">Different worlds, same problem: how to face market chaos without handing your life to a guru.</p>
+                <p class="meta" style="margin-bottom:var(--space-5);"><strong style="color:var(--color-text);">The offer, in plain terms.</strong><br><br>The first 33 days cost nothing. Try Rosie in that window and see for yourself whether it actually helps — whether the discipline it asks of you fits how you already think, and whether leaning first toward loss prevention makes sense once you're using it day to day. Access automatically ends on day 33 — there's no obligation to continue, and nothing keeps running past that unless you choose to enroll. If you decide to enroll once the trial ends, Lime Signalworks will personally email you an activation link built around a version of Rosie set up specifically for you — your own name, your own phone number, your own email address wired into the account from the start, not a generic sign-up. Once that's live, you're the only one holding the key to it. Take good care of it. Use it well. It's genuinely valuable.</p>
+                <p class="meta">
+                  <a href="tel:+13802000288">+1 380-200-0288</a> &nbsp;·&nbsp;
+                  <a href="mailto:contact@limesignalworks.com">contact@limesignalworks.com</a><br>
+                  2722 Erie Ave, Suite 219, Cincinnati, OH 45208<br>
+                  <span>By appointment.</span>
+                </p>
+                <p class="copy">© 2026 Lime Signalworks LLC. Loss prevention first. Always.</p>
+              </div>
+              <div>
+                <p class="meta">
+                  <strong style="color:var(--color-text);">The harbor before the rails.</strong><br><br>
+                  <span>The homepage routes to the Gate; the Gate is where system access happens. The high-voltage work stays behind it.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-chapter">
+            <h3 class="sub-chapter-h"><span class="chapter-num">Conclusion</span> Light My Fire</h3>
+            <p style="color:var(--color-text-muted);">Reserved for Noal's closing note on Part A.</p>
+          </div>
+
         </div>
       </details>
     </div>
