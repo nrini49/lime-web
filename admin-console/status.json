@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T16:13:23.735375+00:00",
+  "generated_at": "2026-07-19T18:25:30.022156+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "22bc066",
-          "message": "Add Noal's Psalms in Blues declaration as a new section within Part C, with the full theme/psalm reference list, per Noal 2026-07-19",
+          "sha": "84e66b4",
+          "message": "Tweak parting note: 'abundance from within'",
           "author": "Noal Rini",
-          "date": "2026-07-19T15:59:59Z"
+          "date": "2026-07-19T18:19:54Z"
         },
         {
-          "sha": "93d1610",
-          "message": "Part A: split the merged Harbor Now cell back into 5 separate sections (Introduction/Chapter I/II/III/Conclusion), matching Part B and Part ",
+          "sha": "5d04026",
+          "message": "Tweak parting note: 'abundance within' to 'abundance from'",
           "author": "Noal Rini",
-          "date": "2026-07-19T15:51:40Z"
+          "date": "2026-07-19T18:18:13Z"
         },
         {
-          "sha": "329fe66",
-          "message": "Remove reveal-on-hover wrappers from Part B and Part C -- per Noal, not necessary. All subheadings (Introduction, Chapter I/II/III, Conclusi",
+          "sha": "142d424",
+          "message": "Update parting note wording per Noal",
           "author": "Noal Rini",
-          "date": "2026-07-19T15:43:03Z"
+          "date": "2026-07-19T18:16:07Z"
         },
         {
-          "sha": "477322d",
-          "message": "Reword Part B's interpretation heading to '\"The Wicket Gate\" by John Bunyan \u2014 An Interpretation', per Noal 2026-07-19",
+          "sha": "c5daa3c",
+          "message": "Match icon button height to CTA button height for a clean 2x2 rectangle",
           "author": "Noal Rini",
-          "date": "2026-07-19T15:37:26Z"
+          "date": "2026-07-19T18:11:34Z"
         },
         {
-          "sha": "ba85daf",
-          "message": "Swap Part B's part-title and its first subsection heading: part-title is now '3 Readers and 1 Door', the interpretation heading moved into t",
+          "sha": "295be8e",
+          "message": "Widen gap between globe and theme-toggle icons to match stacked CTA height",
           "author": "Noal Rini",
-          "date": "2026-07-19T15:35:02Z"
+          "date": "2026-07-19T18:10:12Z"
         }
       ]
     },
@@ -67,6 +67,24 @@
       "repo": "nrini49/limesignalworks",
       "ok": true,
       "commits": [
+        {
+          "sha": "ec0eb39",
+          "message": "Add Trading Permissions panel with 5 per-asset-class on/off toggles (1x ETFs, Leveraged ETFs, Stocks, Options, Speculative Swing Trades), gr",
+          "author": "Noal Rini",
+          "date": "2026-07-19T18:08:32Z"
+        },
+        {
+          "sha": "a0eb0fc",
+          "message": "Sage popup: open Jonathan's Mission and Fire Profile Note cells by default, add real calendar date next to the Day X of 33 label",
+          "author": "Noal Rini",
+          "date": "2026-07-19T17:33:06Z"
+        },
+        {
+          "sha": "9769159",
+          "message": "Add patch doc: read-only /api/demo-snapshot endpoint + narrow public relay, for the live-Rosie public demo (mirrors existing health-relay pa",
+          "author": "Noal Rini",
+          "date": "2026-07-19T17:24:31Z"
+        },
         {
           "sha": "f6f93e3",
           "message": "Revert operator buttons (Power/Rosie/Guard/Trade) to always-visible on the Rosie demo, per Noal's instruction -- this is a demo meant to loo",
@@ -78,24 +96,6 @@
           "message": "Fix header layout regression: hiding the 4 admin-only operator buttons (Power/Rosie/Guard/Trade) left gaps in the old shared 5-column op-gri",
           "author": "Plex (LIME)",
           "date": "2026-07-18T14:51:11Z"
-        },
-        {
-          "sha": "52f426e",
-          "message": "Merge branch 'master' of https://git-agent-proxy.perplexity.ai/nrini49/limesignalworks",
-          "author": "Plex (LIME)",
-          "date": "2026-07-18T14:43:20Z"
-        },
-        {
-          "sha": "540833c",
-          "message": "Trade Ticket now cycles every 30 seconds instead of 12, per Noal's report -- each buy/sell signal was disappearing too fast to read. Verifie",
-          "author": "Plex (LIME)",
-          "date": "2026-07-18T14:43:20Z"
-        },
-        {
-          "sha": "2fe27d0",
-          "message": "Security fix: escape GitHub API data before innerHTML in Repo Browser (XSS hardening)",
-          "author": "Perplexity Computer",
-          "date": "2026-07-18T13:42:24Z"
         }
       ]
     },
@@ -140,6 +140,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "8be2128",
+          "message": "Add headless IB Gateway + IBC setup guide (no visible TWS window, auto-login, survives daily IBKR restart) per Noal's request",
+          "author": "Noal Rini",
+          "date": "2026-07-19T17:24:30Z"
+        },
+        {
           "sha": "98620d8",
           "message": "Restyle IB operator surfaces to Rosie Interactive design spec",
           "author": "nrini49",
@@ -162,12 +168,6 @@
           "message": "Fix broken IB connection reference blocking every trade",
           "author": "Plex",
           "date": "2026-07-16T17:09:04Z"
-        },
-        {
-          "sha": "6e1b371",
-          "message": "Fix multi-word phase badges wrapping onto two lines",
-          "author": "Plex",
-          "date": "2026-07-16T17:02:05Z"
         }
       ]
     }
