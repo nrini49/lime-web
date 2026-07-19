@@ -99,14 +99,19 @@
   /* No margin-left:auto -- brand, presence pills, and header tools now share
      the same .hdr gap so spacing is uniform across all three groups instead
      of the tools being pushed to the far right. Per Noal, 2026-07-19. */
-  .hdr-tools { display: flex; align-items: center; gap: var(--space-2); }
+  /* Per Noal 2026-07-19: the icon buttons must always match the height of
+     the CTA button next to them, exactly -- not a fixed px guess. Grid with
+     align-items:stretch does this permanently: each row's two cells (icon +
+     CTA) share one row height (the taller of the two), and both stretch to
+     fill it, so they can never drift out of sync again. */
+  .hdr-tools { display: grid; grid-template-columns: auto auto; align-items: stretch; gap: var(--space-2); }
   /* Globe stacked above light/dark toggle -- two vertical objects that
      match the CTA's and the presence pills' 2-line height. Per Noal,
      2026-07-19. Reverted to the small gap (2026-07-19 follow-up): balance
      now comes from each icon button matching a CTA button's height
      (below), not from a big gap between them, so the pair reads as a
      clean rectangle next to the CTA stack. */
-  .icon-btn-stack { display: flex; flex-direction: column; gap: var(--space-2); }
+
   .hdr-presence { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
   .hdr-presence .wg-badge{display:inline-flex;align-items:center;gap:.5rem;
     background:var(--color-surface);color:var(--color-text-muted);border:1px solid var(--color-border);
@@ -124,14 +129,14 @@
   /* Buy Rosie Now button stacked under the Live Demo CTA, per Noal
      2026-07-19: same width/height as the demo button, "coming soon" on
      click (no product link yet). Shared sizing rule below covers both. */
-  .hdr-cta-stack { display: flex; flex-direction: column; gap: var(--space-2); }
+
   .ibkr-demo-cta, .buy-rosie-cta { display: inline-flex; align-items: center; justify-content: center; text-align: center; width: 8.5em; min-height: 38px; padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: transparent; font-size: var(--text-sm); font-weight: 600; line-height: 1.25; text-decoration: none; white-space: normal; font-family: inherit; cursor: pointer; appearance: none; box-sizing: border-box; }
   .ibkr-demo-cta:hover, .buy-rosie-cta:hover { background: var(--color-primary); color: var(--color-bg); }
   @media (max-width: 640px) { .ibkr-demo-cta, .buy-rosie-cta { display: none; } }
   /* Height matched to the stacked CTA buttons (58px each), per Noal
      2026-07-19 follow-up, so the icon pair and the CTA pair form one
      even rectangle side by side. */
-  .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 67px; border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-text-muted); background: var(--color-surface); cursor: pointer; }
+  .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: auto; border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-text-muted); background: var(--color-surface); cursor: pointer; }
   .icon-btn:hover { color: var(--color-text); border-color: var(--color-primary); }
 
   .hero { padding: 0; text-align: center; position: relative; overflow: hidden; }
@@ -407,14 +412,9 @@
          Do NOT re-add without Noal confirming directly in a session that can see this
          comment. -->
     <div class="hdr-tools">
-      <div class="icon-btn-stack">
         <button class="icon-btn" data-translate aria-label="Translate this page">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </button>
-        <button class="icon-btn" data-theme-toggle aria-label="Switch theme">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </button>
-      </div>
       <!-- Rosie x IBKR live demo CTA -- per Noal's instruction (2026-07-18):
            explicitly NOT the gated "Take me right to Rosie Interactive now"
            button, no IB affiliate/confirmation hash referenced here, safe to
@@ -425,10 +425,11 @@
            button, per Noal 2026-07-19. No product/checkout link yet, so
            this is a <button> (not a link): clicking it just tells the
            reader "Coming soon" and reverts, nothing to navigate to yet. -->
-      <div class="hdr-cta-stack">
         <a class="ibkr-demo-cta" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Rosie + IBKR<br>Live Demo</a>
+        <button class="icon-btn" data-theme-toggle aria-label="Switch theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
         <button type="button" class="buy-rosie-cta" id="buy-rosie-btn">Buy Rosie Now</button>
-      </div>
     </div>
   </div>
 </header>
