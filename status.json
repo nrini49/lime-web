@@ -1,0 +1,175 @@
+{
+  "generated_at": "2026-07-19T19:48:47.670023+00:00",
+  "harbor_now": {
+    "ok": true,
+    "posted_today": false,
+    "latest": "2026-07-17",
+    "checked_date": "2026-07-19"
+  },
+  "site_health": [
+    {
+      "label": "Marketing site (limesignalworks.com)",
+      "url": "https://limesignalworks.com/",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "label": "Rosie Interactive (limesignalworks.pplx.app)",
+      "url": "https://limesignalworks.pplx.app/",
+      "status": 401,
+      "ok": false
+    },
+    {
+      "label": "SPY Pipeline (spy-pipeline-rosie.pplx.app)",
+      "url": "https://spy-pipeline-rosie.pplx.app/api/health",
+      "status": 401,
+      "ok": false
+    }
+  ],
+  "repos": [
+    {
+      "repo": "nrini49/lime-web",
+      "ok": true,
+      "commits": [
+        {
+          "sha": "67eb087",
+          "message": "Restructure Part IV to match Parts I-III accordion pattern: Introduction + Declaration cells, personal comments housed in Declaration",
+          "author": "Perplexity Computer",
+          "date": "2026-07-19T19:46:40Z"
+        },
+        {
+          "sha": "a04ea18",
+          "message": "Merge branch 'main' of https://git-agent-proxy.perplexity.ai/nrini49/lime-web",
+          "author": "Noal Rini",
+          "date": "2026-07-19T19:45:09Z"
+        },
+        {
+          "sha": "6efcea3",
+          "message": "Replicate the header spacing fix (icon buttons stretch to match CTA height, 1.5x gap between control buttons and the CTA) across every page ",
+          "author": "Noal Rini",
+          "date": "2026-07-19T19:44:36Z"
+        },
+        {
+          "sha": "277f7d1",
+          "message": "Add Part IV: A Salute to the World, housing the final-words render + renaissance declaration",
+          "author": "Perplexity Computer",
+          "date": "2026-07-19T19:42:59Z"
+        },
+        {
+          "sha": "bd8b809",
+          "message": "Add front-page companion widget: circular AI portrait, gold rings, gold dust, thought box over mouth",
+          "author": "Perplexity Computer",
+          "date": "2026-07-19T19:38:30Z"
+        }
+      ]
+    },
+    {
+      "repo": "nrini49/limesignalworks",
+      "ok": true,
+      "commits": [
+        {
+          "sha": "9168746",
+          "message": "Add session handoff doc for 2026-07-19",
+          "author": "Noal Rini",
+          "date": "2026-07-19T18:47:38Z"
+        },
+        {
+          "sha": "ec0eb39",
+          "message": "Add Trading Permissions panel with 5 per-asset-class on/off toggles (1x ETFs, Leveraged ETFs, Stocks, Options, Speculative Swing Trades), gr",
+          "author": "Noal Rini",
+          "date": "2026-07-19T18:08:32Z"
+        },
+        {
+          "sha": "a0eb0fc",
+          "message": "Sage popup: open Jonathan's Mission and Fire Profile Note cells by default, add real calendar date next to the Day X of 33 label",
+          "author": "Noal Rini",
+          "date": "2026-07-19T17:33:06Z"
+        },
+        {
+          "sha": "9769159",
+          "message": "Add patch doc: read-only /api/demo-snapshot endpoint + narrow public relay, for the live-Rosie public demo (mirrors existing health-relay pa",
+          "author": "Noal Rini",
+          "date": "2026-07-19T17:24:31Z"
+        },
+        {
+          "sha": "f6f93e3",
+          "message": "Revert operator buttons (Power/Rosie/Guard/Trade) to always-visible on the Rosie demo, per Noal's instruction -- this is a demo meant to loo",
+          "author": "Plex (LIME)",
+          "date": "2026-07-18T15:27:40Z"
+        }
+      ]
+    },
+    {
+      "repo": "nrini49/schwab",
+      "ok": true,
+      "commits": [
+        {
+          "sha": "2ed62a7",
+          "message": "Rebuild Schwab workstation layout: sidebar-nav -> collapsible panels",
+          "author": "nrini49",
+          "date": "2026-07-16T21:51:33Z"
+        },
+        {
+          "sha": "3595e4d",
+          "message": "Pair each light directly with its own switch in the topbar",
+          "author": "Plex",
+          "date": "2026-07-16T17:31:41Z"
+        },
+        {
+          "sha": "546d886",
+          "message": "Decouple Propose/Approve/Execute and build a real Trade Ticket",
+          "author": "Plex",
+          "date": "2026-07-16T17:05:07Z"
+        },
+        {
+          "sha": "15e644d",
+          "message": "Build Power/Rosie/symbol-selector control plane for Schwab",
+          "author": "Plex",
+          "date": "2026-07-16T17:01:54Z"
+        },
+        {
+          "sha": "42ccf27",
+          "message": "Port phase-badge + sortable watchlist from Interactive dashboard",
+          "author": "Plex",
+          "date": "2026-07-16T16:58:13Z"
+        }
+      ]
+    },
+    {
+      "repo": "nrini49/interactive",
+      "ok": true,
+      "commits": [
+        {
+          "sha": "8be2128",
+          "message": "Add headless IB Gateway + IBC setup guide (no visible TWS window, auto-login, survives daily IBKR restart) per Noal's request",
+          "author": "Noal Rini",
+          "date": "2026-07-19T17:24:30Z"
+        },
+        {
+          "sha": "98620d8",
+          "message": "Restyle IB operator surfaces to Rosie Interactive design spec",
+          "author": "nrini49",
+          "date": "2026-07-16T21:56:59Z"
+        },
+        {
+          "sha": "340b71a",
+          "message": "Add Save/Reset Memory to the header with a new MEM light",
+          "author": "Plex",
+          "date": "2026-07-16T17:36:09Z"
+        },
+        {
+          "sha": "ec8e25a",
+          "message": "Pair each light directly with its own switch in the topbar",
+          "author": "Plex",
+          "date": "2026-07-16T17:31:29Z"
+        },
+        {
+          "sha": "dfef383",
+          "message": "Fix broken IB connection reference blocking every trade",
+          "author": "Plex",
+          "date": "2026-07-16T17:09:04Z"
+        }
+      ]
+    }
+  ]
+}
