@@ -461,7 +461,13 @@
      absolutely-positioned overlay, enlarged, centered over both cells
      combined, and made translucent so the cells read through her --
      "she has some influence here on what's been going on." */
-  .cw-row { position: relative; display: flex; flex-direction: column; align-items: stretch; gap: var(--space-4); margin: var(--space-6) auto 0; }
+  /* Left-aligned, per Noal 2026-07-19 follow-up: the row's width is
+     capped to the heading's own width via JS (see script below) and was
+     centering inside .cw-body, so it floated well right of the page's
+     actual left margin. align-self:flex-start pins its left edge to the
+     wrap's content edge instead -- flush with where every other
+     section's "Chapter" heading starts. */
+  .cw-row { position: relative; display: flex; flex-direction: column; align-items: stretch; align-self: flex-start; gap: var(--space-4); margin: var(--space-6) 0 0; }
   .cw-panel { border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); display: flex; flex-direction: column; overflow: hidden; text-align: left; }
   /* Per Noal 2026-07-19 follow-up: stacked now (read-the-blog below
      leave-a-memory), both full width so the memory field has real room
@@ -659,9 +665,22 @@
       var row = document.querySelector('.cw-row');
       var details = document.getElementById('cw-details');
       if (!heading || !row) return;
+      var wrapEl = row.closest('.wrap');
       function syncWidth() {
         var w = heading.getBoundingClientRect().width;
         if (w > 0) row.style.width = w + 'px';
+        // Pin the row's left edge to the page's standard left margin
+        // (same edge every "Chapter" heading starts at), per Noal
+        // 2026-07-19. .cw-body's own width doesn't reliably resolve to
+        // 100% in this nested flex/details layout, so measure directly
+        // and correct with a margin instead of trusting that width.
+        if (wrapEl) {
+          row.style.marginLeft = '0px';
+          var wrapCS = getComputedStyle(wrapEl);
+          var targetLeft = wrapEl.getBoundingClientRect().left + (parseFloat(wrapCS.paddingLeft) || 0);
+          var currentLeft = row.getBoundingClientRect().left;
+          row.style.marginLeft = (targetLeft - currentLeft) + 'px';
+        }
       }
       syncWidth();
       window.addEventListener('resize', syncWidth);
