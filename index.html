@@ -118,9 +118,13 @@
      wraps onto two lines, matching the presence pills' 2-line height.
      Words unchanged -- only the box width and wrapping changed. Per
      Noal, 2026-07-19. */
-  .ibkr-demo-cta { display: inline-flex; align-items: center; justify-content: center; text-align: center; width: 11em; min-height: 38px; padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: transparent; font-size: var(--text-sm); font-weight: 600; line-height: 1.25; text-decoration: none; white-space: normal; }
-  .ibkr-demo-cta:hover { background: var(--color-primary); color: var(--color-bg); }
-  @media (max-width: 640px) { .ibkr-demo-cta { display: none; } }
+  /* Buy Rosie Now button stacked under the Live Demo CTA, per Noal
+     2026-07-19: same width/height as the demo button, "coming soon" on
+     click (no product link yet). Shared sizing rule below covers both. */
+  .hdr-cta-stack { display: flex; flex-direction: column; gap: var(--space-2); }
+  .ibkr-demo-cta, .buy-rosie-cta { display: inline-flex; align-items: center; justify-content: center; text-align: center; width: 8.5em; min-height: 38px; padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: transparent; font-size: var(--text-sm); font-weight: 600; line-height: 1.25; text-decoration: none; white-space: normal; font-family: inherit; cursor: pointer; appearance: none; box-sizing: border-box; }
+  .ibkr-demo-cta:hover, .buy-rosie-cta:hover { background: var(--color-primary); color: var(--color-bg); }
+  @media (max-width: 640px) { .ibkr-demo-cta, .buy-rosie-cta { display: none; } }
   .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-text-muted); background: var(--color-surface); cursor: pointer; }
   .icon-btn:hover { color: var(--color-text); border-color: var(--color-primary); }
 
@@ -407,7 +411,14 @@
            show. Date is a placeholder ("coming soon") until Noal gives an
            actual date; links to the existing Rosie AI Trading Assistant
            preview rather than any IB-specific/gated URL. -->
-      <a class="ibkr-demo-cta" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Rosie + IBKR<br>Live Demo</a>
+      <!-- Buy Rosie Now -- placeholder CTA stacked under the live demo
+           button, per Noal 2026-07-19. No product/checkout link yet, so
+           this is a <button> (not a link): clicking it just tells the
+           reader "Coming soon" and reverts, nothing to navigate to yet. -->
+      <div class="hdr-cta-stack">
+        <a class="ibkr-demo-cta" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Rosie + IBKR<br>Live Demo</a>
+        <button type="button" class="buy-rosie-cta" id="buy-rosie-btn">Buy Rosie Now</button>
+      </div>
     </div>
   </div>
 </header>
@@ -1485,5 +1496,23 @@
 </script>
 <script defer src="assets/js/header-cta.js"></script>
 <script defer src="assets/js/accordion-hover.js"></script>
+<!-- Buy Rosie Now click behavior, per Noal 2026-07-19: no product link
+     yet, so clicking just swaps the label to "Coming soon" briefly, then
+     reverts. Nothing to navigate to. -->
+<script>
+(function () {
+  var btn = document.getElementById('buy-rosie-btn');
+  if (!btn) return;
+  var original = btn.textContent;
+  var revertTimer = null;
+  btn.addEventListener('click', function () {
+    clearTimeout(revertTimer);
+    btn.textContent = 'Coming soon';
+    revertTimer = setTimeout(function () {
+      btn.textContent = original;
+    }, 2200);
+  });
+})();
+</script>
 </body>
 </html>
