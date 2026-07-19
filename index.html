@@ -676,10 +676,15 @@
       var details = document.getElementById('cw-details');
       if (!heading || !row) return;
       var wrapEl = row.closest('.wrap');
-      // Per Noal 2026-07-19 follow-up: no longer capped to the heading's
-      // own width ("too narrow" -- the intro sentence was wrapping into
-      // 3 lines). Now uses the full standard page width instead, same as
-      // every other section's content column.
+      // Per Noal 2026-07-19 follow-up: a parallel session capped
+      // .companion-widget .wrap to 780px (matching the end-of-page
+      // image) and centered it, which is fine for width but knocked the
+      // row's left edge off the page's standard left margin again.
+      // Width still comes from this (now-narrower) wrap; the left-edge
+      // target comes from a reference wrap OUTSIDE .companion-widget so
+      // it always matches where "Chapter" headings start, regardless of
+      // how narrow this section's own wrap gets.
+      var refEl = document.querySelector('.chapter-num');
       function syncWidth() {
         if (wrapEl) {
           var wrapCS = getComputedStyle(wrapEl);
@@ -696,9 +701,10 @@
         // 2026-07-19. .cw-body's own width doesn't reliably resolve to
         // 100% in this nested flex/details layout, so measure directly
         // and correct with a margin instead of trusting that width.
-        if (wrapEl) {
+        if (refEl || wrapEl) {
           row.style.marginLeft = '0px';
-          var targetLeft = wrapEl.getBoundingClientRect().left + (parseFloat(wrapCS.paddingLeft) || 0);
+          var targetLeft = refEl ? refEl.getBoundingClientRect().left
+            : wrapEl.getBoundingClientRect().left + (parseFloat(getComputedStyle(wrapEl).paddingLeft) || 0);
           var currentLeft = row.getBoundingClientRect().left;
           row.style.marginLeft = (targetLeft - currentLeft) + 'px';
         }
