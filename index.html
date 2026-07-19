@@ -143,6 +143,10 @@
      even rectangle side by side. */
   .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: auto; border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-text-muted); background: var(--color-surface); cursor: pointer; }
   .icon-btn:hover { color: var(--color-text); border-color: var(--color-primary); }
+  /* Blog nav link in the header, per Noal 2026-07-19. */
+  .blog-nav-link { display: inline-flex; align-items: center; height: 38px; padding: 0 var(--space-4); border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-text); font-size: var(--text-sm); font-weight: 600; text-decoration: none; white-space: nowrap; }
+  .blog-nav-link:hover { border-color: var(--color-primary); color: var(--color-primary); }
+  @media (max-width: 560px) { .blog-nav-link { display: none; } }
 
   .hero { padding: 0; text-align: center; position: relative; overflow: hidden; }
   .beacon { width: clamp(120px, 22vw, 180px); margin: 0 auto var(--space-8); }
@@ -512,6 +516,10 @@
         <span id="wg-count-text">along the Rosy Way</span>
       </span>
     </div>
+    <!-- Blog nav link, per Noal 2026-07-19: the blog needs to be reachable
+       from the header itself, not just from the companion widget's
+       embedded panel. Same ghost-pill control style as everywhere else. -->
+    <a class="blog-nav-link" href="blog/index.html">Blog</a>
     <!-- Rosie CTA held back from the header per the IB-confirmation gate. This is a
          standing rule from Noal, repeated multiple times: this button does not go live
          until Noal explicitly confirms the IB ID hash. A parallel session has re-added
