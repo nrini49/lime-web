@@ -431,7 +431,7 @@
      absolutely-positioned overlay, enlarged, centered over both cells
      combined, and made translucent so the cells read through her --
      "she has some influence here on what's been going on." */
-  .cw-row { position: relative; display: flex; flex-direction: column; align-items: stretch; gap: var(--space-4); margin-top: var(--space-6); width: 100vw; left: 50%; margin-left: -50vw; }
+  .cw-row { position: relative; display: flex; flex-direction: column; align-items: stretch; gap: var(--space-4); margin: var(--space-6) auto 0; }
   .cw-panel { border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); display: flex; flex-direction: column; overflow: hidden; text-align: left; }
   /* Per Noal 2026-07-19 follow-up: stacked now (read-the-blog below
      leave-a-memory), both full width so the memory field has real room
@@ -610,6 +610,22 @@
     </div>
   </section>
   <script>
+    // Per Noal 2026-07-19: the two cells can never be wider than the
+    // heading text above them ("...Before You Leave...") -- measured live
+    // so it re-syncs automatically if the page is zoomed/magnified or the
+    // window is resized, instead of a hardcoded pixel guess.
+    (function () {
+      var heading = document.querySelector('.companion-widget h3');
+      var row = document.querySelector('.cw-row');
+      if (!heading || !row) return;
+      function syncWidth() {
+        var w = heading.getBoundingClientRect().width;
+        if (w > 0) row.style.width = w + 'px';
+      }
+      syncWidth();
+      window.addEventListener('resize', syncWidth);
+      window.addEventListener('load', syncWidth);
+    })();
     (function () {
       var ta = document.getElementById('cw-input');
       var status = document.getElementById('cw-status');
