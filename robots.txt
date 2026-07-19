@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin-console/
+Disallow: /logs/
 
 Sitemap: https://limesignalworks.com/sitemap.xml
