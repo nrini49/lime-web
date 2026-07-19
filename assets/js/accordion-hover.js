@@ -38,6 +38,10 @@
   function wire(details) {
     if (details.dataset.rolloverWired) return;
     details.dataset.rolloverWired = '1';
+    // Opt-out, per Noal 2026-07-19 ~6:10pm: elements marked
+    // data-stay-open stay open once clicked -- no mouseleave auto-close.
+    // Currently only #cw-details ("Leave a Memory") uses this.
+    if (details.dataset.stayOpen) return;
     // Opening is click-only (native <details>/<summary>). Closing on
     // mouse-leave is the only automatic behavior here.
     details.addEventListener('mouseleave', function () { details.open = false; });
