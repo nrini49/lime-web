@@ -6,6 +6,17 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
+<script>
+  /* Force the page to always open at the top -- per Noal, 2026-07-19.
+     Chrome/Edge restore the last scroll position on reload (including
+     Ctrl+F5) by default, which was landing the page at the bottom
+     instead of Part A. Disabling scrollRestoration and forcing scrollTo(0,0)
+     as early as possible (before layout/paint) fixes this. */
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.scrollTo(0, 0);
+  window.addEventListener('load', function () { window.scrollTo(0, 0); });
+  window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });
+</script>
 <title>Lime Signalworks — Loss-prevention-first AI trading assistance</title>
 <meta name="description" content="Lime Signalworks: AI trading assistance that leans first toward protecting capital, then toward profit. Clear teaching, honest tools, a system built to serve.">
   <link rel="canonical" href="https://limesignalworks.com/">
@@ -73,11 +84,17 @@
   header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); background: color-mix(in oklab, var(--color-bg) 82%, transparent); border-bottom: 1px solid var(--color-divider); }
   .hdr { display: flex; align-items: center; justify-content: flex-start; padding: var(--space-4) 0; gap: var(--space-4); }
   .brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
-  .brand svg { width: 30px; height: 30px; }
-  .brand .word { font-family: var(--font-display); font-weight: 400; font-size: var(--text-xl); letter-spacing: 0.01em; }
+  /* Icon at least 2x the brand word's font-size, and the word itself one
+     size larger than the major (part-title) headings -- per Noal, 2026-07-19,
+     so the company name reads as the most prominent thing in the header. */
+  .brand svg { width: calc(var(--text-2xl) * 2); height: calc(var(--text-2xl) * 2); flex-shrink: 0; }
+  .brand .word { font-family: var(--font-display); font-weight: 400; font-size: var(--text-2xl); letter-spacing: 0.01em; }
   .brand .word b { font-weight: 700; }
   .brand:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
-  .hdr-tools { display: flex; align-items: center; gap: var(--space-2); margin-left: auto; }
+  /* No margin-left:auto -- brand, presence pills, and header tools now share
+     the same .hdr gap so spacing is uniform across all three groups instead
+     of the tools being pushed to the far right. Per Noal, 2026-07-19. */
+  .hdr-tools { display: flex; align-items: center; gap: var(--space-2); }
   .hdr-presence { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
   .hdr-presence .wg-badge{display:inline-flex;align-items:center;gap:.5rem;
     background:var(--color-surface);color:var(--color-text-muted);border:1px solid var(--color-border);
