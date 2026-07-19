@@ -379,6 +379,47 @@
   .foot .meta a { color: var(--color-text-muted); text-decoration: none; border-bottom: 1px solid var(--color-border); }
   .foot .meta a:hover { color: var(--color-primary); border-color: var(--color-primary); }
   .foot .copy { font-size: var(--text-xs); color: var(--color-text-faint); margin-top: var(--space-6); }
+  /* ---------------------------------------------------------------
+     Companion Widget -- circular portrait, three thin gold rings
+     rotating on a loop, falling gold dust, and a thought box set
+     directly over the mouth. Added per Noal, 2026-07-19, for the
+     front-page blog teaser. Portrait is an AI-generated original
+     face, not a real person's photo. */
+  .companion-widget { padding: var(--space-8) 0 var(--space-12); }
+  .companion-widget .wrap { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); text-align: center; }
+  .companion-widget h3 { font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-text); margin: 0; }
+  .companion-widget .cw-sub { color: var(--color-text-muted); font-size: var(--text-sm); max-width: 42ch; margin: 0; }
+
+  .cw-stage { position: relative; width: 320px; height: 320px; margin: var(--space-6) auto 0; }
+
+  .cw-dust { position: absolute; top: -46px; left: -20px; right: -20px; height: 150px; overflow: visible; pointer-events: none; z-index: 1; }
+  .cw-dust span { position: absolute; top: -10px; width: 3px; height: 3px; border-radius: 50%; background: var(--color-beam); box-shadow: 0 0 6px 1px var(--color-beam-soft); opacity: 0; animation: cw-fall linear infinite; }
+  @keyframes cw-fall {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    12% { opacity: .9; }
+    82% { opacity: .45; }
+    100% { transform: translateY(380px) scale(.4); opacity: 0; }
+  }
+
+  .cw-ring { position: absolute; top: 50%; left: 50%; width: 96%; height: 96%; border: 1.5px solid var(--color-beam); border-radius: 50%; opacity: .55; }
+  .cw-ring-a { animation: cw-spin-a 16s linear infinite; }
+  .cw-ring-b { animation: cw-spin-b 21s linear infinite reverse; }
+  .cw-ring-c { animation: cw-spin-c 26s linear infinite; }
+  @keyframes cw-spin-a { from { transform: translate(-50%,-50%) rotate(0deg) scaleY(.4); } to { transform: translate(-50%,-50%) rotate(360deg) scaleY(.4); } }
+  @keyframes cw-spin-b { from { transform: translate(-50%,-50%) rotate(60deg) scaleY(.4); } to { transform: translate(-50%,-50%) rotate(420deg) scaleY(.4); } }
+  @keyframes cw-spin-c { from { transform: translate(-50%,-50%) rotate(120deg) scaleY(.4); } to { transform: translate(-50%,-50%) rotate(480deg) scaleY(.4); } }
+
+  .cw-portrait { position: absolute; top: 50%; left: 50%; width: 76%; height: 76%; transform: translate(-50%,-50%); border-radius: 50%; overflow: hidden; z-index: 2; box-shadow: 0 0 0 1px var(--color-border), var(--shadow-lg); }
+  .cw-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .cw-box { position: absolute; top: 45%; left: 50%; width: 56%; transform: translate(-50%,-50%); z-index: 3; }
+  .cw-box textarea { width: 100%; resize: none; min-height: 2.7em; max-height: 8.5em; overflow-y: auto; background: rgba(10,19,28,.74); backdrop-filter: blur(2px); border: 1px solid var(--color-beam-soft); border-radius: var(--radius-lg); color: var(--color-text); font-family: var(--font-body); font-size: var(--text-xs); line-height: 1.35; padding: .5em .75em; display: block; }
+  .cw-box textarea::placeholder { color: var(--color-text-faint); }
+  .cw-box textarea:focus { outline: none; border-color: var(--color-beam); }
+  .cw-status { margin-top: var(--space-2); font-size: var(--text-xs); color: var(--color-beam); min-height: 1.2em; opacity: 0; transition: opacity .3s; }
+  .cw-status.show { opacity: 1; }
+
+  @media (max-width: 640px) { .cw-stage { width: 240px; height: 240px; } }
 </style>
 <script defer data-domain="limesignalworks.com" src="https://plausible.io/js/script.js"></script>
 </head>
@@ -485,6 +526,66 @@
       </div>
     </div>
   </section>
+
+  <!-- Companion Widget -- front-page blog teaser, per Noal 2026-07-19:
+       circular AI-generated portrait, three thin gold rings turning on a
+       loop, gold dust falling, and a thought box set directly over the
+       mouth. Entries are captured client-side for now (see script below)
+       until the blog's real backend/CMS is chosen -- swap the save()
+       stub for a real endpoint at that point. -->
+  <section class="companion-widget">
+    <div class="wrap">
+      <h3>Leave a Thought Before You Go</h3>
+      <p class="cw-sub">Every word gets kept. Over time we'll trace how these thoughts move together &mdash; the same way Rosie traces patterns in the signals.</p>
+      <div class="cw-stage">
+        <div class="cw-dust" aria-hidden="true">
+          <span style="left:6%;  animation-duration:5.2s; animation-delay:0s;"></span>
+          <span style="left:18%; animation-duration:6.1s; animation-delay:1.1s;"></span>
+          <span style="left:32%; animation-duration:4.7s; animation-delay:.4s;"></span>
+          <span style="left:47%; animation-duration:5.8s; animation-delay:2s;"></span>
+          <span style="left:61%; animation-duration:5.1s; animation-delay:.9s;"></span>
+          <span style="left:74%; animation-duration:6.4s; animation-delay:1.6s;"></span>
+          <span style="left:86%; animation-duration:4.9s; animation-delay:2.4s;"></span>
+          <span style="left:95%; animation-duration:5.6s; animation-delay:.2s;"></span>
+        </div>
+        <div class="cw-ring cw-ring-a" aria-hidden="true"></div>
+        <div class="cw-ring cw-ring-b" aria-hidden="true"></div>
+        <div class="cw-ring cw-ring-c" aria-hidden="true"></div>
+        <div class="cw-portrait">
+          <img src="assets/blog-widget/companion-face.webp" alt="An AI-generated companion portrait, not a real person" loading="lazy">
+        </div>
+        <div class="cw-box">
+          <textarea id="cw-input" rows="3" placeholder="Type here &mdash; as many lines as you need..." aria-label="Leave a thought"></textarea>
+        </div>
+      </div>
+      <p class="cw-status" id="cw-status">Saved.</p>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var ta = document.getElementById('cw-input');
+      var status = document.getElementById('cw-status');
+      if (!ta) return;
+      function grow() { ta.style.height = 'auto'; ta.style.height = Math.min(ta.scrollHeight, 136) + 'px'; }
+      ta.addEventListener('input', grow);
+      var saveTimer = null;
+      ta.addEventListener('input', function () {
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(function () {
+          if (!ta.value.trim()) return;
+          // TODO: swap this client-side stub for a real save endpoint once
+          // the blog's backend/CMS is chosen. For now entries are kept only
+          // in this browser session.
+          try {
+            var log = window.__cwEntries || (window.__cwEntries = []);
+            log.push({ text: ta.value, at: new Date().toISOString() });
+          } catch (e) {}
+          status.classList.add('show');
+          setTimeout(function () { status.classList.remove('show'); }, 1600);
+        }, 700);
+      });
+    })();
+  </script>
 
   <!-- Chapters I-III + Conclusion un-merged back into separate top-level
        sections per Noal (2026-07-19): "we had the same substructure that
