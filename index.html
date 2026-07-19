@@ -409,8 +409,13 @@
   @keyframes cw-spin-b { from { transform: translate(-50%,-50%) rotate(60deg) scaleY(.4); } to { transform: translate(-50%,-50%) rotate(420deg) scaleY(.4); } }
   @keyframes cw-spin-c { from { transform: translate(-50%,-50%) rotate(120deg) scaleY(.4); } to { transform: translate(-50%,-50%) rotate(480deg) scaleY(.4); } }
 
-  .cw-portrait { position: absolute; top: 50%; left: 50%; width: 76%; height: 76%; transform: translate(-50%,-50%); border-radius: 50%; overflow: hidden; z-index: 2; box-shadow: 0 0 0 1px var(--color-border), var(--shadow-lg); }
-  .cw-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* Rosy Way glow -- soft dusty-rose halo sitting behind the portrait so
+     its edge melts outward into the page instead of stopping at a hard
+     circle. Added per Noal, 2026-07-19. */
+  .cw-glow { position: absolute; top: 50%; left: 50%; width: 178%; height: 178%; transform: translate(-50%,-50%); z-index: 1; pointer-events: none; filter: blur(3px); background: radial-gradient(circle, rgba(224,122,150,0.38) 0%, rgba(224,122,150,0.20) 38%, rgba(224,122,150,0.08) 60%, rgba(224,122,150,0) 78%); }
+
+  .cw-portrait { position: absolute; top: 50%; left: 50%; width: 76%; height: 76%; transform: translate(-50%,-50%); z-index: 2; -webkit-mask-image: radial-gradient(circle, #000 55%, rgba(0,0,0,.65) 68%, rgba(0,0,0,.25) 85%, transparent 100%); mask-image: radial-gradient(circle, #000 55%, rgba(0,0,0,.65) 68%, rgba(0,0,0,.25) 85%, transparent 100%); }
+  .cw-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; }
 
   .cw-box { position: absolute; top: 45%; left: 50%; width: 56%; transform: translate(-50%,-50%); z-index: 3; }
   .cw-box textarea { width: 100%; resize: none; min-height: 2.7em; max-height: 8.5em; overflow-y: auto; background: rgba(10,19,28,.74); backdrop-filter: blur(2px); border: 1px solid var(--color-beam-soft); border-radius: var(--radius-lg); color: var(--color-text); font-family: var(--font-body); font-size: var(--text-xs); line-height: 1.35; padding: .5em .75em; display: block; }
@@ -551,6 +556,7 @@
         <div class="cw-ring cw-ring-a" aria-hidden="true"></div>
         <div class="cw-ring cw-ring-b" aria-hidden="true"></div>
         <div class="cw-ring cw-ring-c" aria-hidden="true"></div>
+        <div class="cw-glow" aria-hidden="true"></div>
         <div class="cw-portrait">
           <img src="assets/blog-widget/companion-face.webp" alt="An AI-generated companion portrait, not a real person" loading="lazy">
         </div>
