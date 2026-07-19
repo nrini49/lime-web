@@ -515,7 +515,13 @@
 
   /* Rosy Way bloom image narrowed to match the Anchor Point card's own
      width exactly, per Noal 2026-07-19. */
-  .bridge-scene.bridge-scene-anchor-width { max-width: 780px; }
+  /* Left-justified to start flush with the "Declaration" label above it,
+     widened on the right to align exactly with the Anchor Point card's
+     own right edge, per Noal 2026-07-19. Both boxes share the same
+     1080px-max, viewport-centered frame, so this math is fixed: content
+     width 906px = 1080 - 24 (left pad, unchanged) - 150 (right pad). */
+  .bridge-scene.bridge-scene-anchor-width { max-width: 1080px; padding: 0 150px 0 var(--space-6); }
+  @media (max-width: 900px) { .bridge-scene.bridge-scene-anchor-width { padding: 0 var(--space-6); } }
   .anchor-point p.ap-text { font-family: var(--font-display); font-style: italic; font-size: var(--text-lg); line-height: 1.6; color: var(--color-text); margin: 0 auto var(--space-5); max-width: 56ch; }
   .anchor-point .ap-signature { font-family: var(--font-display); font-weight: 700; font-size: var(--text-base); color: var(--color-primary); margin: 0; }
 </style>
