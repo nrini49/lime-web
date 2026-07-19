@@ -135,7 +135,10 @@
      2026-07-19: same width/height as the demo button, "coming soon" on
      click (no product link yet). Shared sizing rule below covers both. */
 
-  .ibkr-demo-cta, .buy-rosie-cta { display: inline-flex; align-items: center; justify-content: center; text-align: center; width: 8.5em; min-height: 38px; padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: transparent; font-size: var(--text-sm); font-weight: 600; line-height: 1.25; text-decoration: none; white-space: normal; font-family: inherit; cursor: pointer; appearance: none; box-sizing: border-box; }
+  /* Matched to the Anchor Point pill's look, per Noal 2026-07-19: same
+     font (display serif, 700 weight), all caps, same border/color/hover
+     treatment. Box dimensions (width, height, padding) left untouched. */
+  .ibkr-demo-cta, .buy-rosie-cta { display: inline-flex; align-items: center; justify-content: center; text-align: center; width: 8.5em; min-height: 38px; padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: transparent; font-size: var(--text-sm); font-weight: 700; line-height: 1.25; text-decoration: none; white-space: normal; font-family: var(--font-display); text-transform: uppercase; cursor: pointer; appearance: none; box-sizing: border-box; }
   .ibkr-demo-cta:hover, .buy-rosie-cta:hover { background: var(--color-primary); color: var(--color-bg); }
   @media (max-width: 640px) { .ibkr-demo-cta, .buy-rosie-cta { display: none; } }
   /* Height matched to the stacked CTA buttons (58px each), per Noal
