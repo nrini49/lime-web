@@ -413,7 +413,12 @@
   @keyframes cwBodyOpen { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { .cw-body { animation: none; } }
 
-  .cw-stage { position: absolute; top: 50%; left: 50%; width: 1400px; height: 1400px; transform: translate(-50%,-50%); z-index: 5; pointer-events: none; }
+  /* Nudged left per Noal 2026-07-19: on his screen the nose read slightly
+     right of dead-center (likely the real scrollbar eating into the
+     right side of his actual browser window, which a scrollbar-less
+     headless check can't reproduce). 20px estimate -- flag if it needs
+     more or less once he confirms. */
+  .cw-stage { position: absolute; top: 50%; left: calc(50% - 20px); width: 1400px; height: 1400px; transform: translate(-50%,-50%); z-index: 5; pointer-events: none; }
   .cw-portrait { opacity: 0.1; }
   .cw-portrait img { filter: brightness(0.85); }
 
