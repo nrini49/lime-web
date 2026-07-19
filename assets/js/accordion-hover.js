@@ -21,6 +21,14 @@
  *
  * Touch/no-hover devices (phones, tablets) keep plain native <details>
  * click-to-open / click-to-close behavior untouched -- no change there.
+ *
+ * SINGLE NAMED EXCEPTION, per Noal's direct in-thread confirmation,
+ * 2026-07-19 ~5:51pm: the Part III part-label heading ("The LIME Universe
+ * Bridge") is now itself a <details class="part-label bridge-reveal">
+ * that gates its bridge-scene + triptych images -- click opens, mouseleave
+ * closes, same as everything else (this file needed no changes for it --
+ * wire() already applies to every <details> uniformly). No other
+ * part-label on the site has been changed; they remain non-interactive.
  */
 (function () {
   if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) {

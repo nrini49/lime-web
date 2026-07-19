@@ -361,6 +361,14 @@
      white/text-color, not green -- the hover behavior itself is the
      affordance, no color cue needed. */
   .part-label .part-title { color: var(--color-text); cursor: default; }
+  /* Bridge-reveal exception, per Noal 2026-07-19 (see HTML comment above):
+     only this one part-label is interactive. */
+  details.bridge-reveal { cursor: default; }
+  details.bridge-reveal > summary { list-style: none; cursor: pointer; }
+  details.bridge-reveal > summary::-webkit-details-marker { display: none; }
+  details.bridge-reveal > summary:hover .part-title { color: var(--color-primary); }
+  details.bridge-reveal .bridge-scene { margin-top: var(--space-6); }
+
   /* Reveal-on-hover for Part B/C subsections was tried and removed again,
      per Noal 2026-07-19: "the rollover beneath 3-1-door is not necessary."
      Standing rule now, uniform across Part A, B, and C: every subheading
@@ -398,10 +406,10 @@
      the heading is clicked. Native <details>/<summary> for free keyboard
      and screen-reader support. */
   .cw-details { width: 100%; display: flex; flex-direction: column; align-items: center; }
-  .cw-details summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: var(--space-3); justify-content: center; }
+  .cw-details summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: var(--space-3); justify-content: flex-start; align-self: flex-start; }
   .cw-details summary::-webkit-details-marker { display: none; }
   .cw-details summary:hover h3 { color: var(--color-primary); }
-  .cw-body { margin-top: var(--space-4); display: flex; flex-direction: column; align-items: center; gap: var(--space-3); width: 100%; animation: cwBodyOpen 0.25s ease; }
+  .cw-body { margin-top: var(--space-8); display: flex; flex-direction: column; align-items: center; gap: var(--space-3); width: 100%; animation: cwBodyOpen 0.25s ease; }
   @keyframes cwBodyOpen { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { .cw-body { animation: none; } }
 
@@ -1070,37 +1078,49 @@
      still being drafted and reviewed in Noal's own Google Doc ("Part C --
      The LIME Universe Bridge"); every subheading below is a placeholder
      until that draft is finalized and the real text is pushed here.
-     Per Noal, 2026-07-19: the reveal-on-hover pattern tried earlier today
-     was removed again -- "the rollover beneath 3-1-door is not necessary."
-     All five subheadings below are now permanently visible, same as Part A
+     All five subheadings below are permanently visible, same as Part A
      and Part B. Hovering a subheading directly still turns it green (the
-     existing site-wide hover-color rule); nothing opens without a click. -->
-<!-- Display label renamed C -> III per Noal (2026-07-19), visible heading only. -->
-<div class="part-label">
-  <p class="part-name">Part III</p>
-  <p class="part-title">The LIME Universe Bridge</p>
-</div>
+     existing site-wide hover-color rule); nothing opens without a click.
 
-<!-- Bridge scene + triptych, per Noal 2026-07-19. Full scene first, then
-     the three cropped details right below it, man / energy / woman. -->
-<div class="bridge-scene">
-  <img src="assets/bridge/tree-man-moon-woman.webp" alt="A tree whose form echoes a man reaching toward a crescent moon whose form echoes a woman, with light bridging the space between them" loading="lazy">
-  <p class="bridge-scene-caption">The tree of man, the moon of woman &mdash; and what forms between them.</p>
-</div>
-<div class="bridge-triptych">
-  <figure>
-    <img src="assets/bridge/man-at-the-river.webp" alt="The man at the river's edge" loading="lazy">
-    <figcaption>The man, at the river's edge</figcaption>
-  </figure>
-  <figure>
-    <img src="assets/bridge/energy-between-them.webp" alt="The energy passing between the man and the woman" loading="lazy">
-    <figcaption>The energy between them</figcaption>
-  </figure>
-  <figure>
-    <img src="assets/bridge/woman-over-the-moon.webp" alt="The woman looking over him" loading="lazy">
-    <figcaption>The woman, looking over him</figcaption>
-  </figure>
-</div>
+     EXCEPTION, per Noal's direct in-thread confirmation, 2026-07-19,
+     ~5:51pm: the part-label heading itself ("The LIME Universe Bridge")
+     is now a <details>/<summary> that gates the bridge-scene + triptych
+     images below it -- they are HIDDEN on load, revealed by clicking the
+     heading, and auto-close on mouseleave (native <details> click-open +
+     assets/js/accordion-hover.js mouseleave-close, same mechanism as
+     every other collapsible on the site -- no extra wiring needed since
+     wire() targets every <details> element). This is scoped ONLY to this
+     one part-label via the .bridge-reveal class -- Part A/B's part-labels
+     and this part's own five subheadings below are untouched and remain
+     non-interactive / permanently visible per the standing rule above. -->
+<!-- Display label renamed C -> III per Noal (2026-07-19), visible heading only. -->
+<details class="part-label bridge-reveal" id="bridge-reveal">
+  <summary>
+    <p class="part-name">Part III</p>
+    <p class="part-title">The LIME Universe Bridge</p>
+  </summary>
+
+  <!-- Bridge scene + triptych, per Noal 2026-07-19. Full scene first, then
+       the three cropped details right below it, man / energy / woman. -->
+  <div class="bridge-scene">
+    <img src="assets/bridge/tree-man-moon-woman.webp" alt="A tree whose form echoes a man reaching toward a crescent moon whose form echoes a woman, with light bridging the space between them" loading="lazy">
+    <p class="bridge-scene-caption">The tree of man, the moon of woman &mdash; and what forms between them.</p>
+  </div>
+  <div class="bridge-triptych">
+    <figure>
+      <img src="assets/bridge/man-at-the-river.webp" alt="The man at the river's edge" loading="lazy">
+      <figcaption>The man, at the river's edge</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/bridge/energy-between-them.webp" alt="The energy passing between the man and the woman" loading="lazy">
+      <figcaption>The energy between them</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/bridge/woman-over-the-moon.webp" alt="The woman looking over him" loading="lazy">
+      <figcaption>The woman, looking over him</figcaption>
+    </figure>
+  </div>
+</details>
 
 <section class="part-c-section">
       <div class="wrap">
