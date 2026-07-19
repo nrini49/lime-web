@@ -43,11 +43,14 @@
   // triggers: hovering the part title opens every <details> section that
   // belongs to that part (everything between this .part-label and the
   // next one, or end of <main> if it's the last part). Added 2026-07-19
-  // per Noal -- same model across all three parts, added as each part's
-  // .part-label shows up in the page (Part C isn't on the homepage yet;
-  // this will pick it up automatically once it is, no extra wiring needed).
+  // per Noal -- this model applies to Part A and Part B. Part C (added
+  // 2026-07-19) intentionally opts out via data-reveal-only -- see the
+  // exclusion below and the HTML comment above the Part C block.
   function wirePartLabels() {
-    document.querySelectorAll('.part-label').forEach(function (label) {
+    // :not([data-reveal-only]) excludes Part C's label -- it uses a
+    // separate, pure-CSS reveal-on-hover pattern (see index.html) instead
+    // of this hover-opens-content behavior. Per Noal, 2026-07-19.
+    document.querySelectorAll('.part-label:not([data-reveal-only])').forEach(function (label) {
       if (label.dataset.rolloverWired) return;
       label.dataset.rolloverWired = '1';
       var scoped = [];

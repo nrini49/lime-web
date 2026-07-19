@@ -298,6 +298,13 @@
      white/text-color, not green -- the hover behavior itself is the
      affordance, no color cue needed. */
   .part-label .part-title { color: var(--color-text); cursor: default; }
+  /* Part C reveal-on-hover -- see the HTML comment above the Part C block
+     for why this is a different pattern from Part A/B. Pure CSS :hover on
+     the shared wrapper: visible while the cursor is anywhere within the
+     heading OR the revealed block, hidden the instant it's fully outside
+     both. Per Noal, 2026-07-19. */
+  .part-c-reveal { display: none; }
+  .part-c-block:hover .part-c-reveal, .part-c-block:focus-within .part-c-reveal { display: block; }
   @keyframes secOpen { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { details.collapsible > .sec-body { animation: none; } details.collapsible > summary .chev { transition: none; } }
   footer { padding: 0; }
@@ -755,6 +762,68 @@
 </details>
   </div>
 </section>
+
+<!-- Part C: The LIME Universe Bridge. Structure only for now -- content is
+     still being drafted and reviewed in Noal's own Google Doc ("Part C --
+     The LIME Universe Bridge"); every subheading below is a placeholder
+     until that draft is finalized and the real text is pushed here.
+     Per Noal, 2026-07-19: this part behaves differently from Parts A and
+     B on purpose -- the five subheadings below stay completely hidden
+     until you hover the Part C heading itself (pure-CSS reveal on
+     .part-c-block, see CSS below). Hovering an individual revealed
+     subheading turns it green via the existing site-wide hover-color
+     rule. Nothing ever opens without an explicit click -- same standing
+     principle as the rest of the site. data-reveal-only on the .part-label
+     below opts it OUT of accordion-hover.js's normal Part A/B
+     hover-opens-content behavior, since this is a different interaction. -->
+<div class="part-c-block">
+  <div class="part-label" data-reveal-only>
+    <p class="part-name">Part C</p>
+    <p class="part-title">The LIME Universe Bridge</p>
+  </div>
+  <div class="part-c-reveal">
+    <section class="part-c-section">
+      <div class="wrap">
+        <details class="collapsible">
+          <summary class="sec-bar"><div class="chapter-num">Introduction</div><h2>Coming soon</h2></summary>
+          <div class="sec-body"><p>Coming soon.</p></div>
+        </details>
+      </div>
+    </section>
+    <section class="part-c-section">
+      <div class="wrap">
+        <details class="collapsible">
+          <summary class="sec-bar"><div class="chapter-num">Chapter I</div><h2>Coming soon</h2></summary>
+          <div class="sec-body"><p>Coming soon.</p></div>
+        </details>
+      </div>
+    </section>
+    <section class="part-c-section">
+      <div class="wrap">
+        <details class="collapsible">
+          <summary class="sec-bar"><div class="chapter-num">Chapter II</div><h2>Coming soon</h2></summary>
+          <div class="sec-body"><p>Coming soon.</p></div>
+        </details>
+      </div>
+    </section>
+    <section class="part-c-section">
+      <div class="wrap">
+        <details class="collapsible">
+          <summary class="sec-bar"><div class="chapter-num">Chapter III</div><h2>Coming soon</h2></summary>
+          <div class="sec-body"><p>Coming soon.</p></div>
+        </details>
+      </div>
+    </section>
+    <section class="part-c-section">
+      <div class="wrap">
+        <details class="collapsible">
+          <summary class="sec-bar"><div class="chapter-num">Conclusion</div><h2>Coming soon</h2></summary>
+          <div class="sec-body"><p>Coming soon.</p></div>
+        </details>
+      </div>
+    </section>
+  </div>
+</div>
 
 <script>
 
