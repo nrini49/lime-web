@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script>if ("scrollRestoration" in history) { history.scrollRestoration = "manual"; } window.scrollTo(0,0); window.addEventListener("load", function () { window.scrollTo(0,0); }); window.addEventListener("pageshow", function () { window.scrollTo(0,0); });</script>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
@@ -36,7 +37,7 @@
   header{position:sticky;top:0;z-index:50;background:color-mix(in oklab,var(--color-bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--color-divider)}
   .hdr{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0}
   .brand{display:flex;align-items:center;gap:var(--space-3);text-decoration:none;color:var(--color-text)}
-  .brand svg{width:28px;height:28px;color:var(--color-primary)}
+  .brand svg{width:calc(var(--text-base) * 2);height:calc(var(--text-base) * 2);color:var(--color-primary);flex-shrink:0}
   .b-name{font-family:var(--font-body);font-weight:700;font-size:var(--text-base);letter-spacing:-0.01em}
   .b-name span{display:block;font-family:var(--font-body);font-weight:500;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--color-text-muted);margin-top:2px}
   .lock-badge{display:inline-flex;align-items:center;gap:0.4rem;font-size:var(--text-xs);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-fire);border:1px solid var(--color-fire);border-radius:var(--radius-full);padding:0.3rem 0.7rem;margin-left:auto}
