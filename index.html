@@ -390,7 +390,9 @@
   .companion-widget h3 { font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-text); margin: 0; }
   .companion-widget .cw-sub { color: var(--color-text-muted); font-size: var(--text-sm); max-width: 42ch; margin: 0; }
 
-  .cw-stage { position: relative; width: 320px; height: 320px; margin: var(--space-6) auto 0; }
+  .cw-stage { position: absolute; top: 50%; left: 50%; width: 380px; height: 380px; transform: translate(-50%,-50%); z-index: 5; pointer-events: none; }
+  .cw-portrait { opacity: 0.4; }
+  .cw-portrait img { filter: brightness(0.85); }
 
   .cw-dust { position: absolute; top: -46px; left: -20px; right: -20px; height: 150px; overflow: visible; pointer-events: none; z-index: 1; }
   .cw-dust span { position: absolute; top: -10px; width: 3px; height: 3px; border-radius: 50%; background: var(--color-beam); box-shadow: 0 0 6px 1px var(--color-beam-soft); opacity: 0; animation: cw-fall linear infinite; }
@@ -424,7 +426,12 @@
      the portrait, a read/scroll panel on the right, both the same size and
      matched to the portrait stage's own height (320px / 240px on mobile).
      Kept deliberately plain -- "doesn't need to be fancy yet or big." */
-  .cw-row { display: flex; align-items: stretch; justify-content: center; gap: var(--space-6); flex-wrap: wrap; margin-top: var(--space-6); }
+  /* Per Noal 2026-07-19 follow-up: the two cells sit right next to each
+     other now (no portrait between them); the portrait moved to an
+     absolutely-positioned overlay, enlarged, centered over both cells
+     combined, and made translucent so the cells read through her --
+     "she has some influence here on what's been going on." */
+  .cw-row { position: relative; display: flex; align-items: stretch; justify-content: center; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-6); }
   .cw-panel { width: 220px; height: 320px; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); display: flex; flex-direction: column; overflow: hidden; text-align: left; }
   .cw-panel-head { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--color-border); font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-muted); flex: none; }
   .cw-panel-head a { color: var(--color-primary); font-weight: 700; text-decoration: none; }
@@ -433,7 +440,7 @@
   .cw-input-panel textarea:focus { outline: none; }
   .cw-read-panel iframe { flex: 1; width: 100%; border: none; display: block; }
 
-  @media (max-width: 640px) { .cw-stage { width: 240px; height: 240px; } .cw-panel { width: 100%; max-width: 320px; height: 220px; } }
+  @media (max-width: 640px) { .cw-stage { width: 260px; height: 260px; } .cw-panel { width: 100%; max-width: 320px; height: 220px; } }
 </style>
 <script defer data-domain="limesignalworks.com" src="https://plausible.io/js/script.js"></script>
 </head>
