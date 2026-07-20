@@ -545,7 +545,10 @@
   .part-label .part-subtitle-link:hover { text-decoration: underline; text-underline-offset: 2px; }
   /* Per Noal 2026-07-20 ~5:54pm: first letter of each word enlarged, only
      on this one subtitle ("AI-Assisted Investing Strategies and Tactics"). */
-  .part-subtitle-link .drop-cap { font-size: 1.4em; line-height: 1; }
+  /* General drop-cap sizing, extended site-wide to all headings/subheadings
+     per Noal 2026-07-20 ~6:23pm (originally scoped only to the subtitle
+     link below) -- applied automatically by assets/js/drop-cap.js. */
+  .drop-cap { font-size: 1.4em; line-height: 1; }
   /* Reverted per Noal, 2026-07-19 ~11:08pm: the earlier 3xl bump broke
      visual consistency with Part II/III. Hero title now matches every
      other Part's title size again (plain .part-title xl). */
@@ -2605,6 +2608,7 @@
 </script>
 <script defer src="assets/js/header-cta.js"></script>
 <script defer src="assets/js/accordion-hover.js"></script>
+<script defer src="assets/js/drop-cap.js"></script>
 <!-- Buy Rosie Now click behavior, per Noal 2026-07-19: no product link
      yet, so clicking just swaps the label to "Coming soon" briefly, then
      reverts. Nothing to navigate to. -->
