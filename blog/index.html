@@ -81,8 +81,16 @@
 
   /* Duplicate of the Begin/Subscribe page input panel, inserted right
      below the "Notes from the harbor" subtitle per Noal, 2026-07-20
-     ~3:48pm. Same form-card styling as subscribe/index.html verbatim. */
-  .blog-input-panel{margin:var(--space-8) 0 var(--space-10);}
+     ~3:48pm. Same form-card styling as subscribe/index.html verbatim.
+     Made collapsible per Noal 2026-07-20 ~5:29pm: it was taking up way
+     too much vertical space sitting open by default -- now a small pill
+     button (same sizing/hover treatment as the header's own buttons),
+     closed by default, form only appears on click. */
+  .blog-input-panel{margin:var(--space-6) 0 var(--space-10);}
+  .blog-input-panel > summary{display:inline-flex;align-items:center;justify-content:center;list-style:none;cursor:pointer;width:fit-content;min-height:38px;padding:0 var(--space-4);border-radius:var(--radius-full);border:1px solid var(--color-primary);background:var(--color-surface);color:var(--color-primary);font-family:var(--font-body);font-size:var(--text-sm);font-weight:700;white-space:nowrap;}
+  .blog-input-panel > summary::-webkit-details-marker{display:none;}
+  .blog-input-panel > summary:hover{background:var(--color-primary);color:var(--color-bg);}
+  .blog-input-panel[open] > summary{margin-bottom:var(--space-4);}
   .form-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:clamp(var(--space-8),5vw,var(--space-12));box-shadow:var(--shadow-md);position:relative;overflow:hidden}
   .form-card::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(in oklab,var(--color-primary),var(--color-beam,#e8b659));}
   .form-card form{display:grid;gap:var(--space-4);}
@@ -341,7 +349,8 @@
     <!-- Duplicate of the Begin/Subscribe page input panel, per Noal
          2026-07-20 ~3:48pm: same box, dropped in right below the "Notes
          from the harbor" subtitle with a hard break before the posts. -->
-    <div class="blog-input-panel">
+    <details class="blog-input-panel" id="blogSignupToggle">
+      <summary>Begin your ninety days &rarr;</summary>
       <div class="form-card">
         <form id="blogSubForm" novalidate>
           <div class="row">
@@ -354,7 +363,7 @@
         </form>
         <p class="fineprint">Your details are used only to start your Harbor Member access. No sharing, no spam, unsubscribe anytime. The ninety-day promise applies.</p>
       </div>
-    </div>
+    </details>
 
     <!-- Seed posts, first pass per Noal (2026-07-19). Placeholder content
          written in the established site voice so the blog can go live now;
