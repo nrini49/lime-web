@@ -150,8 +150,11 @@
      its 18px icon with zero padding (box-sizing reset strips the default
      button padding) and effectively disappeared. Pinning both back to the
      same 38px height the CTAs use restores the original visible size. */
-  .hdr-utility .icon-btn { width: 38px; min-height: 38px; }
-  .hdr-utility .blog-nav-link { min-height: 38px; }
+  /* Matched to the same width per Noal, 2026-07-20 ~11:50am -- 70px fits
+     Blog's natural width (~70px) without squeezing it, and the icon
+     button is stretched to match rather than the reverse. */
+  .hdr-utility .icon-btn { width: 70px; min-height: 38px; }
+  .hdr-utility .blog-nav-link { width: 70px; min-height: 38px; }
 
   /* Stacked vertically per Noal, 2026-07-20 ~9:56am, to match the theme+Blog
      and Rosie stacks beside it. */
@@ -672,11 +675,11 @@
     <div class="hdr-presence">
       <span id="wg-live-badge" class="wg-badge wg-badge-live" aria-live="polite">
         <span class="wg-dot wg-dot-live"></span>
-        <span id="wg-live-text">checking who's here&hellip;</span>
+        <span id="wg-live-text">checking who's here...</span>
       </span>
       <span id="wg-badge" class="wg-badge" aria-live="polite">
         <span class="wg-dot"></span>
-        <span id="wg-count-text">along the Rosy Way</span>
+        <span id="wg-count-text">along the Rosy Way.......</span>
       </span>
     </div>
     <!-- Theme toggle + Blog: own stack, sits between the presence meters
