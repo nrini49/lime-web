@@ -114,8 +114,13 @@
      stack, Rosie stack) -- pulls everything as far left as the content
      allows, no wrapper needed to fake a tighter/looser gap in different
      spots. */
-  .hdr { display: flex; align-items: center; justify-content: flex-start; padding: var(--space-4) 0; gap: var(--space-3); }
-  .brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
+  /* Top padding dropped per Noal 2026-07-20 ~4:49pm: the logo's own top
+     edge should meet the very top edge of the page at full page size.
+     Bottom padding kept for spacing below the header row. .brand pinned
+     to align-self:flex-start so it sits at the top of the row instead of
+     centering against the much-taller button/badge stacks beside it. */
+  .hdr { display: flex; align-items: center; justify-content: flex-start; padding: 0 0 var(--space-4) 0; gap: var(--space-3); }
+  .brand { display: flex; align-items: center; align-self: flex-start; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
   /* Icon sized to the two-line brand name (LIME Signalworks / LLC), slightly
      taller than that two-line block -- per Noal, 2026-07-19. Icon size
      formula stays pinned to --text-2xl on purpose; only the wordmark text
@@ -146,9 +151,13 @@
   .brand-mark-wrap { position: relative; height: 480px; width: 480px; flex-shrink: 0; }
   /* Pulled back per Noal 2026-07-20 ~4:30pm so the "LIME SIGNALWORKS LLC"
      text baked into the video is legible again -- was 18/28/45/60, now
-     35/48/65/82. Still keeps blue close to the peak, just not as tight. */
+     35/48/65/82. Still keeps blue close to the peak, just not as tight.
+     Nudged back in a step per Noal 2026-07-20 ~4:50pm ("expand the blue
+     gradient a little closer to center") -- 30/42/60/77, partway between
+     the too-tight 18/28/45/60 and the too-loose 35/48/65/82, watching for
+     the baked-in text staying legible. */
   .brand-mark-wrap::after { content: ''; position: absolute; inset: 0; pointer-events: none;
-    background: radial-gradient(circle, transparent 35%, color-mix(in oklab, var(--color-bg) 40%, transparent) 48%, color-mix(in oklab, var(--color-bg) 80%, transparent) 65%, var(--color-bg) 82%); }
+    background: radial-gradient(circle, transparent 30%, color-mix(in oklab, var(--color-bg) 40%, transparent) 42%, color-mix(in oklab, var(--color-bg) 80%, transparent) 60%, var(--color-bg) 77%); }
   .brand-mark { height: 100%; width: 100%; object-fit: cover; display: block; }
   /* 480px only fits comfortably at wide desktop -- steps down at tablet/
      small-laptop widths (700-1024px overflowed the header otherwise,
