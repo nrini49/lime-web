@@ -65,7 +65,11 @@
     --shadow-md: 0 4px 24px rgba(0,0,0,0.35); --shadow-lg: 0 18px 50px rgba(0,0,0,0.45);
   }
   [data-theme="light"] {
-    --color-bg: #e7e3dd; --color-surface: #ffffff; --color-surface-2: #f7faf8; --color-surface-offset: #eef3ef;
+    /* Background darkened/warmed per Noal 2026-07-19 ~8:50pm: too light
+       before -- shifted toward a more tan, more gray tone (was #e7e3dd,
+       a near-white with barely any warmth). Surfaces (cards) left as-is
+       so they still read as lighter panels against this deeper backdrop. */
+    --color-bg: #d8d1c2; --color-surface: #ffffff; --color-surface-2: #f7faf8; --color-surface-offset: #eef3ef;
     --color-border: #dbe4dd; --color-divider: #e4ece6;
     --color-text: #15241c; --color-text-muted: #56685e; --color-text-faint: #8a9c92;
     --color-primary: #4f7a1f; --color-primary-hover: #3d6017; --color-primary-soft: rgba(79,122,31,0.10);
@@ -1493,8 +1497,19 @@
     t.addEventListener('click', () => { d = d==='dark'?'light':'dark'; r.setAttribute('data-theme', d); t.innerHTML = icon(d==='dark'); t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode'); });
   }
   var tr = document.querySelector('[data-translate]');
+  // Per Noal 2026-07-19 ~8:50pm: the old translate.google.com/translate?u=
+  // proxy is a discontinued Google service and was failing/misbehaving --
+  // switched to Google's current working translate.goog mirror domain,
+  // which renders a live translated copy of this exact page in a brand
+  // new tab (window.open + noopener), leaving the homepage tab untouched.
   if (tr) { tr.addEventListener('click', function(){
-    var _tgtLang = (navigator.language || navigator.userLanguage || 'es').split('-')[0]; window.open('https://translate.google.com/translate?sl=auto&tl=' + _tgtLang + '&u=' + encodeURIComponent(window.location.href), '_blank', 'noopener');
+    var _tgtLang = (navigator.language || navigator.userLanguage || 'es').split('-')[0];
+    var _host = window.location.hostname.replace(/\./g, '-');
+    var _path = window.location.pathname + window.location.search + window.location.hash;
+    var _sep = _path.indexOf('?') > -1 ? '&' : '?';
+    var _url = 'https://' + _host + '.translate.goog' + _path + _sep +
+      '_x_tr_sl=auto&_x_tr_tl=' + _tgtLang + '&_x_tr_hl=en&_x_tr_pto=wapp';
+    window.open(_url, '_blank', 'noopener');
   }); }
 })();
 </script>
