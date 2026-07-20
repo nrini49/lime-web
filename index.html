@@ -240,6 +240,9 @@
      behavior as the Rosie CTAs), per Noal 2026-07-20 ~1:26pm. */
   .icon-btn { display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: var(--color-surface); cursor: pointer; }
   .icon-btn:hover { background: var(--color-primary); color: var(--color-bg); border-color: var(--color-primary); }
+  .lighthouse-footer-anchor { display: flex; justify-content: center; padding: var(--space-10) 0 var(--space-16); }
+  .lighthouse-footer-link { width: 64px; height: 64px; text-decoration: none; }
+  .lighthouse-footer-link svg { width: 42px; height: 42px; }
   /* Blog nav link in the header, per Noal 2026-07-19. Height no longer
      fixed (38px) -- per Noal 2026-07-19 ~11:27pm, stretches to fill its
      grid cell (matched to the Buy Rosie Now button's height in its row). */
@@ -1782,6 +1785,23 @@
       <p class="bridge-scene-caption">This is what happens along the Rosy Way. Life changes.<br>
       Your true purpose finds you &mdash; and it amplifies you.<br>
       You've reached the end of the harbor &mdash; for now.</p>
+    </div>
+
+    <!-- Former static lighthouse mark, retired from the header per Noal
+         2026-07-20 in favor of the animated video mark above -- given a
+         second life here instead of deleting it: its own line at the true
+         end of the page, standard outline-button treatment (border/color
+         var(--color-primary), fills solid green on hover, same pattern as
+         every other CTA in the header), linking straight to the Rosie demo. -->
+    <div class="lighthouse-footer-anchor">
+      <a class="icon-btn lighthouse-footer-link" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener" aria-label="Open the Rosie AI Trading Assistant demo">
+        <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+          <g class="beam-sweep"><path d="M62 46 L118 22 L118 70 L62 58 Z" fill="var(--color-primary)" opacity="0.16"/><path d="M62 46 L6 22 L6 70 L62 58 Z" fill="var(--color-beam)" opacity="0.12"/></g>
+          <path d="M62 18 L72 30 L72 36 L66 36 L66 52 L70 52 L70 104 L54 104 L54 52 L58 52 L58 36 L52 36 L52 30 Z" fill="currentColor"/>
+          <rect x="50" y="100" width="24" height="6" rx="2" fill="currentColor"/>
+          <circle cx="62" cy="42" r="7" fill="var(--color-primary)"/><circle cx="62" cy="42" r="3" fill="var(--color-bg)"/>
+        </svg>
+      </a>
     </div>
 
 <script>
