@@ -108,7 +108,18 @@
 
   /* border-bottom removed per Noal, 2026-07-19 -- was showing as a stray
      line between the header and Part A. */
-  header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); background: color-mix(in oklab, var(--color-bg) 82%, transparent); }
+  /* backdrop-filter blur removed per Noal 2026-07-20 ~6:16pm: sticky header
+     + backdrop-filter is a known Chromium compositing bug -- on scroll it
+     leaves a ghosted/blurred trail of header content hovering below the
+     real header, which is what was throwing off left-margin alignment
+     across the page (multiple threads, so likely wasn't caught before).
+     Background now fully solid var(--color-bg), no transparency at all --
+     testing showed the ghosting survives even without the blur as long as
+     the sticky header's own background has ANY transparency (a broader
+     Chromium sticky+translucency compositing bug, not just backdrop-filter
+     specifically). Fully opaque removes any chance of old scrolled-past
+     content bleeding through during the sticky repaint. */
+  header { position: sticky; top: 0; z-index: 10; background: var(--color-bg); }
   /* Gap dropped to --space-3 uniformly per Noal, 2026-07-20 ~9:50am: same
      "3 spaces" between every group in the row (brand, meters, theme+Blog
      stack, Rosie stack) -- pulls everything as far left as the content
