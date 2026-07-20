@@ -156,15 +156,25 @@
      gradient a little closer to center") -- 30/42/60/77, partway between
      the too-tight 18/28/45/60 and the too-loose 35/48/65/82, watching for
      the baked-in text staying legible. */
-  /* Per Noal 2026-07-20 ~4:58pm: left/right edges weren't quite closing to
-     a full circle -- radial-gradient(circle) on a square box hits its 100%
-     stop at the farthest CORNER, so the near edge-midpoints (left/right/
-     top/bottom) sit at ~70.7% of that scale. The old final stop (77%) was
-     past that, leaving those edges slightly see-through. Pulling the
-     full-opacity stop in to 68% (just under 70.7%) closes the edges
-     cleanly -- lighthouse size itself is unchanged. */
+  /* Per Noal 2026-07-20 ~4:58-5:04pm: left/right (and top/bottom) edges
+     weren't quite closing to a full circle -- radial-gradient(circle)
+     with no size keyword defaults to farthest-corner sizing, so on a
+     square box the 100% stop lands at the diagonal, not the edge -- the
+     actual edge-midpoint sits at only ~70.7% of that scale. The old 77%
+     "fully solid" stop was past that reference point but still short of
+     really finishing at the edge visually. Two parallel sessions fixed
+     this the same minute from different angles (one recalculated the
+     70.7% cutoff and pulled the old stop in to 68%; this version instead
+     switches the sizing keyword itself to closest-side, so 100% = the
+     true edge distance on every side by definition, no manual
+     recalculation needed if the box's aspect ratio ever changes). Kept
+     this version since it's the more robust of the two. Solid-background
+     stop pushed out to 100% under that new reference -- the fade now
+     finishes exactly at the margin on all four sides, a complete,
+     fully-closed circle. Lighthouse/video size itself (the wrap's
+     height/width) is untouched. */
   .brand-mark-wrap::after { content: ''; position: absolute; inset: 0; pointer-events: none;
-    background: radial-gradient(circle, transparent 30%, color-mix(in oklab, var(--color-bg) 40%, transparent) 42%, color-mix(in oklab, var(--color-bg) 85%, transparent) 58%, var(--color-bg) 68%); }
+    background: radial-gradient(circle closest-side, transparent 32%, color-mix(in oklab, var(--color-bg) 40%, transparent) 50%, color-mix(in oklab, var(--color-bg) 80%, transparent) 75%, var(--color-bg) 100%); }
   .brand-mark { height: 100%; width: 100%; object-fit: cover; display: block; }
   /* 480px only fits comfortably at wide desktop -- steps down at tablet/
      small-laptop widths (700-1024px overflowed the header otherwise,
