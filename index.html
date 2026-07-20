@@ -510,6 +510,9 @@
   .bridge-scene { max-width: 1080px; margin: var(--space-8) auto 0; padding: 0 var(--space-6); }
   .bridge-scene img { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); display: block; }
   .bridge-scene-caption { text-align: center; font-family: var(--font-display); font-style: italic; color: var(--color-text-muted); font-size: var(--text-sm); margin-top: var(--space-3); }
+  /* Full-justify variant -- spreads characters evenly edge-to-edge, per Noal
+     2026-07-19 (homepage bottom captions only, requested full-justify look). */
+  .bridge-scene-caption--justify { text-align: justify; text-align-last: justify; text-justify: inter-word; }
   /* End-of-page marker, per Noal 2026-07-19: a small image of the happy
      couple placed at the true bottom of the page so readers have a clear
      visual signal they've reached the end. */
@@ -1482,11 +1485,11 @@
          at the bottom of the homepage. -->
     <div class="bridge-scene bridge-scene-anchor-width">
       <img src="assets/bridge/rosy-way-bloom.webp" alt="A man and a woman standing together beside a flowering, fruit-laden tree covered in roses, arms raised in gratitude, gold dust drifting around them, a path curving into the light behind them" loading="lazy">
-      <p class="bridge-scene-caption">This is what happens along the Rosy Way. Life changes. Your true purpose finds you &mdash; and it amplifies you.</p>
+      <p class="bridge-scene-caption bridge-scene-caption--justify">This is what happens along the Rosy Way. Life changes. Your true purpose finds you &mdash; and it amplifies you.</p>
       <!-- Duplicate image removed per Noal 2026-07-19 (same picture was
            showing twice at the bottom of the page) -- its text kept,
            placed right below the caption above instead. -->
-      <p class="bridge-scene-caption">You've reached the end of the harbor &mdash; for now.</p>
+      <p class="bridge-scene-caption bridge-scene-caption--justify">You've reached the end of the harbor &mdash; for now.</p>
     </div>
 
 <script>
