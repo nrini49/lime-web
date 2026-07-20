@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T02:21:32.193154+00:00",
+  "generated_at": "2026-07-20T04:28:53.822884+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "9f5ae21",
-          "message": "Fix broken globe/translate button (Google discontinued the old translate.google.com/translate?u= proxy -- switched to the working translate.",
-          "author": "Noal Rini",
-          "date": "2026-07-20T00:52:29Z"
+          "sha": "9823833",
+          "message": "Shrink '\"The Wicket Gate\" by John Bunyan' to one size down (text-sm), unified, so it doesn't overflow past the header width",
+          "author": "Plex",
+          "date": "2026-07-20T03:57:34Z"
         },
         {
-          "sha": "a42cc7f",
-          "message": "Add .nojekyll: this is a hand-built static site, not Jekyll -- Jekyll's Liquid parser was choking on the {{...}} template placeholders in in",
-          "author": "Noal Rini",
-          "date": "2026-07-20T00:36:27Z"
+          "sha": "d62ebb5",
+          "message": "Center the bottom-of-page caption block instead of full-justify",
+          "author": "Plex",
+          "date": "2026-07-20T03:51:35Z"
         },
         {
-          "sha": "a1d8123",
-          "message": "Remove .conclusion-section's extra 40px bottom padding -- it was the real source of the oversized Part II to Part III gap (Part I to Part II",
-          "author": "Noal Rini",
-          "date": "2026-07-20T00:32:47Z"
+          "sha": "b10b922",
+          "message": "Bottom-of-page caption: match Noal's exact 3-line break formatting",
+          "author": "Plex",
+          "date": "2026-07-20T03:47:35Z"
         },
         {
-          "sha": "57f7acf",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-20T00:25:55Z"
+          "sha": "a208889",
+          "message": "Open all internal page-navigation links in a new tab: Blog, door cards, Harbor Now archive/index links, Sage Library link (home logo, mailto",
+          "author": "Plex",
+          "date": "2026-07-20T03:43:45Z"
         },
         {
-          "sha": "104d4f2",
-          "message": "Close up gap between header and Part I, and between Part III and Part IV (remove top-space margin, matches the now-equalized Part I/II/III t",
-          "author": "Noal Rini",
-          "date": "2026-07-20T00:20:26Z"
+          "sha": "20fc02f",
+          "message": "Mark theme toggle button translate=no/notranslate to prevent Google Translate DOM conflict with its icon-swap JS",
+          "author": "Plex",
+          "date": "2026-07-20T03:37:43Z"
         }
       ]
     },
