@@ -509,15 +509,39 @@
      label above (name/title/subtitle) can stay permanently visible while
      everything under it collapses to a single bar. Test on Part I first;
      same class repeats on Parts II-IV if it holds. */
-  /* No border on the summary bar -- per Noal 2026-07-20 ~4:04pm, a border
-     here was flagged as a likely repeat of the earlier "ghost border"
-     problem (see the Part B ghost-cell-border note above): a line left
-     floating with no matching content on the other side once collapsed.
-     Spacing alone (padding/margin) carries the divider job everywhere
-     else on this site -- following that same convention here. */
-  .part-block-toggle { max-width: 1080px; margin: 0 auto; padding: 0 var(--space-6); }
-  .part-block-toggle > summary { padding: var(--space-4) 0; }
-  .part-block-toggle[open] > summary { margin-bottom: var(--space-2); }
+  /* Restyled per Noal 2026-07-20 ~4:51pm: these were stretching the full
+     page width via the generic details.collapsible summary grid --
+     obtrusive, reads as one giant bar. Now sized to their own text only,
+     matching the header's own small pill buttons exactly (same values as
+     .blog-nav-link below) instead of the page-width sec-bar treatment. */
+  .part-block-toggle { max-width: 1080px; margin: 0 auto; padding: var(--space-2) var(--space-6) 0; }
+  .part-block-toggle > summary.part-block-summary {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: auto; max-width: none; min-height: 38px; grid-template-columns: none;
+    padding: 0 var(--space-4); margin: 0; gap: var(--space-2);
+    border-radius: var(--radius-full); border: 1px solid var(--color-primary);
+    background: var(--color-surface); color: var(--color-primary);
+    font-family: var(--font-body); font-size: var(--text-sm); font-weight: 700;
+    text-decoration: none; cursor: pointer;
+  }
+  .part-block-toggle > summary.part-block-summary:hover {
+    background: var(--color-primary); border-color: var(--color-primary); color: var(--color-bg);
+  }
+  /* Explicit override, needed because a more specific site-wide rule
+     (details.collapsible > summary:hover h2) was forcing the label green
+     even while the button background also turned green on hover --
+     green-on-green, text effectively invisible. Per Noal 2026-07-20
+     ~4:51pm bug catch. */
+  .part-block-toggle > summary.part-block-summary:hover h2,
+  .part-block-toggle > summary.part-block-summary:hover .chapter-num {
+    color: var(--color-bg);
+  }
+  .part-block-toggle > summary.part-block-summary .chapter-num,
+  .part-block-toggle > summary.part-block-summary h2 {
+    display: inline; grid-column: auto; font: inherit; color: inherit;
+    font-weight: 700; text-transform: none; letter-spacing: normal; margin: 0;
+  }
+  .part-block-toggle[open] > summary.part-block-summary { margin-bottom: var(--space-4); }
   details.collapsible > summary .chev { grid-column: 3; }
   @media (max-width: 640px) { details.collapsible > summary { grid-template-columns: 1fr auto; grid-template-rows: auto auto; row-gap: var(--space-1); } .chapter-num { text-align: left; grid-column: 1; grid-row: 1; } details.collapsible > summary h2, details.collapsible > summary h3 { grid-column: 1; grid-row: 2; } details.collapsible > summary .chev { grid-column: 2; grid-row: 1 / 3; } }
   /* Founder heading stands apart -- one line, flush to the true left edge, everything else reads as subordinate to it */
