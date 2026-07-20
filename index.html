@@ -1852,6 +1852,21 @@
     return { left: r.left + padLeft, right: r.right - padRight };
   }
 
+  // Keeps the speech bubble on-screen -- the bubble (160-220px) is wider
+  // than the flame icon (32-44px) it's centered on, so clamping only the
+  // icon against textColumnBounds() still let the bubble clip off the
+  // right edge on narrow phones. This clamps the icon's left position so
+  // the bubble's own edges stay inside the viewport, with a small margin.
+  function emberSafeLeft(desiredLeft) {
+    var emberW = ember.offsetWidth || 44;
+    var bubbleW = bubble.offsetWidth || 220;
+    var margin = 8;
+    var half = bubbleW / 2;
+    var center = desiredLeft + emberW / 2;
+    center = Math.max(half + margin, Math.min(window.innerWidth - half - margin, center));
+    return center - emberW / 2;
+  }
+
   // Section-specific words — keyed to section id or class
   var sectionWords = {
     'keeper-hero':   'The promise is plain. No honest system guarantees results.',
@@ -1904,7 +1919,7 @@
     var targetLeft = Math.max(bounds.left, Math.min(bounds.right - 64, rect.right + gap));
     ember.style.top = targetTop + 'px';
     ember.style.bottom = 'auto';
-    ember.style.left = targetLeft + 'px';
+    ember.style.left = emberSafeLeft(targetLeft) + 'px';
     if (!shown) {
       shown = true;
       ember.classList.add('shown');
@@ -2036,7 +2051,7 @@
         var minLeft = bounds.left, maxLeft = bounds.right - 44;
         ember.style.top = (minTop + Math.random() * (maxTop - minTop)) + 'px';
         ember.style.bottom = 'auto';
-        ember.style.left = (minLeft + Math.random() * Math.max(40, maxLeft - minLeft)) + 'px';
+        ember.style.left = emberSafeLeft(minLeft + Math.random() * Math.max(40, maxLeft - minLeft)) + 'px';
         say();
       }
       wander();
@@ -2052,7 +2067,7 @@
     var bounds = textColumnBounds();
     ember.style.top = (window.innerHeight / 2) + 'px';
     ember.style.bottom = 'auto';
-    ember.style.left = (bounds.right - 44) + 'px';
+    ember.style.left = emberSafeLeft(bounds.right - 44) + 'px';
     ember.classList.add('shown');
     setTimeout(say, 1400);
   }
