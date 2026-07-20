@@ -553,13 +553,21 @@
      Font matched to .part-subtitle-link ("AI-Assisted Investing..."):
      var(--font-display)/var(--text-base)/700, instead of its own
      var(--font-body)/var(--text-sm). */
+  /* Corrected per Noal 2026-07-20 ~5:58pm: must be formatted exactly like
+     "PART II" above "Translating for 3 Readers..." -- that's actually a
+     two-tier pattern (.part-name label + .part-title sentence on its own
+     line below), not one run-on line. Applying .part-name's style to the
+     WHOLE toggle (label + full sentence together) made it wrap mid-word
+     at that large letter-spaced size -- so this mirrors the real pattern:
+     chapter-num ("Part I") styled exactly like .part-name, h2 ("Read
+     Introduction...") styled exactly like .part-title, stacked as two
+     lines, both left-justified like every other left-justified element. */
   .part-block-toggle > summary.part-block-summary {
-    display: inline-flex; align-items: baseline; justify-content: flex-start;
-    width: auto; max-width: none; min-height: 0; grid-template-columns: none;
-    padding: var(--space-1) 0; margin: 0; gap: var(--space-2);
+    display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;
+    width: 100%; max-width: none; min-height: 0; grid-template-columns: none;
+    padding: var(--space-1) 0; margin: 0; gap: 0;
     border-radius: 0; border: none;
     background: transparent; color: var(--color-primary);
-    font-family: var(--font-display); font-size: var(--text-base); font-weight: 700;
     text-decoration: none; cursor: pointer;
   }
   .part-block-toggle > summary.part-block-summary:hover {
@@ -574,10 +582,13 @@
   .part-block-toggle > summary.part-block-summary:hover .chapter-num {
     color: var(--color-primary);
   }
-  .part-block-toggle > summary.part-block-summary .chapter-num,
+  .part-block-toggle > summary.part-block-summary .chapter-num {
+    display: block; grid-column: auto;
+    font-family: var(--font-body); font-size: var(--text-xl); letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--color-primary); margin: 0;
+  }
   .part-block-toggle > summary.part-block-summary h2 {
-    display: inline; grid-column: auto; font: inherit; color: inherit;
-    font-weight: 700; text-transform: none; letter-spacing: normal; margin: 0;
+    display: block; grid-column: auto;
+    font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; text-transform: none; letter-spacing: normal; color: var(--color-text); margin: var(--space-1) 0 0;
   }
   .part-block-toggle[open] > summary.part-block-summary { margin-bottom: var(--space-4); }
   details.collapsible > summary .chev { grid-column: 3; }
