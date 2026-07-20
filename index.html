@@ -620,6 +620,27 @@
   @media (max-width: 900px) { .bridge-scene.bridge-scene-anchor-width { padding: 0 var(--space-6); } }
   .anchor-point p.ap-text { font-family: var(--font-display); font-style: italic; font-size: var(--text-base); line-height: 1.6; color: var(--color-text); margin: 0 0 var(--space-4); }
   .anchor-point .ap-signature { font-family: var(--font-display); font-weight: 700; font-size: var(--text-base); color: var(--color-primary); margin: 0; text-align: right; }
+  /* Hover-reveal note per Noal, 2026-07-20 ~10:58am, attached to "An
+     Interpretation" (Part II). Pure CSS :hover, not a nested <details> --
+     <summary> can't validly contain another <details>, and a click-based
+     reveal inside the chapter's own clickable summary would double-fire
+     the chapter's open/close. Hover-only sidesteps both, and matches
+     "when somebody rolls over" literally. Closes automatically on mouse
+     leave since it's just :hover, no JS needed. */
+  .interp-note { position: relative; display: inline-flex; align-items: center; justify-content: center; margin-left: var(--space-3); padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); vertical-align: middle; }
+  .interp-note .interp-note-kicker { font-family: var(--font-display); font-weight: 700; font-size: var(--text-sm); color: var(--color-primary); white-space: nowrap; }
+  /* Anchored right (not left, like .ap-body) since this pill sits at the
+     end of a long heading line -- a left-anchored 560px panel would run
+     off the viewport's right edge. Right-anchoring keeps it on-screen. */
+  .interp-note .interp-note-panel { display: none; position: absolute; top: calc(100% + var(--space-2)); right: 0; z-index: 20; width: 560px; max-width: min(560px, calc(100vw - 2 * var(--space-6))); padding: var(--space-6); border: 1px solid var(--color-primary); border-radius: var(--radius-lg); background: var(--color-surface); box-shadow: var(--shadow-md); text-align: left; }
+  .interp-note:hover .interp-note-panel, .interp-note:focus .interp-note-panel { display: block; }
+  /* white-space:normal explicit here per Noal, 2026-07-20 ~10:58am fix --
+     this panel lives inside .founder-intro summary h2, which forces
+     white-space:nowrap !important on the whole heading. That inherits
+     down through the DOM (positioning doesn't break inheritance), so
+     without this override the panel text ran off-screen as one line. */
+  .interp-note .interp-note-text { display: block; white-space: normal; font-family: var(--font-display); font-style: italic; font-size: var(--text-base); line-height: 1.6; color: var(--color-text); margin: 0 0 var(--space-4); }
+  .interp-note .interp-note-signature { display: block; font-family: var(--font-display); font-weight: 700; font-size: var(--text-base); color: var(--color-primary); text-align: right; }
 </style>
 <script defer data-domain="limesignalworks.com" src="https://plausible.io/js/script.js"></script>
 </head>
@@ -984,7 +1005,7 @@
                  ~11:56pm: small enough that this heading doesn't run past
                  the header's Blog button width. Quotes kept around the
                  title. "An Interpretation --" stays at the normal h2 size. -->
-            <summary class="sec-bar"><h2>An Interpretation &mdash; <span style="font-size:var(--text-sm);">&ldquo;The Wicket Gate&rdquo; by John Bunyan</span></h2></summary>
+            <summary class="sec-bar"><h2>An Interpretation &mdash; <span style="font-size:var(--text-sm);">&ldquo;The Wicket Gate&rdquo; by John Bunyan</span> <span class="interp-note" tabindex="0"><span class="interp-note-kicker">A Declaration</span><span class="interp-note-panel"><span class="interp-note-text">Talking across cultures is hard &mdash; very often, one culture's language just doesn't cross into another's. AI is helping close that gap, a lot. What you're using here is a multinational, AI-assisted investing platform, built to put people on the path toward their true life &mdash; automating a real share of their financial concerns so more of their energy, mind, and heart go back to what actually matters. Receive, then give. That's the whole loop. I'm giving because I've received far more than I could have produced on my own. This is my experience. This is my research. I know these things &mdash; and I guarantee it, per the Bezalel Promise.</span><span class="interp-note-signature">&mdash; Noal</span></span></span></h2></summary>
         <div class="sec-body">
           <div class="promise-card">
             <p>Every deep truth arrives wrapped in metaphor &mdash; that's not decoration, it's translation. Metaphor lets meaning cross between frameworks without asking either side to abandon its own: the reader who thinks in scripture doesn't have to set faith aside, and the reader who thinks in energy, evidence, or neither doesn't have to adopt one either. This site is built to open the same door to both at once. You shouldn't need a concordance to follow what's here, and you shouldn't have to leave your reason at the door either. What's offered should be plain enough to explain and grounded enough to test.</p>
