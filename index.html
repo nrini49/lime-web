@@ -140,14 +140,19 @@
      Noal 2026-07-20 ~9:50am ("remove any junk code"). .hdr-presence,
      .hdr-utility, and .hdr-controls are now plain siblings in .hdr, all
      spaced by the same single --space-3 gap above. Simpler, same result. */
-  /* Spread to match the meters per Noal, 2026-07-20 ~12:10pm: same
-     stretch + space-between treatment -- theme toggle pinned to the top
-     of the row, Blog to the bottom, all three pairs floating in the same
-     horizontal band. */
-  .hdr-utility { display: flex; flex-direction: column; align-items: center; justify-content: space-between; align-self: stretch; gap: var(--space-3); }
+  /* Reverted per Noal, 2026-07-20 ~12:42pm: space-between stretched each
+     pair to the full height of the tallest sibling column, which read as
+     "too far apart" -- the gap between the two stacked items should never
+     exceed the items' own height. justify-content:center keeps align-self
+     stretch (so all three columns still share one common height, matching
+     the brand logo) but now packs the pair together at the fixed gap-3
+     (12px) distance, well under any button's own height, instead of
+     spreading them to the box edges. */
+  .hdr-utility { display: flex; flex-direction: column; align-items: center; justify-content: center; align-self: stretch; gap: var(--space-3); }
   /* Rosie CTA pair: own stack, per Noal 2026-07-20 ~9:40am. */
-  /* Spread to match the meters per Noal, 2026-07-20 ~12:10pm. */
-  .hdr-controls { display: flex; flex-direction: column; align-items: center; justify-content: space-between; align-self: stretch; gap: var(--space-3); }
+  /* Reverted to justify-content:center per Noal, 2026-07-20 ~12:42pm -- see
+     .hdr-utility comment above, same reasoning applies to this column. */
+  .hdr-controls { display: flex; flex-direction: column; align-items: center; justify-content: center; align-self: stretch; gap: var(--space-3); }
   /* Explicit sizing per Noal, 2026-07-20 ~9:31am: the theme button had no
      size of its own -- it only looked right before because the old 2x2
      grid's stretch behavior forced it to match the CTA button's height and
@@ -166,11 +171,12 @@
   /* Gap increased per Noal, 2026-07-20 ~12:06pm -- a bit more breathing
      room between each stacked pair (meters, theme+Blog, Rosie CTAs).
      Per Noal 2026-07-20 ~12:08pm, the meters specifically get pushed
-     further apart than the other two pairs: align-self:stretch makes
-     this column match the full height of the tallest sibling in the
-     header row, and justify-content:space-between pins the first badge
-     to the top of that height and the second to the bottom. */
-  .hdr-presence { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; align-self: stretch; gap: var(--space-3); }
+     further apart than the other two pairs -- reverted per Noal, 2026-07-20
+     ~12:42pm: align-self:stretch still matches the full height of the
+     tallest sibling column, but justify-content:center now packs both
+     badges together at gap-3 (12px) instead of pinning one to the top and
+     one to the bottom of that stretched height. */
+  .hdr-presence { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; align-self: stretch; gap: var(--space-3); }
   .hdr-presence .wg-badge{display:inline-flex;align-items:center;gap:.5rem;
     background:var(--color-surface);color:var(--color-text-muted);border:1px solid var(--color-border);
     border-radius:999px;padding:.35rem .75rem;font-size:.74rem;font-weight:600;letter-spacing:.01em;
