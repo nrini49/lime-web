@@ -221,7 +221,12 @@
      already normal mixed case since the last round. Width left in em so
      both CTAs still scale together and stay equal to each other. */
   /* font-weight bumped 600 -> 700 per Noal 2026-07-20 ~12:51pm: all green text should be bold. */
-  .ibkr-demo-cta, .buy-rosie-cta { display: inline-flex; align-items: center; justify-content: center; text-align: center; width: 7em; min-height: 34px; padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: transparent; font-size: var(--text-sm); font-weight: 700; font-family: var(--font-body); line-height: 1.25; text-decoration: none; white-space: nowrap; cursor: pointer; appearance: none; box-sizing: border-box; }
+  /* background: transparent -> var(--color-surface) per Noal 2026-07-20
+     ~1:43pm: at rest, the interior should match the theme-toggle button
+     and the two presence meters (both already use --color-surface), not
+     show the page background through. In light mode that's white; hover
+     still fills solid green same as before. */
+  .ibkr-demo-cta, .buy-rosie-cta { display: inline-flex; align-items: center; justify-content: center; text-align: center; width: 7em; min-height: 34px; padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: var(--color-surface); font-size: var(--text-sm); font-weight: 700; font-family: var(--font-body); line-height: 1.25; text-decoration: none; white-space: nowrap; cursor: pointer; appearance: none; box-sizing: border-box; }
   .ibkr-demo-cta:hover, .buy-rosie-cta:hover { background: var(--color-primary); color: var(--color-bg); }
   @media (max-width: 640px) { .ibkr-demo-cta, .buy-rosie-cta { display: none; } }
   /* Width/height no longer fixed (38px) -- per Noal 2026-07-19 ~11:27pm,
@@ -240,7 +245,10 @@
      every other green/bold text on the site. Box border left as-is. */
   /* Border turned green too, per Noal 2026-07-20 ~1:23pm, to match the
      other pill outlines (was --color-border, a neutral gray). */
-  .blog-nav-link { display: inline-flex; align-items: center; justify-content: center; padding: 0 var(--space-4); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); font-size: var(--text-sm); font-weight: 700; text-decoration: none; white-space: nowrap; }
+  /* background: var(--color-surface) added per Noal 2026-07-20 ~1:43pm --
+     same reasoning as the Rosie CTAs above, it had no background at all
+     before (page background showed through). */
+  .blog-nav-link { display: inline-flex; align-items: center; justify-content: center; padding: 0 var(--space-4); border-radius: var(--radius-full); border: 1px solid var(--color-primary); background: var(--color-surface); color: var(--color-primary); font-size: var(--text-sm); font-weight: 700; text-decoration: none; white-space: nowrap; }
   /* Hover now fills solid green + text inverts to --color-bg, same "light
      up" behavior as the Rosie CTAs -- per Noal 2026-07-20 ~1:24pm/1:26pm,
      just turning the border/text green wasn't enough; the interior has to
@@ -656,7 +664,8 @@
      Width left auto (content-sized) rather than the Rosie buttons' fixed
      7em -- "Anchor Point" doesn't need to match their literal width, just
      the same pill look. */
-  .anchor-point summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; padding: var(--space-1) var(--space-3); min-height: 34px; box-sizing: border-box; border-radius: var(--radius-full); border: 1px solid var(--color-primary); background: transparent; }
+  /* background: transparent -> var(--color-surface) per Noal 2026-07-20 ~1:43pm, same reasoning as the Rosie CTAs above. */
+  .anchor-point summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; padding: var(--space-1) var(--space-3); min-height: 34px; box-sizing: border-box; border-radius: var(--radius-full); border: 1px solid var(--color-primary); background: var(--color-surface); }
   .anchor-point summary::-webkit-details-marker { display: none; }
   .anchor-point summary:hover { background: var(--color-primary); }
   .anchor-point summary:hover .ap-kicker { color: var(--color-bg); }
@@ -686,7 +695,8 @@
   /* min-height/box-sizing + hover invert added per Noal 2026-07-20
      ~1:20pm, matching .ibkr-demo-cta/.buy-rosie-cta exactly (this pill
      previously had no hover treatment at all). */
-  .interp-note { position: relative; display: inline-flex; align-items: center; justify-content: center; margin-left: var(--space-3); padding: var(--space-1) var(--space-3); min-height: 34px; box-sizing: border-box; border-radius: var(--radius-full); border: 1px solid var(--color-primary); vertical-align: middle; cursor: pointer; }
+  /* background: var(--color-surface) added per Noal 2026-07-20 ~1:43pm -- same reasoning as the Rosie CTAs above. */
+  .interp-note { position: relative; display: inline-flex; align-items: center; justify-content: center; margin-left: var(--space-3); padding: var(--space-1) var(--space-3); min-height: 34px; box-sizing: border-box; border-radius: var(--radius-full); border: 1px solid var(--color-primary); background: var(--color-surface); vertical-align: middle; cursor: pointer; }
   .interp-note:hover { background: var(--color-primary); }
   .interp-note:hover .interp-note-kicker { color: var(--color-bg); }
   /* Font matched to the Rosie CTA buttons (.ibkr-demo-cta/.buy-rosie-cta),
