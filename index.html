@@ -233,7 +233,10 @@
   /* Blog nav link in the header, per Noal 2026-07-19. Height no longer
      fixed (38px) -- per Noal 2026-07-19 ~11:27pm, stretches to fill its
      grid cell (matched to the Buy Rosie Now button's height in its row). */
-  .blog-nav-link { display: inline-flex; align-items: center; justify-content: center; padding: 0 var(--space-4); border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-text); font-size: var(--text-sm); font-weight: 600; text-decoration: none; white-space: nowrap; }
+  /* Text turned green (was --color-text) + bolded, per Noal 2026-07-20
+     ~1:20pm: it's a link/URL, so it gets the same green treatment as
+     every other green/bold text on the site. Box border left as-is. */
+  .blog-nav-link { display: inline-flex; align-items: center; justify-content: center; padding: 0 var(--space-4); border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-primary); font-size: var(--text-sm); font-weight: 700; text-decoration: none; white-space: nowrap; }
   .blog-nav-link:hover { border-color: var(--color-primary); color: var(--color-primary); }
   @media (max-width: 560px) { .blog-nav-link { display: none; } }
 
@@ -640,13 +643,19 @@
      line (flex-wrap reacting to the taller expanded box). Floating the
      panel takes it out of flow entirely so the title never moves. */
   .anchor-point { display: inline-block; position: relative; }
-  .anchor-point summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; padding: var(--space-2) var(--space-4); border-radius: var(--radius-full); border: 1px solid var(--color-primary); background: transparent; }
+  /* Box treatment matched exactly to .ibkr-demo-cta/.buy-rosie-cta per Noal
+     2026-07-20 ~1:20pm: same padding, same min-height, same box-sizing.
+     Width left auto (content-sized) rather than the Rosie buttons' fixed
+     7em -- "Anchor Point" doesn't need to match their literal width, just
+     the same pill look. */
+  .anchor-point summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; padding: var(--space-1) var(--space-3); min-height: 34px; box-sizing: border-box; border-radius: var(--radius-full); border: 1px solid var(--color-primary); background: transparent; }
   .anchor-point summary::-webkit-details-marker { display: none; }
   .anchor-point summary:hover { background: var(--color-primary); }
   .anchor-point summary:hover .ap-kicker { color: var(--color-bg); }
-  .anchor-point .ap-kicker { font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: normal; text-transform: none; color: var(--color-primary); white-space: nowrap; margin: 0; }
+  /* Font matched exactly to the Rosie CTAs per Noal 2026-07-20 ~1:20pm:
+     font-body (was font-display serif), text-sm (was a fixed 20px). */
+  .anchor-point .ap-kicker { font-family: var(--font-body); font-weight: 700; font-size: var(--text-sm); letter-spacing: normal; text-transform: none; color: var(--color-primary); white-space: nowrap; margin: 0; }
   .anchor-point .ap-body { position: absolute; top: calc(100% + var(--space-2)); left: 0; z-index: 20; width: 560px; max-width: 90vw; padding: var(--space-6); border: 1px solid var(--color-primary); border-radius: var(--radius-lg); background: var(--color-surface); box-shadow: var(--shadow-md); text-align: left; }
-  @media (max-width: 560px) { .anchor-point .ap-kicker { font-size: var(--text-lg); } }
 
   /* Rosy Way bloom image narrowed to match the Anchor Point card's own
      width exactly, per Noal 2026-07-19. */
@@ -666,13 +675,18 @@
      the chapter's open/close. Hover-only sidesteps both, and matches
      "when somebody rolls over" literally. Closes automatically on mouse
      leave since it's just :hover, no JS needed. */
-  .interp-note { position: relative; display: inline-flex; align-items: center; justify-content: center; margin-left: var(--space-3); padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); vertical-align: middle; }
+  /* min-height/box-sizing + hover invert added per Noal 2026-07-20
+     ~1:20pm, matching .ibkr-demo-cta/.buy-rosie-cta exactly (this pill
+     previously had no hover treatment at all). */
+  .interp-note { position: relative; display: inline-flex; align-items: center; justify-content: center; margin-left: var(--space-3); padding: var(--space-1) var(--space-3); min-height: 34px; box-sizing: border-box; border-radius: var(--radius-full); border: 1px solid var(--color-primary); vertical-align: middle; cursor: pointer; }
+  .interp-note:hover { background: var(--color-primary); }
+  .interp-note:hover .interp-note-kicker { color: var(--color-bg); }
   /* Font matched to the Rosie CTA buttons (.ibkr-demo-cta/.buy-rosie-cta),
-     per Noal 2026-07-20 ~11:29am: same family, same 0.65rem size, same
-     uppercase treatment. */
+     per Noal 2026-07-20 ~11:29am: same family, same size. Bumped from
+     0.65rem to text-sm per Noal 2026-07-20 ~1:20pm for an exact match. */
   /* text-transform:uppercase removed per Noal, 2026-07-20 ~11:46am, same
      as the Rosie CTAs -- renders as typed, "A Declaration". */
-  .interp-note .interp-note-kicker { font-family: var(--font-display); font-weight: 700; font-size: 0.65rem; color: var(--color-primary); white-space: nowrap; }
+  .interp-note .interp-note-kicker { font-family: var(--font-body); font-weight: 700; font-size: var(--text-sm); color: var(--color-primary); white-space: nowrap; }
   /* Anchored right (not left, like .ap-body) since this pill sits at the
      end of a long heading line -- a left-anchored 560px panel would run
      off the viewport's right edge. Right-anchoring keeps it on-screen. */
