@@ -616,6 +616,17 @@
     display: block; grid-column: auto;
     font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; text-transform: none; letter-spacing: normal; color: var(--color-text); margin: var(--space-1) 0 0;
   }
+  /* "AI-Assisted Investing Strategies and Tactics" as its own smaller
+     heading line, per Noal 2026-07-20 ~6:35pm -- same font-family as the
+     "Read Introduction..." h2 above (inherited from the generic h2 rule),
+     but two steps down the size scale (--text-xl -> --text-base) and its
+     own link color/weight instead of the body-text color/weight the
+     plain h2 rule sets. Sits between "Part I" and "Read Introduction...". */
+  .part-block-toggle > summary.part-block-summary h2.rosie-subtitle-heading {
+    font-size: var(--text-base); font-weight: 700; margin: var(--space-2) 0 0;
+  }
+  .part-block-toggle .rosie-subtitle-heading .part-subtitle-link { color: var(--color-primary); text-decoration: none; }
+  .part-block-toggle .rosie-subtitle-heading .part-subtitle-link:hover { text-decoration: underline; text-underline-offset: 2px; }
   .part-block-toggle[open] > summary.part-block-summary { margin-bottom: var(--space-4); }
   details.collapsible > summary .chev { grid-column: 3; }
   @media (max-width: 640px) { details.collapsible > summary { grid-template-columns: 1fr auto; grid-template-rows: auto auto; row-gap: var(--space-1); } .chapter-num { text-align: left; grid-column: 1; grid-row: 1; } details.collapsible > summary h2, details.collapsible > summary h3 { grid-column: 1; grid-row: 2; } details.collapsible > summary .chev { grid-column: 2; grid-row: 1 / 3; } }
@@ -1030,7 +1041,6 @@
   <div class="part-label">
     <p class="part-name">Part I</p>
     <p class="part-title" id="part-i-title">Precision Accurate Automated Investing</p>
-    <p class="part-subtitle"><a class="part-subtitle-link" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener"><span class="drop-cap">A</span>I-<span class="drop-cap">A</span>ssisted <span class="drop-cap">I</span>nvesting <span class="drop-cap">S</span>trategies <span class="drop-cap">a</span>nd <span class="drop-cap">T</span>actics</a></p>
   </div>
 
   <!-- Duplicate of the Begin/Subscribe page input panel, ported over from
@@ -1087,8 +1097,18 @@
        own existing opt-out (already used by the Psalms in Blues panel)
        -- clicking still opens/closes normally, it just stops the
        automatic mouseleave-close. -->
+  <!-- "AI-Assisted Investing Strategies and Tactics" subtitle moved here
+       per Noal 2026-07-20 ~6:35pm: was sitting under the Part I title
+       above (.part-label), now sits directly under the "Part I" tag
+       in this toggle instead, right above "Read Introduction...". Marked
+       up as its own <h2> (matches that h2's font-family) but sized two
+       steps down the scale (--text-xl -> --text-base) via the
+       .rosie-subtitle-heading override below, so it reads as a smaller
+       companion line, not a competing headline. Drop-cap spans kept
+       as-is (untouched by drop-cap.js -- it skips headings that already
+       have child elements). -->
   <details class="collapsible part-block-toggle" id="part-i-block" data-stay-open="true">
-    <summary class="sec-bar part-block-summary"><div class="chapter-num">Part I</div><h2>Read Introduction, Chapters I&ndash;III &amp; Conclusion</h2></summary>
+    <summary class="sec-bar part-block-summary"><div class="chapter-num">Part I</div><h2 class="rosie-subtitle-heading"><a class="part-subtitle-link" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener"><span class="drop-cap">A</span>I-<span class="drop-cap">A</span>ssisted <span class="drop-cap">I</span>nvesting <span class="drop-cap">S</span>trategies <span class="drop-cap">a</span>nd <span class="drop-cap">T</span>actics</a></h2><h2>Read Introduction, Chapters I&ndash;III &amp; Conclusion</h2></summary>
     <div class="sec-body part-block-body">
 
   <section class="keeper-hero">
