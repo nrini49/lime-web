@@ -188,10 +188,12 @@
      badges together at gap-3 (12px) instead of pinning one to the top and
      one to the bottom of that stretched height. */
   .hdr-presence { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; align-self: stretch; gap: var(--space-3); }
-  .hdr-presence .wg-badge{display:inline-flex;align-items:center;gap:.5rem;
-    background:var(--color-surface);color:var(--color-text-muted);border:1px solid var(--color-border);
-    border-radius:999px;padding:.35rem .75rem;font-size:.74rem;font-weight:600;letter-spacing:.01em;
-    transition:transform .2s;}
+  .hdr-presence .wg-badge{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+    width:7em;min-height:34px;box-sizing:border-box;text-align:center;
+    background:var(--color-surface);color:var(--color-primary);border:1px solid var(--color-primary);
+    border-radius:var(--radius-full);padding:var(--space-1) var(--space-3);font-family:var(--font-body);font-size:var(--text-sm);font-weight:700;letter-spacing:.01em;line-height:1.25;
+    transition:transform .2s, background var(--transition-interactive), color var(--transition-interactive);}
+  .hdr-presence .wg-badge:hover{background:var(--color-primary);color:var(--color-bg);}
   .hdr-presence .wg-badge.wg-pulse{transform:scale(1.06);}
   .hdr-presence .wg-dot{width:7px;height:7px;border-radius:50%;background:#9ad14a;box-shadow:0 0 8px rgba(154,209,74,.7);flex:none;}
   .hdr-presence .wg-dot-live{background:#e8b659;box-shadow:0 0 8px rgba(232,182,89,.7);animation:wgLivePulse 1.8s ease-in-out infinite;}
@@ -235,7 +237,7 @@
      on a stretched box reads as a pill, same shape language as the CTAs. */
   /* Border turned green + hover now fills solid green (same "light up"
      behavior as the Rosie CTAs), per Noal 2026-07-20 ~1:26pm. */
-  .icon-btn { display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-text-muted); background: var(--color-surface); cursor: pointer; }
+  .icon-btn { display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: var(--color-surface); cursor: pointer; }
   .icon-btn:hover { background: var(--color-primary); color: var(--color-bg); border-color: var(--color-primary); }
   /* Blog nav link in the header, per Noal 2026-07-19. Height no longer
      fixed (38px) -- per Noal 2026-07-19 ~11:27pm, stretches to fill its
