@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T19:25:10.251764+00:00",
+  "generated_at": "2026-07-20T20:29:52.883034+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "1293bf8",
-          "message": "Propagate animated lighthouse video mark (38px) to all sub-page headers; add retired static lighthouse icon as a standalone footer link to t",
-          "author": "Noal Rini",
-          "date": "2026-07-20T19:09:29Z"
+          "sha": "593d7c1",
+          "message": "Wrap Parts II-IV (Introduction + Chapters I-III + Conclusion, + Declaration where present) in the same master collapsible toggle as Part I. ",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-20T20:22:13Z"
         },
         {
-          "sha": "d6b841f",
-          "message": "Header: swap static lighthouse SVG for the animated lighthouse video mark, sized to button height (38px) for tight header alignment",
-          "author": "Noal Rini",
-          "date": "2026-07-20T19:00:26Z"
+          "sha": "e9b4bf9",
+          "message": "Lighthouse: collapse the background-color vignette much closer to center (18/28/45/60 vs 28/40/58/76) so navy/cream reaches up near the ligh",
+          "author": "Perplexity Computer",
+          "date": "2026-07-20T20:10:05Z"
         },
         {
-          "sha": "5dd73ca",
-          "message": "Header: unify 6 buttons - who's-here/Rosy Way badges to rectangle + green, theme icon bold green",
-          "author": "Noal Rini",
-          "date": "2026-07-20T18:47:16Z"
+          "sha": "234f4a7",
+          "message": "Lighthouse mark: replace alpha mask-image fade with an actual radial-gradient overlay painted in var(--color-bg) -- corners of the rectangle",
+          "author": "Perplexity Computer",
+          "date": "2026-07-20T20:04:11Z"
         },
         {
-          "sha": "6512198",
-          "message": "Part III: relabel Psalms in Blues from Chapter 1 to Chapter IV, matching the Roman-numeral TOC pattern",
-          "author": "Noal Rini",
-          "date": "2026-07-20T18:44:37Z"
+          "sha": "911b45c",
+          "message": "Part I: wrap Introduction + Chapters I-III + Conclusion in one master collapsible toggle, per Noal 2026-07-20 3:54pm. Part label (name/title",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-20T20:00:25Z"
         },
         {
-          "sha": "d4e6075",
-          "message": "Flame bubble: clamp horizontal position so it can't overflow past viewport edge on mobile",
-          "author": "Noal Rini",
-          "date": "2026-07-20T18:37:56Z"
+          "sha": "fc32130",
+          "message": "Merge branch 'main' of https://git-agent-proxy.perplexity.ai/nrini49/lime-web",
+          "author": "Perplexity Computer",
+          "date": "2026-07-20T19:57:20Z"
         }
       ]
     },
@@ -104,6 +104,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "02dccc4",
+          "message": "Add live account-selector control to dashboard header (ACCT pills, wired to new /select-account route) so account choice happens on the dash",
+          "author": "Perplexity Computer",
+          "date": "2026-07-20T19:32:14Z"
+        },
+        {
           "sha": "2ea417e",
           "message": "Restore original CRLF line endings on schwab_login.py, schwab_service.py, schwab_startup.bat (no functional change, just formatting cleanup ",
           "author": "Perplexity Computer",
@@ -126,12 +132,6 @@
           "message": "Rebuild Schwab workstation layout: sidebar-nav -> collapsible panels",
           "author": "nrini49",
           "date": "2026-07-16T21:51:33Z"
-        },
-        {
-          "sha": "3595e4d",
-          "message": "Pair each light directly with its own switch in the topbar",
-          "author": "Plex",
-          "date": "2026-07-16T17:31:41Z"
         }
       ]
     },
