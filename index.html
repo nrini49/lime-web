@@ -617,7 +617,14 @@
          page" button stays removed (2026-07-19 ~11:08pm) -- Google's own
          translate bar is the one translate path for everyone now. -->
     <div class="hdr-controls">
-      <button class="icon-btn" data-theme-toggle aria-label="Switch theme">
+      <!-- translate="no" + notranslate per Noal, 2026-07-19 ~11:35pm: this
+           button's JS swaps its inner SVG on every click (light/dark icon).
+           If Google Translate (native browser translate feature) has
+           already wrapped/touched this subtree, that DOM swap can conflict
+           with Translate's own node tracking and throw an error. Marking
+           it untranslatable tells Google Translate to skip this element
+           entirely, removing the conflict at the source. -->
+      <button class="icon-btn notranslate" translate="no" data-theme-toggle aria-label="Switch theme">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
       </button>
       <!-- Rosie x IBKR live demo CTA -- per Noal's instruction (2026-07-18):
