@@ -148,7 +148,9 @@
      transparent, so the square disappears into the page seamlessly on
      both themes (var(--color-bg) swaps navy dark <-> cream light
      automatically with the theme toggle, no JS needed). */
-  .brand-mark-wrap { position: relative; height: 480px; width: 480px; flex-shrink: 0; }
+  /* Sized down 10% per Noal 2026-07-20 ~5:10pm, all three breakpoints:
+     480->432, 190->171, 110->99. */
+  .brand-mark-wrap { position: relative; height: 432px; width: 432px; flex-shrink: 0; }
   /* Pulled back per Noal 2026-07-20 ~4:30pm so the "LIME SIGNALWORKS LLC"
      text baked into the video is legible again -- was 18/28/45/60, now
      35/48/65/82. Still keeps blue close to the peak, just not as tight.
@@ -173,14 +175,19 @@
      finishes exactly at the margin on all four sides, a complete,
      fully-closed circle. Lighthouse/video size itself (the wrap's
      height/width) is untouched. */
+  /* Tightened one more step per Noal 2026-07-20 ~5:10pm ("blue gradient a
+     little more effective"): 32/50/75 -> 26/44/68, blue color-mix now
+     takes over closer to center. Edge-closure stop stays at 100%
+     (closest-side) -- do not move that one, it's what fixed the ghost
+     ring at the margin. */
   .brand-mark-wrap::after { content: ''; position: absolute; inset: 0; pointer-events: none;
-    background: radial-gradient(circle closest-side, transparent 32%, color-mix(in oklab, var(--color-bg) 40%, transparent) 50%, color-mix(in oklab, var(--color-bg) 80%, transparent) 75%, var(--color-bg) 100%); }
+    background: radial-gradient(circle closest-side, transparent 26%, color-mix(in oklab, var(--color-bg) 40%, transparent) 44%, color-mix(in oklab, var(--color-bg) 80%, transparent) 68%, var(--color-bg) 100%); }
   .brand-mark { height: 100%; width: 100%; object-fit: cover; display: block; }
   /* 480px only fits comfortably at wide desktop -- steps down at tablet/
      small-laptop widths (700-1024px overflowed the header otherwise,
      pushing Rosie Live/Buy Rosie off-screen, checked via scrollWidth). */
-  @media (max-width: 1024px) { .brand-mark-wrap { height: 190px; width: 190px; } }
-  @media (max-width: 560px) { .brand-mark-wrap { height: 110px; width: 110px; } }
+  @media (max-width: 1024px) { .brand-mark-wrap { height: 171px; width: 171px; } }
+  @media (max-width: 560px) { .brand-mark-wrap { height: 99px; width: 99px; } }
   /* Stepped down one tick (--text-xl -> --text-lg), per Noal 2026-07-20
      ~9:38am, direct confirmation superseding the 2026-07-19 "do not change
      without confirming" note above. Icon stays pinned to --text-2xl,
@@ -834,8 +841,8 @@
      font-size at every width where the title doesn't wrap), per Noal
      2026-07-20 ~5:08pm: "must not be any wider than" that title line.
      Using --text-xl (the title's actual font-size variable) directly so
-     it scales exactly like the title does
-     instead of a static px value that would drift at other viewports. */
+     it scales exactly like the title does, instead of a static px value
+     that would drift at other viewports. */
   .blog-input-panel { margin: var(--space-6) 0 var(--space-10); max-width: calc(var(--text-xl) * 23.8); width: 100%; }
   .blog-input-panel .form-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: clamp(var(--space-8), 5vw, var(--space-12)); box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
   .blog-input-panel .form-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: linear-gradient(var(--color-primary), var(--color-beam)); }
