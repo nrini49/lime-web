@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T04:28:53.822884+00:00",
+  "generated_at": "2026-07-20T06:17:10.230301+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "69330eb",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-20T04:28:59Z"
+        },
+        {
           "sha": "9823833",
           "message": "Shrink '\"The Wicket Gate\" by John Bunyan' to one size down (text-sm), unified, so it doesn't overflow past the header width",
           "author": "Plex",
@@ -54,12 +60,6 @@
           "message": "Open all internal page-navigation links in a new tab: Blog, door cards, Harbor Now archive/index links, Sage Library link (home logo, mailto",
           "author": "Plex",
           "date": "2026-07-20T03:43:45Z"
-        },
-        {
-          "sha": "20fc02f",
-          "message": "Mark theme toggle button translate=no/notranslate to prevent Google Translate DOM conflict with its icon-swap JS",
-          "author": "Plex",
-          "date": "2026-07-20T03:37:43Z"
         }
       ]
     },
