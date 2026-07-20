@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T00:25:49.627876+00:00",
+  "generated_at": "2026-07-20T02:21:32.193154+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
+          "sha": "9f5ae21",
+          "message": "Fix broken globe/translate button (Google discontinued the old translate.google.com/translate?u= proxy -- switched to the working translate.",
+          "author": "Noal Rini",
+          "date": "2026-07-20T00:52:29Z"
+        },
+        {
+          "sha": "a42cc7f",
+          "message": "Add .nojekyll: this is a hand-built static site, not Jekyll -- Jekyll's Liquid parser was choking on the {{...}} template placeholders in in",
+          "author": "Noal Rini",
+          "date": "2026-07-20T00:36:27Z"
+        },
+        {
+          "sha": "a1d8123",
+          "message": "Remove .conclusion-section's extra 40px bottom padding -- it was the real source of the oversized Part II to Part III gap (Part I to Part II",
+          "author": "Noal Rini",
+          "date": "2026-07-20T00:32:47Z"
+        },
+        {
+          "sha": "57f7acf",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-20T00:25:55Z"
+        },
+        {
           "sha": "104d4f2",
           "message": "Close up gap between header and Part I, and between Part III and Part IV (remove top-space margin, matches the now-equalized Part I/II/III t",
           "author": "Noal Rini",
           "date": "2026-07-20T00:20:26Z"
-        },
-        {
-          "sha": "2ceb915",
-          "message": "Equalize spacing before Part II to match Part III's transition gap",
-          "author": "Noal Rini",
-          "date": "2026-07-20T00:04:22Z"
-        },
-        {
-          "sha": "8019d33",
-          "message": "Merge branch 'main' of https://git-agent-proxy.perplexity.ai/nrini49/lime-web",
-          "author": "Noal Rini",
-          "date": "2026-07-19T23:57:35Z"
-        },
-        {
-          "sha": "b2bf861",
-          "message": "Match widget width to current bottom-of-page image using same padding technique, stays in sync at all sizes",
-          "author": "Noal Rini",
-          "date": "2026-07-19T23:56:36Z"
-        },
-        {
-          "sha": "f95e681",
-          "message": "Keep Leave a Memory / blog row at 780px (matching end-of-page image) but anchor left edge to a reference wrap outside .companion-widget so i",
-          "author": "Noal Rini",
-          "date": "2026-07-19T23:56:28Z"
         }
       ]
     },
@@ -140,6 +140,18 @@
       "ok": true,
       "commits": [
         {
+          "sha": "06279f2",
+          "message": "Wire Harbor Now posture gate to the live homepage instead of a manual file",
+          "author": "Noal Rini",
+          "date": "2026-07-20T01:35:14Z"
+        },
+        {
+          "sha": "cd89349",
+          "message": "Add Rosie's autonomous paper-trading loop (propose-only by default)",
+          "author": "Noal Rini",
+          "date": "2026-07-20T01:15:37Z"
+        },
+        {
           "sha": "8be2128",
           "message": "Add headless IB Gateway + IBC setup guide (no visible TWS window, auto-login, survives daily IBKR restart) per Noal's request",
           "author": "Noal Rini",
@@ -156,18 +168,6 @@
           "message": "Add Save/Reset Memory to the header with a new MEM light",
           "author": "Plex",
           "date": "2026-07-16T17:36:09Z"
-        },
-        {
-          "sha": "ec8e25a",
-          "message": "Pair each light directly with its own switch in the topbar",
-          "author": "Plex",
-          "date": "2026-07-16T17:31:29Z"
-        },
-        {
-          "sha": "dfef383",
-          "message": "Fix broken IB connection reference blocking every trade",
-          "author": "Plex",
-          "date": "2026-07-16T17:09:04Z"
         }
       ]
     }
