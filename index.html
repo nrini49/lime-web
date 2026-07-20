@@ -539,6 +539,12 @@
   details.collapsible > summary h2, details.collapsible > summary h3 { font-size: var(--text-base); margin: 0; text-align: left; color: var(--color-text); font-weight: 400; grid-column: 2; }
   .chapter-num { font-family: var(--font-body); font-size: var(--text-xs); letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-muted); font-weight: 600; margin: 0; text-align: left; grid-column: 1; align-self: baseline; }
   .part-label { max-width: 1080px; margin: 0 auto; padding: var(--space-8) var(--space-6) var(--space-2); }
+  /* Part I only, per Noal 2026-07-20 ~7:23pm: top padding pulled from the
+     shared space-8 (32px) default down to space-1 (4px) -- the smallest
+     step on the scale short of 0 -- so the title sits right up against
+     the header's lighthouse mark above it. Scoped to this one id, so
+     Parts II-IV keep their normal shared spacing untouched. */
+  #part-i-label { padding-top: var(--space-1); }
   /* Border line above Part B removed per Noal 2026-07-19 (ghost cell border
      between "Light My Fire" and the Part B heading) -- spacing kept. */
   .part-label.with-divider { padding-top: var(--space-10); margin-top: var(--space-6); }
@@ -1046,8 +1052,14 @@
   <!-- top-space removed per Noal 2026-07-19: closes the gap between the
        header and Part I to match the (now-equalized) gap used between
        every other Part transition. -->
-  <div class="part-label">
-    <p class="part-name">Part I</p>
+  <!-- "Part I" tag removed here per Noal 2026-07-20 ~7:23pm: this is the
+       very first thing under the header, so "Precision Accurate Automated
+       Investing" now opens the page directly. Top padding on this one
+       label (id="part-i-label" override below) also pulled way down from
+       the shared .part-label space-8 default, so the title sits close to
+       the header's lighthouse mark instead of the standard gap used
+       between every other Part transition further down the page. -->
+  <div class="part-label" id="part-i-label">
     <p class="part-title" id="part-i-title">Precision Accurate Automated Investing</p>
   </div>
 
