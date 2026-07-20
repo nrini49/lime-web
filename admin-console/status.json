@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T10:16:48.765347+00:00",
+  "generated_at": "2026-07-20T12:26:56.161218+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "55d9fc0",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-20T10:16:55Z"
+        },
+        {
           "sha": "3c7fdcb",
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Shrink '\"The Wicket Gate\" by John Bunyan' to one size down (text-sm), unified, so it doesn't overflow past the header width",
           "author": "Plex",
           "date": "2026-07-20T03:57:34Z"
-        },
-        {
-          "sha": "d62ebb5",
-          "message": "Center the bottom-of-page caption block instead of full-justify",
-          "author": "Plex",
-          "date": "2026-07-20T03:51:35Z"
         }
       ]
     },
