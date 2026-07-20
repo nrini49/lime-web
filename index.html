@@ -478,6 +478,14 @@
   .part-label .part-attribution { font-family: var(--font-display); font-size: var(--text-base); font-style: italic; color: var(--color-text-muted); margin: var(--space-1) 0 0; }
   .part-label.pending { opacity: 0.7; }
   .part-label.pending .part-title::after { content: " \2014 in progress"; font-style: italic; font-size: var(--text-base); color: var(--color-text-faint); }
+  /* Part-body master toggle, per Noal 2026-07-20 ~3:54pm: wraps Introduction
+     + Chapters I-III + Conclusion under one click-to-open cell so the Part
+     label above (name/title/subtitle) can stay permanently visible while
+     everything under it collapses to a single bar. Test on Part I first;
+     same class repeats on Parts II-IV if it holds. */
+  .part-block-toggle { max-width: 1080px; margin: 0 auto; padding: 0 var(--space-6); }
+  .part-block-toggle > summary { padding: var(--space-4) 0; border-bottom: 1px solid var(--color-divider); }
+  .part-block-toggle[open] > summary { margin-bottom: var(--space-2); }
   details.collapsible > summary .chev { grid-column: 3; }
   @media (max-width: 640px) { details.collapsible > summary { grid-template-columns: 1fr auto; grid-template-rows: auto auto; row-gap: var(--space-1); } .chapter-num { text-align: left; grid-column: 1; grid-row: 1; } details.collapsible > summary h2, details.collapsible > summary h3 { grid-column: 1; grid-row: 2; } details.collapsible > summary .chev { grid-column: 2; grid-row: 1 / 3; } }
   /* Founder heading stands apart -- one line, flush to the true left edge, everything else reads as subordinate to it */
@@ -829,6 +837,16 @@
     <p class="part-subtitle"><a class="part-subtitle-link" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">AI-Assisted Investing Strategies and Tactics</a></p>
   </div>
 
+  <!-- Part I body (Introduction + Chapters I-III + Conclusion) collapsed
+       into one master toggle, per Noal 2026-07-20 ~3:54pm: the Part I
+       label/title/subtitle above stays permanently visible and untouched,
+       everything below is one click-to-open cell now instead of five
+       separately-visible sections. Test case -- if this holds, the same
+       wrapper goes on Parts II, III, IV. -->
+  <details class="collapsible part-block-toggle" id="part-i-block">
+    <summary class="sec-bar part-block-summary"><div class="chapter-num">Part I</div><h2>Read Introduction, Chapters I&ndash;III &amp; Conclusion</h2><span class="chev">&#9656;</span></summary>
+    <div class="sec-body part-block-body">
+
   <section class="keeper-hero">
     <div class="wrap">
       <details class="collapsible" id="keeper-hero-card">
@@ -1028,6 +1046,9 @@
       </details>
     </div>
   </section>
+
+    </div>
+  </details>
 
   <!-- Companion Widget -- front-page blog teaser, per Noal 2026-07-19:
        circular AI-generated portrait, three thin gold rings turning on a
