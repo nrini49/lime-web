@@ -967,7 +967,7 @@
       <button class="icon-btn notranslate" translate="no" data-theme-toggle aria-label="Switch theme">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
       </button>
-      <a class="blog-nav-link" href="blog/index.html" target="_blank" rel="noopener">Blog</a>
+      <a class="blog-nav-link" href="blog/index.html" target="_blank" rel="noopener"><span><span class="drop-cap">B</span>log</span></a>
     </div>
     <!-- Rosie CTA pair only now -- theme toggle + Blog live in .hdr-utility
          above. Rosie CTA itself held back from going live per the standing
@@ -984,12 +984,12 @@
            show. Date is a placeholder ("coming soon") until Noal gives an
            actual date; links to the existing Rosie AI Trading Assistant
            preview rather than any IB-specific/gated URL. -->
-      <a class="ibkr-demo-cta" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Rosie Live</a>
+      <a class="ibkr-demo-cta" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener"><span><span class="drop-cap">R</span>osie <span class="drop-cap">L</span>ive</span></a>
       <!-- Buy Rosie Now -- placeholder CTA, per Noal 2026-07-19. No
            product/checkout link yet, so this is a <button> (not a link):
            clicking it just tells the reader "Coming soon" and reverts,
            nothing to navigate to yet. -->
-      <button type="button" class="buy-rosie-cta" id="buy-rosie-btn">Buy Rosie</button>
+      <button type="button" class="buy-rosie-cta" id="buy-rosie-btn"><span><span class="drop-cap">B</span>uy <span class="drop-cap">R</span>osie</span></button>
     </div>
     <!-- Harbor visitor counter, moved to the right side per Noal 2026-07-20
          ~7:20pm, now styled as an exact copy of the Rosie CTA buttons
@@ -999,10 +999,10 @@
          untouched. -->
     <div class="hdr-presence">
       <span id="wg-live-badge" class="ibkr-demo-cta" aria-live="polite">
-        <span id="wg-live-text">who's here</span>
+        <span id="wg-live-text"><span class="drop-cap">W</span>ho's <span class="drop-cap">H</span>ere</span>
       </span>
       <span id="wg-badge" class="ibkr-demo-cta" aria-live="polite">
-        <span id="wg-count-text">Rosy Way</span>
+        <span id="wg-count-text"><span class="drop-cap">R</span>osy <span class="drop-cap">W</span>ay</span>
       </span>
     </div>
   </div>
@@ -2510,14 +2510,28 @@
     return n.toLocaleString(navigator.language || 'en');
   }
 
+  // Drop-cap word wrapper, per Noal 2026-07-20 ~7:34pm: capitalizes each
+  // word and enlarges its first letter (matching the .drop-cap class used
+  // on the button labels themselves), so the live-updating text doesn't
+  // wipe out that treatment the moment real presence data loads and these
+  // functions overwrite the static placeholder.
+  function dropCapWords(str){
+    return str.split(' ').map(function(word){
+      if (!word) return word;
+      var first = word.charAt(0).toUpperCase();
+      var rest = word.slice(1);
+      return '<span class="drop-cap">' + first + '</span>' + rest;
+    }).join(' ');
+  }
+
   function setCountText(n){
-    countText.textContent = fmtCount(n) + ' Rosy Way';
+    countText.innerHTML = fmtCount(n) + ' ' + dropCapWords('Rosy Way');
   }
 
   function setLiveText(n){
     if (!liveText) return;
     var label = n === 1 ? 'person here right now' : 'people here right now';
-    liveText.textContent = fmtCount(n) + ' ' + label;
+    liveText.innerHTML = fmtCount(n) + ' ' + dropCapWords(label);
   }
 
   function pulseBadge(){
