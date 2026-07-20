@@ -96,14 +96,15 @@
      taller than that two-line block -- per Noal, 2026-07-19. Icon size
      formula stays pinned to --text-2xl on purpose; only the wordmark text
      itself changes size. */
-  /* RESOLVED per Noal, 2026-07-19 ~11:20pm, directly in this thread: he
-     confirmed overriding the other session's flat-24px pin. Wordmark
-     matches Part I's title size (var(--text-xl)) going forward. If
-     another session reverts this to 24px again, it needs a fresh direct
-     confirmation from Noal in THAT thread before standing -- this
-     override is the current word. */
+  /* Corrected spec per Noal, 2026-07-19 ~11:23pm, direct in this thread:
+     the earlier flat-24px pin was wrong. Wordmark now matches Part II's
+     "3 Readers and 1 Door" title exactly (var(--text-xl), same value Part
+     I's title uses too) -- and the whole thing (LIME, Signalworks, LLC,
+     all three words) is bold + all caps now, not just "Signalworks LLC".
+     Do not change again without Noal confirming directly in a session
+     that can see this comment. */
   .brand svg { width: calc(var(--text-2xl) * 2.5); height: calc(var(--text-2xl) * 2.5); flex-shrink: 0; }
-  .brand .word { font-family: var(--font-display); font-weight: 400; font-size: var(--text-xl); line-height: 1.15; letter-spacing: 0.01em; }
+  .brand .word { font-family: var(--font-display); font-weight: 700; font-size: var(--text-xl); line-height: 1.15; letter-spacing: 0.01em; text-transform: uppercase; }
   .brand .word b { font-weight: 700; }
   .brand:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
   /* No margin-left:auto -- brand, presence pills, and header tools now share
@@ -150,7 +151,10 @@
   @media (max-width: 560px) { .blog-nav-link { display: none; } }
   /* Theme toggle centered directly above Blog, sitting left of the Rosie
      Live Demo / Buy Rosie Now CTA stack. Per Noal, 2026-07-19 ~11:15pm. */
-  .hdr-blog-toggle { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); }
+  /* Gap widened space-2 -> space-3 per live-site test 2026-07-19 ~11:22pm:
+     the 8px gap was a tight (though functionally fine) tap-target risk on
+     touch devices between the toggle and the Blog link below it. */
+  .hdr-blog-toggle { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); }
 
   .hero { padding: 0; text-align: center; position: relative; overflow: hidden; }
   .beacon { width: clamp(120px, 22vw, 180px); margin: 0 auto var(--space-8); }
