@@ -98,7 +98,12 @@
   /* border-bottom removed per Noal, 2026-07-19 -- was showing as a stray
      line between the header and Part A. */
   header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); background: color-mix(in oklab, var(--color-bg) 82%, transparent); }
-  .hdr { display: flex; align-items: center; justify-content: flex-start; padding: var(--space-4) 0; gap: var(--space-4); }
+  /* Gap dropped to --space-3 uniformly per Noal, 2026-07-20 ~9:50am: same
+     "3 spaces" between every group in the row (brand, meters, theme+Blog
+     stack, Rosie stack) -- pulls everything as far left as the content
+     allows, no wrapper needed to fake a tighter/looser gap in different
+     spots. */
+  .hdr { display: flex; align-items: center; justify-content: flex-start; padding: var(--space-4) 0; gap: var(--space-3); }
   .brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
   /* Icon sized to the two-line brand name (LIME Signalworks / LLC), slightly
      taller than that two-line block -- per Noal, 2026-07-19. Icon size
@@ -112,7 +117,11 @@
      Do not change again without Noal confirming directly in a session
      that can see this comment. */
   .brand svg { width: calc(var(--text-2xl) * 2.5); height: calc(var(--text-2xl) * 2.5); flex-shrink: 0; }
-  .brand .word { font-family: var(--font-display); font-weight: 700; font-size: var(--text-xl); line-height: 1.15; letter-spacing: 0.01em; text-transform: uppercase; }
+  /* Stepped down one tick (--text-xl -> --text-lg), per Noal 2026-07-20
+     ~9:38am, direct confirmation superseding the 2026-07-19 "do not change
+     without confirming" note above. Icon stays pinned to --text-2xl,
+     unaffected -- only the wordmark text itself is smaller. */
+  .brand .word { font-family: var(--font-display); font-weight: 700; font-size: var(--text-lg); line-height: 1.15; letter-spacing: 0.01em; text-transform: uppercase; }
   .brand .word b { font-weight: 700; }
   .brand:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
   /* No margin-left:auto -- brand, presence pills, and header tools now share
@@ -126,7 +135,23 @@
      Each row's two cells share that row's height (driven by the taller CTA
      button); col1's two cells share col1's width. No fixed px guessing --
      this holds even as the responsive CTA text size changes. */
-  .hdr-controls { display: grid; grid-template-columns: auto auto; align-items: stretch; justify-items: stretch; gap: var(--space-2) var(--space-6); }
+  /* Theme toggle + Blog: own stack, per Noal 2026-07-20 ~9:25am/9:35am.
+     Wrapper div tried at 9:40am to fake a tighter inner gap -- removed per
+     Noal 2026-07-20 ~9:50am ("remove any junk code"). .hdr-presence,
+     .hdr-utility, and .hdr-controls are now plain siblings in .hdr, all
+     spaced by the same single --space-3 gap above. Simpler, same result. */
+  .hdr-utility { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); }
+  /* Rosie CTA pair: own stack, per Noal 2026-07-20 ~9:40am. */
+  .hdr-controls { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); }
+  /* Explicit sizing per Noal, 2026-07-20 ~9:31am: the theme button had no
+     size of its own -- it only looked right before because the old 2x2
+     grid's stretch behavior forced it to match the CTA button's height and
+     the Blog link's column width. Outside that grid it collapsed toward
+     its 18px icon with zero padding (box-sizing reset strips the default
+     button padding) and effectively disappeared. Pinning both back to the
+     same 38px height the CTAs use restores the original visible size. */
+  .hdr-utility .icon-btn { width: 38px; min-height: 38px; }
+  .hdr-utility .blog-nav-link { min-height: 38px; }
 
   .hdr-presence { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
   .hdr-presence .wg-badge{display:inline-flex;align-items:center;gap:.5rem;
@@ -149,7 +174,14 @@
   /* Matched to the Anchor Point pill's look, per Noal 2026-07-19: same
      font (display serif, 700 weight), all caps, same border/color/hover
      treatment. Box dimensions (width, height, padding) left untouched. */
-  .ibkr-demo-cta, .buy-rosie-cta { display: inline-flex; align-items: center; justify-content: center; text-align: center; width: 8.5em; min-height: 38px; padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: transparent; font-size: var(--text-sm); font-weight: 700; line-height: 1.25; text-decoration: none; white-space: normal; font-family: var(--font-display); text-transform: uppercase; cursor: pointer; appearance: none; box-sizing: border-box; }
+  /* Font size dropped to match Blog's, per Noal 2026-07-20 ~9:36am -- both
+     were already var(--text-sm) numerically, but Cinzel + bold + uppercase
+     read visually larger than Blog's plain sans/normal-weight text at the
+     same size, so the value was stepped down to --text-xs. Stepped down
+     one size further per Noal 2026-07-20 ~9:40am -- no named token below
+     --text-xs exists in the scale, so this is a one-off clamp roughly one
+     step under it, matching the same shape as the other --text-* tokens. */
+  .ibkr-demo-cta, .buy-rosie-cta { display: inline-flex; align-items: center; justify-content: center; text-align: center; width: 7em; min-height: 34px; padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: transparent; font-size: 0.65rem; font-weight: 700; line-height: 1.25; text-decoration: none; white-space: nowrap; font-family: var(--font-display); text-transform: uppercase; cursor: pointer; appearance: none; box-sizing: border-box; }
   .ibkr-demo-cta:hover, .buy-rosie-cta:hover { background: var(--color-primary); color: var(--color-bg); }
   @media (max-width: 640px) { .ibkr-demo-cta, .buy-rosie-cta { display: none; } }
   /* Width/height no longer fixed (38px) -- per Noal 2026-07-19 ~11:27pm,
@@ -605,19 +637,11 @@
         <span id="wg-count-text">along the Rosy Way</span>
       </span>
     </div>
-    <!-- Rebuilt into one 2x2 grid per Noal, 2026-07-19 ~11:27pm: toggle and
-         Blog (col1) now match the width of each other and the height of
-         their row's green CTA button (col2) exactly -- see .hdr-controls.
-         Order matters for the grid's row-major auto-placement: toggle,
-         demo CTA, Blog, buy-rosie CTA = row1 [toggle | demo], row2
-         [Blog | buy-rosie]. Rosie CTA itself held back from going live
-         per the standing IB-confirmation gate -- repeated standing rule
-         from Noal, do NOT re-add the gated "Take me right to Rosie
-         Interactive now" button without his direct confirmation in a
-         session that can see this comment. Header globe "Translate this
-         page" button stays removed (2026-07-19 ~11:08pm) -- Google's own
-         translate bar is the one translate path for everyone now. -->
-    <div class="hdr-controls">
+    <!-- Theme toggle + Blog: own stack, sits between the presence meters
+         and the Rosie CTA pair. Wrapper div removed per Noal, 2026-07-20
+         ~9:50am -- plain sibling of .hdr-presence/.hdr-controls now,
+         spaced by .hdr's own uniform gap. -->
+    <div class="hdr-utility">
       <!-- translate="no" + notranslate per Noal, 2026-07-19 ~11:35pm: this
            button's JS swaps its inner SVG on every click (light/dark icon).
            If Google Translate (native browser translate feature) has
@@ -628,19 +652,29 @@
       <button class="icon-btn notranslate" translate="no" data-theme-toggle aria-label="Switch theme">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
       </button>
+      <a class="blog-nav-link" href="blog/index.html" target="_blank" rel="noopener">Blog</a>
+    </div>
+    <!-- Rosie CTA pair only now -- theme toggle + Blog live in .hdr-utility
+         above. Rosie CTA itself held back from going live per the standing
+         IB-confirmation gate -- repeated standing rule from Noal, do NOT
+         re-add the gated "Take me right to Rosie Interactive now" button
+         without his direct confirmation in a session that can see this
+         comment. Header globe "Translate this page" button stays removed
+         (2026-07-19 ~11:08pm) -- Google's own translate bar is the one
+         translate path for everyone now. -->
+    <div class="hdr-controls">
       <!-- Rosie x IBKR live demo CTA -- per Noal's instruction (2026-07-18):
            explicitly NOT the gated "Take me right to Rosie Interactive now"
            button, no IB affiliate/confirmation hash referenced here, safe to
            show. Date is a placeholder ("coming soon") until Noal gives an
            actual date; links to the existing Rosie AI Trading Assistant
            preview rather than any IB-specific/gated URL. -->
-      <a class="ibkr-demo-cta" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Rosie<br>Live Demo</a>
-      <a class="blog-nav-link" href="blog/index.html" target="_blank" rel="noopener">Blog</a>
+      <a class="ibkr-demo-cta" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Rosie Live</a>
       <!-- Buy Rosie Now -- placeholder CTA, per Noal 2026-07-19. No
            product/checkout link yet, so this is a <button> (not a link):
            clicking it just tells the reader "Coming soon" and reverts,
            nothing to navigate to yet. -->
-      <button type="button" class="buy-rosie-cta" id="buy-rosie-btn">Buy Rosie Now</button>
+      <button type="button" class="buy-rosie-cta" id="buy-rosie-btn">Buy Rosie</button>
     </div>
   </div>
 </header>
