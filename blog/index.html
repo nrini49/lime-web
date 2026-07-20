@@ -79,6 +79,26 @@
   .prose strong{color:var(--color-primary);font-weight:600}
   .prose em{color:var(--color-text)}
 
+  /* Duplicate of the Begin/Subscribe page input panel, inserted right
+     below the "Notes from the harbor" subtitle per Noal, 2026-07-20
+     ~3:48pm. Same form-card styling as subscribe/index.html verbatim. */
+  .blog-input-panel{margin:var(--space-8) 0 var(--space-10);}
+  .form-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:clamp(var(--space-8),5vw,var(--space-12));box-shadow:var(--shadow-md);position:relative;overflow:hidden}
+  .form-card::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(in oklab,var(--color-primary),var(--color-beam,#e8b659));}
+  .form-card form{display:grid;gap:var(--space-4);}
+  .form-card .row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);}
+  @media(max-width:520px){.form-card .row{grid-template-columns:1fr;}}
+  .form-card label{font-size:var(--text-xs);letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text-muted);font-weight:600;}
+  .form-card input,.form-card textarea{width:100%;padding:var(--space-3) var(--space-4);border-radius:var(--radius-md);border:1px solid var(--color-border);background:var(--color-bg);color:var(--color-text);font-size:var(--text-base);font-family:var(--font-body);}
+  .form-card textarea{min-height:5.5rem;resize:vertical;line-height:1.5;}
+  .form-card input:focus,.form-card textarea:focus{outline:none;border-color:var(--color-primary);box-shadow:0 0 0 3px var(--color-primary-soft);}
+  .form-card .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);font-family:var(--font-body);font-weight:600;font-size:var(--text-base);text-decoration:none;color:var(--color-bg);background:var(--color-primary);padding:var(--space-3) var(--space-6);border-radius:var(--radius-full);border:1px solid var(--color-primary);cursor:pointer;box-shadow:var(--shadow-md);margin-top:var(--space-2);}
+  .form-card .btn:hover{background:var(--color-primary-hover);border-color:var(--color-primary-hover);}
+  .form-card .btn:disabled{opacity:0.5;cursor:not-allowed;}
+  .form-card .msg{font-size:var(--text-sm);min-height:1.2em;color:var(--color-text-muted);}
+  .form-card .msg.ok{color:var(--color-primary);}
+  .form-card .fineprint{font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--space-5);text-align:center;}
+
   /* ---------- Post list ---------- */
   .post-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);margin:0 0 var(--space-5);overflow:hidden}
   .post-card summary{list-style:none;cursor:pointer;padding:var(--space-5) var(--space-6);display:flex;flex-direction:column;gap:var(--space-2);background:var(--color-surface-2)}
@@ -316,6 +336,24 @@
     <div class="title-row">
       <h1 class="page-title">The Blog</h1>
       <p class="subtitle">Notes from the harbor — discipline, metaphor, and the work behind Rosie and the LIME system.</p>
+    </div>
+
+    <!-- Duplicate of the Begin/Subscribe page input panel, per Noal
+         2026-07-20 ~3:48pm: same box, dropped in right below the "Notes
+         from the harbor" subtitle with a hard break before the posts. -->
+    <div class="blog-input-panel">
+      <div class="form-card">
+        <form id="blogSubForm" novalidate>
+          <div class="row">
+            <div><label for="blogName">First name</label><input id="blogName" name="name" type="text" placeholder="Your name" required></div>
+            <div><label for="blogEmail">Email</label><input id="blogEmail" name="email" type="email" placeholder="you@example.com" required></div>
+          </div>
+          <div><label for="blogNote">What brings you to the harbor? <span style="text-transform:none;font-weight:400;color:var(--color-text-faint);">(optional)</span></label><textarea id="blogNote" name="note" placeholder="A line about where you are and what you're looking for."></textarea></div>
+          <button class="btn" type="submit" id="blogSubBtn">Begin →</button>
+          <p class="msg" id="blogSubMsg"></p>
+        </form>
+        <p class="fineprint">Your details are used only to start your Harbor Member access. No sharing, no spam, unsubscribe anytime. The ninety-day promise applies.</p>
+      </div>
     </div>
 
     <!-- Seed posts, first pass per Noal (2026-07-19). Placeholder content
