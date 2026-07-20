@@ -142,7 +142,7 @@
      ~9:38am, direct confirmation superseding the 2026-07-19 "do not change
      without confirming" note above. Icon stays pinned to --text-2xl,
      unaffected -- only the wordmark text itself is smaller. */
-  .brand .word { font-family: var(--font-display); font-weight: 700; font-size: var(--text-lg); line-height: 1.15; letter-spacing: 0.01em; text-transform: uppercase; }
+  .brand .word { font-family: var(--font-display); font-weight: 700; font-size: var(--text-lg); line-height: 1.15; letter-spacing: 0.01em; text-transform: uppercase; display: block; }
   .brand .word b { font-weight: 700; }
   .brand:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
   /* No margin-left:auto -- brand, presence pills, and header tools now share
@@ -745,7 +745,7 @@
            rather than towering over it like the old icon did. Muted/loop/
            playsinline so it autoplays inline without sound or controls. -->
       <video class="brand-mark" src="assets/brand/lighthouse-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
-      <span class="word">LIME&nbsp;<b>Signalworks LLC</b></span>
+      <span class="word">LIME<br><b>Signalworks</b><br><b>LLC</b></span>
     </a>
     <!-- Harbor visitor counter, moved into the header per Noal (2026-07-19).
          Was a fixed bottom-right badge; now inline next to the brand so it's
