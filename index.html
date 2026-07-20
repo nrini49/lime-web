@@ -109,23 +109,11 @@
   /* No margin-left:auto -- brand, presence pills, and header tools now share
      the same .hdr gap so spacing is uniform across all three groups instead
      of the tools being pushed to the far right. Per Noal, 2026-07-19. */
-  /* Per Noal 2026-07-19: the icon buttons must always match the height of
-     the CTA button next to them, exactly -- not a fixed px guess. Grid with
-     align-items:stretch does this permanently: each row's two cells (icon +
-     CTA) share one row height (the taller of the two), and both stretch to
-     fill it, so they can never drift out of sync again. */
-  /* Column gap (control buttons -> CTA buttons) widened to 1.5x the
-     presence-pills-to-tools gap (space-6 = 1.5rem = 1.5 * space-4), per
-     Noal 2026-07-19 follow-up, so the two green CTA buttons -- the most
-     important action on the page -- stand out slightly from the small
-     control buttons next to them. Row gap (top/bottom pair) left as-is. */
-  .hdr-tools { display: grid; grid-template-columns: auto auto; align-items: stretch; gap: var(--space-2) var(--space-6); }
-  /* Globe stacked above light/dark toggle -- two vertical objects that
-     match the CTA's and the presence pills' 2-line height. Per Noal,
-     2026-07-19. Reverted to the small gap (2026-07-19 follow-up): balance
-     now comes from each icon button matching a CTA button's height
-     (below), not from a big gap between them, so the pair reads as a
-     clean rectangle next to the CTA stack. */
+  /* Theme toggle moved out of this block entirely per Noal, 2026-07-19
+     ~11:15pm (now stacked above Blog -- see .hdr-blog-toggle below). Only
+     the two CTA buttons live here now, stacked in a single column so they
+     read as one rectangle (Rosie Live Demo on top, Buy Rosie Now below). */
+  .hdr-tools { display: flex; flex-direction: column; gap: var(--space-2); }
 
   .hdr-presence { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
   .hdr-presence .wg-badge{display:inline-flex;align-items:center;gap:.5rem;
@@ -151,15 +139,18 @@
   .ibkr-demo-cta, .buy-rosie-cta { display: inline-flex; align-items: center; justify-content: center; text-align: center; width: 8.5em; min-height: 38px; padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: transparent; font-size: var(--text-sm); font-weight: 700; line-height: 1.25; text-decoration: none; white-space: normal; font-family: var(--font-display); text-transform: uppercase; cursor: pointer; appearance: none; box-sizing: border-box; }
   .ibkr-demo-cta:hover, .buy-rosie-cta:hover { background: var(--color-primary); color: var(--color-bg); }
   @media (max-width: 640px) { .ibkr-demo-cta, .buy-rosie-cta { display: none; } }
-  /* Height matched to the stacked CTA buttons (58px each), per Noal
-     2026-07-19 follow-up, so the icon pair and the CTA pair form one
-     even rectangle side by side. */
-  .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: auto; border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-text-muted); background: var(--color-surface); cursor: pointer; }
+  /* Fixed 38px height (not the old grid-stretch trick), per Noal 2026-07-19
+     ~11:15pm: theme toggle now stacks above Blog, and the two must be the
+     exact same vertical size -- Blog's own height (38px) is the reference. */
+  .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-text-muted); background: var(--color-surface); cursor: pointer; }
   .icon-btn:hover { color: var(--color-text); border-color: var(--color-primary); }
   /* Blog nav link in the header, per Noal 2026-07-19. */
   .blog-nav-link { display: inline-flex; align-items: center; height: 38px; padding: 0 var(--space-4); border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-text); font-size: var(--text-sm); font-weight: 600; text-decoration: none; white-space: nowrap; }
   .blog-nav-link:hover { border-color: var(--color-primary); color: var(--color-primary); }
   @media (max-width: 560px) { .blog-nav-link { display: none; } }
+  /* Theme toggle centered directly above Blog, sitting left of the Rosie
+     Live Demo / Buy Rosie Now CTA stack. Per Noal, 2026-07-19 ~11:15pm. */
+  .hdr-blog-toggle { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); }
 
   .hero { padding: 0; text-align: center; position: relative; overflow: hidden; }
   .beacon { width: clamp(120px, 22vw, 180px); margin: 0 auto var(--space-8); }
@@ -600,10 +591,19 @@
         <span id="wg-count-text">along the Rosy Way</span>
       </span>
     </div>
-    <!-- Blog nav link, per Noal 2026-07-19: the blog needs to be reachable
-       from the header itself, not just from the companion widget's
-       embedded panel. Same ghost-pill control style as everywhere else. -->
-    <a class="blog-nav-link" href="blog/index.html">Blog</a>
+    <!-- Theme toggle moved out of hdr-tools and stacked above Blog per Noal,
+         2026-07-19 ~11:15pm: now sits centered directly above the word
+         "Blog", to the left of the Rosie Live Demo / Buy Rosie Now CTA
+         stack. Blog nav link itself per Noal 2026-07-19: the blog needs to
+         be reachable from the header itself, not just from the companion
+         widget's embedded panel. Same ghost-pill control style as
+         everywhere else. -->
+    <div class="hdr-blog-toggle">
+      <button class="icon-btn" data-theme-toggle aria-label="Switch theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <a class="blog-nav-link" href="blog/index.html">Blog</a>
+    </div>
     <!-- Rosie CTA held back from the header per the IB-confirmation gate. This is a
          standing rule from Noal, repeated multiple times: this button does not go live
          until Noal explicitly confirms the IB ID hash. A parallel session has re-added
@@ -628,9 +628,6 @@
            this is a <button> (not a link): clicking it just tells the
            reader "Coming soon" and reverts, nothing to navigate to yet. -->
         <a class="ibkr-demo-cta" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Rosie<br>Live Demo</a>
-        <button class="icon-btn" data-theme-toggle aria-label="Switch theme">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </button>
         <button type="button" class="buy-rosie-cta" id="buy-rosie-btn">Buy Rosie Now</button>
     </div>
   </div>
