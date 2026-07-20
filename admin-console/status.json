@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T06:17:10.230301+00:00",
+  "generated_at": "2026-07-20T08:13:22.737694+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "86213d1",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-20T06:17:13Z"
+        },
+        {
           "sha": "69330eb",
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Bottom-of-page caption: match Noal's exact 3-line break formatting",
           "author": "Plex",
           "date": "2026-07-20T03:47:35Z"
-        },
-        {
-          "sha": "a208889",
-          "message": "Open all internal page-navigation links in a new tab: Blog, door cards, Harbor Now archive/index links, Sage Library link (home logo, mailto",
-          "author": "Plex",
-          "date": "2026-07-20T03:43:45Z"
         }
       ]
     },
