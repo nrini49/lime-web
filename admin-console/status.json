@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T12:26:56.161218+00:00",
+  "generated_at": "2026-07-20T14:24:24.262404+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "55d9fc0",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-20T10:16:55Z"
+          "sha": "27bfc5a",
+          "message": "Part I: title to 'Accurate Precise Automated Investing', subtitle to 'AI-Assisted Investing Platform'",
+          "author": "Perplexity Computer",
+          "date": "2026-07-20T14:24:02Z"
         },
         {
-          "sha": "3c7fdcb",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-20T08:13:31Z"
+          "sha": "926a55e",
+          "message": "Part IV: fill Chapter I-III and Conclusion with real content (Why I'm Doing This, One Message Six Voices, Reaching Further, One Gate Three R",
+          "author": "Perplexity Computer",
+          "date": "2026-07-20T14:12:27Z"
         },
         {
-          "sha": "86213d1",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-20T06:17:13Z"
+          "sha": "6317c66",
+          "message": "Part IV: add Chapter I/II/III + Conclusion placeholders (Coming Soon), matching the 5-element shape of Parts I-III. Declaration stays as-is ",
+          "author": "Perplexity Computer",
+          "date": "2026-07-20T14:06:37Z"
         },
         {
-          "sha": "69330eb",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-20T04:28:59Z"
+          "sha": "0479d9e",
+          "message": "Part I title: caps 'Precision Accurate Investing', new 'AI-Assisted Platform' subtitle linking to Rosie Live (new tab), sized to match The B",
+          "author": "Perplexity Computer",
+          "date": "2026-07-20T14:02:39Z"
         },
         {
-          "sha": "9823833",
-          "message": "Shrink '\"The Wicket Gate\" by John Bunyan' to one size down (text-sm), unified, so it doesn't overflow past the header width",
-          "author": "Plex",
-          "date": "2026-07-20T03:57:34Z"
+          "sha": "8ed909e",
+          "message": "Header: stack presence meters vertically to match theme+Blog and Rosie stacks",
+          "author": "Perplexity Computer",
+          "date": "2026-07-20T13:57:29Z"
         }
       ]
     },
