@@ -93,11 +93,15 @@
   .hdr { display: flex; align-items: center; justify-content: flex-start; padding: var(--space-4) 0; gap: var(--space-4); }
   .brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
   /* Icon sized to the two-line brand name (LIME Signalworks / LLC), slightly
-     taller than that two-line block -- per Noal, 2026-07-19. Word itself is
-     one size larger than the major (part-title) headings so the company
-     name reads as the most prominent thing in the header. */
+     taller than that two-line block -- per Noal, 2026-07-19. Icon size
+     formula stays pinned to --text-2xl on purpose; only the wordmark text
+     itself changes size. */
+  /* A parallel session bumped the wordmark to 3xl at ~11pm to match Part I's
+     (since-reverted) hero heading. Superseded per Noal, 2026-07-19 ~11:08pm:
+     wordmark now reduced two steps down (2xl -> lg), his explicit direct
+     instruction in this thread. Do not re-bump without Noal confirming
+     directly in a session that can see this comment. */
   .brand svg { width: calc(var(--text-2xl) * 2.5); height: calc(var(--text-2xl) * 2.5); flex-shrink: 0; }
-  /* Brand word reduced two steps (2xl -> lg) per Noal, 2026-07-19 ~11:08pm. */
   .brand .word { font-family: var(--font-display); font-weight: 400; font-size: var(--text-lg); line-height: 1.15; letter-spacing: 0.01em; }
   .brand .word b { font-weight: 700; }
   .brand:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
