@@ -97,7 +97,8 @@
      one size larger than the major (part-title) headings so the company
      name reads as the most prominent thing in the header. */
   .brand svg { width: calc(var(--text-2xl) * 2.5); height: calc(var(--text-2xl) * 2.5); flex-shrink: 0; }
-  .brand .word { font-family: var(--font-display); font-weight: 400; font-size: var(--text-2xl); line-height: 1.15; letter-spacing: 0.01em; }
+  /* Brand word reduced two steps (2xl -> lg) per Noal, 2026-07-19 ~11:08pm. */
+  .brand .word { font-family: var(--font-display); font-weight: 400; font-size: var(--text-lg); line-height: 1.15; letter-spacing: 0.01em; }
   .brand .word b { font-weight: 700; }
   .brand:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
   /* No margin-left:auto -- brand, presence pills, and header tools now share
@@ -339,11 +340,9 @@
   .part-label.top-space { margin-top: var(--space-10); }
   .part-label .part-name { font-family: var(--font-body); font-size: var(--text-xl); letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-primary); font-weight: 700; margin: 0; }
   .part-label .part-title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; color: var(--color-text); margin: var(--space-1) 0 0; }
-  /* Per Noal 2026-07-19 ~11pm: the very first heading on the page,
-     bumped two steps larger than every other Part's title (xl -> 3xl),
-     so it reads as the page's own headline rather than matching the
-     size used for Part II/III/IV. */
-  .part-title-hero { font-size: var(--text-3xl) !important; }
+  /* Reverted per Noal, 2026-07-19 ~11:08pm: the earlier 3xl bump broke
+     visual consistency with Part II/III. Hero title now matches every
+     other Part's title size again (plain .part-title xl). */
   .part-label .part-attribution { font-family: var(--font-display); font-size: var(--text-base); font-style: italic; color: var(--color-text-muted); margin: var(--space-1) 0 0; }
   .part-label.pending { opacity: 0.7; }
   .part-label.pending .part-title::after { content: " \2014 in progress"; font-style: italic; font-size: var(--text-base); color: var(--color-text-faint); }
@@ -608,9 +607,11 @@
          Do NOT re-add without Noal confirming directly in a session that can see this
          comment. -->
     <div class="hdr-tools">
-        <button class="icon-btn" data-translate aria-label="Translate this page">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </button>
+      <!-- Header globe "Translate this page" button removed per Noal,
+           2026-07-19 ~11:08pm: Google's own translate bar (shown when a
+           visitor's browser/Google offers translation) stays as the one
+           translate path for everyone; this redundant header button is
+           gone. Do not re-add without Noal's direct instruction. -->
       <!-- Rosie x IBKR live demo CTA -- per Noal's instruction (2026-07-18):
            explicitly NOT the gated "Take me right to Rosie Interactive now"
            button, no IB affiliate/confirmation hash referenced here, safe to
@@ -645,7 +646,7 @@
        every other Part transition. -->
   <div class="part-label">
     <p class="part-name">Part I</p>
-    <p class="part-title part-title-hero">Precision Accurate AI Assisted Investing Platform</p>
+    <p class="part-title">Precision Accurate AI Assisted Investing Platform</p>
   </div>
 
   <section class="keeper-hero">
@@ -1504,21 +1505,8 @@
   if (t) { t.innerHTML = icon(d==='dark'); t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode');
     t.addEventListener('click', () => { d = d==='dark'?'light':'dark'; r.setAttribute('data-theme', d); t.innerHTML = icon(d==='dark'); t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode'); });
   }
-  var tr = document.querySelector('[data-translate]');
-  // Per Noal 2026-07-19 ~8:50pm: the old translate.google.com/translate?u=
-  // proxy is a discontinued Google service and was failing/misbehaving --
-  // switched to Google's current working translate.goog mirror domain,
-  // which renders a live translated copy of this exact page in a brand
-  // new tab (window.open + noopener), leaving the homepage tab untouched.
-  if (tr) { tr.addEventListener('click', function(){
-    var _tgtLang = (navigator.language || navigator.userLanguage || 'es').split('-')[0];
-    var _host = window.location.hostname.replace(/\./g, '-');
-    var _path = window.location.pathname + window.location.search + window.location.hash;
-    var _sep = _path.indexOf('?') > -1 ? '&' : '?';
-    var _url = 'https://' + _host + '.translate.goog' + _path + _sep +
-      '_x_tr_sl=auto&_x_tr_tl=' + _tgtLang + '&_x_tr_hl=en&_x_tr_pto=wapp';
-    window.open(_url, '_blank', 'noopener');
-  }); }
+  // Header globe translate button + its translate.goog click handler
+  // removed per Noal, 2026-07-19 ~11:08pm (see header markup comment).
 })();
 </script>
 <script>
