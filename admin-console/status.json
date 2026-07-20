@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-19T22:14:14.300584+00:00",
+  "generated_at": "2026-07-20T00:25:49.627876+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
     "latest": "2026-07-17",
-    "checked_date": "2026-07-19"
+    "checked_date": "2026-07-20"
   },
   "site_health": [
     {
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "15c7cd0",
-          "message": "Move Rosy Way bloom image outside the collapsed Declaration section so it's always visible",
+          "sha": "104d4f2",
+          "message": "Close up gap between header and Part I, and between Part III and Part IV (remove top-space margin, matches the now-equalized Part I/II/III t",
           "author": "Noal Rini",
-          "date": "2026-07-19T22:05:59Z"
+          "date": "2026-07-20T00:20:26Z"
         },
         {
-          "sha": "a3e3a27",
-          "message": "Merge: bridge-scene-anchor-width alongside collapsible Anchor Point",
+          "sha": "2ceb915",
+          "message": "Equalize spacing before Part II to match Part III's transition gap",
           "author": "Noal Rini",
-          "date": "2026-07-19T22:02:51Z"
+          "date": "2026-07-20T00:04:22Z"
         },
         {
-          "sha": "80aacb2",
-          "message": "Make Anchor Point collapsible (click opens, mouseleave closes, same pattern as rest of site)",
+          "sha": "8019d33",
+          "message": "Merge branch 'main' of https://git-agent-proxy.perplexity.ai/nrini49/lime-web",
           "author": "Noal Rini",
-          "date": "2026-07-19T22:01:40Z"
+          "date": "2026-07-19T23:57:35Z"
         },
         {
-          "sha": "fc1e594",
-          "message": "Fix triptych: show full height of man photo instead of cropping via object-fit:cover",
+          "sha": "b2bf861",
+          "message": "Match widget width to current bottom-of-page image using same padding technique, stays in sync at all sizes",
           "author": "Noal Rini",
-          "date": "2026-07-19T21:55:10Z"
+          "date": "2026-07-19T23:56:36Z"
         },
         {
-          "sha": "ea4176a",
-          "message": "Left-align Leave a Memory heading, equalize its spacing, gate Lime Universe Bridge images behind click-to-reveal on the heading",
+          "sha": "f95e681",
+          "message": "Keep Leave a Memory / blog row at 780px (matching end-of-page image) but anchor left edge to a reference wrap outside .companion-widget so i",
           "author": "Noal Rini",
-          "date": "2026-07-19T21:53:57Z"
+          "date": "2026-07-19T23:56:28Z"
         }
       ]
     },
