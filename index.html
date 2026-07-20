@@ -228,8 +228,10 @@
      stretches to fill its grid cell (matched to Blog's width, matched to
      the Rosie Live Demo button's height in its row). Border-radius:full
      on a stretched box reads as a pill, same shape language as the CTAs. */
-  .icon-btn { display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-text-muted); background: var(--color-surface); cursor: pointer; }
-  .icon-btn:hover { color: var(--color-text); border-color: var(--color-primary); }
+  /* Border turned green + hover now fills solid green (same "light up"
+     behavior as the Rosie CTAs), per Noal 2026-07-20 ~1:26pm. */
+  .icon-btn { display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-text-muted); background: var(--color-surface); cursor: pointer; }
+  .icon-btn:hover { background: var(--color-primary); color: var(--color-bg); border-color: var(--color-primary); }
   /* Blog nav link in the header, per Noal 2026-07-19. Height no longer
      fixed (38px) -- per Noal 2026-07-19 ~11:27pm, stretches to fill its
      grid cell (matched to the Buy Rosie Now button's height in its row). */
@@ -239,7 +241,11 @@
   /* Border turned green too, per Noal 2026-07-20 ~1:23pm, to match the
      other pill outlines (was --color-border, a neutral gray). */
   .blog-nav-link { display: inline-flex; align-items: center; justify-content: center; padding: 0 var(--space-4); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); font-size: var(--text-sm); font-weight: 700; text-decoration: none; white-space: nowrap; }
-  .blog-nav-link:hover { border-color: var(--color-primary); color: var(--color-primary); }
+  /* Hover now fills solid green + text inverts to --color-bg, same "light
+     up" behavior as the Rosie CTAs -- per Noal 2026-07-20 ~1:24pm/1:26pm,
+     just turning the border/text green wasn't enough; the interior has to
+     light up on hover too, exactly like the other three pills. */
+  .blog-nav-link:hover { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-bg); }
   @media (max-width: 560px) { .blog-nav-link { display: none; } }
 
   .hero { padding: 0; text-align: center; position: relative; overflow: hidden; }
@@ -743,8 +749,9 @@
            with Translate's own node tracking and throw an error. Marking
            it untranslatable tells Google Translate to skip this element
            entirely, removing the conflict at the source. -->
+      <!-- Icon doubled 18px -> 36px per Noal 2026-07-20 ~1:26pm. -->
       <button class="icon-btn notranslate" translate="no" data-theme-toggle aria-label="Switch theme">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
       </button>
       <a class="blog-nav-link" href="blog/index.html" target="_blank" rel="noopener">Blog</a>
     </div>
@@ -1771,8 +1778,8 @@
   let d = 'dark';
   r.setAttribute('data-theme', d);
   function icon(dark){ return dark
-    ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-    : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'; }
+    ? '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+    : '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'; }
   if (t) { t.innerHTML = icon(d==='dark'); t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode');
     t.addEventListener('click', () => { d = d==='dark'?'light':'dark'; r.setAttribute('data-theme', d); t.innerHTML = icon(d==='dark'); t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode'); });
   }
