@@ -91,21 +91,35 @@
   .blog-input-panel > summary::-webkit-details-marker{display:none;}
   .blog-input-panel > summary:hover{background:var(--color-primary);color:var(--color-bg);}
   .blog-input-panel[open] > summary{margin-bottom:var(--space-4);}
-  .form-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:clamp(var(--space-8),5vw,var(--space-12));box-shadow:var(--shadow-md);position:relative;overflow:hidden}
+  /* Shrunk per Noal 2026-07-20 ~5:38pm: padding was clamp(space-8,5vw,
+     space-12) -- 2-3rem all around -- which both made the opened form
+     tall and pushed its left edge well past every other left margin on
+     the page (post-card content sits at wrap-padding + space-6; this
+     was wrap-padding + up to space-12, nearly double). Padding now
+     matches .post-card's own horizontal inset (space-6) exactly, with a
+     smaller vertical padding (space-5) -- left edge now lines up with
+     the post cards below it, and the box overall is much shorter. */
+  .form-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-5) var(--space-6);box-shadow:var(--shadow-md);position:relative;overflow:hidden}
   .form-card::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(in oklab,var(--color-primary),var(--color-beam,#e8b659));}
-  .form-card form{display:grid;gap:var(--space-4);}
-  .form-card .row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);}
+  .form-card form{display:grid;gap:var(--space-3);}
+  .form-card .row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3);}
   @media(max-width:520px){.form-card .row{grid-template-columns:1fr;}}
   .form-card label{font-size:var(--text-xs);letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text-muted);font-weight:600;}
-  .form-card input,.form-card textarea{width:100%;padding:var(--space-3) var(--space-4);border-radius:var(--radius-md);border:1px solid var(--color-border);background:var(--color-bg);color:var(--color-text);font-size:var(--text-base);font-family:var(--font-body);}
-  .form-card textarea{min-height:5.5rem;resize:vertical;line-height:1.5;}
+  .form-card input,.form-card textarea{width:100%;padding:var(--space-2) var(--space-3);border-radius:var(--radius-md);border:1px solid var(--color-border);background:var(--color-bg);color:var(--color-text);font-size:var(--text-base);font-family:var(--font-body);}
+  .form-card textarea{min-height:3.2rem;resize:vertical;line-height:1.5;}
   .form-card input:focus,.form-card textarea:focus{outline:none;border-color:var(--color-primary);box-shadow:0 0 0 3px var(--color-primary-soft);}
-  .form-card .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);font-family:var(--font-body);font-weight:600;font-size:var(--text-base);text-decoration:none;color:var(--color-bg);background:var(--color-primary);padding:var(--space-3) var(--space-6);border-radius:var(--radius-full);border:1px solid var(--color-primary);cursor:pointer;box-shadow:var(--shadow-md);margin-top:var(--space-2);}
+  /* width:fit-content + justify-self:start added per Noal 2026-07-20
+     ~5:38pm audit pass: form is display:grid, so this button was
+     stretching to fill the full card width by default -- same
+     "obtrusive full-width button" issue already fixed on the Part I-IV
+     toggles earlier this session. Sized to its own text now, matching
+     that same standing rule. */
+  .form-card .btn{display:inline-flex;align-items:center;justify-content:center;width:fit-content;justify-self:start;gap:var(--space-2);font-family:var(--font-body);font-weight:600;font-size:var(--text-base);text-decoration:none;color:var(--color-bg);background:var(--color-primary);padding:var(--space-2) var(--space-6);border-radius:var(--radius-full);border:1px solid var(--color-primary);cursor:pointer;box-shadow:var(--shadow-md);margin-top:0;}
   .form-card .btn:hover{background:var(--color-primary-hover);border-color:var(--color-primary-hover);}
   .form-card .btn:disabled{opacity:0.5;cursor:not-allowed;}
   .form-card .msg{font-size:var(--text-sm);min-height:1.2em;color:var(--color-text-muted);}
   .form-card .msg.ok{color:var(--color-primary);}
-  .form-card .fineprint{font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--space-5);text-align:center;}
+  .form-card .fineprint{font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--space-3);text-align:center;}
 
   /* ---------- Post list ---------- */
   .post-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);margin:0 0 var(--space-5);overflow:hidden}
