@@ -148,9 +148,7 @@
      transparent, so the square disappears into the page seamlessly on
      both themes (var(--color-bg) swaps navy dark <-> cream light
      automatically with the theme toggle, no JS needed). */
-  /* Sized down 10% per Noal 2026-07-20 ~5:10pm, all three breakpoints:
-     480->432, 190->171, 110->99. */
-  .brand-mark-wrap { position: relative; height: 432px; width: 432px; flex-shrink: 0; }
+  .brand-mark-wrap { position: relative; height: 480px; width: 480px; flex-shrink: 0; }
   /* Pulled back per Noal 2026-07-20 ~4:30pm so the "LIME SIGNALWORKS LLC"
      text baked into the video is legible again -- was 18/28/45/60, now
      35/48/65/82. Still keeps blue close to the peak, just not as tight.
@@ -175,19 +173,14 @@
      finishes exactly at the margin on all four sides, a complete,
      fully-closed circle. Lighthouse/video size itself (the wrap's
      height/width) is untouched. */
-  /* Tightened one more step per Noal 2026-07-20 ~5:10pm ("blue gradient a
-     little more effective"): 32/50/75 -> 26/44/68, blue color-mix now
-     takes over closer to center. Edge-closure stop stays at 100%
-     (closest-side) -- do not move that one, it's what fixed the ghost
-     ring at the margin. */
   .brand-mark-wrap::after { content: ''; position: absolute; inset: 0; pointer-events: none;
-    background: radial-gradient(circle closest-side, transparent 26%, color-mix(in oklab, var(--color-bg) 40%, transparent) 44%, color-mix(in oklab, var(--color-bg) 80%, transparent) 68%, var(--color-bg) 100%); }
+    background: radial-gradient(circle closest-side, transparent 32%, color-mix(in oklab, var(--color-bg) 40%, transparent) 50%, color-mix(in oklab, var(--color-bg) 80%, transparent) 75%, var(--color-bg) 100%); }
   .brand-mark { height: 100%; width: 100%; object-fit: cover; display: block; }
   /* 480px only fits comfortably at wide desktop -- steps down at tablet/
      small-laptop widths (700-1024px overflowed the header otherwise,
      pushing Rosie Live/Buy Rosie off-screen, checked via scrollWidth). */
-  @media (max-width: 1024px) { .brand-mark-wrap { height: 171px; width: 171px; } }
-  @media (max-width: 560px) { .brand-mark-wrap { height: 99px; width: 99px; } }
+  @media (max-width: 1024px) { .brand-mark-wrap { height: 190px; width: 190px; } }
+  @media (max-width: 560px) { .brand-mark-wrap { height: 110px; width: 110px; } }
   /* Stepped down one tick (--text-xl -> --text-lg), per Noal 2026-07-20
      ~9:38am, direct confirmation superseding the 2026-07-19 "do not change
      without confirming" note above. Icon stays pinned to --text-2xl,
@@ -254,6 +247,13 @@
     border-radius:var(--radius-full);padding:var(--space-1) var(--space-3);font-family:var(--font-body);font-size:var(--text-xs);font-weight:700;letter-spacing:.01em;line-height:1.2;
     transition:transform .2s, background var(--transition-interactive), color var(--transition-interactive);}
   .hdr-presence .wg-badge:hover{background:var(--color-primary);color:var(--color-bg);}
+  /* "the Rosy Way" badge only, per Noal 2026-07-20 ~5:08pm: shortened dots
+     (8 -> 3) plus a bit more width so this one specifically sits on a
+     single line. Left the "who's here" badge's own wrap behavior alone --
+     its live text ("N people here right now") is longer and still needs
+     to wrap once real visitor data loads. */
+  #wg-badge { width: 12.5em; white-space: nowrap; }
+  @media (max-width: 820px) { #wg-badge { width: 8.5em; } }
   .hdr-presence .wg-badge.wg-pulse{transform:scale(1.06);}
   .hdr-presence .wg-dot{width:7px;height:7px;border-radius:50%;background:#9ad14a;box-shadow:0 0 8px rgba(154,209,74,.7);flex:none;}
   .hdr-presence .wg-dot-live{background:#e8b659;box-shadow:0 0 8px rgba(232,182,89,.7);animation:wgLivePulse 1.8s ease-in-out infinite;}
@@ -829,7 +829,14 @@
   /* Duplicate Begin/Subscribe form panel, ported from blog/index.html's
      copy, per Noal 2026-07-20. .btn already exists site-wide above (Rosie
      CTA styling) -- reused as-is here rather than redefined. */
-  .blog-input-panel { margin: var(--space-6) 0 var(--space-10); }
+  /* Capped to roughly the rendered width of the Part I title text
+     ("Precision Accurate Automated Investing", measured ~23.8x its own
+     font-size at every width where the title doesn't wrap), per Noal
+     2026-07-20 ~5:08pm: "must not be any wider than" that title line.
+     Using --text-xl (the title's actual font-size variable) directly so
+     it scales exactly like the title does
+     instead of a static px value that would drift at other viewports. */
+  .blog-input-panel { margin: var(--space-6) 0 var(--space-10); max-width: calc(var(--text-xl) * 23.8); width: 100%; }
   .blog-input-panel .form-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: clamp(var(--space-8), 5vw, var(--space-12)); box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
   .blog-input-panel .form-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: linear-gradient(var(--color-primary), var(--color-beam)); }
   .blog-input-panel .form-card form { display: grid; gap: var(--space-4); }
@@ -839,7 +846,11 @@
   .blog-input-panel .form-card input, .blog-input-panel .form-card textarea { width: 100%; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-bg); color: var(--color-text); font-size: var(--text-base); font-family: var(--font-body); }
   .blog-input-panel .form-card textarea { min-height: 5.5rem; resize: vertical; line-height: 1.5; }
   .blog-input-panel .form-card input:focus, .blog-input-panel .form-card textarea:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px var(--color-primary-soft); }
-  .blog-input-panel .form-card .btn { margin-top: var(--space-2); }
+  /* Begin button now matches the Rosie Live/Buy Rosie pill CTAs exactly
+     (same class properties), per Noal 2026-07-20 ~5:08pm, instead of the
+     generic .btn used elsewhere on the page. */
+  .blog-input-panel .form-card .btn { display: inline-flex; align-items: center; justify-content: center; text-align: center; width: 7em; min-height: 34px; padding: var(--space-1) var(--space-3); margin-top: var(--space-2); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: var(--color-surface); font-size: var(--text-sm); font-weight: 700; font-family: var(--font-body); line-height: 1.25; text-decoration: none; white-space: nowrap; cursor: pointer; appearance: none; box-sizing: border-box; }
+  .blog-input-panel .form-card .btn:hover { filter: brightness(1.1); }
   .blog-input-panel .form-card .msg { font-size: var(--text-sm); min-height: 1.2em; color: var(--color-text-muted); }
   .blog-input-panel .form-card .msg.ok { color: var(--color-primary); }
   .blog-input-panel .form-card .fineprint { font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-5); text-align: center; }
@@ -872,7 +883,7 @@
       </span>
       <span id="wg-badge" class="wg-badge" aria-live="polite">
         <span class="wg-dot"></span>
-        <span id="wg-count-text">the Rosy Way........</span>
+        <span id="wg-count-text">the Rosy Way...</span>
       </span>
     </div>
     <!-- Theme toggle + Blog: own stack, sits between the presence meters
