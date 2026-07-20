@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T16:19:30.691386+00:00",
+  "generated_at": "2026-07-20T20:29:52.883034+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "c79f83c",
-          "message": "Header: applied the same stretch + top/bottom spread to theme+Blog and Rosie CTA pairs, matching the meters",
-          "author": "Perplexity Computer",
-          "date": "2026-07-20T16:11:28Z"
+          "sha": "593d7c1",
+          "message": "Wrap Parts II-IV (Introduction + Chapters I-III + Conclusion, + Declaration where present) in the same master collapsible toggle as Part I. ",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-20T20:22:13Z"
         },
         {
-          "sha": "c4493a0",
-          "message": "Header: presence meters now stretch to full row height, first badge pinned to top, second to bottom",
+          "sha": "e9b4bf9",
+          "message": "Lighthouse: collapse the background-color vignette much closer to center (18/28/45/60 vs 28/40/58/76) so navy/cream reaches up near the ligh",
           "author": "Perplexity Computer",
-          "date": "2026-07-20T16:09:52Z"
+          "date": "2026-07-20T20:10:05Z"
         },
         {
-          "sha": "468cc55",
-          "message": "Header: increased vertical gap between each stacked pair (meters, theme+Blog, Rosie CTAs) from ~8px to 12px",
+          "sha": "234f4a7",
+          "message": "Lighthouse mark: replace alpha mask-image fade with an actual radial-gradient overlay painted in var(--color-bg) -- corners of the rectangle",
           "author": "Perplexity Computer",
-          "date": "2026-07-20T16:07:55Z"
+          "date": "2026-07-20T20:04:11Z"
         },
         {
-          "sha": "9130134",
-          "message": "Header: added 1 more dot to 'checking who's here' (rebalanced 'along the Rosy Way' to match), Rosie CTA font matched exactly to Blog (family",
-          "author": "Perplexity Computer",
-          "date": "2026-07-20T16:00:11Z"
+          "sha": "911b45c",
+          "message": "Part I: wrap Introduction + Chapters I-III + Conclusion in one master collapsible toggle, per Noal 2026-07-20 3:54pm. Part label (name/title",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-20T20:00:25Z"
         },
         {
-          "sha": "c3e6059",
-          "message": "Header: matched the two presence meters to equal width via trailing dots (min 3), matched theme toggle + Blog buttons to equal 70px width",
+          "sha": "fc32130",
+          "message": "Merge branch 'main' of https://git-agent-proxy.perplexity.ai/nrini49/lime-web",
           "author": "Perplexity Computer",
-          "date": "2026-07-20T15:53:40Z"
+          "date": "2026-07-20T19:57:20Z"
         }
       ]
     },
@@ -104,34 +104,34 @@
       "ok": true,
       "commits": [
         {
+          "sha": "02dccc4",
+          "message": "Add live account-selector control to dashboard header (ACCT pills, wired to new /select-account route) so account choice happens on the dash",
+          "author": "Perplexity Computer",
+          "date": "2026-07-20T19:32:14Z"
+        },
+        {
+          "sha": "2ea417e",
+          "message": "Restore original CRLF line endings on schwab_login.py, schwab_service.py, schwab_startup.bat (no functional change, just formatting cleanup ",
+          "author": "Perplexity Computer",
+          "date": "2026-07-20T17:50:00Z"
+        },
+        {
+          "sha": "c51855b",
+          "message": "Remove accidentally committed __pycache__ files, add .gitignore",
+          "author": "Perplexity Computer",
+          "date": "2026-07-20T17:49:01Z"
+        },
+        {
+          "sha": "927b663",
+          "message": "Fix account-selection hangup: add resolve_account_hash() so the chosen Schwab account is actually saved and used everywhere (main.py, schwab",
+          "author": "Perplexity Computer",
+          "date": "2026-07-20T17:48:19Z"
+        },
+        {
           "sha": "2ed62a7",
           "message": "Rebuild Schwab workstation layout: sidebar-nav -> collapsible panels",
           "author": "nrini49",
           "date": "2026-07-16T21:51:33Z"
-        },
-        {
-          "sha": "3595e4d",
-          "message": "Pair each light directly with its own switch in the topbar",
-          "author": "Plex",
-          "date": "2026-07-16T17:31:41Z"
-        },
-        {
-          "sha": "546d886",
-          "message": "Decouple Propose/Approve/Execute and build a real Trade Ticket",
-          "author": "Plex",
-          "date": "2026-07-16T17:05:07Z"
-        },
-        {
-          "sha": "15e644d",
-          "message": "Build Power/Rosie/symbol-selector control plane for Schwab",
-          "author": "Plex",
-          "date": "2026-07-16T17:01:54Z"
-        },
-        {
-          "sha": "42ccf27",
-          "message": "Port phase-badge + sortable watchlist from Interactive dashboard",
-          "author": "Plex",
-          "date": "2026-07-16T16:58:13Z"
         }
       ]
     },

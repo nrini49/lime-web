@@ -114,8 +114,13 @@
      stack, Rosie stack) -- pulls everything as far left as the content
      allows, no wrapper needed to fake a tighter/looser gap in different
      spots. */
-  .hdr { display: flex; align-items: center; justify-content: flex-start; padding: var(--space-4) 0; gap: var(--space-3); }
-  .brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
+  /* Top padding dropped per Noal 2026-07-20 ~4:49pm: the logo's own top
+     edge should meet the very top edge of the page at full page size.
+     Bottom padding kept for spacing below the header row. .brand pinned
+     to align-self:flex-start so it sits at the top of the row instead of
+     centering against the much-taller button/badge stacks beside it. */
+  .hdr { display: flex; align-items: center; justify-content: flex-start; padding: 0 0 var(--space-4) 0; gap: var(--space-3); }
+  .brand { display: flex; align-items: center; align-self: flex-start; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
   /* Icon sized to the two-line brand name (LIME Signalworks / LLC), slightly
      taller than that two-line block -- per Noal, 2026-07-19. Icon size
      formula stays pinned to --text-2xl on purpose; only the wordmark text
@@ -128,11 +133,59 @@
      Do not change again without Noal confirming directly in a session
      that can see this comment. */
   .brand svg { width: calc(var(--text-2xl) * 2.5); height: calc(var(--text-2xl) * 2.5); flex-shrink: 0; }
+  /* True circle (border-radius:var(--radius-full) was a dead reference --
+     that token was never defined, so it was silently rendering as a hard
+     rectangle). Edge fades to transparent via mask-image instead of a
+     hard border, same radial-fade technique as .cw-portrait elsewhere on
+     this page, per Noal 2026-07-20: "fade the edges way out." Sized down
+     a step from the 200px test (160px) so it reads as a mark, not a
+     rectangle pretending to be a circle -- wordmark stays fully clear
+     next to it at this size. */
+  /* Per Noal 2026-07-20 ~4:01pm: instead of fading the video's own alpha
+     (mask-image, previous approach), paint an actual radial-gradient
+     overlay in the page's own background color on top of it -- corners
+     of the rectangle get covered in the exact --color-bg, not just faded
+     transparent, so the square disappears into the page seamlessly on
+     both themes (var(--color-bg) swaps navy dark <-> cream light
+     automatically with the theme toggle, no JS needed). */
+  .brand-mark-wrap { position: relative; height: 480px; width: 480px; flex-shrink: 0; }
+  /* Pulled back per Noal 2026-07-20 ~4:30pm so the "LIME SIGNALWORKS LLC"
+     text baked into the video is legible again -- was 18/28/45/60, now
+     35/48/65/82. Still keeps blue close to the peak, just not as tight.
+     Nudged back in a step per Noal 2026-07-20 ~4:50pm ("expand the blue
+     gradient a little closer to center") -- 30/42/60/77, partway between
+     the too-tight 18/28/45/60 and the too-loose 35/48/65/82, watching for
+     the baked-in text staying legible. */
+  /* Per Noal 2026-07-20 ~4:58-5:04pm: left/right (and top/bottom) edges
+     weren't quite closing to a full circle -- radial-gradient(circle)
+     with no size keyword defaults to farthest-corner sizing, so on a
+     square box the 100% stop lands at the diagonal, not the edge -- the
+     actual edge-midpoint sits at only ~70.7% of that scale. The old 77%
+     "fully solid" stop was past that reference point but still short of
+     really finishing at the edge visually. Two parallel sessions fixed
+     this the same minute from different angles (one recalculated the
+     70.7% cutoff and pulled the old stop in to 68%; this version instead
+     switches the sizing keyword itself to closest-side, so 100% = the
+     true edge distance on every side by definition, no manual
+     recalculation needed if the box's aspect ratio ever changes). Kept
+     this version since it's the more robust of the two. Solid-background
+     stop pushed out to 100% under that new reference -- the fade now
+     finishes exactly at the margin on all four sides, a complete,
+     fully-closed circle. Lighthouse/video size itself (the wrap's
+     height/width) is untouched. */
+  .brand-mark-wrap::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(circle closest-side, transparent 32%, color-mix(in oklab, var(--color-bg) 40%, transparent) 50%, color-mix(in oklab, var(--color-bg) 80%, transparent) 75%, var(--color-bg) 100%); }
+  .brand-mark { height: 100%; width: 100%; object-fit: cover; display: block; }
+  /* 480px only fits comfortably at wide desktop -- steps down at tablet/
+     small-laptop widths (700-1024px overflowed the header otherwise,
+     pushing Rosie Live/Buy Rosie off-screen, checked via scrollWidth). */
+  @media (max-width: 1024px) { .brand-mark-wrap { height: 190px; width: 190px; } }
+  @media (max-width: 560px) { .brand-mark-wrap { height: 110px; width: 110px; } }
   /* Stepped down one tick (--text-xl -> --text-lg), per Noal 2026-07-20
      ~9:38am, direct confirmation superseding the 2026-07-19 "do not change
      without confirming" note above. Icon stays pinned to --text-2xl,
      unaffected -- only the wordmark text itself is smaller. */
-  .brand .word { font-family: var(--font-display); font-weight: 700; font-size: var(--text-lg); line-height: 1.15; letter-spacing: 0.01em; text-transform: uppercase; }
+  .brand .word { font-family: var(--font-display); font-weight: 700; font-size: var(--text-lg); line-height: 1.15; letter-spacing: 0.01em; text-transform: uppercase; display: block; }
   .brand .word b { font-weight: 700; }
   .brand:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
   /* No margin-left:auto -- brand, presence pills, and header tools now share
@@ -188,13 +241,20 @@
      badges together at gap-3 (12px) instead of pinning one to the top and
      one to the bottom of that stretched height. */
   .hdr-presence { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; align-self: stretch; gap: var(--space-3); }
-  .hdr-presence .wg-badge{display:inline-flex;align-items:center;gap:.5rem;
-    background:var(--color-surface);color:var(--color-text-muted);border:1px solid var(--color-border);
-    border-radius:999px;padding:.35rem .75rem;font-size:.74rem;font-weight:600;letter-spacing:.01em;
-    transition:transform .2s;}
+  .hdr-presence .wg-badge{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+    width:10.5em;min-height:26px;box-sizing:border-box;text-align:center;
+    background:var(--color-surface);color:var(--color-primary);border:1px solid var(--color-primary);
+    border-radius:var(--radius-full);padding:var(--space-1) var(--space-3);font-family:var(--font-body);font-size:var(--text-xs);font-weight:700;letter-spacing:.01em;line-height:1.2;
+    transition:transform .2s, background var(--transition-interactive), color var(--transition-interactive);}
+  .hdr-presence .wg-badge:hover{background:var(--color-primary);color:var(--color-bg);}
   .hdr-presence .wg-badge.wg-pulse{transform:scale(1.06);}
   .hdr-presence .wg-dot{width:7px;height:7px;border-radius:50%;background:#9ad14a;box-shadow:0 0 8px rgba(154,209,74,.7);flex:none;}
   .hdr-presence .wg-dot-live{background:#e8b659;box-shadow:0 0 8px rgba(232,182,89,.7);animation:wgLivePulse 1.8s ease-in-out infinite;}
+  /* Full 10.5em gives both badges a clean 2-line wrap on wide screens, but
+     is too wide once the header also has to fit Blog/theme/Rosie buttons
+     in the 561-820px range -- step it down there to avoid overflow, per
+     visual QA on 2026-07-20 (checked scrollWidth at every breakpoint). */
+  @media (max-width: 820px) { .hdr-presence .wg-badge { width: 8em; } }
   @media (max-width: 780px) { .hdr-presence .wg-badge-live { display: none; } }
   @media (max-width: 560px) { .hdr-presence { display: none; } }
   /* Width capped to roughly "Live Rosie Demo" (about 8.5em) so the text
@@ -235,8 +295,11 @@
      on a stretched box reads as a pill, same shape language as the CTAs. */
   /* Border turned green + hover now fills solid green (same "light up"
      behavior as the Rosie CTAs), per Noal 2026-07-20 ~1:26pm. */
-  .icon-btn { display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-text-muted); background: var(--color-surface); cursor: pointer; }
+  .icon-btn { display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: var(--color-surface); cursor: pointer; }
   .icon-btn:hover { background: var(--color-primary); color: var(--color-bg); border-color: var(--color-primary); }
+  .lighthouse-footer-anchor { display: flex; justify-content: center; padding: var(--space-10) 0 var(--space-16); }
+  .lighthouse-footer-link { width: 64px; height: 64px; text-decoration: none; }
+  .lighthouse-footer-link svg { width: 42px; height: 42px; }
   /* Blog nav link in the header, per Noal 2026-07-19. Height no longer
      fixed (38px) -- per Noal 2026-07-19 ~11:27pm, stretches to fill its
      grid cell (matched to the Buy Rosie Now button's height in its row). */
@@ -458,6 +521,44 @@
   .part-label .part-attribution { font-family: var(--font-display); font-size: var(--text-base); font-style: italic; color: var(--color-text-muted); margin: var(--space-1) 0 0; }
   .part-label.pending { opacity: 0.7; }
   .part-label.pending .part-title::after { content: " \2014 in progress"; font-style: italic; font-size: var(--text-base); color: var(--color-text-faint); }
+  /* Part-body master toggle, per Noal 2026-07-20 ~3:54pm: wraps Introduction
+     + Chapters I-III + Conclusion under one click-to-open cell so the Part
+     label above (name/title/subtitle) can stay permanently visible while
+     everything under it collapses to a single bar. Test on Part I first;
+     same class repeats on Parts II-IV if it holds. */
+  /* Restyled per Noal 2026-07-20 ~4:51pm: these were stretching the full
+     page width via the generic details.collapsible summary grid --
+     obtrusive, reads as one giant bar. Now sized to their own text only,
+     matching the header's own small pill buttons exactly (same values as
+     .blog-nav-link below) instead of the page-width sec-bar treatment. */
+  .part-block-toggle { max-width: 1080px; margin: 0 auto; padding: var(--space-2) var(--space-6) 0; }
+  .part-block-toggle > summary.part-block-summary {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: auto; max-width: none; min-height: 38px; grid-template-columns: none;
+    padding: 0 var(--space-4); margin: 0; gap: var(--space-2);
+    border-radius: var(--radius-full); border: 1px solid var(--color-primary);
+    background: var(--color-surface); color: var(--color-primary);
+    font-family: var(--font-body); font-size: var(--text-sm); font-weight: 700;
+    text-decoration: none; cursor: pointer;
+  }
+  .part-block-toggle > summary.part-block-summary:hover {
+    background: var(--color-primary); border-color: var(--color-primary); color: var(--color-bg);
+  }
+  /* Explicit override, needed because a more specific site-wide rule
+     (details.collapsible > summary:hover h2) was forcing the label green
+     even while the button background also turned green on hover --
+     green-on-green, text effectively invisible. Per Noal 2026-07-20
+     ~4:51pm bug catch. */
+  .part-block-toggle > summary.part-block-summary:hover h2,
+  .part-block-toggle > summary.part-block-summary:hover .chapter-num {
+    color: var(--color-bg);
+  }
+  .part-block-toggle > summary.part-block-summary .chapter-num,
+  .part-block-toggle > summary.part-block-summary h2 {
+    display: inline; grid-column: auto; font: inherit; color: inherit;
+    font-weight: 700; text-transform: none; letter-spacing: normal; margin: 0;
+  }
+  .part-block-toggle[open] > summary.part-block-summary { margin-bottom: var(--space-4); }
   details.collapsible > summary .chev { grid-column: 3; }
   @media (max-width: 640px) { details.collapsible > summary { grid-template-columns: 1fr auto; grid-template-rows: auto auto; row-gap: var(--space-1); } .chapter-num { text-align: left; grid-column: 1; grid-row: 1; } details.collapsible > summary h2, details.collapsible > summary h3 { grid-column: 1; grid-row: 2; } details.collapsible > summary .chev { grid-column: 2; grid-row: 1 / 3; } }
   /* Founder heading stands apart -- one line, flush to the true left edge, everything else reads as subordinate to it */
@@ -717,6 +818,24 @@
      without this override the panel text ran off-screen as one line. */
   .interp-note .interp-note-text { display: block; white-space: normal; font-family: var(--font-display); font-style: italic; font-size: var(--text-base); line-height: 1.6; color: var(--color-text); margin: 0 0 var(--space-4); }
   .interp-note .interp-note-signature { display: block; font-family: var(--font-display); font-weight: 700; font-size: var(--text-base); color: var(--color-primary); text-align: right; }
+
+  /* Duplicate Begin/Subscribe form panel, ported from blog/index.html's
+     copy, per Noal 2026-07-20. .btn already exists site-wide above (Rosie
+     CTA styling) -- reused as-is here rather than redefined. */
+  .blog-input-panel { margin: var(--space-6) 0 var(--space-10); }
+  .blog-input-panel .form-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: clamp(var(--space-8), 5vw, var(--space-12)); box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .blog-input-panel .form-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: linear-gradient(var(--color-primary), var(--color-beam)); }
+  .blog-input-panel .form-card form { display: grid; gap: var(--space-4); }
+  .blog-input-panel .form-card .row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+  @media (max-width: 520px) { .blog-input-panel .form-card .row { grid-template-columns: 1fr; } }
+  .blog-input-panel .form-card label { font-size: var(--text-xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-muted); font-weight: 600; }
+  .blog-input-panel .form-card input, .blog-input-panel .form-card textarea { width: 100%; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-bg); color: var(--color-text); font-size: var(--text-base); font-family: var(--font-body); }
+  .blog-input-panel .form-card textarea { min-height: 5.5rem; resize: vertical; line-height: 1.5; }
+  .blog-input-panel .form-card input:focus, .blog-input-panel .form-card textarea:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px var(--color-primary-soft); }
+  .blog-input-panel .form-card .btn { margin-top: var(--space-2); }
+  .blog-input-panel .form-card .msg { font-size: var(--text-sm); min-height: 1.2em; color: var(--color-text-muted); }
+  .blog-input-panel .form-card .msg.ok { color: var(--color-primary); }
+  .blog-input-panel .form-card .fineprint { font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-5); text-align: center; }
 </style>
 <script defer data-domain="limesignalworks.com" src="https://plausible.io/js/script.js"></script>
 </head>
@@ -724,13 +843,15 @@
 <header>
   <div class="wrap hdr">
     <a class="brand" href="index.html" aria-label="LIME Signalworks LLC home">
-      <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <g class="beam-sweep"><path d="M62 46 L118 22 L118 70 L62 58 Z" fill="var(--color-primary)" opacity="0.16"/><path d="M62 46 L6 22 L6 70 L62 58 Z" fill="var(--color-beam)" opacity="0.12"/></g>
-        <path d="M62 18 L72 30 L72 36 L66 36 L66 52 L70 52 L70 104 L54 104 L54 52 L58 52 L58 36 L52 36 L52 30 Z" fill="var(--color-text)"/>
-        <rect x="50" y="100" width="24" height="6" rx="2" fill="var(--color-text)"/>
-        <circle cx="62" cy="42" r="7" fill="var(--color-primary)"/><circle cx="62" cy="42" r="3" fill="var(--color-bg)"/>
-      </svg>
-      <span class="word">LIME&nbsp;<b>Signalworks LLC</b></span>
+      <!-- Rotating lighthouse mark, per Noal 2026-07-20: swapped in for the
+           static SVG icon. Sized to match the header button height (38px)
+           so it sits tight and level with the rest of the header row,
+           rather than towering over it like the old icon did. Muted/loop/
+           playsinline so it autoplays inline without sound or controls. -->
+      <span class="brand-mark-wrap">
+        <video class="brand-mark" src="assets/brand/lighthouse-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+      </span>
+      <span class="word">LIME<br><b>Signalworks</b><br><b>LLC</b></span>
     </a>
     <!-- Harbor visitor counter, moved into the header per Noal (2026-07-19).
          Was a fixed bottom-right badge; now inline next to the brand so it's
@@ -740,11 +861,11 @@
     <div class="hdr-presence">
       <span id="wg-live-badge" class="wg-badge wg-badge-live" aria-live="polite">
         <span class="wg-dot wg-dot-live"></span>
-        <span id="wg-live-text">checking who's here....</span>
+        <span id="wg-live-text">who's here....</span>
       </span>
       <span id="wg-badge" class="wg-badge" aria-live="polite">
         <span class="wg-dot"></span>
-        <span id="wg-count-text">along the Rosy Way........</span>
+        <span id="wg-count-text">the Rosy Way........</span>
       </span>
     </div>
     <!-- Theme toggle + Blog: own stack, sits between the presence meters
@@ -808,6 +929,49 @@
     <p class="part-title" id="part-i-title">Precision Accurate Automated Investing</p>
     <p class="part-subtitle"><a class="part-subtitle-link" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">AI-Assisted Investing Strategies and Tactics</a></p>
   </div>
+
+  <!-- Duplicate of the Begin/Subscribe page input panel, ported over from
+       blog/index.html's copy (itself a duplicate of subscribe/index.html),
+       per Noal 2026-07-20. Same form-card markup/styling verbatim, dropped
+       in right below the Part I title/subtitle, same relative position as
+       the blog page's copy sits below its own title/subtitle. Not yet wired
+       to a backend anywhere on the site -- matches the existing behavior of
+       both the blog and subscribe copies. -->
+  <div class="blog-input-panel">
+    <div class="form-card">
+      <form id="homeSubForm" novalidate>
+        <div class="row">
+          <div><label for="homeName">First name</label><input id="homeName" name="name" type="text" placeholder="Your name" required></div>
+          <div><label for="homeEmail">Email</label><input id="homeEmail" name="email" type="email" placeholder="you@example.com" required></div>
+        </div>
+        <div><label for="homeNote">What brings you to the harbor? <span style="text-transform:none;font-weight:400;color:var(--color-text-faint);">(optional)</span></label><textarea id="homeNote" name="note" placeholder="A line about where you are and what you're looking for."></textarea></div>
+        <button class="btn" type="submit" id="homeSubBtn">Begin &rarr;</button>
+        <p class="msg" id="homeSubMsg"></p>
+      </form>
+      <p class="fineprint">Your details are used only to start your Harbor Member access. No sharing, no spam, unsubscribe anytime. The ninety-day promise applies.</p>
+    </div>
+  </div>
+
+  <!-- Part I body (Introduction + Chapters I-III + Conclusion) collapsed
+       into one master toggle, per Noal 2026-07-20 ~3:54pm: the Part I
+       label/title/subtitle above stays permanently visible and untouched,
+       everything below is one click-to-open cell now instead of five
+       separately-visible sections. Test case -- if this holds, the same
+       wrapper goes on Parts II, III, IV. Carries data-stay-open="true"
+       on all four (per Noal 2026-07-20 ~4:04pm bug fix): the site's
+       existing "scroll opened section to top" script plus
+       accordion-hover.js's close-on-mouseleave combine to auto-close any
+       details element that opens far down the page -- the scroll itself
+       moves the content out from under a stationary cursor, which reads
+       as a genuine mouseleave and slams it shut again within ~200ms.
+       Confirmed on Parts II-IV before this fix; Part I happened to sit
+       high enough on the page to dodge it. data-stay-open is the site's
+       own existing opt-out (already used by the Psalms in Blues panel)
+       -- clicking still opens/closes normally, it just stops the
+       automatic mouseleave-close. -->
+  <details class="collapsible part-block-toggle" id="part-i-block" data-stay-open="true">
+    <summary class="sec-bar part-block-summary"><div class="chapter-num">Part I</div><h2>Read Introduction, Chapters I&ndash;III &amp; Conclusion</h2></summary>
+    <div class="sec-body part-block-body">
 
   <section class="keeper-hero">
     <div class="wrap">
@@ -1009,6 +1173,9 @@
     </div>
   </section>
 
+    </div>
+  </details>
+
   <!-- Companion Widget -- front-page blog teaser, per Noal 2026-07-19:
        circular AI-generated portrait, three thin gold rings turning on a
        loop, gold dust falling, and a thought box set directly over the
@@ -1095,6 +1262,14 @@
       </details>
     </div>
   </section>
+
+  <!-- Part II body (Introduction + Chapters I-III + Conclusion) collapsed
+       into one master toggle, per Noal 2026-07-20 ~4:04pm -- same pattern
+       as Part I. Founder's introduction above stays outside/untouched
+       (it's explicitly not one of the numbered chapters). -->
+  <details class="collapsible part-block-toggle" id="part-ii-block" data-stay-open="true">
+    <summary class="sec-bar part-block-summary"><div class="chapter-num">Part II</div><h2>Read Introduction, Chapters I&ndash;III &amp; Conclusion</h2></summary>
+    <div class="sec-body part-block-body">
 
   <section class="book-intro-section">
     <div class="wrap">
@@ -1319,7 +1494,15 @@
       </details>
     </div>
   </section>
-</main>
+
+  <!-- Stray </main> found here per Noal 2026-07-20 ~4:04pm cleanup pass --
+       this tag had been sitting in the middle of Part II (right after the
+       Fire Protocol chapter) since before this session, closing <main>
+       many hundreds of lines early and silently swallowing everything
+       after it -- Conclusion, all of Part III/IV, the footer content --
+       as orphaned children outside <main>. Moved to the true end of the
+       page content, right before the trailing scripts. This was very
+       likely one of the "ghost" artifacts Noal flagged. -->
 
 <!-- Conclusion -- content from Noal, 2026-07-17. -->
 <section class="conclusion-section">
@@ -1347,6 +1530,9 @@
 </details>
   </div>
 </section>
+
+    </div>
+  </details>
 
 <!-- Part C: The LIME Universe Bridge. Structure only for now -- content is
      still being drafted and reviewed in Noal's own Google Doc ("Part C --
@@ -1395,6 +1581,15 @@
     </figure>
   </div>
 </details>
+
+<!-- Part III body (Introduction + Chapters I-III + Conclusion + the
+     Declaration/Psalms cell) collapsed into one master toggle, per Noal
+     2026-07-20 ~4:04pm -- same pattern as Part I/II. The bridge-reveal
+     details right above (Part III's own name/title + bridge scene) stays
+     outside/untouched -- it's this Part's part-label equivalent. -->
+<details class="collapsible part-block-toggle" id="part-iii-block" data-stay-open="true">
+  <summary class="sec-bar part-block-summary"><div class="chapter-num">Part III</div><h2>Read Introduction, Chapters I&ndash;III, Conclusion &amp; Declaration</h2></summary>
+  <div class="sec-body part-block-body">
 
 <section class="part-c-section">
       <div class="wrap">
@@ -1531,7 +1726,7 @@
              YouTube's playlist param + loop=1, until the viewer pauses
              it manually. Song IDs found via web search, 2026-07-19. -->
         <details class="collapsible" data-stay-open="true">
-          <summary class="sec-bar"><div class="chapter-num">Chapter 1</div><h2>Psalms in Blues</h2></summary>
+          <summary class="sec-bar"><div class="chapter-num">Chapter IV</div><h2>Psalms in Blues</h2></summary>
           <div class="sec-body">
             <div class="video-embed">
               <iframe src="https://www.youtube.com/embed/1UItx9upywQ?playlist=1UItx9upywQ,6Tv03z6iDKY,vmSRP0s_53g,I6v6IgfPOlE,ehA6Oj7D0jY&loop=1&autoplay=1" title="Psalms in Blues rotation &mdash; RIVERS AND REVIVAL" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
@@ -1575,6 +1770,9 @@
       </div>
     </section>
 
+  </div>
+</details>
+
     <!-- Part IV -- A Salute to the World, per Noal 2026-07-19: same
          collapsible sec-bar/chapter-num behavior as Parts I-III (native
          <details>, site-wide rollover-closes-on-mouse-leave via
@@ -1601,6 +1799,14 @@
         </details>
       </div>
     </div>
+
+    <!-- Part IV body (Introduction + Chapters I-III + Conclusion + the
+         closing Declaration) collapsed into one master toggle, per Noal
+         2026-07-20 ~4:04pm -- same pattern as Parts I-III. The part-label
+         above (name/title + Anchor Point pill) stays outside/untouched. -->
+    <details class="collapsible part-block-toggle" id="part-iv-block" data-stay-open="true">
+      <summary class="sec-bar part-block-summary"><div class="chapter-num">Part IV</div><h2>Read Introduction, Chapters I&ndash;III, Conclusion &amp; Declaration</h2></summary>
+      <div class="sec-body part-block-body">
 
     <section class="part-c-section">
       <div class="wrap">
@@ -1765,6 +1971,9 @@
       </div>
     </section>
 
+      </div>
+    </details>
+
     <!-- The Rosy Way, in bloom -- moved outside the collapsible per Noal
          2026-07-19 (was hidden inside the collapsed "A Salute to the
          World" section, not visible without a click). Always visible now,
@@ -1780,6 +1989,24 @@
       Your true purpose finds you &mdash; and it amplifies you.<br>
       You've reached the end of the harbor &mdash; for now.</p>
     </div>
+
+    <!-- Former static lighthouse mark, retired from the header per Noal
+         2026-07-20 in favor of the animated video mark above -- given a
+         second life here instead of deleting it: its own line at the true
+         end of the page, standard outline-button treatment (border/color
+         var(--color-primary), fills solid green on hover, same pattern as
+         every other CTA in the header), linking straight to the Rosie demo. -->
+    <div class="lighthouse-footer-anchor">
+      <a class="icon-btn lighthouse-footer-link" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener" aria-label="Open the Rosie AI Trading Assistant demo">
+        <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+          <g class="beam-sweep"><path d="M62 46 L118 22 L118 70 L62 58 Z" fill="var(--color-primary)" opacity="0.16"/><path d="M62 46 L6 22 L6 70 L62 58 Z" fill="var(--color-beam)" opacity="0.12"/></g>
+          <path d="M62 18 L72 30 L72 36 L66 36 L66 52 L70 52 L70 104 L54 104 L54 52 L58 52 L58 36 L52 36 L52 30 Z" fill="currentColor"/>
+          <rect x="50" y="100" width="24" height="6" rx="2" fill="currentColor"/>
+          <circle cx="62" cy="42" r="7" fill="var(--color-primary)"/><circle cx="62" cy="42" r="3" fill="var(--color-bg)"/>
+        </svg>
+      </a>
+    </div>
+</main>
 
 <script>
 
@@ -1852,6 +2079,21 @@
     return { left: r.left + padLeft, right: r.right - padRight };
   }
 
+  // Keeps the speech bubble on-screen -- the bubble (160-220px) is wider
+  // than the flame icon (32-44px) it's centered on, so clamping only the
+  // icon against textColumnBounds() still let the bubble clip off the
+  // right edge on narrow phones. This clamps the icon's left position so
+  // the bubble's own edges stay inside the viewport, with a small margin.
+  function emberSafeLeft(desiredLeft) {
+    var emberW = ember.offsetWidth || 44;
+    var bubbleW = bubble.offsetWidth || 220;
+    var margin = 8;
+    var half = bubbleW / 2;
+    var center = desiredLeft + emberW / 2;
+    center = Math.max(half + margin, Math.min(window.innerWidth - half - margin, center));
+    return center - emberW / 2;
+  }
+
   // Section-specific words — keyed to section id or class
   var sectionWords = {
     'keeper-hero':   'The promise is plain. No honest system guarantees results.',
@@ -1904,7 +2146,7 @@
     var targetLeft = Math.max(bounds.left, Math.min(bounds.right - 64, rect.right + gap));
     ember.style.top = targetTop + 'px';
     ember.style.bottom = 'auto';
-    ember.style.left = targetLeft + 'px';
+    ember.style.left = emberSafeLeft(targetLeft) + 'px';
     if (!shown) {
       shown = true;
       ember.classList.add('shown');
@@ -2036,7 +2278,7 @@
         var minLeft = bounds.left, maxLeft = bounds.right - 44;
         ember.style.top = (minTop + Math.random() * (maxTop - minTop)) + 'px';
         ember.style.bottom = 'auto';
-        ember.style.left = (minLeft + Math.random() * Math.max(40, maxLeft - minLeft)) + 'px';
+        ember.style.left = emberSafeLeft(minLeft + Math.random() * Math.max(40, maxLeft - minLeft)) + 'px';
         say();
       }
       wander();
@@ -2052,7 +2294,7 @@
     var bounds = textColumnBounds();
     ember.style.top = (window.innerHeight / 2) + 'px';
     ember.style.bottom = 'auto';
-    ember.style.left = (bounds.right - 44) + 'px';
+    ember.style.left = emberSafeLeft(bounds.right - 44) + 'px';
     ember.classList.add('shown');
     setTimeout(say, 1400);
   }
@@ -2142,7 +2384,7 @@
   }
 
   function setCountText(n){
-    countText.textContent = fmtCount(n) + ' along the Rosy Way';
+    countText.textContent = fmtCount(n) + ' the Rosy Way';
   }
 
   function setLiveText(n){

@@ -99,6 +99,7 @@
      Do not change again without Noal confirming directly in a session
      that can see this comment. */
   .brand svg { width: calc(var(--text-2xl) * 2.5); height: calc(var(--text-2xl) * 2.5); flex-shrink: 0; }
+  .brand-mark { height: 38px; width: 38px; object-fit: cover; border-radius: var(--radius-full); flex-shrink: 0; border: 1px solid var(--color-border); }
   /* Stepped down one tick (--text-xl -> --text-lg), per Noal 2026-07-20
      ~9:38am, direct confirmation superseding the 2026-07-19 "do not change
      without confirming" note above. Icon stays pinned to --text-2xl,
@@ -234,12 +235,7 @@
 <header>
   <div class="wrap hdr">
     <a class="brand" href="../index.html" aria-label="LIME Signalworks LLC home">
-      <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <g class="beam-sweep"><path d="M62 46 L118 22 L118 70 L62 58 Z" fill="var(--color-primary)" opacity="0.16"/><path d="M62 46 L6 22 L6 70 L62 58 Z" fill="var(--color-beam)" opacity="0.12"/></g>
-        <path d="M62 18 L72 30 L72 36 L66 36 L66 52 L70 52 L70 104 L54 104 L54 52 L58 52 L58 36 L52 36 L52 30 Z" fill="var(--color-text)"/>
-        <rect x="50" y="100" width="24" height="6" rx="2" fill="var(--color-text)"/>
-        <circle cx="62" cy="42" r="7" fill="var(--color-primary)"/><circle cx="62" cy="42" r="3" fill="var(--color-bg)"/>
-      </svg>
+      <video class="brand-mark" src="../assets/brand/lighthouse-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
       <span class="word">LIME&nbsp;<b>Signalworks LLC</b></span>
     </a>
     <!-- Harbor visitor counter, moved into the header per Noal (2026-07-19).
