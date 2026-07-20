@@ -140,9 +140,14 @@
      Noal 2026-07-20 ~9:50am ("remove any junk code"). .hdr-presence,
      .hdr-utility, and .hdr-controls are now plain siblings in .hdr, all
      spaced by the same single --space-3 gap above. Simpler, same result. */
-  .hdr-utility { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); }
+  /* Spread to match the meters per Noal, 2026-07-20 ~12:10pm: same
+     stretch + space-between treatment -- theme toggle pinned to the top
+     of the row, Blog to the bottom, all three pairs floating in the same
+     horizontal band. */
+  .hdr-utility { display: flex; flex-direction: column; align-items: center; justify-content: space-between; align-self: stretch; gap: var(--space-3); }
   /* Rosie CTA pair: own stack, per Noal 2026-07-20 ~9:40am. */
-  .hdr-controls { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); }
+  /* Spread to match the meters per Noal, 2026-07-20 ~12:10pm. */
+  .hdr-controls { display: flex; flex-direction: column; align-items: center; justify-content: space-between; align-self: stretch; gap: var(--space-3); }
   /* Explicit sizing per Noal, 2026-07-20 ~9:31am: the theme button had no
      size of its own -- it only looked right before because the old 2x2
      grid's stretch behavior forced it to match the CTA button's height and
