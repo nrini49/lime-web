@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T14:24:24.262404+00:00",
+  "generated_at": "2026-07-20T16:19:30.691386+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "27bfc5a",
-          "message": "Part I: title to 'Accurate Precise Automated Investing', subtitle to 'AI-Assisted Investing Platform'",
+          "sha": "c79f83c",
+          "message": "Header: applied the same stretch + top/bottom spread to theme+Blog and Rosie CTA pairs, matching the meters",
           "author": "Perplexity Computer",
-          "date": "2026-07-20T14:24:02Z"
+          "date": "2026-07-20T16:11:28Z"
         },
         {
-          "sha": "926a55e",
-          "message": "Part IV: fill Chapter I-III and Conclusion with real content (Why I'm Doing This, One Message Six Voices, Reaching Further, One Gate Three R",
+          "sha": "c4493a0",
+          "message": "Header: presence meters now stretch to full row height, first badge pinned to top, second to bottom",
           "author": "Perplexity Computer",
-          "date": "2026-07-20T14:12:27Z"
+          "date": "2026-07-20T16:09:52Z"
         },
         {
-          "sha": "6317c66",
-          "message": "Part IV: add Chapter I/II/III + Conclusion placeholders (Coming Soon), matching the 5-element shape of Parts I-III. Declaration stays as-is ",
+          "sha": "468cc55",
+          "message": "Header: increased vertical gap between each stacked pair (meters, theme+Blog, Rosie CTAs) from ~8px to 12px",
           "author": "Perplexity Computer",
-          "date": "2026-07-20T14:06:37Z"
+          "date": "2026-07-20T16:07:55Z"
         },
         {
-          "sha": "0479d9e",
-          "message": "Part I title: caps 'Precision Accurate Investing', new 'AI-Assisted Platform' subtitle linking to Rosie Live (new tab), sized to match The B",
+          "sha": "9130134",
+          "message": "Header: added 1 more dot to 'checking who's here' (rebalanced 'along the Rosy Way' to match), Rosie CTA font matched exactly to Blog (family",
           "author": "Perplexity Computer",
-          "date": "2026-07-20T14:02:39Z"
+          "date": "2026-07-20T16:00:11Z"
         },
         {
-          "sha": "8ed909e",
-          "message": "Header: stack presence meters vertically to match theme+Blog and Rosie stacks",
+          "sha": "c3e6059",
+          "message": "Header: matched the two presence meters to equal width via trailing dots (min 3), matched theme toggle + Blog buttons to equal 70px width",
           "author": "Perplexity Computer",
-          "date": "2026-07-20T13:57:29Z"
+          "date": "2026-07-20T15:53:40Z"
         }
       ]
     },
