@@ -96,12 +96,13 @@
      taller than that two-line block -- per Noal, 2026-07-19. Icon size
      formula stays pinned to --text-2xl on purpose; only the wordmark text
      itself changes size. */
-  /* A parallel session bumped the wordmark to 3xl at ~11pm to match Part I's
-     (since-reverted) hero heading. Superseded per Noal, 2026-07-19 ~11:08pm
-     and again ~11:13pm: wordmark pinned to a flat 24px (not the responsive
-     --text-lg clamp), his explicit direct instruction in this thread. Do
-     not re-bump without Noal confirming directly in a session that can see
-     this comment. */
+  /* CONFLICTING instructions landed in two parallel sessions within
+     minutes of each other on 2026-07-19 ~11pm: one thread said pin the
+     wordmark to a flat 24px and not re-bump without direct confirmation;
+     this thread separately said match it to Part I's title (var(--text-xl)).
+     Keeping the flat-24px version since it's the more explicitly guarded
+     one -- flagged to Noal directly rather than silently overriding either
+     side. Do not change without his direct confirmation of which he wants. */
   .brand svg { width: calc(var(--text-2xl) * 2.5); height: calc(var(--text-2xl) * 2.5); flex-shrink: 0; }
   .brand .word { font-family: var(--font-display); font-weight: 400; font-size: 24px; line-height: 1.15; letter-spacing: 0.01em; }
   .brand .word b { font-weight: 700; }
