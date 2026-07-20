@@ -628,7 +628,10 @@
      "when somebody rolls over" literally. Closes automatically on mouse
      leave since it's just :hover, no JS needed. */
   .interp-note { position: relative; display: inline-flex; align-items: center; justify-content: center; margin-left: var(--space-3); padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); vertical-align: middle; }
-  .interp-note .interp-note-kicker { font-family: var(--font-display); font-weight: 700; font-size: var(--text-sm); color: var(--color-primary); white-space: nowrap; }
+  /* Font matched to the Rosie CTA buttons (.ibkr-demo-cta/.buy-rosie-cta),
+     per Noal 2026-07-20 ~11:29am: same family, same 0.65rem size, same
+     uppercase treatment. */
+  .interp-note .interp-note-kicker { font-family: var(--font-display); font-weight: 700; font-size: 0.65rem; text-transform: uppercase; color: var(--color-primary); white-space: nowrap; }
   /* Anchored right (not left, like .ap-body) since this pill sits at the
      end of a long heading line -- a left-anchored 560px panel would run
      off the viewport's right edge. Right-anchoring keeps it on-screen. */
