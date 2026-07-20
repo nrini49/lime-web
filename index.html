@@ -128,11 +128,16 @@
      Do not change again without Noal confirming directly in a session
      that can see this comment. */
   .brand svg { width: calc(var(--text-2xl) * 2.5); height: calc(var(--text-2xl) * 2.5); flex-shrink: 0; }
-  .brand-mark { height: 200px; width: 200px; object-fit: cover; border-radius: var(--radius-full); flex-shrink: 0; border: 1px solid var(--color-border); }
-  /* On narrow screens the full 3x size crowds the wordmark and pushes the
-     theme/blog controls off-screen -- scale down so the header still fits
-     in one row, per visual QA on 2026-07-20. */
-  @media (max-width: 560px) { .brand-mark { height: 90px; width: 90px; } }
+  /* True circle (border-radius:var(--radius-full) was a dead reference --
+     that token was never defined, so it was silently rendering as a hard
+     rectangle). Edge fades to transparent via mask-image instead of a
+     hard border, same radial-fade technique as .cw-portrait elsewhere on
+     this page, per Noal 2026-07-20: "fade the edges way out." Sized down
+     a step from the 200px test (160px) so it reads as a mark, not a
+     rectangle pretending to be a circle -- wordmark stays fully clear
+     next to it at this size. */
+  .brand-mark { height: 160px; width: 160px; object-fit: cover; border-radius: 50%; flex-shrink: 0; -webkit-mask-image: radial-gradient(circle, #000 55%, rgba(0,0,0,.65) 68%, rgba(0,0,0,.25) 85%, transparent 100%); mask-image: radial-gradient(circle, #000 55%, rgba(0,0,0,.65) 68%, rgba(0,0,0,.25) 85%, transparent 100%); }
+  @media (max-width: 560px) { .brand-mark { height: 76px; width: 76px; } }
   /* Stepped down one tick (--text-xl -> --text-lg), per Noal 2026-07-20
      ~9:38am, direct confirmation superseding the 2026-07-19 "do not change
      without confirming" note above. Icon stays pinned to --text-2xl,
