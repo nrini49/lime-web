@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T08:13:22.737694+00:00",
+  "generated_at": "2026-07-20T10:16:48.765347+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "3c7fdcb",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-20T08:13:31Z"
+        },
+        {
           "sha": "86213d1",
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Center the bottom-of-page caption block instead of full-justify",
           "author": "Plex",
           "date": "2026-07-20T03:51:35Z"
-        },
-        {
-          "sha": "b10b922",
-          "message": "Bottom-of-page caption: match Noal's exact 3-line break formatting",
-          "author": "Plex",
-          "date": "2026-07-20T03:47:35Z"
         }
       ]
     },
