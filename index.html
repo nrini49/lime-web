@@ -97,12 +97,13 @@
      formula stays pinned to --text-2xl on purpose; only the wordmark text
      itself changes size. */
   /* A parallel session bumped the wordmark to 3xl at ~11pm to match Part I's
-     (since-reverted) hero heading. Superseded per Noal, 2026-07-19 ~11:08pm:
-     wordmark now reduced two steps down (2xl -> lg), his explicit direct
-     instruction in this thread. Do not re-bump without Noal confirming
-     directly in a session that can see this comment. */
+     (since-reverted) hero heading. Superseded per Noal, 2026-07-19 ~11:08pm
+     and again ~11:13pm: wordmark pinned to a flat 24px (not the responsive
+     --text-lg clamp), his explicit direct instruction in this thread. Do
+     not re-bump without Noal confirming directly in a session that can see
+     this comment. */
   .brand svg { width: calc(var(--text-2xl) * 2.5); height: calc(var(--text-2xl) * 2.5); flex-shrink: 0; }
-  .brand .word { font-family: var(--font-display); font-weight: 400; font-size: var(--text-lg); line-height: 1.15; letter-spacing: 0.01em; }
+  .brand .word { font-family: var(--font-display); font-weight: 400; font-size: 24px; line-height: 1.15; letter-spacing: 0.01em; }
   .brand .word b { font-weight: 700; }
   .brand:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
   /* No margin-left:auto -- brand, presence pills, and header tools now share
