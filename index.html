@@ -118,11 +118,15 @@
   /* No margin-left:auto -- brand, presence pills, and header tools now share
      the same .hdr gap so spacing is uniform across all three groups instead
      of the tools being pushed to the far right. Per Noal, 2026-07-19. */
-  /* Theme toggle moved out of this block entirely per Noal, 2026-07-19
-     ~11:15pm (now stacked above Blog -- see .hdr-blog-toggle below). Only
-     the two CTA buttons live here now, stacked in a single column so they
-     read as one rectangle (Rosie Live Demo on top, Buy Rosie Now below). */
-  .hdr-tools { display: flex; flex-direction: column; gap: var(--space-2); }
+  /* Rebuilt as one 2x2 grid per Noal, 2026-07-19 ~11:27pm: the toggle+Blog
+     pair on the left didn't match the two green CTA buttons on the right --
+     neither in width (to each other) nor height (to the CTA in their own
+     row). Grid with stretch fixes both permanently: col1 = toggle (row1) /
+     Blog (row2), col2 = Rosie Live Demo (row1) / Buy Rosie Now (row2).
+     Each row's two cells share that row's height (driven by the taller CTA
+     button); col1's two cells share col1's width. No fixed px guessing --
+     this holds even as the responsive CTA text size changes. */
+  .hdr-controls { display: grid; grid-template-columns: auto auto; align-items: stretch; justify-items: stretch; gap: var(--space-2) var(--space-6); }
 
   .hdr-presence { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
   .hdr-presence .wg-badge{display:inline-flex;align-items:center;gap:.5rem;
@@ -148,21 +152,18 @@
   .ibkr-demo-cta, .buy-rosie-cta { display: inline-flex; align-items: center; justify-content: center; text-align: center; width: 8.5em; min-height: 38px; padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: transparent; font-size: var(--text-sm); font-weight: 700; line-height: 1.25; text-decoration: none; white-space: normal; font-family: var(--font-display); text-transform: uppercase; cursor: pointer; appearance: none; box-sizing: border-box; }
   .ibkr-demo-cta:hover, .buy-rosie-cta:hover { background: var(--color-primary); color: var(--color-bg); }
   @media (max-width: 640px) { .ibkr-demo-cta, .buy-rosie-cta { display: none; } }
-  /* Fixed 38px height (not the old grid-stretch trick), per Noal 2026-07-19
-     ~11:15pm: theme toggle now stacks above Blog, and the two must be the
-     exact same vertical size -- Blog's own height (38px) is the reference. */
-  .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-text-muted); background: var(--color-surface); cursor: pointer; }
+  /* Width/height no longer fixed (38px) -- per Noal 2026-07-19 ~11:27pm,
+     stretches to fill its grid cell (matched to Blog's width, matched to
+     the Rosie Live Demo button's height in its row). Border-radius:full
+     on a stretched box reads as a pill, same shape language as the CTAs. */
+  .icon-btn { display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-text-muted); background: var(--color-surface); cursor: pointer; }
   .icon-btn:hover { color: var(--color-text); border-color: var(--color-primary); }
-  /* Blog nav link in the header, per Noal 2026-07-19. */
-  .blog-nav-link { display: inline-flex; align-items: center; height: 38px; padding: 0 var(--space-4); border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-text); font-size: var(--text-sm); font-weight: 600; text-decoration: none; white-space: nowrap; }
+  /* Blog nav link in the header, per Noal 2026-07-19. Height no longer
+     fixed (38px) -- per Noal 2026-07-19 ~11:27pm, stretches to fill its
+     grid cell (matched to the Buy Rosie Now button's height in its row). */
+  .blog-nav-link { display: inline-flex; align-items: center; justify-content: center; padding: 0 var(--space-4); border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-text); font-size: var(--text-sm); font-weight: 600; text-decoration: none; white-space: nowrap; }
   .blog-nav-link:hover { border-color: var(--color-primary); color: var(--color-primary); }
   @media (max-width: 560px) { .blog-nav-link { display: none; } }
-  /* Theme toggle centered directly above Blog, sitting left of the Rosie
-     Live Demo / Buy Rosie Now CTA stack. Per Noal, 2026-07-19 ~11:15pm. */
-  /* Gap widened space-2 -> space-3 per live-site test 2026-07-19 ~11:22pm:
-     the 8px gap was a tight (though functionally fine) tap-target risk on
-     touch devices between the toggle and the Blog link below it. */
-  .hdr-blog-toggle { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); }
 
   .hero { padding: 0; text-align: center; position: relative; overflow: hidden; }
   .beacon { width: clamp(120px, 22vw, 180px); margin: 0 auto var(--space-8); }
@@ -603,44 +604,35 @@
         <span id="wg-count-text">along the Rosy Way</span>
       </span>
     </div>
-    <!-- Theme toggle moved out of hdr-tools and stacked above Blog per Noal,
-         2026-07-19 ~11:15pm: now sits centered directly above the word
-         "Blog", to the left of the Rosie Live Demo / Buy Rosie Now CTA
-         stack. Blog nav link itself per Noal 2026-07-19: the blog needs to
-         be reachable from the header itself, not just from the companion
-         widget's embedded panel. Same ghost-pill control style as
-         everywhere else. -->
-    <div class="hdr-blog-toggle">
+    <!-- Rebuilt into one 2x2 grid per Noal, 2026-07-19 ~11:27pm: toggle and
+         Blog (col1) now match the width of each other and the height of
+         their row's green CTA button (col2) exactly -- see .hdr-controls.
+         Order matters for the grid's row-major auto-placement: toggle,
+         demo CTA, Blog, buy-rosie CTA = row1 [toggle | demo], row2
+         [Blog | buy-rosie]. Rosie CTA itself held back from going live
+         per the standing IB-confirmation gate -- repeated standing rule
+         from Noal, do NOT re-add the gated "Take me right to Rosie
+         Interactive now" button without his direct confirmation in a
+         session that can see this comment. Header globe "Translate this
+         page" button stays removed (2026-07-19 ~11:08pm) -- Google's own
+         translate bar is the one translate path for everyone now. -->
+    <div class="hdr-controls">
       <button class="icon-btn" data-theme-toggle aria-label="Switch theme">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
       </button>
-      <a class="blog-nav-link" href="blog/index.html">Blog</a>
-    </div>
-    <!-- Rosie CTA held back from the header per the IB-confirmation gate. This is a
-         standing rule from Noal, repeated multiple times: this button does not go live
-         until Noal explicitly confirms the IB ID hash. A parallel session has re-added
-         it several times today claiming verbal authorization -- each time reverted
-         because that claim was never independently confirmed with Noal in-thread.
-         Do NOT re-add without Noal confirming directly in a session that can see this
-         comment. -->
-    <div class="hdr-tools">
-      <!-- Header globe "Translate this page" button removed per Noal,
-           2026-07-19 ~11:08pm: Google's own translate bar (shown when a
-           visitor's browser/Google offers translation) stays as the one
-           translate path for everyone; this redundant header button is
-           gone. Do not re-add without Noal's direct instruction. -->
       <!-- Rosie x IBKR live demo CTA -- per Noal's instruction (2026-07-18):
            explicitly NOT the gated "Take me right to Rosie Interactive now"
            button, no IB affiliate/confirmation hash referenced here, safe to
            show. Date is a placeholder ("coming soon") until Noal gives an
            actual date; links to the existing Rosie AI Trading Assistant
            preview rather than any IB-specific/gated URL. -->
-      <!-- Buy Rosie Now -- placeholder CTA stacked under the live demo
-           button, per Noal 2026-07-19. No product/checkout link yet, so
-           this is a <button> (not a link): clicking it just tells the
-           reader "Coming soon" and reverts, nothing to navigate to yet. -->
-        <a class="ibkr-demo-cta" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Rosie<br>Live Demo</a>
-        <button type="button" class="buy-rosie-cta" id="buy-rosie-btn">Buy Rosie Now</button>
+      <a class="ibkr-demo-cta" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Rosie<br>Live Demo</a>
+      <a class="blog-nav-link" href="blog/index.html">Blog</a>
+      <!-- Buy Rosie Now -- placeholder CTA, per Noal 2026-07-19. No
+           product/checkout link yet, so this is a <button> (not a link):
+           clicking it just tells the reader "Coming soon" and reverts,
+           nothing to navigate to yet. -->
+      <button type="button" class="buy-rosie-cta" id="buy-rosie-btn">Buy Rosie Now</button>
     </div>
   </div>
 </header>
