@@ -339,6 +339,11 @@
   .part-label.top-space { margin-top: var(--space-10); }
   .part-label .part-name { font-family: var(--font-body); font-size: var(--text-xl); letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-primary); font-weight: 700; margin: 0; }
   .part-label .part-title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; color: var(--color-text); margin: var(--space-1) 0 0; }
+  /* Per Noal 2026-07-19 ~11pm: the very first heading on the page,
+     bumped two steps larger than every other Part's title (xl -> 3xl),
+     so it reads as the page's own headline rather than matching the
+     size used for Part II/III/IV. */
+  .part-title-hero { font-size: var(--text-3xl) !important; }
   .part-label .part-attribution { font-family: var(--font-display); font-size: var(--text-base); font-style: italic; color: var(--color-text-muted); margin: var(--space-1) 0 0; }
   .part-label.pending { opacity: 0.7; }
   .part-label.pending .part-title::after { content: " \2014 in progress"; font-style: italic; font-size: var(--text-base); color: var(--color-text-faint); }
@@ -637,7 +642,7 @@
        every other Part transition. -->
   <div class="part-label">
     <p class="part-name">Part I</p>
-    <p class="part-title">Precision Accurate AI Assisted Investing Platform</p>
+    <p class="part-title part-title-hero">Precision Accurate AI Assisted Investing Platform</p>
   </div>
 
   <section class="keeper-hero">
