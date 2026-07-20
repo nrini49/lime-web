@@ -529,6 +529,9 @@
   /* Bolded per Noal 2026-07-20 ~12:51pm: all green text should be bold. */
   .part-label .part-subtitle-link { font-family: var(--font-display); font-size: var(--text-base); font-weight: 700; color: var(--color-primary); text-decoration: none; }
   .part-label .part-subtitle-link:hover { text-decoration: underline; text-underline-offset: 2px; }
+  /* Per Noal 2026-07-20 ~5:54pm: first letter of each word enlarged, only
+     on this one subtitle ("AI-Assisted Investing Strategies and Tactics"). */
+  .part-subtitle-link .drop-cap { font-size: 1.4em; line-height: 1; }
   /* Reverted per Noal, 2026-07-19 ~11:08pm: the earlier 3xl bump broke
      visual consistency with Part II/III. Hero title now matches every
      other Part's title size again (plain .part-title xl). */
@@ -546,17 +549,21 @@
      matching the header's own small pill buttons exactly (same values as
      .blog-nav-link below) instead of the page-width sec-bar treatment. */
   .part-block-toggle { max-width: 1080px; margin: 0 auto; padding: var(--space-2) var(--space-6) 0; }
+  /* Now a plain standalone line, not a pill -- per Noal 2026-07-20 ~5:54pm.
+     Font matched to .part-subtitle-link ("AI-Assisted Investing..."):
+     var(--font-display)/var(--text-base)/700, instead of its own
+     var(--font-body)/var(--text-sm). */
   .part-block-toggle > summary.part-block-summary {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: auto; max-width: none; min-height: 38px; grid-template-columns: none;
-    padding: 0 var(--space-4); margin: 0; gap: var(--space-2);
-    border-radius: var(--radius-full); border: none;
-    background: var(--color-surface); color: var(--color-primary);
-    font-family: var(--font-body); font-size: var(--text-sm); font-weight: 700;
+    display: inline-flex; align-items: baseline; justify-content: flex-start;
+    width: auto; max-width: none; min-height: 0; grid-template-columns: none;
+    padding: var(--space-1) 0; margin: 0; gap: var(--space-2);
+    border-radius: 0; border: none;
+    background: transparent; color: var(--color-primary);
+    font-family: var(--font-display); font-size: var(--text-base); font-weight: 700;
     text-decoration: none; cursor: pointer;
   }
   .part-block-toggle > summary.part-block-summary:hover {
-    background: var(--color-primary); border-color: var(--color-primary); color: var(--color-bg);
+    text-decoration: underline; text-underline-offset: 3px;
   }
   /* Explicit override, needed because a more specific site-wide rule
      (details.collapsible > summary:hover h2) was forcing the label green
@@ -565,7 +572,7 @@
      ~4:51pm bug catch. */
   .part-block-toggle > summary.part-block-summary:hover h2,
   .part-block-toggle > summary.part-block-summary:hover .chapter-num {
-    color: var(--color-bg);
+    color: var(--color-primary);
   }
   .part-block-toggle > summary.part-block-summary .chapter-num,
   .part-block-toggle > summary.part-block-summary h2 {
@@ -867,9 +874,14 @@
      below), matching the .form-card-body max-height toggle already in
      place. Per Noal 2026-07-20 ~5:49pm: "shrink the height to its
      minimum." */
-  .blog-input-panel .form-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-1) var(--space-5); box-shadow: var(--shadow-md); position: relative; overflow: hidden; transition: padding 0.3s ease; }
-  .blog-input-panel:hover .form-card, .blog-input-panel:focus-within .form-card, .blog-input-panel:focus .form-card { padding: clamp(var(--space-6), 4vw, var(--space-8)); }
-  .blog-input-panel .form-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: linear-gradient(var(--color-primary), var(--color-beam)); }
+  /* Collapsed = plain standalone line, no card/pill at all -- per Noal
+     2026-07-20 ~5:54pm. The card look (background/border/shadow/accent
+     stripe) only appears once hovered/focused and the form itself is
+     showing; collapsed state is bare text over the page background. */
+  .blog-input-panel .form-card { background: transparent; border: none; border-radius: var(--radius-xl); padding: var(--space-1) 0; box-shadow: none; position: relative; overflow: hidden; transition: padding 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .blog-input-panel:hover .form-card, .blog-input-panel:focus-within .form-card, .blog-input-panel:focus .form-card { padding: clamp(var(--space-6), 4vw, var(--space-8)); background: var(--color-surface); border: 1px solid var(--color-border); box-shadow: var(--shadow-md); }
+  .blog-input-panel .form-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: linear-gradient(var(--color-primary), var(--color-beam)); opacity: 0; transition: opacity 0.3s ease; }
+  .blog-input-panel:hover .form-card::before, .blog-input-panel:focus-within .form-card::before, .blog-input-panel:focus .form-card::before { opacity: 1; }
   .blog-input-panel .form-card form { display: grid; gap: var(--space-4); }
   .blog-input-panel .form-card .row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
   @media (max-width: 520px) { .blog-input-panel .form-card .row { grid-template-columns: 1fr; } }
@@ -976,7 +988,7 @@
   <div class="part-label">
     <p class="part-name">Part I</p>
     <p class="part-title" id="part-i-title">Precision Accurate Automated Investing</p>
-    <p class="part-subtitle"><a class="part-subtitle-link" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">AI-Assisted Investing Strategies and Tactics</a></p>
+    <p class="part-subtitle"><a class="part-subtitle-link" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener"><span class="drop-cap">A</span>I-<span class="drop-cap">A</span>ssisted <span class="drop-cap">I</span>nvesting <span class="drop-cap">S</span>trategies <span class="drop-cap">a</span>nd <span class="drop-cap">T</span>actics</a></p>
   </div>
 
   <!-- Duplicate of the Begin/Subscribe page input panel, ported over from
