@@ -273,8 +273,17 @@
   /* Left-justified per Noal 2026-07-20 ~6:05pm -- "the" also dropped from
      the label text (static markup + the live-count JS string), Rosy Way
      badge only, "who's here" badge left untouched. */
-  #wg-badge { width: 12.5em; white-space: nowrap; justify-content: flex-start; text-align: left; }
-  @media (max-width: 820px) { #wg-badge { width: 8.5em; } }
+  /* Shrunk to the smallest possible horizontal width per Noal 2026-07-20
+     ~6:33pm. "who's here" shrunk to fit-content first (its own smallest
+     possible size), then Rosy Way locked to that EXACT same pixel width
+     (137px, measured from who's-here's rendered fit-content width) rather
+     than its own independent fit-content -- fit-content alone gave two
+     different widths since the two labels are different lengths. Overrides
+     the old 10.5em/12.5em fixed widths. Live-count text ("N people here
+     right now") will run wider than this once real visitor data loads --
+     an accepted tradeoff of the explicit "smallest possible" request. */
+  #wg-live-badge { width: fit-content; white-space: nowrap; justify-content: flex-start; text-align: left; }
+  #wg-badge { width: 137px; white-space: nowrap; justify-content: flex-start; text-align: left; }
   .hdr-presence .wg-badge.wg-pulse{transform:scale(1.06);}
   .hdr-presence .wg-dot{width:7px;height:7px;border-radius:50%;background:#9ad14a;box-shadow:0 0 8px rgba(154,209,74,.7);flex:none;}
   .hdr-presence .wg-dot-live{background:#e8b659;box-shadow:0 0 8px rgba(232,182,89,.7);animation:wgLivePulse 1.8s ease-in-out infinite;}
