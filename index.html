@@ -282,8 +282,16 @@
      the old 10.5em/12.5em fixed widths. Live-count text ("N people here
      right now") will run wider than this once real visitor data loads --
      an accepted tradeoff of the explicit "smallest possible" request. */
+  /* Re-locked per Noal 2026-07-20 ~7:14pm: checked the actual HTML source
+     for "who's here" -- there's no literal trailing space character in the
+     text (confirmed byte-for-byte). The visible extra gap was the Rosy Way
+     badge's width being stale: it was locked to 137px back when "who's
+     here" read "who's here...." (longer), but a later edit shortened it to
+     "who's here?", which shrank its own fit-content width to ~129.5px --
+     leaving Rosy Way 7.5px wider than its match target. Re-locked to the
+     current value. */
   #wg-live-badge { width: fit-content; white-space: nowrap; justify-content: flex-start; text-align: left; }
-  #wg-badge { width: 137px; white-space: nowrap; justify-content: flex-start; text-align: left; }
+  #wg-badge { width: 129.5px; white-space: nowrap; justify-content: flex-start; text-align: left; }
   .hdr-presence .wg-badge.wg-pulse{transform:scale(1.06);}
   .hdr-presence .wg-dot{width:7px;height:7px;border-radius:50%;background:#9ad14a;box-shadow:0 0 8px rgba(154,209,74,.7);flex:none;}
   .hdr-presence .wg-dot-live{background:#e8b659;box-shadow:0 0 8px rgba(232,182,89,.7);animation:wgLivePulse 1.8s ease-in-out infinite;}
