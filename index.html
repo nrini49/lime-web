@@ -765,6 +765,24 @@
      without this override the panel text ran off-screen as one line. */
   .interp-note .interp-note-text { display: block; white-space: normal; font-family: var(--font-display); font-style: italic; font-size: var(--text-base); line-height: 1.6; color: var(--color-text); margin: 0 0 var(--space-4); }
   .interp-note .interp-note-signature { display: block; font-family: var(--font-display); font-weight: 700; font-size: var(--text-base); color: var(--color-primary); text-align: right; }
+
+  /* Duplicate Begin/Subscribe form panel, ported from blog/index.html's
+     copy, per Noal 2026-07-20. .btn already exists site-wide above (Rosie
+     CTA styling) -- reused as-is here rather than redefined. */
+  .blog-input-panel { margin: var(--space-6) 0 var(--space-10); }
+  .blog-input-panel .form-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: clamp(var(--space-8), 5vw, var(--space-12)); box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .blog-input-panel .form-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: linear-gradient(var(--color-primary), var(--color-beam)); }
+  .blog-input-panel .form-card form { display: grid; gap: var(--space-4); }
+  .blog-input-panel .form-card .row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+  @media (max-width: 520px) { .blog-input-panel .form-card .row { grid-template-columns: 1fr; } }
+  .blog-input-panel .form-card label { font-size: var(--text-xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-muted); font-weight: 600; }
+  .blog-input-panel .form-card input, .blog-input-panel .form-card textarea { width: 100%; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-bg); color: var(--color-text); font-size: var(--text-base); font-family: var(--font-body); }
+  .blog-input-panel .form-card textarea { min-height: 5.5rem; resize: vertical; line-height: 1.5; }
+  .blog-input-panel .form-card input:focus, .blog-input-panel .form-card textarea:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px var(--color-primary-soft); }
+  .blog-input-panel .form-card .btn { margin-top: var(--space-2); }
+  .blog-input-panel .form-card .msg { font-size: var(--text-sm); min-height: 1.2em; color: var(--color-text-muted); }
+  .blog-input-panel .form-card .msg.ok { color: var(--color-primary); }
+  .blog-input-panel .form-card .fineprint { font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-5); text-align: center; }
 </style>
 <script defer data-domain="limesignalworks.com" src="https://plausible.io/js/script.js"></script>
 </head>
@@ -857,6 +875,28 @@
     <p class="part-name">Part I</p>
     <p class="part-title" id="part-i-title">Precision Accurate Automated Investing</p>
     <p class="part-subtitle"><a class="part-subtitle-link" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">AI-Assisted Investing Strategies and Tactics</a></p>
+  </div>
+
+  <!-- Duplicate of the Begin/Subscribe page input panel, ported over from
+       blog/index.html's copy (itself a duplicate of subscribe/index.html),
+       per Noal 2026-07-20. Same form-card markup/styling verbatim, dropped
+       in right below the Part I title/subtitle, same relative position as
+       the blog page's copy sits below its own title/subtitle. Not yet wired
+       to a backend anywhere on the site -- matches the existing behavior of
+       both the blog and subscribe copies. -->
+  <div class="blog-input-panel">
+    <div class="form-card">
+      <form id="homeSubForm" novalidate>
+        <div class="row">
+          <div><label for="homeName">First name</label><input id="homeName" name="name" type="text" placeholder="Your name" required></div>
+          <div><label for="homeEmail">Email</label><input id="homeEmail" name="email" type="email" placeholder="you@example.com" required></div>
+        </div>
+        <div><label for="homeNote">What brings you to the harbor? <span style="text-transform:none;font-weight:400;color:var(--color-text-faint);">(optional)</span></label><textarea id="homeNote" name="note" placeholder="A line about where you are and what you're looking for."></textarea></div>
+        <button class="btn" type="submit" id="homeSubBtn">Begin &rarr;</button>
+        <p class="msg" id="homeSubMsg"></p>
+      </form>
+      <p class="fineprint">Your details are used only to start your Harbor Member access. No sharing, no spam, unsubscribe anytime. The ninety-day promise applies.</p>
+    </div>
   </div>
 
   <!-- Part I body (Introduction + Chapters I-III + Conclusion) collapsed
