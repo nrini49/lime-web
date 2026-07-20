@@ -550,7 +550,7 @@
     display: inline-flex; align-items: center; justify-content: center;
     width: auto; max-width: none; min-height: 38px; grid-template-columns: none;
     padding: 0 var(--space-4); margin: 0; gap: var(--space-2);
-    border-radius: var(--radius-full); border: 1px solid var(--color-primary);
+    border-radius: var(--radius-full); border: none;
     background: var(--color-surface); color: var(--color-primary);
     font-family: var(--font-body); font-size: var(--text-sm); font-weight: 700;
     text-decoration: none; cursor: pointer;
@@ -811,7 +811,7 @@
      ~1:20pm, matching .ibkr-demo-cta/.buy-rosie-cta exactly (this pill
      previously had no hover treatment at all). */
   /* background: var(--color-surface) added per Noal 2026-07-20 ~1:43pm -- same reasoning as the Rosie CTAs above. */
-  .interp-note { position: relative; display: inline-flex; align-items: center; justify-content: center; margin-left: var(--space-3); padding: var(--space-1) var(--space-3); min-height: 34px; box-sizing: border-box; border-radius: var(--radius-full); border: 1px solid var(--color-primary); background: var(--color-surface); vertical-align: middle; cursor: pointer; }
+  .interp-note { position: relative; display: inline-flex; align-items: center; justify-content: center; margin-left: var(--space-3); padding: var(--space-1) var(--space-3); min-height: 34px; box-sizing: border-box; border-radius: var(--radius-full); border: none; background: var(--color-surface); vertical-align: middle; cursor: pointer; }
   .interp-note:hover { background: var(--color-primary); }
   .interp-note:hover .interp-note-kicker { color: var(--color-bg); }
   /* Font matched to the Rosie CTA buttons (.ibkr-demo-cta/.buy-rosie-cta),
@@ -843,8 +843,21 @@
      Using --text-xl (the title's actual font-size variable) directly so
      it scales exactly like the title does, instead of a static px value
      that would drift at other viewports. */
-  .blog-input-panel { margin: var(--space-6) 0 var(--space-10); max-width: calc(var(--text-xl) * 23.8); width: 100%; }
-  .blog-input-panel .form-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: clamp(var(--space-8), 5vw, var(--space-12)); box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  /* .signup-cell mirrors .part-label's own container box exactly
+     (max-width:1080px, margin:0 auto, padding:var(--space-6)) so its
+     left edge lines up with the Part I title's left edge -- previously
+     .blog-input-panel sat unpadded at the raw page edge. Per Noal
+     2026-07-20 ~5:44pm. */
+  .signup-cell { max-width: 1080px; margin: var(--space-6) auto var(--space-10); padding: 0 var(--space-6); box-sizing: border-box; }
+  .blog-input-panel { max-width: calc(var(--text-xl) * 23.8); width: 100%; cursor: pointer; outline: none; }
+  /* Hover/focus-collapsible: collapsed to just the teaser row by default,
+     expands to the full form on hover or keyboard focus, collapses again
+     on mouse-out/blur. Per Noal 2026-07-20 ~5:44pm. */
+  .blog-input-panel .form-card-body { max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.4s ease, opacity 0.3s ease; }
+  .blog-input-panel:hover .form-card-body, .blog-input-panel:focus-within .form-card-body, .blog-input-panel:focus .form-card-body { max-height: 900px; opacity: 1; margin-top: var(--space-5); }
+  .blog-input-panel .form-card-teaser { font-family: var(--font-body); font-size: var(--text-sm); font-weight: 700; color: var(--color-primary); letter-spacing: 0.02em; }
+  .blog-input-panel .form-card-teaser-hint { font-weight: 400; color: var(--color-text-muted); text-transform: none; letter-spacing: normal; }
+  .blog-input-panel .form-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: clamp(var(--space-6), 4vw, var(--space-8)); box-shadow: var(--shadow-md); position: relative; overflow: hidden; transition: padding 0.3s ease; }
   .blog-input-panel .form-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: linear-gradient(var(--color-primary), var(--color-beam)); }
   .blog-input-panel .form-card form { display: grid; gap: var(--space-4); }
   .blog-input-panel .form-card .row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
@@ -962,18 +975,33 @@
        the blog page's copy sits below its own title/subtitle. Not yet wired
        to a backend anywhere on the site -- matches the existing behavior of
        both the blog and subscribe copies. -->
-  <div class="blog-input-panel">
-    <div class="form-card">
-      <form id="homeSubForm" novalidate>
-        <div class="row">
-          <div><label for="homeName">First name</label><input id="homeName" name="name" type="text" placeholder="Your name" required></div>
-          <div><label for="homeEmail">Email</label><input id="homeEmail" name="email" type="email" placeholder="you@example.com" required></div>
+  <!-- Rebuilt as a proper left-aligned cell per Noal 2026-07-20 ~5:44pm:
+       .blog-input-panel was a bare sibling of .part-label with no
+       horizontal padding, so it started at the raw viewport edge while
+       the title (inside .part-label's max-width:1080px/margin:0 auto/
+       padding:var(--space-6)) started well in from that edge -- the two
+       never lined up. .signup-cell now uses the exact same max-width/
+       margin/padding as .part-label, so its left edge matches the title's
+       left edge exactly, at every screen width. Also now hover-collapsible:
+       collapsed to just the teaser line by default, expands to the full
+       form on hover/focus, collapses again on mouse-out. -->
+  <div class="signup-cell">
+    <div class="blog-input-panel" tabindex="0">
+      <div class="form-card">
+        <div class="form-card-teaser">Begin Your Harbor Member Access <span class="form-card-teaser-hint">(hover to open)</span></div>
+        <div class="form-card-body">
+          <form id="homeSubForm" novalidate>
+            <div class="row">
+              <div><label for="homeName">First name</label><input id="homeName" name="name" type="text" placeholder="Your name" required></div>
+              <div><label for="homeEmail">Email</label><input id="homeEmail" name="email" type="email" placeholder="you@example.com" required></div>
+            </div>
+            <div><label for="homeNote">What brings you to the harbor? <span style="text-transform:none;font-weight:400;color:var(--color-text-faint);">(optional)</span></label><textarea id="homeNote" name="note" placeholder="A line about where you are and what you're looking for."></textarea></div>
+            <button class="btn" type="submit" id="homeSubBtn">Begin &rarr;</button>
+            <p class="msg" id="homeSubMsg"></p>
+          </form>
+          <p class="fineprint">Your details are used only to start your Harbor Member access. No sharing, no spam, unsubscribe anytime. The ninety-day promise applies.</p>
         </div>
-        <div><label for="homeNote">What brings you to the harbor? <span style="text-transform:none;font-weight:400;color:var(--color-text-faint);">(optional)</span></label><textarea id="homeNote" name="note" placeholder="A line about where you are and what you're looking for."></textarea></div>
-        <button class="btn" type="submit" id="homeSubBtn">Begin &rarr;</button>
-        <p class="msg" id="homeSubMsg"></p>
-      </form>
-      <p class="fineprint">Your details are used only to start your Harbor Member access. No sharing, no spam, unsubscribe anytime. The ninety-day promise applies.</p>
+      </div>
     </div>
   </div>
 
