@@ -383,6 +383,17 @@
   .part-label.top-space { margin-top: var(--space-10); }
   .part-label .part-name { font-family: var(--font-body); font-size: var(--text-xl); letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-primary); font-weight: 700; margin: 0; }
   .part-label .part-title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; color: var(--color-text); margin: var(--space-1) 0 0; }
+  /* Part I title override per Noal, 2026-07-20 ~10:01am, direct confirmation
+     superseding the "don't change without confirming" note above -- this
+     one title only, forced uppercase (no text-transform elsewhere relies
+     on that rule, so scoping it here is safe). */
+  #part-i-title { text-transform: uppercase; }
+  /* New subtitle line per Noal, 2026-07-20 ~10:01am: sits under the Part I
+     title, links out to Rosie Live in a new tab, sized to match "The
+     Bezalel Promise" h2 (details.collapsible > summary h2 = --text-base). */
+  .part-label .part-subtitle { margin: var(--space-1) 0 0; }
+  .part-label .part-subtitle-link { font-family: var(--font-display); font-size: var(--text-base); font-weight: 400; color: var(--color-primary); text-decoration: none; }
+  .part-label .part-subtitle-link:hover { text-decoration: underline; text-underline-offset: 2px; }
   /* Reverted per Noal, 2026-07-19 ~11:08pm: the earlier 3xl bump broke
      visual consistency with Part II/III. Hero title now matches every
      other Part's title size again (plain .part-title xl). */
@@ -696,7 +707,8 @@
        every other Part transition. -->
   <div class="part-label">
     <p class="part-name">Part I</p>
-    <p class="part-title">Precision Accurate AI Assisted Investing Platform</p>
+    <p class="part-title" id="part-i-title">Precision Accurate Investing</p>
+    <p class="part-subtitle"><a class="part-subtitle-link" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">AI-Assisted Platform</a></p>
   </div>
 
   <section class="keeper-hero">
