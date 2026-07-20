@@ -869,7 +869,12 @@
      left edge lines up with the Part I title's left edge -- previously
      .blog-input-panel sat unpadded at the raw page edge. Per Noal
      2026-07-20 ~5:44pm. */
-  .signup-cell { max-width: 1080px; margin: var(--space-6) auto var(--space-10); padding: 0 var(--space-6); box-sizing: border-box; }
+  /* Bottom margin dropped to 0 per Noal 2026-07-20 ~6:08pm: the old
+     var(--space-10) (40px) left a dead gap between this box and the
+     Part I toggle heading right below it -- removed entirely, the two
+     now sit directly against each other. Top margin/spacing from the
+     Part title above is untouched. */
+  .signup-cell { max-width: 1080px; margin: var(--space-6) auto 0; padding: 0 var(--space-6); box-sizing: border-box; }
   .blog-input-panel { max-width: calc(var(--text-xl) * 23.8); width: 100%; cursor: pointer; outline: none; }
   /* Hover/focus-collapsible: collapsed to just the teaser row by default,
      expands to the full form on hover or keyboard focus, collapses again
