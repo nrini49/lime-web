@@ -67,7 +67,14 @@
   :root, [data-theme="dark"] {
     --color-bg: #0a131c; --color-surface: #0f1c28; --color-surface-2: #142433; --color-surface-offset: #16273a;
     --color-border: #1f3346; --color-divider: #1a2c3c;
-    --color-text: #e7e3dd; --color-text-muted: #a89f96; --color-text-faint: #7a6f66;
+    /* --color-text set to the light theme's --color-bg (#d8d1c2), per
+       Noal 2026-07-20 ~12:51pm: each theme's main text color should
+       exactly equal the other theme's background color. This restores a
+       relationship that used to hold (dark text was #e7e3dd, light bg's
+       old value before the 2026-07-19 ~8:50pm darken/warm pass) and had
+       drifted out of sync since. Muted/faint text left untouched --
+       only the primary text color moves. */
+    --color-text: #d8d1c2; --color-text-muted: #a89f96; --color-text-faint: #7a6f66;
     --color-primary: #9ad14a; --color-primary-hover: #b4e06a; --color-primary-soft: rgba(154,209,74,0.12);
     --color-beam: #e8b659; --color-beam-soft: rgba(232,182,89,0.14);
     --shadow-md: 0 4px 24px rgba(0,0,0,0.35); --shadow-lg: 0 18px 50px rgba(0,0,0,0.45);
@@ -79,7 +86,11 @@
        so they still read as lighter panels against this deeper backdrop. */
     --color-bg: #d8d1c2; --color-surface: #ffffff; --color-surface-2: #f7faf8; --color-surface-offset: #eef3ef;
     --color-border: #dbe4dd; --color-divider: #e4ece6;
-    --color-text: #15241c; --color-text-muted: #56685e; --color-text-faint: #8a9c92;
+    /* --color-text set to the dark theme's --color-bg (#0a131c), per
+       Noal 2026-07-20 ~12:51pm: same reciprocal rule as the dark theme
+       above -- this theme's main text now equals the other theme's
+       background exactly. Muted/faint text untouched. */
+    --color-text: #0a131c; --color-text-muted: #56685e; --color-text-faint: #8a9c92;
     --color-primary: #4f7a1f; --color-primary-hover: #3d6017; --color-primary-soft: rgba(79,122,31,0.10);
     --color-beam: #b07d1f; --color-beam-soft: rgba(176,125,31,0.12);
     --shadow-md: 0 4px 24px rgba(20,40,28,0.08); --shadow-lg: 0 18px 50px rgba(20,40,28,0.12);
@@ -209,7 +220,8 @@
      (var(--text-sm), up from 0.65rem), same weight (600, was 700). Casing
      already normal mixed case since the last round. Width left in em so
      both CTAs still scale together and stay equal to each other. */
-  .ibkr-demo-cta, .buy-rosie-cta { display: inline-flex; align-items: center; justify-content: center; text-align: center; width: 7em; min-height: 34px; padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: transparent; font-size: var(--text-sm); font-weight: 600; font-family: var(--font-body); line-height: 1.25; text-decoration: none; white-space: nowrap; cursor: pointer; appearance: none; box-sizing: border-box; }
+  /* font-weight bumped 600 -> 700 per Noal 2026-07-20 ~12:51pm: all green text should be bold. */
+  .ibkr-demo-cta, .buy-rosie-cta { display: inline-flex; align-items: center; justify-content: center; text-align: center; width: 7em; min-height: 34px; padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: transparent; font-size: var(--text-sm); font-weight: 700; font-family: var(--font-body); line-height: 1.25; text-decoration: none; white-space: nowrap; cursor: pointer; appearance: none; box-sizing: border-box; }
   .ibkr-demo-cta:hover, .buy-rosie-cta:hover { background: var(--color-primary); color: var(--color-bg); }
   @media (max-width: 640px) { .ibkr-demo-cta, .buy-rosie-cta { display: none; } }
   /* Width/height no longer fixed (38px) -- per Noal 2026-07-19 ~11:27pm,
@@ -418,7 +430,8 @@
      title, links out to Rosie Live in a new tab, sized to match "The
      Bezalel Promise" h2 (details.collapsible > summary h2 = --text-base). */
   .part-label .part-subtitle { margin: var(--space-1) 0 0; }
-  .part-label .part-subtitle-link { font-family: var(--font-display); font-size: var(--text-base); font-weight: 400; color: var(--color-primary); text-decoration: none; }
+  /* Bolded per Noal 2026-07-20 ~12:51pm: all green text should be bold. */
+  .part-label .part-subtitle-link { font-family: var(--font-display); font-size: var(--text-base); font-weight: 700; color: var(--color-primary); text-decoration: none; }
   .part-label .part-subtitle-link:hover { text-decoration: underline; text-underline-offset: 2px; }
   /* Reverted per Noal, 2026-07-19 ~11:08pm: the earlier 3xl bump broke
      visual consistency with Part II/III. Hero title now matches every
