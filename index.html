@@ -183,7 +183,10 @@
      one size further per Noal 2026-07-20 ~9:40am -- no named token below
      --text-xs exists in the scale, so this is a one-off clamp roughly one
      step under it, matching the same shape as the other --text-* tokens. */
-  .ibkr-demo-cta, .buy-rosie-cta { display: inline-flex; align-items: center; justify-content: center; text-align: center; width: 7em; min-height: 34px; padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: transparent; font-size: 0.65rem; font-weight: 700; line-height: 1.25; text-decoration: none; white-space: nowrap; font-family: var(--font-display); text-transform: uppercase; cursor: pointer; appearance: none; box-sizing: border-box; }
+  /* text-transform:uppercase removed per Noal, 2026-07-20 ~11:46am: all
+     functional buttons now render in normal mixed case (as typed in the
+     HTML: "Rosie Live", "Buy Rosie"), not forced all-caps. */
+  .ibkr-demo-cta, .buy-rosie-cta { display: inline-flex; align-items: center; justify-content: center; text-align: center; width: 7em; min-height: 34px; padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: transparent; font-size: 0.65rem; font-weight: 700; line-height: 1.25; text-decoration: none; white-space: nowrap; font-family: var(--font-display); cursor: pointer; appearance: none; box-sizing: border-box; }
   .ibkr-demo-cta:hover, .buy-rosie-cta:hover { background: var(--color-primary); color: var(--color-bg); }
   @media (max-width: 640px) { .ibkr-demo-cta, .buy-rosie-cta { display: none; } }
   /* Width/height no longer fixed (38px) -- per Noal 2026-07-19 ~11:27pm,
@@ -631,7 +634,9 @@
   /* Font matched to the Rosie CTA buttons (.ibkr-demo-cta/.buy-rosie-cta),
      per Noal 2026-07-20 ~11:29am: same family, same 0.65rem size, same
      uppercase treatment. */
-  .interp-note .interp-note-kicker { font-family: var(--font-display); font-weight: 700; font-size: 0.65rem; text-transform: uppercase; color: var(--color-primary); white-space: nowrap; }
+  /* text-transform:uppercase removed per Noal, 2026-07-20 ~11:46am, same
+     as the Rosie CTAs -- renders as typed, "A Declaration". */
+  .interp-note .interp-note-kicker { font-family: var(--font-display); font-weight: 700; font-size: 0.65rem; color: var(--color-primary); white-space: nowrap; }
   /* Anchored right (not left, like .ap-body) since this pill sits at the
      end of a long heading line -- a left-anchored 560px panel would run
      off the viewport's right edge. Right-anchoring keeps it on-screen. */
