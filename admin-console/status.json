@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T20:29:52.883034+00:00",
+  "generated_at": "2026-07-20T22:14:35.816671+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "593d7c1",
-          "message": "Wrap Parts II-IV (Introduction + Chapters I-III + Conclusion, + Declaration where present) in the same master collapsible toggle as Part I. ",
+          "sha": "0da47d7",
+          "message": "Remove the dead 40px gap (var(--space-10) bottom margin) between the sign-up box ('Begin Your Harbor Member Access') and the Part I toggle h",
           "author": "Plex (LIME session)",
-          "date": "2026-07-20T20:22:13Z"
+          "date": "2026-07-20T22:13:04Z"
         },
         {
-          "sha": "e9b4bf9",
-          "message": "Lighthouse: collapse the background-color vignette much closer to center (18/28/45/60 vs 28/40/58/76) so navy/cream reaches up near the ligh",
+          "sha": "91e4259",
+          "message": "Rosy Way header badge: dropped 'the' from label text (static markup + live-count JS string, now just 'Rosy Way...'), and left-justified the ",
           "author": "Perplexity Computer",
-          "date": "2026-07-20T20:10:05Z"
+          "date": "2026-07-20T22:07:20Z"
         },
         {
-          "sha": "234f4a7",
-          "message": "Lighthouse mark: replace alpha mask-image fade with an actual radial-gradient overlay painted in var(--color-bg) -- corners of the rectangle",
+          "sha": "d2db0be",
+          "message": "Fix Part I toggle font/positioning to match PART II pattern exactly, per Noal 2026-07-20 ~5:58pm. Previous pass (5:54pm) mis-applied .part-n",
           "author": "Perplexity Computer",
-          "date": "2026-07-20T20:04:11Z"
+          "date": "2026-07-20T22:04:05Z"
         },
         {
-          "sha": "911b45c",
-          "message": "Part I: wrap Introduction + Chapters I-III + Conclusion in one master collapsible toggle, per Noal 2026-07-20 3:54pm. Part label (name/title",
-          "author": "Plex (LIME session)",
-          "date": "2026-07-20T20:00:25Z"
-        },
-        {
-          "sha": "fc32130",
-          "message": "Merge branch 'main' of https://git-agent-proxy.perplexity.ai/nrini49/lime-web",
+          "sha": "f437562",
+          "message": "Two pills -> plain standalone lines, font matched to .part-subtitle-link (var(--font-display)/var(--text-base)/700): the Part toggle line (R",
           "author": "Perplexity Computer",
-          "date": "2026-07-20T19:57:20Z"
+          "date": "2026-07-20T21:57:35Z"
+        },
+        {
+          "sha": "82cf604",
+          "message": "Signup cell: shrink collapsed height to near-minimum (padding clamp(space-6,4vw,space-8) -> space-1 vertical when collapsed, only expanding ",
+          "author": "Perplexity Computer",
+          "date": "2026-07-20T21:51:47Z"
         }
       ]
     },
@@ -67,6 +67,18 @@
       "repo": "nrini49/limesignalworks",
       "ok": true,
       "commits": [
+        {
+          "sha": "bab9d96",
+          "message": "Lock the Rosie Way section (Admin Console / Harbor Watch / System Files / Repo Browser) behind a client-side password gate, per Noal's expli",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-20T22:03:32Z"
+        },
+        {
+          "sha": "772a0c2",
+          "message": "Add the LIME Signalworks global header (brand mark, wordmark, live visitor-presence badges, Blog/Rosie Live/Buy Rosie nav) to the top of the",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-20T21:55:43Z"
+        },
         {
           "sha": "6cec04c",
           "message": "Update session handoff doc for 2026-07-19 with end-of-day summary and parallel-session warning",
@@ -84,18 +96,6 @@
           "message": "Add Trading Permissions panel with 5 per-asset-class on/off toggles (1x ETFs, Leveraged ETFs, Stocks, Options, Speculative Swing Trades), gr",
           "author": "Noal Rini",
           "date": "2026-07-19T18:08:32Z"
-        },
-        {
-          "sha": "a0eb0fc",
-          "message": "Sage popup: open Jonathan's Mission and Fire Profile Note cells by default, add real calendar date next to the Day X of 33 label",
-          "author": "Noal Rini",
-          "date": "2026-07-19T17:33:06Z"
-        },
-        {
-          "sha": "9769159",
-          "message": "Add patch doc: read-only /api/demo-snapshot endpoint + narrow public relay, for the live-Rosie public demo (mirrors existing health-relay pa",
-          "author": "Noal Rini",
-          "date": "2026-07-19T17:24:31Z"
         }
       ]
     },
