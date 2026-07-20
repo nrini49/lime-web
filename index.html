@@ -199,7 +199,7 @@
      one to the bottom of that stretched height. */
   .hdr-presence { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; align-self: stretch; gap: var(--space-3); }
   .hdr-presence .wg-badge{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-    width:7em;min-height:34px;box-sizing:border-box;text-align:center;
+    width:10.5em;min-height:34px;box-sizing:border-box;text-align:center;
     background:var(--color-surface);color:var(--color-primary);border:1px solid var(--color-primary);
     border-radius:var(--radius-full);padding:var(--space-1) var(--space-3);font-family:var(--font-body);font-size:var(--text-sm);font-weight:700;letter-spacing:.01em;line-height:1.25;
     transition:transform .2s, background var(--transition-interactive), color var(--transition-interactive);}
@@ -207,6 +207,11 @@
   .hdr-presence .wg-badge.wg-pulse{transform:scale(1.06);}
   .hdr-presence .wg-dot{width:7px;height:7px;border-radius:50%;background:#9ad14a;box-shadow:0 0 8px rgba(154,209,74,.7);flex:none;}
   .hdr-presence .wg-dot-live{background:#e8b659;box-shadow:0 0 8px rgba(232,182,89,.7);animation:wgLivePulse 1.8s ease-in-out infinite;}
+  /* Full 10.5em gives both badges a clean 2-line wrap on wide screens, but
+     is too wide once the header also has to fit Blog/theme/Rosie buttons
+     in the 561-820px range -- step it down there to avoid overflow, per
+     visual QA on 2026-07-20 (checked scrollWidth at every breakpoint). */
+  @media (max-width: 820px) { .hdr-presence .wg-badge { width: 8em; } }
   @media (max-width: 780px) { .hdr-presence .wg-badge-live { display: none; } }
   @media (max-width: 560px) { .hdr-presence { display: none; } }
   /* Width capped to roughly "Live Rosie Demo" (about 8.5em) so the text
