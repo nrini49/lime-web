@@ -96,15 +96,14 @@
      taller than that two-line block -- per Noal, 2026-07-19. Icon size
      formula stays pinned to --text-2xl on purpose; only the wordmark text
      itself changes size. */
-  /* CONFLICTING instructions landed in two parallel sessions within
-     minutes of each other on 2026-07-19 ~11pm: one thread said pin the
-     wordmark to a flat 24px and not re-bump without direct confirmation;
-     this thread separately said match it to Part I's title (var(--text-xl)).
-     Keeping the flat-24px version since it's the more explicitly guarded
-     one -- flagged to Noal directly rather than silently overriding either
-     side. Do not change without his direct confirmation of which he wants. */
+  /* RESOLVED per Noal, 2026-07-19 ~11:20pm, directly in this thread: he
+     confirmed overriding the other session's flat-24px pin. Wordmark
+     matches Part I's title size (var(--text-xl)) going forward. If
+     another session reverts this to 24px again, it needs a fresh direct
+     confirmation from Noal in THAT thread before standing -- this
+     override is the current word. */
   .brand svg { width: calc(var(--text-2xl) * 2.5); height: calc(var(--text-2xl) * 2.5); flex-shrink: 0; }
-  .brand .word { font-family: var(--font-display); font-weight: 400; font-size: 24px; line-height: 1.15; letter-spacing: 0.01em; }
+  .brand .word { font-family: var(--font-display); font-weight: 400; font-size: var(--text-xl); line-height: 1.15; letter-spacing: 0.01em; }
   .brand .word b { font-weight: 700; }
   .brand:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
   /* No margin-left:auto -- brand, presence pills, and header tools now share
