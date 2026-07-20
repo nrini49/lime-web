@@ -1097,7 +1097,7 @@
        as-is (untouched by drop-cap.js -- it skips headings that already
        have child elements). -->
   <details class="collapsible part-block-toggle" id="part-i-block" data-stay-open="true">
-    <summary class="sec-bar part-block-summary"><div class="chapter-num">Part I</div><h2 class="rosie-subtitle-heading"><a class="part-subtitle-link" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener"><span class="drop-cap">A</span>I-<span class="drop-cap">A</span>ssisted <span class="drop-cap">I</span>nvesting <span class="drop-cap">S</span>trategies <span class="drop-cap">a</span>nd <span class="drop-cap">T</span>actics</a></h2><h2>Read Introduction, Chapters I&ndash;III &amp; Conclusion</h2></summary>
+    <summary class="sec-bar part-block-summary"><div class="chapter-num">Part I</div><h2 class="rosie-subtitle-heading"><a class="part-subtitle-link" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener"><span class="drop-cap">A</span>I-<span class="drop-cap">A</span>ssisted <span class="drop-cap">I</span>nvesting <span class="drop-cap">S</span>trategies <span class="drop-cap">a</span>nd <span class="drop-cap">T</span>actics</a></h2><!-- Roman numerals spelled out in full (I, II, III instead of I-III) and deliberately left OUT of the drop-cap span-wrapping below, per Noal 2026-07-20 ~7:37pm: the per-word first-letter-enlarge treatment made "I", "II", "III" render at mismatched sizes (each token's own first "I" got enlarged, the rest didn't) since they're literally repeated single letters -- left as one plain run instead so all three numerals stay the same font/size. --><h2><span class="drop-cap">R</span>ead <span class="drop-cap">I</span>ntroduction, <span class="drop-cap">C</span>hapters I, II, III <span class="drop-cap">&amp;</span> <span class="drop-cap">C</span>onclusion</h2></summary>
     <div class="sec-body part-block-body">
 
   <section class="keeper-hero">
@@ -1395,7 +1395,7 @@
        as Part I. Founder's introduction above stays outside/untouched
        (it's explicitly not one of the numbered chapters). -->
   <details class="collapsible part-block-toggle" id="part-ii-block" data-stay-open="true">
-    <summary class="sec-bar part-block-summary"><div class="chapter-num">Part II</div><h2>Read Introduction, Chapters I&ndash;III &amp; Conclusion</h2></summary>
+    <summary class="sec-bar part-block-summary"><div class="chapter-num">Part II</div><h2><span class="drop-cap">R</span>ead <span class="drop-cap">I</span>ntroduction, <span class="drop-cap">C</span>hapters I, II, III <span class="drop-cap">&amp;</span> <span class="drop-cap">C</span>onclusion</h2></summary>
     <div class="sec-body part-block-body">
 
   <section class="book-intro-section">
@@ -1715,7 +1715,7 @@
      details right above (Part III's own name/title + bridge scene) stays
      outside/untouched -- it's this Part's part-label equivalent. -->
 <details class="collapsible part-block-toggle" id="part-iii-block" data-stay-open="true">
-  <summary class="sec-bar part-block-summary"><div class="chapter-num">Part III</div><h2>Read Introduction, Chapters I&ndash;III, Conclusion &amp; Declaration</h2></summary>
+  <summary class="sec-bar part-block-summary"><div class="chapter-num">Part III</div><h2><span class="drop-cap">R</span>ead <span class="drop-cap">I</span>ntroduction, <span class="drop-cap">C</span>hapters I, II, III, <span class="drop-cap">C</span>onclusion <span class="drop-cap">&amp;</span> <span class="drop-cap">D</span>eclaration</h2></summary>
   <div class="sec-body part-block-body">
 
 <section class="part-c-section">
@@ -1932,7 +1932,7 @@
          2026-07-20 ~4:04pm -- same pattern as Parts I-III. The part-label
          above (name/title + Anchor Point pill) stays outside/untouched. -->
     <details class="collapsible part-block-toggle" id="part-iv-block" data-stay-open="true">
-      <summary class="sec-bar part-block-summary"><div class="chapter-num">Part IV</div><h2>Read Introduction, Chapters I&ndash;III, Conclusion &amp; Declaration</h2></summary>
+      <summary class="sec-bar part-block-summary"><div class="chapter-num">Part IV</div><h2><span class="drop-cap">R</span>ead <span class="drop-cap">I</span>ntroduction, <span class="drop-cap">C</span>hapters I, II, III, <span class="drop-cap">C</span>onclusion <span class="drop-cap">&amp;</span> <span class="drop-cap">D</span>eclaration</h2></summary>
       <div class="sec-body part-block-body">
 
     <section class="part-c-section">
@@ -2294,9 +2294,22 @@
     });
   });
 
-  // On any <details> toggle — scroll heading to top of viewport when expanding
+  // On any <details> toggle — scroll heading to top of viewport when expanding.
+  // Skipped when window.__limeSuppressToggleScroll is set, per Noal
+  // 2026-07-20 ~7:37pm: the Part I roll-over-to-open behavior below sets
+  // this flag right before opening via hover, since scrolling the page
+  // out from under a stationary hovering cursor is exactly what caused
+  // the earlier "opens then immediately slams shut" bug (a real scroll
+  // moving the summary out from under the cursor reads as a genuine
+  // mouseleave). Click-opens are unaffected -- the flag is only ever set
+  // by the hover handler, so this scroll-into-view still fires normally
+  // for every other <details> and for clicks on this one.
   document.querySelectorAll('main details').forEach(function(det) {
     det.addEventListener('toggle', function() {
+      if (window.__limeSuppressToggleScroll) {
+        window.__limeSuppressToggleScroll = false;
+        return;
+      }
       if (det.open) {
         var summary = det.querySelector('summary');
         if (summary) {
@@ -2322,6 +2335,46 @@
       }
     });
   });
+
+  // Part I roll-over-to-open, per Noal 2026-07-20 ~7:37pm direct in-thread
+  // confirmation (see the standing-rule warning at the top of
+  // accordion-hover.js -- this is exactly the kind of hover-opens-a-
+  // section behavior that file says never to add without Noal confirming
+  // directly, in-thread, after that note; this is that confirmation).
+  // Scoped ONLY to #part-i-block for now, not the other three Parts.
+  // Rolling over "Part I" (the chapter-num tag) or the "AI-Assisted
+  // Investing Strategies and Tactics" line opens the Introduction/
+  // Chapters/Conclusion body beneath it; moving the mouse off the whole
+  // toggle closes it again. #part-i-block keeps data-stay-open="true" so
+  // accordion-hover.js's own generic wire() skips it entirely -- this
+  // block is now the only mouseleave handler for it, replacing that
+  // opt-out with real open+close logic instead of leaving it inert.
+  // Skipped entirely on touch/no-hover devices, matching every other
+  // hover effect on the site -- native click-to-open still works there.
+  (function () {
+    if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    var pi = document.getElementById('part-i-block');
+    if (!pi) return;
+    var piSummary = pi.querySelector('summary');
+    if (!piSummary) return;
+    var piChapterNum = piSummary.querySelector('.chapter-num');
+    var piSubtitle = piSummary.querySelector('.rosie-subtitle-heading');
+    function openPiViaHover() {
+      if (pi.open) return;
+      // Consumed by the scroll-on-toggle handler above -- keeps the page
+      // still while the mouse is hovering, instead of scrolling the
+      // summary out from under the cursor (which reads as a real
+      // mouseleave and immediately closes it right back).
+      window.__limeSuppressToggleScroll = true;
+      pi.open = true;
+    }
+    function closePi() {
+      pi.open = false;
+    }
+    if (piChapterNum) piChapterNum.addEventListener('mouseenter', openPiViaHover);
+    if (piSubtitle) piSubtitle.addEventListener('mouseenter', openPiViaHover);
+    pi.addEventListener('mouseleave', closePi);
+  })();
 
   // Also track scroll for passive repositioning between clicks
   var sections = document.querySelectorAll('main > section');
