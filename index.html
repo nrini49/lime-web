@@ -572,6 +572,14 @@
      own "Part I" tag lives entirely inside the toggle, already normal). */
   .part-label .part-name { font-family: var(--font-body); font-size: var(--text-xl); letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-primary); font-weight: 400; margin: 0; }
   .part-label .part-title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; color: var(--color-text); margin: var(--space-1) 0 0; }
+  /* Standalone variant, per Noal 2026-07-21 ~2:21am: same font treatment
+     as .part-label .part-title above, used for the relocated "Translating
+     for 3 Readers, Using 1 Door" line now living inside #part-ii-block's
+     body instead of the permanently-visible .part-label. No ancestor
+     .part-label here, so this restates the font rule directly; margin is
+     bottom-only (space before the Introduction right below it) instead
+     of top-only (it's no longer stacked under a .part-name line). */
+  .part-title2 { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; color: var(--color-text); margin: 0 0 var(--space-4); }
   /* Part I title override per Noal, 2026-07-20 ~10:01am, direct confirmation
      superseding the "don't change without confirming" note above -- this
      one title only, forced uppercase (no text-transform elsewhere relies
@@ -1515,9 +1523,15 @@
        was here. The section below is permanently visible, click-to-open,
        same as every other subsection on the site. -->
   <!-- Display label renamed B -> II per Noal (2026-07-19), visible heading only. -->
+  <!-- "Translating for 3 Readers, Using 1 Door" moved out of here and
+       into #part-ii-block's body (right above the Introduction), per
+       Noal 2026-07-21 ~2:21am -- so it collapses/disappears along with
+       the rest of Part II's content instead of staying permanently
+       visible. "A Difficult Interpretation" (founder-intro, right below)
+       now sits directly under "Part II" as a result -- no other change
+       needed there, it was already the very next sibling. -->
   <div class="part-label">
     <p class="part-name">Part II</p>
-    <p class="part-title">Translating for 3 Readers, Using 1 Door</p>
   </div>
 
   <!-- Founder's introduction. Not a numbered chapter; this is Noal speaking
@@ -1564,6 +1578,15 @@
          no visible label at all now -- flagged to Noal, not blocking. -->
     <summary class="sec-bar part-block-summary"></summary>
     <div class="sec-body part-block-body">
+
+  <!-- "Translating for 3 Readers, Using 1 Door", relocated here from the
+       permanently-visible .part-label above, per Noal 2026-07-21 ~2:21am:
+       now lives right above the Introduction so it disappears along with
+       the rest of Part II's content when the toggle collapses. .part-title2
+       reuses the same font treatment as the original .part-title (see CSS
+       below) but without the big top-of-section padding, since this now
+       sits mid-flow inside an already-padded sec-body. -->
+  <div class="wrap"><p class="part-title part-title2">Translating for 3 Readers, Using 1 Door</p></div>
 
   <section class="book-intro-section">
     <div class="wrap">
