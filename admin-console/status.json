@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T14:17:11.398361+00:00",
+  "generated_at": "2026-07-21T16:31:01.999444+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,18 @@
       "ok": true,
       "commits": [
         {
+          "sha": "dd70be7",
+          "message": "Replace card-fire lines with canon trait text from keepers_fire_study",
+          "author": "nrini49",
+          "date": "2026-07-21T16:14:55Z"
+        },
+        {
+          "sha": "3c0b2cf",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-21T14:17:21Z"
+        },
+        {
           "sha": "c6b30c9",
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
@@ -48,18 +60,6 @@
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
           "date": "2026-07-21T08:19:12Z"
-        },
-        {
-          "sha": "fbf8597",
-          "message": "Slowed the accordion open animation site-wide, per Noal 2026-07-21 ~3:04am ('I don't like the way it just snaps into place'). secOpen/cwBody",
-          "author": "Noal Rini",
-          "date": "2026-07-21T07:05:57Z"
-        },
-        {
-          "sha": "1e63403",
-          "message": "Two fixes per Noal 2026-07-21 ~2:43am: 1) 'Share a Memory...' heading (.companion-widget h3) color -> green (var(--color-primary)), explicit",
-          "author": "Noal Rini",
-          "date": "2026-07-21T06:47:35Z"
         }
       ]
     },
