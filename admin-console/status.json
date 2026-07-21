@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T10:25:20.640852+00:00",
+  "generated_at": "2026-07-21T12:26:19.547192+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "0ab90f0",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-21T10:25:28Z"
+        },
+        {
           "sha": "963a8af",
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Reverted the Part II/III/IV master-toggle wrapper, per Noal 2026-07-21 ~2:30am direct request. Introduction + Chapters I-III + Conclusion ar",
           "author": "Noal Rini",
           "date": "2026-07-21T06:34:21Z"
-        },
-        {
-          "sha": "f3e0695",
-          "message": "Part II reorder per Noal 2026-07-21 ~2:21am: moved 'Translating for 3 Readers, Using 1 Door' out of the permanently-visible .part-label and ",
-          "author": "Noal Rini",
-          "date": "2026-07-21T06:23:23Z"
         }
       ]
     },
