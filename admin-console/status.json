@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T04:21:42.218484+00:00",
+  "generated_at": "2026-07-21T06:15:39.737826+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "88dd8d7",
-          "message": "Sign-up box cleanup per Noal 2026-07-20 ~10:43pm: removed the fineprint paragraph under the Begin button entirely ('they don't do anything f",
-          "author": "Plex (LIME session)",
-          "date": "2026-07-21T03:40:40Z"
+          "sha": "9825faa",
+          "message": "Removed the 'Part II'/'Part III'/'Part IV' chapter-num tags from all three toggle summaries, per Noal 2026-07-21 ~2:11am direct request -- f",
+          "author": "Noal Rini",
+          "date": "2026-07-21T06:12:34Z"
         },
         {
-          "sha": "f1d9442",
-          "message": "Step header button text down one size tick, per Noal 2026-07-20 ~10:41pm",
+          "sha": "09d1890",
+          "message": "Part III/IV: deleted the redundant 'Read Introduction, Chapters I, II, III, Conclusion & Declaration' h2 from both toggle summaries, per Noa",
+          "author": "Noal Rini",
+          "date": "2026-07-21T06:03:35Z"
+        },
+        {
+          "sha": "30d64e1",
+          "message": "Two Part II fixes per Noal 2026-07-21 ~1:36am: 1) .part-name label ('PART II/III/IV' standalone heading) font-weight 700 -> 400, matching Pa",
+          "author": "Noal Rini",
+          "date": "2026-07-21T05:39:13Z"
+        },
+        {
+          "sha": "4e35831",
+          "message": "Four fixes per Noal 2026-07-21 ~1:22am",
           "author": "Perplexity Computer",
-          "date": "2026-07-21T02:44:56Z"
+          "date": "2026-07-21T05:34:58Z"
         },
         {
-          "sha": "38961ae",
-          "message": "Deleted the old theme-toggle + Blog button pair (icon-btn/blog-nav-link) at the front of the header, per Noal 2026-07-20 ~10:27pm. It was a ",
-          "author": "Plex (LIME session)",
-          "date": "2026-07-21T02:29:16Z"
-        },
-        {
-          "sha": "5eac1c9",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-21T02:14:30Z"
-        },
-        {
-          "sha": "3b26dd9",
-          "message": "Fix Part I hover-open color bug + hide Read Introduction heading by default",
-          "author": "Perplexity Computer",
-          "date": "2026-07-21T02:08:21Z"
+          "sha": "485d4c7",
+          "message": "Share a Memory widget, per Noal 2026-07-21 ~1:14am: heading text 'Leave a Memory...' -> 'Share a Memory, a Thought or a Feeling, Before You ",
+          "author": "Noal Rini",
+          "date": "2026-07-21T05:16:30Z"
         }
       ]
     },
