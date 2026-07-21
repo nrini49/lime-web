@@ -1052,6 +1052,24 @@
         <span id="wg-count-text"><span class="drop-cap">R</span>osy <span class="drop-cap">W</span>ay</span>
       </span>
     </div>
+    <!-- TEST pair, per Noal 2026-07-20 ~8:39pm: the original theme-toggle/
+         Blog pair in .hdr-utility above is left completely untouched, on
+         purpose -- this is a second, duplicate copy of the same two
+         controls, restyled into the exact .ibkr-demo-cta box format used
+         by Rosie Live/Buy Rosie/Who's Here/Rosy Way, placed right next to
+         that last pair to test how it changes the rectangle relationships
+         across the row. Theme toggle here is a second real, working
+         button (data-theme-toggle) -- the toggle JS below was updated to
+         wire up every matching button via querySelectorAll instead of
+         just the first one, so both copies stay in sync. "Blog" gets the
+         all-caps + drop-cap-first-letter treatment (small-caps-rest),
+         matching the format Noal asked for. -->
+    <div class="hdr-presence">
+      <button class="ibkr-demo-cta notranslate" translate="no" data-theme-toggle aria-label="Switch theme">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <a class="ibkr-demo-cta" href="blog/index.html" target="_blank" rel="noopener"><span><span class="drop-cap">B</span><span class="small-caps-rest">log</span></span></a>
+    </div>
   </div>
 </header>
 
@@ -2209,15 +2227,22 @@
 <script>
 
 (function () {
-  const t = document.querySelector('[data-theme-toggle]'), r = document.documentElement;
+  // Updated per Noal 2026-07-20 ~8:39pm to wire up EVERY theme-toggle
+  // button on the page (querySelectorAll, was querySelector) since a
+  // second, duplicate toggle button now exists (test pair in the header,
+  // right side) alongside the original. Clicking either one flips both
+  // in sync, same icon/aria-label state on each.
+  const toggles = Array.from(document.querySelectorAll('[data-theme-toggle]')), r = document.documentElement;
   let d = 'dark';
   r.setAttribute('data-theme', d);
   function icon(dark){ return dark
     ? '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
     : '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'; }
-  if (t) { t.innerHTML = icon(d==='dark'); t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode');
-    t.addEventListener('click', () => { d = d==='dark'?'light':'dark'; r.setAttribute('data-theme', d); t.innerHTML = icon(d==='dark'); t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode'); });
+  function applyState(){
+    toggles.forEach(function(t){ t.innerHTML = icon(d==='dark'); t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode'); });
   }
+  applyState();
+  toggles.forEach(function(t){ t.addEventListener('click', () => { d = d==='dark'?'light':'dark'; r.setAttribute('data-theme', d); applyState(); }); });
   // Header globe translate button + its translate.goog click handler
   // removed per Noal, 2026-07-19 ~11:08pm (see header markup comment).
 })();
