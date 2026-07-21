@@ -605,10 +605,19 @@
      (details.collapsible > summary:hover h2) was forcing the label green
      even while the button background also turned green on hover --
      green-on-green, text effectively invisible. Per Noal 2026-07-20
-     ~4:51pm bug catch. */
-  .part-block-toggle > summary.part-block-summary:hover h2,
+     ~4:51pm bug catch. Scoped to h2.rosie-subtitle-heading only (the
+     "AI Pilot..." link line) -- NOT the plain "Read Introduction..." h2
+     right under it, which was also getting caught by the unscoped `h2`
+     selector and flashing green on any summary hover with no reason to,
+     per Noal 2026-07-20 ~9:55pm bug report ("that behavior has to
+     stop"). The explicit :not() override directly below puts that
+     heading's color back to normal even while the summary is hovered. */
+  .part-block-toggle > summary.part-block-summary:hover h2.rosie-subtitle-heading,
   .part-block-toggle > summary.part-block-summary:hover .chapter-num {
     color: var(--color-primary);
+  }
+  .part-block-toggle > summary.part-block-summary:hover h2:not(.rosie-subtitle-heading) {
+    color: var(--color-text);
   }
   .part-block-toggle > summary.part-block-summary .chapter-num {
     display: block; grid-column: auto;
@@ -642,6 +651,25 @@
      reason as the summary rule above -- this IS a real link (unlike
      "Read Introduction..."), but the underline read as more link-like
      than intended. Color change alone still signals interactivity. */
+  /* "Read Introduction, And Chapters..." heading stays invisible until
+     Part I is actually open, per Noal 2026-07-20 ~9:55pm direct
+     in-thread request. Keyed purely off #part-i-block's own [open]
+     attribute -- the mouseenter/mouseleave script further down the page
+     (search "openPiViaHover") is the single source of truth for setting
+     that attribute on hover of the chapter-num tag or the "AI Pilot
+     Trading and Investing..." line, and for clearing it on mouseleave;
+     this CSS just reacts to whatever that script decides, so heading
+     and body always appear/disappear together, in sync, with no
+     separate hover-detection duplicated here. The body itself needs no
+     extra rule -- native <details> already hides everything after
+     <summary> whenever [open] is absent. */
+  #part-i-block:not([open]) summary.part-block-summary h2:not(.rosie-subtitle-heading) {
+    opacity: 0; max-height: 0; overflow: hidden; margin: 0;
+    transition: opacity 0.25s ease, max-height 0.25s ease;
+  }
+  #part-i-block[open] summary.part-block-summary h2:not(.rosie-subtitle-heading) {
+    opacity: 1; max-height: 200px; margin: var(--space-4) 0 0;
+  }
   .part-block-toggle[open] > summary.part-block-summary { margin-bottom: var(--space-4); }
   details.collapsible > summary .chev { grid-column: 3; }
   @media (max-width: 640px) { details.collapsible > summary { grid-template-columns: 1fr auto; grid-template-rows: auto auto; row-gap: var(--space-1); } .chapter-num { text-align: left; grid-column: 1; grid-row: 1; } details.collapsible > summary h2, details.collapsible > summary h3 { grid-column: 1; grid-row: 2; } details.collapsible > summary .chev { grid-column: 2; grid-row: 1 / 3; } }

@@ -19,8 +19,28 @@
  * in-thread, after this note -- this exact behavior has been added and
  * removed multiple times today.
  *
+ * NAMED EXCEPTION: #part-i-block ("AI Pilot Trading and Investing..." /
+ * "Read Introduction, And Chapters...") DOES hover-reveal, via a
+ * dedicated mouseenter/mouseleave block further down index.html (search
+ * "openPiViaHover") -- NOT through this file's generic wire(). Rolling
+ * over the "Part I" chapter-num tag or the "AI Pilot Trading..." line
+ * sets pi.open = true; moving the mouse off the whole block sets it
+ * back to false. The "Read Introduction..." heading text (index.html,
+ * search "stays invisible until") is pure CSS keyed off that same
+ * [open] attribute, so heading and body always move together. Per
+ * Noal's direct in-thread request, 2026-07-20 ~9:55pm (heading-visibility
+ * refinement) on top of an earlier same-day request that added the
+ * open/close mouseenter logic itself. #part-i-block keeps
+ * data-stay-open="true", which makes wire() below skip it entirely --
+ * the dedicated block owns 100% of its open/close behavior instead.
+ * No other Part, and no other collapsible on the site, has any
+ * hover-reveal -- they remain exactly as described above.
+ *
  * Touch/no-hover devices (phones, tablets) keep plain native <details>
  * click-to-open / click-to-close behavior untouched -- no change there.
+ * The dedicated Part I block above is itself gated on the same
+ * hover-media-query and no-ops on touch, so touch users just get plain
+ * click-to-open there too.
  *
  * SINGLE NAMED EXCEPTION, per Noal's direct in-thread confirmation,
  * 2026-07-19 ~5:51pm: the Part III part-label heading ("The LIME Universe
