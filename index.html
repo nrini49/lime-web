@@ -321,7 +321,16 @@
      two allow the hover-only count text to wrap onto a second line
      instead of overflowing, since "1,204 visits" etc. runs longer than
      the plain resting label. */
-  #wg-live-badge, #wg-badge { white-space: normal; text-align: center; }
+  /* Widened per Noal 2026-07-21 ~1:22am: the shared 7em width was too
+     narrow for the resting labels ("Who's Here" / "Rosy Way") once
+     white-space went to normal above, so they wrapped to a second line
+     and stood visibly taller than the other 4 same-row buttons (34px ->
+     51px). 9em fits both resting labels on one line again; the longer
+     hover-only count text (e.g. "1,204 Here Now") can still wrap to a
+     second line on hover without overflowing horizontally -- that's a
+     brief hover-only state, not the persistent rest state people
+     actually see and compare against the rest of the row. */
+  #wg-live-badge, #wg-badge { white-space: normal; text-align: center; width: 9em; }
   @media (max-width: 640px) { .ibkr-demo-cta, .buy-rosie-cta { display: none; } }
   /* Width/height no longer fixed (38px) -- per Noal 2026-07-19 ~11:27pm,
      stretches to fill its grid cell (matched to Blog's width, matched to
@@ -660,8 +669,10 @@
      but two steps down the size scale (--text-xl -> --text-base) and its
      own link color/weight instead of the body-text color/weight the
      plain h2 rule sets. Sits between "Part I" and "Read Introduction...". */
+  /* Size matched to .form-card-teaser ("Begin Your Harbor Member
+     Access"), per Noal 2026-07-21 ~1:22am -- text-base -> text-lg. */
   .part-block-toggle > summary.part-block-summary h2.rosie-subtitle-heading {
-    font-size: var(--text-base); font-weight: 700; margin: var(--space-2) 0 0;
+    font-size: var(--text-lg); font-weight: 700; margin: var(--space-2) 0 0;
   }
   /* More breathing room between this line and "Read Introduction..."
      right below it, per Noal 2026-07-20 ~8:23pm -- the generic h2 rule's
@@ -2433,12 +2444,39 @@
 
   // Accordion — close all other SECTION-level details when one opens
   // Excludes fp-cell (inner cards) so they don't collapse the parent section
+  // Bug fix, per Noal 2026-07-21 ~1:22am ("A Difficult Interpretation
+  // does not expand the section below it"): this used to close EVERY
+  // other open .collapsible unconditionally, including ANCESTORS of the
+  // one that just opened. Since nested sub-sections (like "A Difficult
+  // Interpretation" inside Part II's body) are also .collapsible,
+  // opening one immediately closed its own parent Part -- which visibly
+  // hides the child too, since a closed <details> hides everything
+  // inside it regardless of the child's own open attribute. Net effect:
+  // click a sub-heading, the whole surrounding section vanishes, reads
+  // as "this heading doesn't expand anything." Now only closes details
+  // that are neither an ancestor nor a descendant of the one that just
+  // opened -- true siblings/unrelated sections still collapse as
+  // before, but the chain of parents that made the clicked heading
+  // visible in the first place is left alone.
+  // Second half of the same fix: elements marked data-stay-open (all
+  // four Part I-IV toggles) are also exempt from being force-closed by
+  // an unrelated sibling opening -- "A Difficult Interpretation" sits
+  // between Part I and Part II as its own standalone section (not
+  // nested in either), so opening it was closing Part I even though
+  // Part I is marked data-stay-open specifically to mean "stays open
+  // until the reader closes it themselves." That name should hold
+  // regardless of what else on the page opens, not just for
+  // mouseleave/scroll -- see accordion-hover.js for the original
+  // narrower meaning this widens.
   var allDetails = document.querySelectorAll('main details.collapsible');
   allDetails.forEach(function(det) {
     det.addEventListener('toggle', function() {
       if (det.open) {
         allDetails.forEach(function(other) {
-          if (other !== det && other.open) other.removeAttribute('open');
+          if (other === det || !other.open) return;
+          if (other.contains(det) || det.contains(other)) return;
+          if (other.dataset.stayOpen) return;
+          other.removeAttribute('open');
         });
       }
     });
