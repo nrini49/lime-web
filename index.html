@@ -924,7 +924,13 @@
      Member Access" sits flush against the bottom of the title block
      above (the new "For Homes and Small Businesses" tagline + zeroed
      #part-i-label padding-bottom), no gap. Was var(--space-6). */
-  .signup-cell { max-width: 1080px; margin: 0 auto 0; padding: 0 var(--space-6); box-sizing: border-box; }
+  /* Margin-bottom re-added per Noal 2026-07-20 ~8:26pm: needed a gap
+     between "Begin Your Harbor Member Access" and the "Part I" toggle
+     heading right below it again -- the space-10 gap here had been
+     zeroed out on 2026-07-20 ~6:08pm for a different, now-superseded
+     reason. Top margin stays 0 (still flush against the title/tagline
+     block above, per the ~8:10pm request). */
+  .signup-cell { max-width: 1080px; margin: 0 auto var(--space-8); padding: 0 var(--space-6); box-sizing: border-box; }
   .blog-input-panel { max-width: calc(var(--text-xl) * 23.8); width: 100%; cursor: pointer; outline: none; }
   /* Hover/focus-collapsible: collapsed to just the teaser row by default,
      expands to the full form on hover or keyboard focus, collapses again
@@ -1062,7 +1068,7 @@
        between every other Part transition further down the page. -->
   <div class="part-label" id="part-i-label">
     <p class="part-title" id="part-i-title">Precision Accurate Automated Trading and Investing</p>
-    <p class="part-tagline">For Homes and Small Businesses</p>
+    <p class="part-tagline"><span class="drop-cap">F</span><span class="small-caps-rest">or</span> <span class="drop-cap">P</span><span class="small-caps-rest">rofessional</span> <span class="drop-cap">T</span><span class="small-caps-rest">raders</span>, <span class="drop-cap">I</span><span class="small-caps-rest">ndividuals</span>, <span class="drop-cap">a</span><span class="small-caps-rest">nd</span> <span class="drop-cap">S</span><span class="small-caps-rest">mall</span> <span class="drop-cap">B</span><span class="small-caps-rest">usinesses</span></p>
   </div>
 
   <!-- Duplicate of the Begin/Subscribe page input panel, ported over from
