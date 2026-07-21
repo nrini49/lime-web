@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T02:14:24.366100+00:00",
+  "generated_at": "2026-07-21T04:21:42.218484+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
+          "sha": "88dd8d7",
+          "message": "Sign-up box cleanup per Noal 2026-07-20 ~10:43pm: removed the fineprint paragraph under the Begin button entirely ('they don't do anything f",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-21T03:40:40Z"
+        },
+        {
+          "sha": "f1d9442",
+          "message": "Step header button text down one size tick, per Noal 2026-07-20 ~10:41pm",
+          "author": "Perplexity Computer",
+          "date": "2026-07-21T02:44:56Z"
+        },
+        {
+          "sha": "38961ae",
+          "message": "Deleted the old theme-toggle + Blog button pair (icon-btn/blog-nav-link) at the front of the header, per Noal 2026-07-20 ~10:27pm. It was a ",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-21T02:29:16Z"
+        },
+        {
+          "sha": "5eac1c9",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-21T02:14:30Z"
+        },
+        {
           "sha": "3b26dd9",
           "message": "Fix Part I hover-open color bug + hide Read Introduction heading by default",
           "author": "Perplexity Computer",
           "date": "2026-07-21T02:08:21Z"
-        },
-        {
-          "sha": "4fbf0cf",
-          "message": "Roll out drop-cap + small-caps-rest scheme site-wide",
-          "author": "Perplexity Computer",
-          "date": "2026-07-21T01:04:37Z"
-        },
-        {
-          "sha": "d6c691a",
-          "message": "Test pair added per Noal 2026-07-20 ~8:39pm: original theme-toggle/Blog pair in .hdr-utility left completely untouched (explicit request, as",
-          "author": "Perplexity Computer",
-          "date": "2026-07-21T00:44:25Z"
-        },
-        {
-          "sha": "c930413",
-          "message": "Two text changes per Noal 2026-07-20 ~8:34pm.",
-          "author": "Plex (LIME session)",
-          "date": "2026-07-21T00:38:05Z"
-        },
-        {
-          "sha": "c4c636f",
-          "message": "Match theme toggle + Blog button heights to the other 4 header buttons, per Noal 2026-07-20 ~8:24pm. min-height was already changed to 34px ",
-          "author": "Perplexity Computer",
-          "date": "2026-07-21T00:33:13Z"
         }
       ]
     },
@@ -67,6 +67,12 @@
       "repo": "nrini49/limesignalworks",
       "ok": true,
       "commits": [
+        {
+          "sha": "c79b515",
+          "message": "Rosie dashboard: all 8 panels start collapsed, open on hover, stay open until closed manually",
+          "author": "Perplexity Computer",
+          "date": "2026-07-21T03:42:19Z"
+        },
         {
           "sha": "d22ea84",
           "message": "Match the homepage header badge fix here: 'checking who's here....' -> 'checking who's here?' and 'along the Rosy Way........' -> 'along the",
@@ -90,12 +96,6 @@
           "message": "Lock the Rosie Way section (Admin Console / Harbor Watch / System Files / Repo Browser) behind a client-side password gate, per Noal's expli",
           "author": "Plex (LIME session)",
           "date": "2026-07-20T22:03:32Z"
-        },
-        {
-          "sha": "772a0c2",
-          "message": "Add the LIME Signalworks global header (brand mark, wordmark, live visitor-presence badges, Blog/Rosie Live/Buy Rosie nav) to the top of the",
-          "author": "Plex (LIME session)",
-          "date": "2026-07-20T21:55:43Z"
         }
       ]
     },
