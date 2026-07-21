@@ -565,7 +565,12 @@
      no border line (Noal asked for that border gone between header and
      Part A specifically). Per Noal, 2026-07-19. */
   .part-label.top-space { margin-top: var(--space-10); }
-  .part-label .part-name { font-family: var(--font-body); font-size: var(--text-xl); letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-primary); font-weight: 700; margin: 0; }
+  /* Bold -> normal, per Noal 2026-07-21 ~1:36am: this is the standalone
+     "PART II/III/IV" label (.part-label .part-name) -- a separate element
+     from the .part-block-toggle chapter-num tag fixed earlier tonight
+     (commit 89fc7fe). Part I has no equivalent .part-name element (its
+     own "Part I" tag lives entirely inside the toggle, already normal). */
+  .part-label .part-name { font-family: var(--font-body); font-size: var(--text-xl); letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-primary); font-weight: 400; margin: 0; }
   .part-label .part-title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; color: var(--color-text); margin: var(--space-1) 0 0; }
   /* Part I title override per Noal, 2026-07-20 ~10:01am, direct confirmation
      superseding the "don't change without confirming" note above -- this
@@ -1549,7 +1554,12 @@
        as Part I. Founder's introduction above stays outside/untouched
        (it's explicitly not one of the numbered chapters). -->
   <details class="collapsible part-block-toggle" id="part-ii-block" data-stay-open="true">
-    <summary class="sec-bar part-block-summary"><div class="chapter-num">Part II</div><h2><span class="drop-cap">R</span><span class="small-caps-rest">ead</span> <span class="drop-cap">I</span><span class="small-caps-rest">ntroduction</span>, <span class="drop-cap">C</span><span class="small-caps-rest">hapters</span> I, II, III <span class="drop-cap">&amp;</span> <span class="drop-cap">C</span><span class="small-caps-rest">onclusion</span></h2></summary>
+    <!-- "Read Introduction, Chapters I, II, III & Conclusion" h2 deleted
+         per Noal 2026-07-21 ~1:36am direct request -- redundant with the
+         "Part II" tag right above it and the .part-name "PART II" label
+         higher up the page. The chapter-num "Part II" tag stays as the
+         toggle's visible click target; only the sentence is gone. -->
+    <summary class="sec-bar part-block-summary"><div class="chapter-num">Part II</div></summary>
     <div class="sec-body part-block-body">
 
   <section class="book-intro-section">
