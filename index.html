@@ -509,12 +509,20 @@
   details.collapsible > summary h2, details.collapsible > summary h3 { font-size: var(--text-base); margin: 0; text-align: left; color: var(--color-text); font-weight: 400; grid-column: 2; }
   .chapter-num { font-family: var(--font-body); font-size: var(--text-xs); letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-muted); font-weight: 600; margin: 0; text-align: left; grid-column: 1; align-self: baseline; }
   .part-label { max-width: 1080px; margin: 0 auto; padding: var(--space-8) var(--space-6) var(--space-2); }
+  /* New tagline line under the Part I title, per Noal 2026-07-20 ~8:10pm --
+     "For Homes and Small Businesses", smaller companion line under the
+     main headline, same family as .part-title but stepped down and muted
+     so it reads as a subtitle, not a second headline. */
+  .part-tagline { font-family: var(--font-body); font-size: var(--text-lg); font-weight: 600; color: var(--color-text-muted); margin: var(--space-1) 0 0; }
   /* Part I only, per Noal 2026-07-20 ~7:23pm: top padding pulled from the
      shared space-8 (32px) default down to space-1 (4px) -- the smallest
      step on the scale short of 0 -- so the title sits right up against
      the header's lighthouse mark above it. Scoped to this one id, so
      Parts II-IV keep their normal shared spacing untouched. */
-  #part-i-label { padding-top: var(--space-1); }
+  /* Bottom padding zeroed per Noal 2026-07-20 ~8:10pm so the signup cell
+     right below (margin-top also zeroed, see .signup-cell override) sits
+     snug against the bottom of this title block with no gap. */
+  #part-i-label { padding-top: var(--space-1); padding-bottom: 0; }
   /* Border line above Part B removed per Noal 2026-07-19 (ghost cell border
      between "Light My Fire" and the Part B heading) -- spacing kept. */
   .part-label.with-divider { padding-top: var(--space-10); margin-top: var(--space-6); }
@@ -902,7 +910,11 @@
      Part I toggle heading right below it -- removed entirely, the two
      now sit directly against each other. Top margin/spacing from the
      Part title above is untouched. */
-  .signup-cell { max-width: 1080px; margin: var(--space-6) auto 0; padding: 0 var(--space-6); box-sizing: border-box; }
+  /* Margin-top zeroed per Noal 2026-07-20 ~8:10pm so "Begin Your Harbor
+     Member Access" sits flush against the bottom of the title block
+     above (the new "For Homes and Small Businesses" tagline + zeroed
+     #part-i-label padding-bottom), no gap. Was var(--space-6). */
+  .signup-cell { max-width: 1080px; margin: 0 auto 0; padding: 0 var(--space-6); box-sizing: border-box; }
   .blog-input-panel { max-width: calc(var(--text-xl) * 23.8); width: 100%; cursor: pointer; outline: none; }
   /* Hover/focus-collapsible: collapsed to just the teaser row by default,
      expands to the full form on hover or keyboard focus, collapses again
@@ -1039,7 +1051,8 @@
        the header's lighthouse mark instead of the standard gap used
        between every other Part transition further down the page. -->
   <div class="part-label" id="part-i-label">
-    <p class="part-title" id="part-i-title">Precision Accurate Automated Investing</p>
+    <p class="part-title" id="part-i-title">Precision Accurate Automated Trading and Investing</p>
+    <p class="part-tagline">For Homes and Small Businesses</p>
   </div>
 
   <!-- Duplicate of the Begin/Subscribe page input panel, ported over from
