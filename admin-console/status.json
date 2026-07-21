@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T00:13:48.738206+00:00",
+  "generated_at": "2026-07-21T02:14:24.366100+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "618160e",
-          "message": "'Leave a Memory' heading, per Noal 2026-07-20 ~8:08pm: added the missing 'a' before 'Feeling' (now reads 'Leave a Memory, a Thought or a Fee",
-          "author": "Plex (LIME session)",
-          "date": "2026-07-21T00:11:10Z"
-        },
-        {
-          "sha": "b6665f3",
-          "message": "Fix mismatched AI letter sizes in 'AI Pilot Investing Strategies and Tactics' subtitle, per Noal 2026-07-20 ~7:58pm. Drop-cap word-wrapping ",
+          "sha": "3b26dd9",
+          "message": "Fix Part I hover-open color bug + hide Read Introduction heading by default",
           "author": "Perplexity Computer",
-          "date": "2026-07-21T00:02:58Z"
+          "date": "2026-07-21T02:08:21Z"
         },
         {
-          "sha": "5a304b5",
-          "message": "Per Noal 2026-07-20 ~7:57pm: removed the underline-on-hover from both 'Read Introduction...' (was reading as an actual attached link/URL, wh",
-          "author": "Plex (LIME session)",
-          "date": "2026-07-20T23:59:58Z"
-        },
-        {
-          "sha": "caa5a3e",
-          "message": "Two fixes per Noal 2026-07-20 ~7:37pm.",
-          "author": "Plex (LIME session)",
-          "date": "2026-07-20T23:47:52Z"
-        },
-        {
-          "sha": "5326c61",
-          "message": "Header buttons: capitalize each word and apply the .drop-cap treatment (first letter of each word enlarged 1.4x) to all 6 header buttons, pe",
+          "sha": "4fbf0cf",
+          "message": "Roll out drop-cap + small-caps-rest scheme site-wide",
           "author": "Perplexity Computer",
-          "date": "2026-07-20T23:39:19Z"
+          "date": "2026-07-21T01:04:37Z"
+        },
+        {
+          "sha": "d6c691a",
+          "message": "Test pair added per Noal 2026-07-20 ~8:39pm: original theme-toggle/Blog pair in .hdr-utility left completely untouched (explicit request, as",
+          "author": "Perplexity Computer",
+          "date": "2026-07-21T00:44:25Z"
+        },
+        {
+          "sha": "c930413",
+          "message": "Two text changes per Noal 2026-07-20 ~8:34pm.",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-21T00:38:05Z"
+        },
+        {
+          "sha": "c4c636f",
+          "message": "Match theme toggle + Blog button heights to the other 4 header buttons, per Noal 2026-07-20 ~8:24pm. min-height was already changed to 34px ",
+          "author": "Perplexity Computer",
+          "date": "2026-07-21T00:33:13Z"
         }
       ]
     },
