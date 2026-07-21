@@ -1020,32 +1020,15 @@
       </span>
       <span class="word">LIME<br><b>Signalworks</b><br><b>LLC</b></span>
     </a>
-    <!-- Theme toggle + Blog: own stack, sits between the presence meters
-         and the Rosie CTA pair. Wrapper div removed per Noal, 2026-07-20
-         ~9:50am -- plain sibling of .hdr-presence/.hdr-controls now,
-         spaced by .hdr's own uniform gap. -->
-    <div class="hdr-utility">
-      <!-- translate="no" + notranslate per Noal, 2026-07-19 ~11:35pm: this
-           button's JS swaps its inner SVG on every click (light/dark icon).
-           If Google Translate (native browser translate feature) has
-           already wrapped/touched this subtree, that DOM swap can conflict
-           with Translate's own node tracking and throw an error. Marking
-           it untranslatable tells Google Translate to skip this element
-           entirely, removing the conflict at the source. -->
-      <!-- Icon doubled 18px -> 36px per Noal 2026-07-20 ~1:26pm, stepped
-           down to 32px per Noal 2026-07-20 ~8:24pm: at 36px + the button's
-           1px border on each side, the button itself was forced to 38px
-           tall (content size overriding min-height:34px) -- 4px taller
-           than the other five header buttons. 32px + border = 34px,
-           matching exactly. All three svg markups (static + both JS
-           light/dark variants below) updated together. -->
-      <button class="icon-btn notranslate" translate="no" data-theme-toggle aria-label="Switch theme">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-      </button>
-      <a class="blog-nav-link" href="blog/index.html" target="_blank" rel="noopener"><span><span class="drop-cap">B</span><span class="small-caps-rest">log</span></span></a>
-    </div>
-    <!-- Rosie CTA pair only now -- theme toggle + Blog live in .hdr-utility
-         above. Rosie CTA itself held back from going live per the standing
+    <!-- Old theme-toggle + Blog pair (icon-btn/blog-nav-link style) deleted
+         here per Noal 2026-07-20 ~10:27pm -- it was a duplicate of the
+         newer pill-styled TEST pair further down (search "TEST pair"),
+         which is now the only theme toggle + Blog in the header. Nothing
+         else in the header changed. The toggle JS already wires up every
+         matching [data-theme-toggle] via querySelectorAll, so the
+         remaining button kept working with no script changes needed. -->
+    <!-- Rosie CTA pair only now -- theme toggle + Blog live in the TEST
+         pair further down. Rosie CTA itself held back from going live per the standing
          IB-confirmation gate -- repeated standing rule from Noal, do NOT
          re-add the gated "Take me right to Rosie Interactive now" button
          without his direct confirmation in a session that can see this
