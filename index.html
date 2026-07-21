@@ -624,6 +624,16 @@
   .part-block-toggle > summary.part-block-summary h2.rosie-subtitle-heading {
     font-size: var(--text-base); font-weight: 700; margin: var(--space-2) 0 0;
   }
+  /* More breathing room between this line and "Read Introduction..."
+     right below it, per Noal 2026-07-20 ~8:23pm -- the generic h2 rule's
+     margin-top: var(--space-1) (4px) read as too tight. Adjacent-sibling
+     selector so this only widens the gap after THIS specific heading
+     (Part I only, the only Part with a rosie-subtitle-heading) -- Parts
+     II-IV's "Read Introduction..." keeps its normal small gap under the
+     plain "Part II/III/IV" tag. */
+  .part-block-toggle > summary.part-block-summary h2.rosie-subtitle-heading + h2 {
+    margin-top: var(--space-4);
+  }
   .part-block-toggle .rosie-subtitle-heading .part-subtitle-link { color: var(--color-primary); text-decoration: none; }
   /* Underline-on-hover removed here too per Noal 2026-07-20 ~7:57pm, same
      reason as the summary rule above -- this IS a real link (unlike
@@ -1120,7 +1130,7 @@
        as-is (untouched by drop-cap.js -- it skips headings that already
        have child elements). -->
   <details class="collapsible part-block-toggle" id="part-i-block" data-stay-open="true">
-    <summary class="sec-bar part-block-summary"><div class="chapter-num">Part I</div><h2 class="rosie-subtitle-heading"><a class="part-subtitle-link" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener"><span class="drop-cap">A</span><span class="drop-cap">I</span> <span class="drop-cap">P</span>ilot <span class="drop-cap">I</span>nvesting <span class="drop-cap">S</span>trategies <span class="drop-cap">a</span>nd <span class="drop-cap">T</span>actics</a></h2><!-- Roman numerals spelled out in full (I, II, III instead of I-III) and deliberately left OUT of the drop-cap span-wrapping below, per Noal 2026-07-20 ~7:37pm: the per-word first-letter-enlarge treatment made "I", "II", "III" render at mismatched sizes (each token's own first "I" got enlarged, the rest didn't) since they're literally repeated single letters -- left as one plain run instead so all three numerals stay the same font/size. --><h2><span class="drop-cap">R</span>ead <span class="drop-cap">I</span>ntroduction, <span class="drop-cap">C</span>hapters I, II, III <span class="drop-cap">&amp;</span> <span class="drop-cap">C</span>onclusion</h2></summary>
+    <summary class="sec-bar part-block-summary"><div class="chapter-num">Part I</div><h2 class="rosie-subtitle-heading"><a class="part-subtitle-link" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener"><span class="drop-cap">A</span><span class="drop-cap">I</span> <span class="drop-cap">P</span>ilot <span class="drop-cap">T</span>rading <span class="drop-cap">a</span>nd <span class="drop-cap">I</span>nvesting <span class="drop-cap">S</span>trategies <span class="drop-cap">a</span>nd <span class="drop-cap">T</span>actics</a></h2><!-- Roman numerals spelled out in full (I, II, III instead of I-III) and deliberately left OUT of the drop-cap span-wrapping below, per Noal 2026-07-20 ~7:37pm: the per-word first-letter-enlarge treatment made "I", "II", "III" render at mismatched sizes (each token's own first "I" got enlarged, the rest didn't) since they're literally repeated single letters -- left as one plain run instead so all three numerals stay the same font/size. --><h2><span class="drop-cap">R</span>ead <span class="drop-cap">I</span>ntroduction, <span class="drop-cap">C</span>hapters I, II, III <span class="drop-cap">&amp;</span> <span class="drop-cap">C</span>onclusion</h2></summary>
     <div class="sec-body part-block-body">
 
   <section class="keeper-hero">
