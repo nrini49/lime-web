@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T16:31:01.999444+00:00",
+  "generated_at": "2026-07-21T18:16:32.955473+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "0471d9b",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-21T16:31:05Z"
+        },
+        {
           "sha": "dd70be7",
           "message": "Replace card-fire lines with canon trait text from keepers_fire_study",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
           "date": "2026-07-21T10:25:28Z"
-        },
-        {
-          "sha": "963a8af",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-21T08:19:12Z"
         }
       ]
     },
