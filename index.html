@@ -796,7 +796,11 @@
   .companion-widget .wrap { padding: 0 150px 0 var(--space-6); }
   @media (max-width: 900px) { .companion-widget .wrap { padding: 0 var(--space-6); } }
   .companion-widget .wrap { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); text-align: center; }
-  .companion-widget h3 { font-family: Helvetica, Arial, sans-serif; font-size: var(--text-lg); color: var(--color-text); margin: 0; }
+  /* Color -> green, explicit normal weight, per Noal 2026-07-21 ~2:43am
+     ("not bold, but green"). Base h1/h2/h3 rule already sets font-weight:
+     400, but stating it here too since this is the rule Noal is pointing
+     at directly. */
+  .companion-widget h3 { font-family: Helvetica, Arial, sans-serif; font-size: var(--text-lg); font-weight: 400; color: var(--color-primary); margin: 0; }
   .companion-widget .cw-sub { color: var(--color-text-muted); font-size: calc(var(--text-sm) * 2); max-width: 42ch; margin: 0; }
   /* Manual expand/collapse, per Noal 2026-07-19: closed by default (same
      standing rule as every other section on the site), opens only when
@@ -1543,7 +1547,7 @@
        until Noal confirms directly. -->
   <section class="founder-intro">
     <div class="wrap">
-      <details class="collapsible">
+      <details class="collapsible" data-stay-open="true">
             <!-- "The Wicket Gate" + "by John Bunyan" (6 words) unified to one
                  step-down size (text-base -> text-sm), per Noal 2026-07-19
                  ~11:56pm: small enough that this heading doesn't run past
@@ -1578,7 +1582,7 @@
 
   <section class="book-intro-section">
     <div class="wrap">
-      <details class="collapsible">
+      <details class="collapsible" data-stay-open="true">
         <summary class="sec-bar"><div class="chapter-num">Introduction</div><h2>A Note Before You Begin</h2></summary>
         <div class="sec-body">
           <p class="book-intro">Think of what follows the way Leonardo kept his notebooks &mdash; where the scientific and the sacred were never separate pages, only one continuous study of what's true. Open them in the order that describes where your heart is at now. Nothing here is locked, and nothing needs to be read first. Let what's behind each one surprise you, and glorify our Creator.</p>
@@ -1725,7 +1729,7 @@
        this is now the reader's first stop after the founder intro. -->
   <section class="harbor">
     <div class="wrap">
-      <details class="collapsible">
+      <details class="collapsible" data-stay-open="true">
         <summary class="sec-bar"><div class="chapter-num">Chapter I</div><h2>Enter through the Wicket Gate</h2></summary>
         <div class="sec-body">
           <p class="doors-sub">Eight doors, then a ninth. Each one opens to a different piece of the same harbor.<br>
@@ -1754,7 +1758,7 @@
 
   <section class="hero">
     <div class="wrap">
-      <details class="collapsible">
+      <details class="collapsible" data-stay-open="true">
         <summary class="sec-bar"><div class="chapter-num">Chapter II</div><h2>The Rosy Way</h2></summary>
         <div class="sec-body">
           <div class="beacon" aria-hidden="true">
@@ -1774,7 +1778,7 @@
 
   <section class="fire-protocol">
     <div class="wrap">
-      <details class="collapsible">
+      <details class="collapsible" data-stay-open="true">
         <summary class="sec-bar"><div class="chapter-num">Chapter III</div><h2>Introduction to the 33-Day Fire Protocol</h2></summary>
         <div class="sec-body">
           <p class="fp-sub">The Fire Spirit speaks one word a day for 33 days. Here is the shape of the whole arc, in three parts — open any of them now, or simply know they are here and come back to them.</p>
@@ -1812,7 +1816,7 @@
 <!-- Conclusion -- content from Noal, 2026-07-17. -->
 <section class="conclusion-section">
   <div class="wrap">
-    <details class="collapsible">
+    <details class="collapsible" data-stay-open="true">
       <summary class="sec-bar"><div class="chapter-num">Conclusion</div><h2>Take a Breath</h2></summary>
       <div class="sec-body">
         <p>Close your eyes. Let the weight of your current story drop to the floor.</p>
@@ -1895,7 +1899,7 @@
      inside one single part-block-toggle wrapper. -->
 <section class="part-c-section">
       <div class="wrap">
-        <details class="collapsible">
+        <details class="collapsible" data-stay-open="true">
           <summary class="sec-bar"><div class="chapter-num">Introduction</div><h2>The Founder's Summary</h2></summary>
           <div class="sec-body">
             <p>This is what Part III actually does: lays out the field we're working with, names the objects we have to deal with, names the goal, and names the solution &mdash; all up front, so nothing is left to guess at.</p>
@@ -1907,7 +1911,7 @@
     </section>
     <section class="part-c-section">
       <div class="wrap">
-        <details class="collapsible">
+        <details class="collapsible" data-stay-open="true">
           <summary class="sec-bar"><div class="chapter-num">Chapter I</div><h2>The Problem, Then the Goal</h2></summary>
           <div class="sec-body">
             <p><strong>What you're facing.</strong> Most people are running on someone else's programming &mdash; inherited fear, inherited noise, inherited urgency. Reacting instead of choosing. That's the deadhead state: alive, technically, but not actually living. Chasing signals instead of standing on a center. Disconnected from source, from self, from the people around you.</p>
@@ -1919,7 +1923,7 @@
     </section>
     <section class="part-c-section">
       <div class="wrap">
-        <details class="collapsible">
+        <details class="collapsible" data-stay-open="true">
           <summary class="sec-bar"><div class="chapter-num">Chapter II</div><h2>The Scene: Psalm 23, After Dark</h2></summary>
           <div class="sec-body">
             <p>Tree, moon, sun, water &mdash; one harmonious environment. The tree (male element: earth + fire) stays rooted; the moon (female element: sky + water vapor) orbits and reflects; the sun enlightens both. Remove the light, and the tree withers, the water thins to a trickle &mdash; but never fully stops.</p>
@@ -1939,7 +1943,7 @@
     </section>
     <section class="part-c-section">
       <div class="wrap">
-        <details class="collapsible">
+        <details class="collapsible" data-stay-open="true">
           <summary class="sec-bar"><div class="chapter-num">Chapter III</div><h2>The Interpretation Bridge Matrix</h2></summary>
           <div class="sec-body">
             <p style="color:var(--color-text-muted);">Four columns: Energy/Frequency language, Neo-Christian language, 中文 (direct Chinese), and the I Ching / Qi equivalent &mdash; so a hexagram-oriented reader can find the same bridge back.</p>
@@ -1983,7 +1987,7 @@
     </section>
     <section class="part-c-section">
       <div class="wrap">
-        <details class="collapsible">
+        <details class="collapsible" data-stay-open="true">
           <summary class="sec-bar"><div class="chapter-num">Conclusion</div><h2>Recap, the Welcome, and What's Next</h2></summary>
           <div class="sec-body">
             <p style="color:var(--color-text-muted);">Best-effort recap only &mdash; Part I and Part II are built in other threads, so correct anything below that's drifted out of date.</p>
@@ -2109,7 +2113,7 @@
          nested inside one single part-block-toggle wrapper. -->
     <section class="part-c-section">
       <div class="wrap">
-        <details class="collapsible">
+        <details class="collapsible" data-stay-open="true">
           <summary class="sec-bar"><div class="chapter-num">Introduction</div><h2>Why This Part Exists</h2></summary>
           <div class="sec-body">
             <p>Parts I, II, and III lay out the system. This part is different &mdash; it's mine. This is where my own words live outside the structure: the personal comments, the closing notes, the declarations that mark a date and mean it.</p>
@@ -2134,7 +2138,7 @@
          drafted this morning. -->
     <section class="part-c-section">
       <div class="wrap">
-        <details class="collapsible">
+        <details class="collapsible" data-stay-open="true">
           <summary class="sec-bar"><div class="chapter-num">Chapter I</div><h2>Why I'm Doing This</h2></summary>
           <div class="sec-body">
             <p>I want to tell you why I'm doing this &mdash; not the mechanics of it, the reason underneath it.</p>
@@ -2155,7 +2159,7 @@
          this is public-facing copy. -->
     <section class="part-c-section">
       <div class="wrap">
-        <details class="collapsible">
+        <details class="collapsible" data-stay-open="true">
           <summary class="sec-bar"><div class="chapter-num">Chapter II</div><h2>One Message, Six Voices</h2></summary>
           <div class="sec-body">
             <p style="color:var(--color-text-muted);">The same closing message, carried through six ways of hearing it. Not six different messages &mdash; one, translated for wherever you're standing.</p>
@@ -2190,7 +2194,7 @@
          recommended for the Hindi/Arabic religious register. -->
     <section class="part-c-section">
       <div class="wrap">
-        <details class="collapsible">
+        <details class="collapsible" data-stay-open="true">
           <summary class="sec-bar"><div class="chapter-num">Chapter III</div><h2>Reaching Further</h2></summary>
           <div class="sec-body">
             <p style="color:var(--color-text-muted);">The same message, in the next languages most people are actually waiting in.</p>
@@ -2220,7 +2224,7 @@
          over the Part I/II/III recap, drafted this morning. -->
     <section class="part-c-section">
       <div class="wrap">
-        <details class="collapsible">
+        <details class="collapsible" data-stay-open="true">
           <summary class="sec-bar"><div class="chapter-num">Conclusion</div><h2>One Gate, Three Roads</h2></summary>
           <div class="sec-body">
             <p>Part I is the workshop floor, where the tools get named honestly. The Bezalel Promise doesn't promise a harvest &mdash; it promises the craftsman shows up and works the wood straight, every day, for ninety days running. The Keeper rotating through the promise card is the hand on the tool. Rosie Interactive is the tool itself, the one you can watch move.</p>
@@ -2234,7 +2238,7 @@
 
     <section class="part-c-section">
       <div class="wrap">
-        <details class="collapsible">
+        <details class="collapsible" data-stay-open="true">
           <summary class="sec-bar"><div class="chapter-num">Chapter 1</div><h2>A Salute to the World</h2></summary>
           <div class="sec-body">
 
