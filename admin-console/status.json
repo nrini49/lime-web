@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T12:26:19.547192+00:00",
+  "generated_at": "2026-07-21T14:17:11.398361+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "c6b30c9",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-21T12:26:27Z"
+        },
+        {
           "sha": "0ab90f0",
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Two fixes per Noal 2026-07-21 ~2:43am: 1) 'Share a Memory...' heading (.companion-widget h3) color -> green (var(--color-primary)), explicit",
           "author": "Noal Rini",
           "date": "2026-07-21T06:47:35Z"
-        },
-        {
-          "sha": "eb17adb",
-          "message": "Reverted the Part II/III/IV master-toggle wrapper, per Noal 2026-07-21 ~2:30am direct request. Introduction + Chapters I-III + Conclusion ar",
-          "author": "Noal Rini",
-          "date": "2026-07-21T06:34:21Z"
         }
       ]
     },
