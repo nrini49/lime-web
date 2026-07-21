@@ -316,6 +316,12 @@
      Rosie, Who's Here, Rosy Way, Blog. */
   .ibkr-demo-cta, .buy-rosie-cta { display: inline-flex; align-items: center; justify-content: center; text-align: center; width: 7em; min-height: 34px; padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); border: 1px solid var(--color-primary); color: var(--color-primary); background: var(--color-surface); font-size: var(--text-xs); font-weight: 400; font-family: var(--font-body); line-height: 1.25; text-decoration: none; white-space: nowrap; cursor: pointer; appearance: none; box-sizing: border-box; }
   .ibkr-demo-cta:hover, .buy-rosie-cta:hover { background: var(--color-primary); color: var(--color-bg); }
+  /* Who's Here / Rosy Way rollover reveal, per Noal 2026-07-21 ~1:05am:
+     box width stays fixed at 7em same as the other 4 buttons, but these
+     two allow the hover-only count text to wrap onto a second line
+     instead of overflowing, since "1,204 visits" etc. runs longer than
+     the plain resting label. */
+  #wg-live-badge, #wg-badge { white-space: normal; text-align: center; }
   @media (max-width: 640px) { .ibkr-demo-cta, .buy-rosie-cta { display: none; } }
   /* Width/height no longer fixed (38px) -- per Noal 2026-07-19 ~11:27pm,
      stretches to fill its grid cell (matched to Blog's width, matched to
@@ -2712,14 +2718,57 @@
     }).join(' ');
   }
 
+  // Rollover reveal, per Noal 2026-07-21 ~1:05am: the two badges now sit
+  // at rest showing their plain labels ("Who's Here" / "Rosy Way") --
+  // setCountText/setLiveText below just STORE the latest numbers instead
+  // of overwriting the label outright. The actual count only appears
+  // while the pointer is hovering the badge (see mouseenter/mouseleave
+  // handlers further down); moving off reverts to the plain label.
+  var currentLive = null;
+  var currentTotal = null;
+  var liveRestLabel = liveText ? liveText.innerHTML : '';
+  var countRestLabel = countText ? countText.innerHTML : '';
+
   function setCountText(n){
-    countText.innerHTML = fmtCount(n) + ' ' + dropCapWords('Rosy Way');
+    currentTotal = n;
+    if (countText && countText.classList.contains('wg-hovering')) renderCountHover();
   }
 
   function setLiveText(n){
-    if (!liveText) return;
-    var label = n === 1 ? 'person here right now' : 'people here right now';
-    liveText.innerHTML = fmtCount(n) + ' ' + dropCapWords(label);
+    currentLive = n;
+    if (liveText && liveText.classList.contains('wg-hovering')) renderLiveHover();
+  }
+
+  function renderLiveHover(){
+    if (!liveText || currentLive === null) return;
+    liveText.innerHTML = fmtCount(currentLive) + ' ' + dropCapWords('here now');
+  }
+
+  function renderCountHover(){
+    if (!countText || currentTotal === null) return;
+    var label = currentTotal === 1 ? 'visit' : 'visits';
+    countText.innerHTML = fmtCount(currentTotal) + ' ' + dropCapWords(label);
+  }
+
+  if (liveBadge && liveText) {
+    liveBadge.addEventListener('mouseenter', function(){
+      liveText.classList.add('wg-hovering');
+      renderLiveHover();
+    });
+    liveBadge.addEventListener('mouseleave', function(){
+      liveText.classList.remove('wg-hovering');
+      liveText.innerHTML = liveRestLabel;
+    });
+  }
+  if (badge && countText) {
+    badge.addEventListener('mouseenter', function(){
+      countText.classList.add('wg-hovering');
+      renderCountHover();
+    });
+    badge.addEventListener('mouseleave', function(){
+      countText.classList.remove('wg-hovering');
+      countText.innerHTML = countRestLabel;
+    });
   }
 
   function pulseBadge(){
