@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-20T22:14:35.816671+00:00",
+  "generated_at": "2026-07-21T00:13:48.738206+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
     "latest": "2026-07-17",
-    "checked_date": "2026-07-20"
+    "checked_date": "2026-07-21"
   },
   "site_health": [
     {
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "0da47d7",
-          "message": "Remove the dead 40px gap (var(--space-10) bottom margin) between the sign-up box ('Begin Your Harbor Member Access') and the Part I toggle h",
+          "sha": "618160e",
+          "message": "'Leave a Memory' heading, per Noal 2026-07-20 ~8:08pm: added the missing 'a' before 'Feeling' (now reads 'Leave a Memory, a Thought or a Fee",
           "author": "Plex (LIME session)",
-          "date": "2026-07-20T22:13:04Z"
+          "date": "2026-07-21T00:11:10Z"
         },
         {
-          "sha": "91e4259",
-          "message": "Rosy Way header badge: dropped 'the' from label text (static markup + live-count JS string, now just 'Rosy Way...'), and left-justified the ",
+          "sha": "b6665f3",
+          "message": "Fix mismatched AI letter sizes in 'AI Pilot Investing Strategies and Tactics' subtitle, per Noal 2026-07-20 ~7:58pm. Drop-cap word-wrapping ",
           "author": "Perplexity Computer",
-          "date": "2026-07-20T22:07:20Z"
+          "date": "2026-07-21T00:02:58Z"
         },
         {
-          "sha": "d2db0be",
-          "message": "Fix Part I toggle font/positioning to match PART II pattern exactly, per Noal 2026-07-20 ~5:58pm. Previous pass (5:54pm) mis-applied .part-n",
-          "author": "Perplexity Computer",
-          "date": "2026-07-20T22:04:05Z"
+          "sha": "5a304b5",
+          "message": "Per Noal 2026-07-20 ~7:57pm: removed the underline-on-hover from both 'Read Introduction...' (was reading as an actual attached link/URL, wh",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-20T23:59:58Z"
         },
         {
-          "sha": "f437562",
-          "message": "Two pills -> plain standalone lines, font matched to .part-subtitle-link (var(--font-display)/var(--text-base)/700): the Part toggle line (R",
-          "author": "Perplexity Computer",
-          "date": "2026-07-20T21:57:35Z"
+          "sha": "caa5a3e",
+          "message": "Two fixes per Noal 2026-07-20 ~7:37pm.",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-20T23:47:52Z"
         },
         {
-          "sha": "82cf604",
-          "message": "Signup cell: shrink collapsed height to near-minimum (padding clamp(space-6,4vw,space-8) -> space-1 vertical when collapsed, only expanding ",
+          "sha": "5326c61",
+          "message": "Header buttons: capitalize each word and apply the .drop-cap treatment (first letter of each word enlarged 1.4x) to all 6 header buttons, pe",
           "author": "Perplexity Computer",
-          "date": "2026-07-20T21:51:47Z"
+          "date": "2026-07-20T23:39:19Z"
         }
       ]
     },
@@ -67,6 +67,24 @@
       "repo": "nrini49/limesignalworks",
       "ok": true,
       "commits": [
+        {
+          "sha": "d22ea84",
+          "message": "Match the homepage header badge fix here: 'checking who's here....' -> 'checking who's here?' and 'along the Rosy Way........' -> 'along the",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-20T23:13:15Z"
+        },
+        {
+          "sha": "40d1140",
+          "message": "Harbor Watch: clamp ship-tag readout cards to the width of the 'Click a ship to read it' hint pill, per Noal 2026-07-20 ~6:39pm. Ships spawn",
+          "author": "Perplexity Computer",
+          "date": "2026-07-20T22:46:21Z"
+        },
+        {
+          "sha": "52c56bf",
+          "message": "Set Noal's own password on the Rosie Way admin gate, 2026-07-20 ~6:18pm (final value, superseding the earlier placeholder). Stored as SHA-25",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-20T22:20:14Z"
+        },
         {
           "sha": "bab9d96",
           "message": "Lock the Rosie Way section (Admin Console / Harbor Watch / System Files / Repo Browser) behind a client-side password gate, per Noal's expli",
@@ -78,24 +96,6 @@
           "message": "Add the LIME Signalworks global header (brand mark, wordmark, live visitor-presence badges, Blog/Rosie Live/Buy Rosie nav) to the top of the",
           "author": "Plex (LIME session)",
           "date": "2026-07-20T21:55:43Z"
-        },
-        {
-          "sha": "6cec04c",
-          "message": "Update session handoff doc for 2026-07-19 with end-of-day summary and parallel-session warning",
-          "author": "Noal Rini",
-          "date": "2026-07-19T19:53:42Z"
-        },
-        {
-          "sha": "9168746",
-          "message": "Add session handoff doc for 2026-07-19",
-          "author": "Noal Rini",
-          "date": "2026-07-19T18:47:38Z"
-        },
-        {
-          "sha": "ec0eb39",
-          "message": "Add Trading Permissions panel with 5 per-asset-class on/off toggles (1x ETFs, Leveraged ETFs, Stocks, Options, Speculative Swing Trades), gr",
-          "author": "Noal Rini",
-          "date": "2026-07-19T18:08:32Z"
         }
       ]
     },
