@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T06:15:39.737826+00:00",
+  "generated_at": "2026-07-21T08:19:03.904206+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "9825faa",
-          "message": "Removed the 'Part II'/'Part III'/'Part IV' chapter-num tags from all three toggle summaries, per Noal 2026-07-21 ~2:11am direct request -- f",
+          "sha": "fbf8597",
+          "message": "Slowed the accordion open animation site-wide, per Noal 2026-07-21 ~3:04am ('I don't like the way it just snaps into place'). secOpen/cwBody",
           "author": "Noal Rini",
-          "date": "2026-07-21T06:12:34Z"
+          "date": "2026-07-21T07:05:57Z"
         },
         {
-          "sha": "09d1890",
-          "message": "Part III/IV: deleted the redundant 'Read Introduction, Chapters I, II, III, Conclusion & Declaration' h2 from both toggle summaries, per Noa",
+          "sha": "1e63403",
+          "message": "Two fixes per Noal 2026-07-21 ~2:43am: 1) 'Share a Memory...' heading (.companion-widget h3) color -> green (var(--color-primary)), explicit",
           "author": "Noal Rini",
-          "date": "2026-07-21T06:03:35Z"
+          "date": "2026-07-21T06:47:35Z"
         },
         {
-          "sha": "30d64e1",
-          "message": "Two Part II fixes per Noal 2026-07-21 ~1:36am: 1) .part-name label ('PART II/III/IV' standalone heading) font-weight 700 -> 400, matching Pa",
+          "sha": "eb17adb",
+          "message": "Reverted the Part II/III/IV master-toggle wrapper, per Noal 2026-07-21 ~2:30am direct request. Introduction + Chapters I-III + Conclusion ar",
           "author": "Noal Rini",
-          "date": "2026-07-21T05:39:13Z"
+          "date": "2026-07-21T06:34:21Z"
         },
         {
-          "sha": "4e35831",
-          "message": "Four fixes per Noal 2026-07-21 ~1:22am",
-          "author": "Perplexity Computer",
-          "date": "2026-07-21T05:34:58Z"
+          "sha": "f3e0695",
+          "message": "Part II reorder per Noal 2026-07-21 ~2:21am: moved 'Translating for 3 Readers, Using 1 Door' out of the permanently-visible .part-label and ",
+          "author": "Noal Rini",
+          "date": "2026-07-21T06:23:23Z"
         },
         {
-          "sha": "485d4c7",
-          "message": "Share a Memory widget, per Noal 2026-07-21 ~1:14am: heading text 'Leave a Memory...' -> 'Share a Memory, a Thought or a Feeling, Before You ",
-          "author": "Noal Rini",
-          "date": "2026-07-21T05:16:30Z"
+          "sha": "68c98be",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-21T06:15:46Z"
         }
       ]
     },
