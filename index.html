@@ -1445,7 +1445,7 @@
              treatment. -->
         <summary>
           <h3>
-            <span class="drop-cap">L</span><span class="small-caps-rest">eave</span>
+            <span class="drop-cap">S</span><span class="small-caps-rest">hare</span>
             <span class="drop-cap">A</span>
             <span class="drop-cap">M</span><span class="small-caps-rest">emory</span>,
             <span class="drop-cap">A</span>
@@ -1462,8 +1462,8 @@
       <p class="cw-sub">Every word gets kept. Over time we'll trace how these thoughts move together &mdash; the same way Rosie traces patterns in the signals.</p>
       <div class="cw-row">
         <div class="cw-panel cw-input-panel">
-          <div class="cw-panel-head">Leave a memory</div>
-          <textarea id="cw-input" rows="3" placeholder="Type here &mdash; as many lines as you need..." aria-label="Leave a memory"></textarea>
+          <div class="cw-panel-head">Share a memory</div>
+          <textarea id="cw-input" rows="3" placeholder="Type here &mdash; as many lines as you need..." aria-label="Share a memory"></textarea>
         </div>
         <div class="cw-stage">
           <div class="cw-dust" aria-hidden="true">
@@ -2524,6 +2524,29 @@
     if (piChapterNum) piChapterNum.addEventListener('mouseenter', openPiViaHover);
     if (piSubtitle) piSubtitle.addEventListener('mouseenter', openPiViaHover);
     pi.addEventListener('mouseleave', closePi);
+  })();
+
+  // Second named exception, per Noal 2026-07-21 ~1:14am direct in-thread
+  // request: "Share a Memory..." (#cw-details) now also opens on hover.
+  // Rolling over its summary heading expands the widget -- unlike
+  // #part-i-block above, there is NO auto-close on mouseleave here:
+  // #cw-details holds a live textarea, and Noal's earlier 2026-07-19
+  // ~6:10pm request (data-stay-open) was specifically so a stray mouse
+  // movement while composing a note never snaps it shut. Hover only adds
+  // an additional way IN; native click-to-open/stay-open behavior is
+  // otherwise untouched. Skipped on touch/no-hover devices same as every
+  // other hover effect on the site.
+  (function () {
+    if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    var cw = document.getElementById('cw-details');
+    if (!cw) return;
+    var cwSummary = cw.querySelector('summary');
+    if (!cwSummary) return;
+    cwSummary.addEventListener('mouseenter', function () {
+      if (cw.open) return;
+      window.__limeSuppressToggleScroll = true;
+      cw.open = true;
+    });
   })();
 
   // Also track scroll for passive repositioning between clicks
