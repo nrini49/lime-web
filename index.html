@@ -542,6 +542,12 @@
      per Noal 2026-07-20 ~6:23pm (originally scoped only to the subtitle
      link below) -- applied automatically by assets/js/drop-cap.js. */
   .drop-cap { font-size: 1.4em; line-height: 1; }
+  /* Companion to .drop-cap, per Noal 2026-07-20 ~8:08pm ("Leave a Memory..."
+     heading only, for now): the rest of each word after the enlarged
+     first letter, rendered in capitals at the heading's own plain 1em --
+     one step down from the drop-cap's 1.4em. text-transform, not
+     retyped letters, so the underlying text content stays normal-case. */
+  .small-caps-rest { font-size: 1em; text-transform: uppercase; }
   /* Reverted per Noal, 2026-07-19 ~11:08pm: the earlier 3xl bump broke
      visual consistency with Part II/III. Hero title now matches every
      other Part's title size again (plain .part-title xl). */
@@ -1316,8 +1322,31 @@
   <section class="companion-widget">
     <div class="wrap">
       <details class="cw-details" id="cw-details">
+        <!-- Added the missing "a" before "Feeling" per Noal 2026-07-20
+             ~8:08pm, for parallel structure with "a Memory"/"a Thought".
+             Also hand-marked this heading (opting it out of drop-cap.js's
+             generic auto-processing, same technique as the Read
+             Introduction/AI Pilot lines): first letter of each word still
+             gets the normal 1.4em .drop-cap enlargement, but now the
+             REST of each word is also capitalized (via text-transform,
+             not retyped -- the actual text stays normal-case) at the
+             heading's own plain 1em size, one step down from the
+             enlarged first letter -- a small-caps-after-the-drop-cap
+             treatment. -->
         <summary>
-          <h3>Leave a Memory, a Thought or Feeling, Before You Leave&hellip;</h3>
+          <h3>
+            <span class="drop-cap">L</span><span class="small-caps-rest">eave</span>
+            <span class="drop-cap">a</span>
+            <span class="drop-cap">M</span><span class="small-caps-rest">emory</span>,
+            <span class="drop-cap">a</span>
+            <span class="drop-cap">T</span><span class="small-caps-rest">hought</span>
+            <span class="drop-cap">o</span><span class="small-caps-rest">r</span>
+            <span class="drop-cap">a</span>
+            <span class="drop-cap">F</span><span class="small-caps-rest">eeling</span>,
+            <span class="drop-cap">B</span><span class="small-caps-rest">efore</span>
+            <span class="drop-cap">Y</span><span class="small-caps-rest">ou</span>
+            <span class="drop-cap">L</span><span class="small-caps-rest">eave</span>&hellip;
+          </h3>
         </summary>
         <div class="cw-body">
       <p class="cw-sub">Every word gets kept. Over time we'll trace how these thoughts move together &mdash; the same way Rosie traces patterns in the signals.</p>
