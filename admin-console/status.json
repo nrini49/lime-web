@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T08:19:03.904206+00:00",
+  "generated_at": "2026-07-21T10:25:20.640852+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "963a8af",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-21T08:19:12Z"
+        },
+        {
           "sha": "fbf8597",
           "message": "Slowed the accordion open animation site-wide, per Noal 2026-07-21 ~3:04am ('I don't like the way it just snaps into place'). secOpen/cwBody",
           "author": "Noal Rini",
@@ -54,12 +60,6 @@
           "message": "Part II reorder per Noal 2026-07-21 ~2:21am: moved 'Translating for 3 Readers, Using 1 Door' out of the permanently-visible .part-label and ",
           "author": "Noal Rini",
           "date": "2026-07-21T06:23:23Z"
-        },
-        {
-          "sha": "68c98be",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-21T06:15:46Z"
         }
       ]
     },
