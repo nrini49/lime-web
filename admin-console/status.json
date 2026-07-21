@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T20:19:12.028490+00:00",
+  "generated_at": "2026-07-21T22:17:19.833946+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,18 @@
       "ok": true,
       "commits": [
         {
+          "sha": "f46946d",
+          "message": "Restore index.html: revert accidental regression from dd70be7",
+          "author": "Plex (LIME session)",
+          "date": "2026-07-21T21:46:48Z"
+        },
+        {
+          "sha": "b99e3cb",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-21T20:19:19Z"
+        },
+        {
           "sha": "22c8ab0",
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
@@ -48,18 +60,6 @@
           "message": "Replace card-fire lines with canon trait text from keepers_fire_study",
           "author": "nrini49",
           "date": "2026-07-21T16:14:55Z"
-        },
-        {
-          "sha": "3c0b2cf",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-21T14:17:21Z"
-        },
-        {
-          "sha": "c6b30c9",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-21T12:26:27Z"
         }
       ]
     },
@@ -104,6 +104,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "64432a2",
+          "message": "Force a fresh schwab.com browser login on every service start, per Noal 2026-07-21 ~5:27pm",
+          "author": "Perplexity Computer",
+          "date": "2026-07-21T21:31:43Z"
+        },
+        {
           "sha": "02dccc4",
           "message": "Add live account-selector control to dashboard header (ACCT pills, wired to new /select-account route) so account choice happens on the dash",
           "author": "Perplexity Computer",
@@ -126,12 +132,6 @@
           "message": "Fix account-selection hangup: add resolve_account_hash() so the chosen Schwab account is actually saved and used everywhere (main.py, schwab",
           "author": "Perplexity Computer",
           "date": "2026-07-20T17:48:19Z"
-        },
-        {
-          "sha": "2ed62a7",
-          "message": "Rebuild Schwab workstation layout: sidebar-nav -> collapsible panels",
-          "author": "nrini49",
-          "date": "2026-07-16T21:51:33Z"
         }
       ]
     },
