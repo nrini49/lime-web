@@ -245,8 +245,11 @@
   /* Matched to the same width per Noal, 2026-07-20 ~11:50am -- 70px fits
      Blog's natural width (~70px) without squeezing it, and the icon
      button is stretched to match rather than the reverse. */
-  .hdr-utility .icon-btn { width: 70px; min-height: 38px; }
-  .hdr-utility .blog-nav-link { width: 70px; min-height: 38px; }
+  /* Height matched to the other four header buttons (.ibkr-demo-cta/
+     .buy-rosie-cta, min-height:34px) per Noal 2026-07-20 ~8:24pm -- was
+     38px, 4px taller than the rest of the row. Width (70px) untouched. */
+  .hdr-utility .icon-btn { width: 70px; min-height: 34px; }
+  .hdr-utility .blog-nav-link { width: 70px; min-height: 34px; }
 
   /* Stacked vertically per Noal, 2026-07-20 ~9:56am, to match the theme+Blog
      and Rosie stacks beside it. */
@@ -1001,9 +1004,15 @@
            with Translate's own node tracking and throw an error. Marking
            it untranslatable tells Google Translate to skip this element
            entirely, removing the conflict at the source. -->
-      <!-- Icon doubled 18px -> 36px per Noal 2026-07-20 ~1:26pm. -->
+      <!-- Icon doubled 18px -> 36px per Noal 2026-07-20 ~1:26pm, stepped
+           down to 32px per Noal 2026-07-20 ~8:24pm: at 36px + the button's
+           1px border on each side, the button itself was forced to 38px
+           tall (content size overriding min-height:34px) -- 4px taller
+           than the other five header buttons. 32px + border = 34px,
+           matching exactly. All three svg markups (static + both JS
+           light/dark variants below) updated together. -->
       <button class="icon-btn notranslate" translate="no" data-theme-toggle aria-label="Switch theme">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
       </button>
       <a class="blog-nav-link" href="blog/index.html" target="_blank" rel="noopener"><span><span class="drop-cap">B</span>log</span></a>
     </div>
@@ -2204,8 +2213,8 @@
   let d = 'dark';
   r.setAttribute('data-theme', d);
   function icon(dark){ return dark
-    ? '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-    : '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'; }
+    ? '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+    : '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'; }
   if (t) { t.innerHTML = icon(d==='dark'); t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode');
     t.addEventListener('click', () => { d = d==='dark'?'light':'dark'; r.setAttribute('data-theme', d); t.innerHTML = icon(d==='dark'); t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode'); });
   }
