@@ -629,9 +629,13 @@
   .part-block-toggle > summary.part-block-summary:hover h2:not(.rosie-subtitle-heading) {
     color: var(--color-text);
   }
+  /* Bold -> normal, per Noal 2026-07-21 ~1:06am -- 'Part I' / 'Part II' /
+     'Part III' / 'Part IV' labels (this site only has 4, not 5 -- all
+     four are covered here). Same font-weight change just made on the
+     header CTA buttons (commit c84774b), applied here too. */
   .part-block-toggle > summary.part-block-summary .chapter-num {
     display: block; grid-column: auto;
-    font-family: var(--font-body); font-size: var(--text-xl); letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--color-primary); margin: 0;
+    font-family: var(--font-body); font-size: var(--text-xl); letter-spacing: 0.18em; text-transform: uppercase; font-weight: 400; color: var(--color-primary); margin: 0;
   }
   .part-block-toggle > summary.part-block-summary h2 {
     display: block; grid-column: auto;
