@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-21T22:17:19.833946+00:00",
+  "generated_at": "2026-07-22T00:31:24.394653+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
     "latest": "2026-07-17",
-    "checked_date": "2026-07-21"
+    "checked_date": "2026-07-22"
   },
   "site_health": [
     {
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "474d422",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-21T22:17:26Z"
+        },
+        {
           "sha": "f46946d",
           "message": "Restore index.html: revert accidental regression from dd70be7",
           "author": "Plex (LIME session)",
@@ -54,12 +60,6 @@
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
           "date": "2026-07-21T16:31:05Z"
-        },
-        {
-          "sha": "dd70be7",
-          "message": "Replace card-fire lines with canon trait text from keepers_fire_study",
-          "author": "nrini49",
-          "date": "2026-07-21T16:14:55Z"
         }
       ]
     },
