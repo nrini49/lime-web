@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-22T16:23:17.627334+00:00",
+  "generated_at": "2026-07-22T18:27:40.501700+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "7c9a2be",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-22T16:23:29Z"
+        },
+        {
           "sha": "755aeb6",
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
           "date": "2026-07-22T12:17:29Z"
-        },
-        {
-          "sha": "b1dfcc5",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-22T10:29:28Z"
         }
       ]
     },
@@ -104,6 +104,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "6a9a5fa",
+          "message": "Reorder dashboard panels by importance, per Noal 2026-07-22 ~1:02pm",
+          "author": "Perplexity Computer",
+          "date": "2026-07-22T17:04:18Z"
+        },
+        {
           "sha": "64432a2",
           "message": "Force a fresh schwab.com browser login on every service start, per Noal 2026-07-21 ~5:27pm",
           "author": "Perplexity Computer",
@@ -126,12 +132,6 @@
           "message": "Remove accidentally committed __pycache__ files, add .gitignore",
           "author": "Perplexity Computer",
           "date": "2026-07-20T17:49:01Z"
-        },
-        {
-          "sha": "927b663",
-          "message": "Fix account-selection hangup: add resolve_account_hash() so the chosen Schwab account is actually saved and used everywhere (main.py, schwab",
-          "author": "Perplexity Computer",
-          "date": "2026-07-20T17:48:19Z"
         }
       ]
     },
