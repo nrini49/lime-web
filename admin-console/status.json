@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-22T12:17:26.273369+00:00",
+  "generated_at": "2026-07-22T14:24:42.432221+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,24 @@
       "ok": true,
       "commits": [
         {
+          "sha": "c724171",
+          "message": "Fix theme-toggle box height to match the other 5 header boxes, per Noal 2026-07-22 ~9:29am",
+          "author": "Perplexity Computer",
+          "date": "2026-07-22T13:34:21Z"
+        },
+        {
+          "sha": "eeaad3a",
+          "message": "Reorder Part I tagline, per Noal 2026-07-22 ~9:20am",
+          "author": "Perplexity Computer",
+          "date": "2026-07-22T13:22:38Z"
+        },
+        {
+          "sha": "ed04d77",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-22T12:17:29Z"
+        },
+        {
           "sha": "b1dfcc5",
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
@@ -42,24 +60,6 @@
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
           "date": "2026-07-22T08:28:50Z"
-        },
-        {
-          "sha": "6686861",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-22T06:18:37Z"
-        },
-        {
-          "sha": "2affd5d",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-22T04:23:36Z"
-        },
-        {
-          "sha": "e3af70d",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-22T02:24:06Z"
         }
       ]
     },
