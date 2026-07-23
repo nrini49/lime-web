@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T18:22:01.156677+00:00",
+  "generated_at": "2026-07-23T20:27:50.313344+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "1a4875b",
-          "message": "Move The Rosy Way collapsible directly below The one promise (0px gap)",
+          "sha": "baf443c",
+          "message": "Merge pull request #5 from nrini49/constrain-top-and-invitation-width",
           "author": "nrini49",
-          "date": "2026-07-23T18:03:43Z"
+          "date": "2026-07-23T20:14:44Z"
         },
         {
-          "sha": "f1770db",
-          "message": "Merge pull request #3 from nrini49/fix-seed-overflow-mobile",
+          "sha": "5e34ac8",
+          "message": "Align top section and Fire Protocol invitation to content measure",
           "author": "nrini49",
-          "date": "2026-07-23T17:30:05Z"
+          "date": "2026-07-23T19:31:25Z"
         },
         {
-          "sha": "524ff51",
-          "message": "Fix /seed/ mobile horizontal overflow: clip .cta decorative glow",
+          "sha": "f4e7af7",
+          "message": "Constrain Fire Protocol invitation cell to Rosy Way image width",
           "author": "nrini49",
-          "date": "2026-07-23T17:18:58Z"
+          "date": "2026-07-23T19:58:58Z"
         },
         {
-          "sha": "0977e00",
-          "message": "Merge pull request #2 from nrini49/consolidate-header-and-harbor-freshness",
+          "sha": "2a85ebc",
+          "message": "Fix five broken static-asset/template references",
           "author": "nrini49",
-          "date": "2026-07-23T17:02:09Z"
+          "date": "2026-07-23T19:31:40Z"
         },
         {
-          "sha": "8988500",
-          "message": "Remove duplicate translate click-handler on pyramid-dashboard",
+          "sha": "7927d9a",
+          "message": "Add \"Why Rosie Exists\" content cell between Fire Protocol intro and Wicket Gate",
           "author": "nrini49",
-          "date": "2026-07-23T16:54:21Z"
+          "date": "2026-07-23T19:23:57Z"
         }
       ]
     },
