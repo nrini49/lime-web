@@ -215,6 +215,9 @@
   .hn-weather strong { color: var(--color-primary); font-weight: 600; }
   .hn-report p:last-child { color: var(--color-text-muted); margin-bottom: 0; }
   .hn-asof { font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-muted); font-weight: 600; margin-bottom: var(--space-4); }
+  .hn-asof time { text-transform: none; letter-spacing: normal; }
+  .hn-stale-note { font-size: var(--text-sm); color: var(--color-text-muted); font-style: italic; margin-bottom: var(--space-3); }
+  .hn-stale-note[hidden] { display: none; }
   .hn-body p { font-size: var(--text-base); color: var(--color-text); margin-bottom: var(--space-4); }
   .hn-body p:last-child { color: var(--color-text-muted); margin-bottom: 0; }
   .hn-body strong { color: var(--color-primary); font-weight: 600; }
@@ -317,15 +320,16 @@
 
 
   <!-- Single rotating Keeper portrait + promise text — collapses as one card -->
-  <section id="harbor-now" class="harbor-now">
+  <section id="harbor-now" class="harbor-now" data-harbor-asof="2026-07-22">
     <div class="wrap">
       <details class="collapsible" id="hn-details">
-        <summary class="sec-bar"><h2 data-i18n="hn_h">Today’s harbor — Thursday, July 23, 2026</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><h2 data-i18n="hn_h" class="hn-heading"><span class="hn-heading-label">Most recent harbor read</span> — <time class="hn-heading-date" datetime="2026-07-22">Wednesday, July 22, 2026</time></h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <div class="hn-report">
-            <p class="hn-asof" data-i18n="hn_asof">As of close · Thursday, July 16, 2026</p>
+            <p class="hn-stale-note" data-i18n="hn_stale" hidden>Showing the most recent completed harbor read — live market data may be newer.</p>
+            <p class="hn-asof" data-i18n="hn_asof">As of close · <time datetime="2026-07-22">Wednesday, July 22, 2026</time></p>
             <p class="hn-weather" data-i18n="hn_weather">Market weather: <strong>uncertain</strong>. Posture: <strong>patience</strong>.</p>
-            <div class="hn-body" data-i18n="hn_body"><p>QQQ led the downside (-1.64%) while SPY (-0.54%), DIA (-0.21%), and IWM (-0.06%) held steadier. Volatility rose; the VIX sits at 16.73, up 6.76% on the day.</p><p><a href="harbor-now/archive/2026-07-16.html">Read the full Harbor Now →</a></p></div>
+            <div class="hn-body" data-i18n="hn_body"><p>IWM led the downside (-0.93%) with QQQ (-0.51%) also soft, while SPY (-0.12%) and DIA (-0.01%) finished near flat. Volatility eased; the VIX slipped to 16.64, down 2.40% on the day.</p><p><a href="harbor-now/index.html">Read the full Harbor Now →</a></p></div>
           </div>
         </div>
       </details>
@@ -476,6 +480,54 @@
 (function(){
   var cta=document.querySelector('.hero-cta .btn');
   if(cta){cta.addEventListener('click',function(){var d=document.getElementById('hn-details');if(d){d.open=true;}});}
+})();
+</script>
+<script>
+/* Harbor freshness guard. The static markup is honest by default — it labels
+ * the read "Most recent harbor read" and dates it to the machine-readable
+ * data-harbor-asof close date, so a no-JS viewer never sees a false "today"
+ * claim. When the read is genuinely fresh relative to the viewer's own clock
+ * (within ~4 business days, tolerating weekends), we upgrade the label to
+ * "Today's harbor" and stamp it with the live date. When it is stale, we keep
+ * the honest label and reveal a muted stale-data notice. Real data is never
+ * altered — only the framing around it. */
+(function(){
+  var sec = document.getElementById('harbor-now');
+  if(!sec) return;
+  var asofStr = sec.getAttribute('data-harbor-asof');
+  if(!asofStr) return;
+  var parts = asofStr.split('-');
+  if(parts.length !== 3) return;
+  var asof = new Date(+parts[0], +parts[1]-1, +parts[2]);
+  var now = new Date(); now.setHours(0,0,0,0);
+  var MS_DAY = 86400000;
+  var calGap = Math.round((now - asof) / MS_DAY);
+  // Business-day gap: subtract weekend days in (asof, now].
+  var weekend = 0;
+  for(var t = asof.getTime() + MS_DAY; t <= now.getTime(); t += MS_DAY){
+    var wd = new Date(t).getDay();
+    if(wd === 0 || wd === 6) weekend++;
+  }
+  var businessGap = calGap - weekend;
+  var FRESH_MAX_BUSINESS_DAYS = 4;
+  var fresh = calGap < 0 || businessGap <= FRESH_MAX_BUSINESS_DAYS;
+  var label = sec.querySelector('.hn-heading-label');
+  var dateEl = sec.querySelector('.hn-heading-date');
+  var note = sec.querySelector('.hn-stale-note');
+  if(fresh){
+    if(label) label.textContent = 'Today’s harbor';
+    if(dateEl){
+      try {
+        dateEl.textContent = now.toLocaleDateString('en-US', {weekday:'long', month:'long', day:'numeric', year:'numeric'});
+      } catch(e){}
+      var iso = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
+      dateEl.setAttribute('datetime', iso);
+    }
+    if(note) note.hidden = true;
+  } else {
+    if(label) label.textContent = 'Most recent harbor read';
+    if(note) note.hidden = false;
+  }
 })();
 </script>
 
