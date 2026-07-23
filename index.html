@@ -211,6 +211,12 @@
   details.collapsible > summary h3 { font-size: var(--text-lg); margin: 0; text-align: center; font-family: var(--font-display); font-weight: 400; letter-spacing: -0.01em; }
   .harbor-now details.collapsible > summary h3 { font-size: var(--text-xl); }
   .harbor-now details.collapsible, .fire-protocol details.collapsible { margin-bottom: var(--space-8); }
+  /* Compact block: Past Harbor Nows + Introduction + The one promise read as one
+     continuous heading stack. Drop only the inter-heading gap below the first two,
+     and only while collapsed, so open-panel spacing and every other section are unchanged. */
+  .harbor-now details.collapsible.sec-tight:not([open]),
+  .fire-protocol details.collapsible.sec-tight:not([open]) { margin-bottom: 0; }
+  details.collapsible.sec-tight:not([open]) > summary { margin-bottom: 0; }
   details.collapsible > summary .chev { color: var(--color-text-muted); transition: transform var(--transition-interactive); flex: 0 0 auto; }
   details.collapsible[open] > summary .chev { transform: rotate(180deg); }
   details.collapsible > summary:hover h2, details.collapsible > summary:hover h3, details.collapsible > summary:hover .chev { color: var(--color-primary); }
@@ -295,7 +301,7 @@
           </div>
         </div>
       </details>
-      <details class="collapsible">
+      <details class="collapsible sec-tight">
         <summary class="sec-bar"><h3 data-i18n="hn_archive_h">Past Harbor Nows</h3><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <ul class="hn-list">
@@ -312,7 +318,7 @@
 
     <section class="fire-protocol">
     <div class="wrap">
-      <details class="collapsible">
+      <details class="collapsible sec-tight">
         <summary class="sec-bar"><h2>Introduction to the 33-Day Fire Protocol</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <p class="fp-sub">The Fire Spirit speaks one word a day for 33 days. Here is the shape of the whole arc, in three parts — open any of them now, or simply know they are here and come back to them.</p>
