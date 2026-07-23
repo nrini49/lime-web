@@ -89,6 +89,8 @@
   .hdr-tools { display: flex; align-items: center; gap: 0; }
   .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-text-muted); background: var(--color-surface); cursor: pointer; }
   .icon-btn:hover { color: var(--color-text); border-color: var(--color-primary); }
+  /* Breathing room around the wordmark and before the tools cluster (~two characters, 2ch). Applied only where the header has a single-row layout with headroom so the centered header/body axis and baseline responsive wrapping are preserved. */
+  @media (min-width: 768px) { .brand .word { margin-inline: 2ch; } .hdr-tools { margin-left: 2ch; } }
 
   .hero { padding: clamp(var(--space-16), 8vw, var(--space-24)) 0 var(--space-6); text-align: center; position: relative; overflow: hidden; }
   .rosy-way-img { width: 100%; max-width: 720px; display: block; margin: 0 auto; border-radius: 8px; }
@@ -303,7 +305,7 @@
   <section id="harbor-now" class="harbor-now">
     <div class="wrap">
       <details class="collapsible" id="hn-details">
-        <summary class="sec-bar"><h2 data-i18n="hn_h">Today’s harbor — Thursday, July 16, 2026</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><h2 data-i18n="hn_h">Today’s harbor — Thursday, July 23, 2026</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <div class="hn-report">
             <p class="hn-asof" data-i18n="hn_asof">As of close · Thursday, July 16, 2026</p>
