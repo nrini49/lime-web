@@ -100,6 +100,10 @@
 
   .hero { padding: clamp(var(--space-16), 8vw, var(--space-24)) 0 var(--space-6); text-align: center; position: relative; overflow: hidden; }
   .rosy-way-img { width: 100%; max-width: 720px; display: block; margin: 0 auto; border-radius: 8px; }
+  /* Rosy Way wrap-up caption cell: same width/edges as .rosy-way-img (width:100%,
+     max-width:720px, centered) so it sits flush under the image. Text treatment
+     restored from the historical .bridge-scene-caption (8963fed). */
+  .rosy-way-caption { width: 100%; max-width: 720px; margin: var(--space-3) auto 0; text-align: center; font-family: var(--font-display); font-style: italic; color: var(--color-text-muted); font-size: var(--text-sm); }
   .beacon { width: clamp(120px, 22vw, 180px); margin: 0 auto var(--space-8); }
   .beacon svg { width: 100%; }
   .beam-sweep { transform-origin: 90px 70px; animation: sweep 9s ease-in-out infinite; }
@@ -373,6 +377,11 @@
   <section class="hero">
     <div class="wrap">
       <img class="rosy-way-img" src="assets/bridge/rosy-way-bloom.webp" alt="A man and a woman beside a flowering rose tree, arms raised, gold dust around them, a path curving into the light">
+      <!-- Wrap-up cell restored verbatim from 8963fed (removed by a6d307f
+           "Reorder sections"); line breaks per Noal's 2026-07-19 dictation. -->
+      <p class="rosy-way-caption">This is what happens along the Rosy Way. Life changes.<br>
+      Your true purpose finds you &mdash; and it amplifies you.<br>
+      You've reached the end of the harbor &mdash; for now.</p>
       <details class="collapsible">
         <summary class="sec-bar"><h2 data-i18n="kicker">The Rosy Way</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
