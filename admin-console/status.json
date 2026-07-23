@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T08:27:45.465092+00:00",
+  "generated_at": "2026-07-23T10:22:37.123882+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "2c1d0da",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-23T08:27:52Z"
+        },
+        {
           "sha": "ec44902",
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Tight spacing under image; Wicket Gate styled to match Rosy Way",
           "author": "nrini49",
           "date": "2026-07-23T04:52:06Z"
-        },
-        {
-          "sha": "5a947a1",
-          "message": "Homepage: restore approved headings/spacing and make bloom photo always-visible under The One Promise",
-          "author": "nrini49",
-          "date": "2026-07-23T04:42:40Z"
         }
       ]
     },
