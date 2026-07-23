@@ -127,10 +127,10 @@
   .rosie-cta-wrap { padding: var(--space-6) 0 var(--space-10); margin-top: var(--space-4); text-align: center; }
   .rosie-cta-btn { display: inline-block; background: linear-gradient(135deg, var(--color-primary), var(--color-beam, #a0e080)); color: #04140c; font-weight: 700; font-size: var(--text-sm); letter-spacing: 0.04em; text-transform: uppercase; padding: 0.85rem 2rem; border-radius: 999px; text-decoration: none; box-shadow: 0 0 16px color-mix(in oklab, var(--color-primary) 40%, transparent); transition: filter 0.2s, box-shadow 0.2s; }
   .rosie-cta-btn:hover { filter: brightness(1.1); box-shadow: 0 0 24px color-mix(in oklab, var(--color-primary) 60%, transparent); }
-  /* CTA text stepped down one type step to --text-base; each word's leading letter is bumped
-     back up one step (--text-lg) via .cta-cap for an uppercase small-caps look, per Noal 2026-07-23. */
-  .hdr-cta { font-size: var(--text-base); padding: 0.45rem 1.1rem; white-space: nowrap; background: var(--color-beam); color: #0a1a08 !important; font-weight: 600; border-radius: 999px; text-decoration: none; letter-spacing: 0.02em; box-shadow: none; background-image: none; }
-  .hdr-cta .cta-cap { font-size: var(--text-lg); }
+  /* CTA text stepped down one type step to --text-sm; each word's leading letter is bumped
+     back up one step (--text-base) via .cta-cap for an uppercase small-caps look, per Noal 2026-07-23. */
+  .hdr-cta { font-size: var(--text-sm); padding: 0.45rem 1.1rem; white-space: nowrap; background: var(--color-beam); color: #0a1a08 !important; font-weight: 600; border-radius: 999px; text-decoration: none; letter-spacing: 0.02em; box-shadow: none; background-image: none; }
+  .hdr-cta .cta-cap { font-size: var(--text-base); }
   .hdr-cta:hover { filter: brightness(1.08); }
   @media (max-width: 480px) { .hdr-cta { display: none; } }
   @media (max-width: 540px) { .keeper-hero-inner { flex-direction: column; } .keeper-hero-portrait { width: 100%; height: 220px; flex: none; } }
