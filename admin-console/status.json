@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T14:11:46.911887+00:00",
+  "generated_at": "2026-07-23T16:16:01.788173+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "b41a42d",
-          "message": "Header: step wordmark down one type token (--text-xl -> --text-lg)",
+          "sha": "ed031b3",
+          "message": "Restore Rosy Way wrap-up caption cell beneath the bloom image",
           "author": "nrini49",
-          "date": "2026-07-23T14:03:29Z"
+          "date": "2026-07-23T15:48:31Z"
         },
         {
-          "sha": "75fb77c",
-          "message": "Header: shorten CTA to \"Rosie Interactive now\" and step wordmark down to --text-xl",
+          "sha": "bfd25cf",
+          "message": "Header CTA: uppercase the third cta-cap initial in DOM (n -> N)",
           "author": "nrini49",
-          "date": "2026-07-23T13:24:59Z"
+          "date": "2026-07-23T16:01:12Z"
         },
         {
-          "sha": "e0fc7f3",
-          "message": "Header: allow 'LLC' to wrap onto its own line in the wordmark on narrow phone widths (kept 'Lime Signalworks' non-breaking) to prevent text ",
-          "author": "Noal Rini",
-          "date": "2026-07-23T13:12:05Z"
-        },
-        {
-          "sha": "e14a62e",
-          "message": "Header: rename wordmark to 'Lime Signalworks LLC' and double its size (2x); collapse header layout from space-between to a single consistent",
-          "author": "Noal Rini",
-          "date": "2026-07-23T13:09:59Z"
-        },
-        {
-          "sha": "319af4a",
-          "message": "Homepage header: remove gap between translate and theme-toggle icons",
+          "sha": "e5bc39c",
+          "message": "Header CTA: group CTA+tools in .hdr-actions so they never split rows",
           "author": "nrini49",
-          "date": "2026-07-23T13:00:17Z"
+          "date": "2026-07-23T15:56:19Z"
+        },
+        {
+          "sha": "ccad0b4",
+          "message": "Header CTA: extend mobile row-alignment fix through 819px (768px band)",
+          "author": "nrini49",
+          "date": "2026-07-23T15:50:48Z"
+        },
+        {
+          "sha": "75418f9",
+          "message": "Header CTA: fix mobile (481-767px) CTA/controls row alignment",
+          "author": "nrini49",
+          "date": "2026-07-23T15:43:17Z"
         }
       ]
     },
@@ -68,34 +68,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "09ef0d7",
-          "message": "Merge pull request #3 from nrini49/fix/rosie-demo-perms-under-header",
+          "sha": "6a7d56e",
+          "message": "Move SPY Live to top row beside Trading Permissions",
           "author": "nrini49",
-          "date": "2026-07-23T13:05:03Z"
+          "date": "2026-07-23T16:14:08Z"
         },
         {
-          "sha": "9b80ab5",
-          "message": "Rosie demo: pin Trading Permissions + power controls directly under header",
+          "sha": "85d9a54",
+          "message": "Merge pull request #7 from nrini49/move/trade-ticket-below-positions",
           "author": "nrini49",
-          "date": "2026-07-23T05:34:30Z"
+          "date": "2026-07-23T15:50:41Z"
         },
         {
-          "sha": "219c38f",
-          "message": "Rosie dashboard: move Trading Permissions to top of grid, above Account",
+          "sha": "7d0ef5b",
+          "message": "Move Trade Ticket directly below the Positions panel",
           "author": "nrini49",
-          "date": "2026-07-23T03:18:39Z"
+          "date": "2026-07-23T15:42:00Z"
         },
         {
-          "sha": "71cd3b7",
-          "message": "Rosie dashboard: remove dead .perm-inline CSS left over from the Trading Permissions relocation",
+          "sha": "c589a6a",
+          "message": "Reorder dashboard grid for glanceable first-screen density",
           "author": "nrini49",
-          "date": "2026-07-23T02:20:10Z"
+          "date": "2026-07-23T15:13:38Z"
         },
         {
-          "sha": "aeac3c3",
-          "message": "Rosie dashboard: relocate Trading Permissions into the topbar under the operator button row",
+          "sha": "85be4f5",
+          "message": "Rosie dashboard: place Unified Scanner exactly 16px below Positions",
           "author": "nrini49",
-          "date": "2026-07-23T02:18:23Z"
+          "date": "2026-07-23T14:55:54Z"
         }
       ]
     },
