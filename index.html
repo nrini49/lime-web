@@ -74,11 +74,12 @@
   .hdr { display: flex; align-items: center; justify-content: space-between; padding: var(--space-4) 0; gap: var(--space-4); }
   .brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
   .brand svg { width: 30px; height: 30px; }
-  /* Rotating lighthouse mark — animated video loop, locked to header button height (38px)
-     for tight header alignment. This is the approved header mark going forward.
+  /* Rotating lighthouse mark — animated video loop. Sized 3x (114px, 60px on mobile
+     under 560px) per Noal 2026-07-23. This is the approved header mark going forward.
      DO NOT swap back to a static SVG icon, resize, or restyle without Noal confirming
      directly in a session that can see this comment. */
-  .brand-mark { height: 38px; width: 38px; object-fit: cover; border-radius: 50%; flex-shrink: 0; border: 1px solid var(--color-border); }
+  .brand-mark { height: 114px; width: 114px; object-fit: cover; border-radius: 50%; flex-shrink: 0; border: 1px solid var(--color-border); }
+  @media (max-width: 560px) { .brand-mark { height: 60px; width: 60px; } }
   .brand .word { font-family: var(--font-body); font-weight: 600; font-size: var(--text-base); letter-spacing: 0.01em; }
   .brand .word b { font-weight: 700; color: var(--color-primary); }
   .brand:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
