@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T02:30:56.046622+00:00",
+  "generated_at": "2026-07-23T04:14:56.996711+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
+          "sha": "436446e",
+          "message": "Homepage: rename 'Past Harbor Nows' heading to 'Past Market Daily Reports'",
+          "author": "nrini49",
+          "date": "2026-07-23T03:28:36Z"
+        },
+        {
+          "sha": "3863456",
+          "message": "Homepage: rename 'Read July 23' heading to 'Read July 23rd Market Weather'",
+          "author": "nrini49",
+          "date": "2026-07-23T03:10:59Z"
+        },
+        {
+          "sha": "871bb48",
+          "message": "Homepage: remove gap between Read July 23 and Past Harbor Nows",
+          "author": "nrini49",
+          "date": "2026-07-23T03:06:48Z"
+        },
+        {
+          "sha": "3e98601",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-23T02:31:08Z"
+        },
+        {
           "sha": "c1f762a",
           "message": "Homepage: compact Past Harbor Nows + Introduction + The one promise into one continuous heading block",
           "author": "nrini49",
           "date": "2026-07-23T02:29:17Z"
-        },
-        {
-          "sha": "62febac",
-          "message": "Homepage: center header CTA via 1fr/auto/1fr grid to align with the label below",
-          "author": "nrini49",
-          "date": "2026-07-23T02:07:24Z"
-        },
-        {
-          "sha": "b7a95b6",
-          "message": "Homepage: normalize spacing between the four sequential section headings to --space-8",
-          "author": "nrini49",
-          "date": "2026-07-23T01:58:01Z"
-        },
-        {
-          "sha": "72897dd",
-          "message": "Homepage: tighten Fire Protocol section spacing, match Past Harbor Nows heading size",
-          "author": "nrini49",
-          "date": "2026-07-23T01:48:23Z"
-        },
-        {
-          "sha": "42bce52",
-          "message": "Homepage: set harbor heading to \"Read July 23\", tighten spacing",
-          "author": "nrini49",
-          "date": "2026-07-23T01:37:16Z"
         }
       ]
     },
@@ -67,6 +67,12 @@
       "repo": "nrini49/limesignalworks",
       "ok": true,
       "commits": [
+        {
+          "sha": "219c38f",
+          "message": "Rosie dashboard: move Trading Permissions to top of grid, above Account",
+          "author": "nrini49",
+          "date": "2026-07-23T03:18:39Z"
+        },
         {
           "sha": "71cd3b7",
           "message": "Rosie dashboard: remove dead .perm-inline CSS left over from the Trading Permissions relocation",
@@ -90,12 +96,6 @@
           "message": "Match the homepage header badge fix here: 'checking who's here....' -> 'checking who's here?' and 'along the Rosy Way........' -> 'along the",
           "author": "Plex (LIME session)",
           "date": "2026-07-20T23:13:15Z"
-        },
-        {
-          "sha": "40d1140",
-          "message": "Harbor Watch: clamp ship-tag readout cards to the width of the 'Click a ship to read it' hint pill, per Noal 2026-07-20 ~6:39pm. Ships spawn",
-          "author": "Perplexity Computer",
-          "date": "2026-07-20T22:46:21Z"
         }
       ]
     },
