@@ -231,19 +231,38 @@
 </style>
 <script defer data-domain="limesignalworks.com" src="https://plausible.io/js/script.js"></script>
 <link rel="stylesheet" href="../assets/css/header-cta.css">
+  <link rel="stylesheet" href="../assets/css/site-header.css">
 </head>
 <body>
-<header>
+<header class="site-header">
+  <!-- Canonical shared header (assets/css/site-header.css) — mirrors the
+       homepage header exactly: sticky blur bar, lighthouse-loop.mp4 mark,
+       mixed-case "Lime Signalworks LLC", the "Rosie Interactive now →" CTA
+       (public preview URL — NOT the gated IB-confirmation button, which
+       stays out per Noal's standing rule), and the translate + theme icons.
+       Page-specific controls live in the .hdr-local row below. -->
   <div class="wrap hdr">
-    <a class="brand" href="../index.html" aria-label="LIME Signalworks LLC home">
+    <a class="brand" href="../index.html" aria-label="Lime Signalworks home">
       <video class="brand-mark" src="../assets/brand/lighthouse-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
-      <span class="word">LIME&nbsp;<b>Signalworks LLC</b></span>
+      <span class="word">Lime&nbsp;<b>Signalworks</b> LLC</span>
     </a>
-    <!-- Harbor visitor counter, moved into the header per Noal (2026-07-19).
-         Was a fixed bottom-right badge; now inline next to the brand so it's
-         visible to everyone without scrolling. Same lime-presence.pplx.app
-         backend, same script further down the page -- only the markup
-         location and positioning CSS changed. -->
+    <div class="hdr-actions">
+    <a class="rosie-cta-btn hdr-cta" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener"><span class="cta-cap">R</span>osie <span class="cta-cap">I</span>nteractive <span class="cta-cap">N</span>ow →</a>
+    <div class="hdr-tools">
+      <button class="icon-btn" data-translate aria-label="Translate this page">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </button>
+      <button class="icon-btn notranslate" translate="no" data-theme-toggle aria-label="Switch theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+    </div>
+  </div>
+  <!-- Page-local controls: presence meters + Blog + Rosie Live + Buy Rosie.
+       Same backends/scripts as before, moved into the shared header's local
+       row so no functionality is lost. -->
+  <div class="wrap hdr-local">
+    <span class="lock-badge" id="lockBadge">Locked</span>
     <div class="hdr-presence">
       <span id="wg-live-badge" class="wg-badge wg-badge-live" aria-live="polite">
         <span class="wg-dot wg-dot-live"></span>
@@ -254,47 +273,11 @@
         <span id="wg-count-text">along the Rosy Way........</span>
       </span>
     </div>
-    <!-- Theme toggle + Blog: own stack, sits between the presence meters
-         and the Rosie CTA pair. Wrapper div removed per Noal, 2026-07-20
-         ~9:50am -- plain sibling of .hdr-presence/.hdr-controls now,
-         spaced by .hdr's own uniform gap. -->
-    <div class="hdr-utility">
-      <!-- translate="no" + notranslate per Noal, 2026-07-19 ~11:35pm: this
-           button's JS swaps its inner SVG on every click (light/dark icon).
-           If Google Translate (native browser translate feature) has
-           already wrapped/touched this subtree, that DOM swap can conflict
-           with Translate's own node tracking and throw an error. Marking
-           it untranslatable tells Google Translate to skip this element
-           entirely, removing the conflict at the source. -->
-      <!-- Icon doubled 18px -> 36px per Noal 2026-07-20 ~1:26pm. -->
-      <button class="icon-btn notranslate" translate="no" data-theme-toggle aria-label="Switch theme">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-      </button>
-      <a class="blog-nav-link" href="../blog/index.html" target="_blank" rel="noopener">Blog</a>
-    </div>
-    <!-- Rosie CTA pair only now -- theme toggle + Blog live in .hdr-utility
-         above. Rosie CTA itself held back from going live per the standing
-         IB-confirmation gate -- repeated standing rule from Noal, do NOT
-         re-add the gated "Take me right to Rosie Interactive now" button
-         without his direct confirmation in a session that can see this
-         comment. Header globe "Translate this page" button stays removed
-         (2026-07-19 ~11:08pm) -- Google's own translate bar is the one
-         translate path for everyone now. -->
+    <a class="blog-nav-link" href="../blog/index.html" target="_blank" rel="noopener">Blog</a>
     <div class="hdr-controls">
-      <!-- Rosie x IBKR live demo CTA -- per Noal's instruction (2026-07-18):
-           explicitly NOT the gated "Take me right to Rosie Interactive now"
-           button, no IB affiliate/confirmation hash referenced here, safe to
-           show. Date is a placeholder ("coming soon") until Noal gives an
-           actual date; links to the existing Rosie AI Trading Assistant
-           preview rather than any IB-specific/gated URL. -->
       <a class="ibkr-demo-cta" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Rosie Live</a>
-      <!-- Buy Rosie Now -- placeholder CTA, per Noal 2026-07-19. No
-           product/checkout link yet, so this is a <button> (not a link):
-           clicking it just tells the reader "Coming soon" and reverts,
-           nothing to navigate to yet. -->
       <button type="button" class="buy-rosie-cta" id="buy-rosie-btn">Buy Rosie</button>
     </div>
-    <span class="lock-badge" id="lockBadge">Locked</span>
   </div>
 </header>
 
@@ -442,8 +425,8 @@
   let d = 'dark';
   r.setAttribute('data-theme', d);
   function icon(dark){ return dark
-    ? '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-    : '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'; }
+    ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+    : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'; }
   if (t) { t.innerHTML = icon(d==='dark'); t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode');
     t.addEventListener('click', () => { d = d==='dark'?'light':'dark'; r.setAttribute('data-theme', d); t.innerHTML = icon(d==='dark'); t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode'); });
   }

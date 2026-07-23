@@ -54,7 +54,7 @@ etc.) are baked into the template and always render alongside them.
 Creates harbor-now/archive/<date>.html, then prints the list-entry HTML to
 prepend to harbor-now/index.html and the homepage's Past Harbor Nows list.
 """
-import argparse, html, json, pathlib, sys, datetime as dt
+import argparse, html, json, pathlib, re, sys, datetime as dt
 
 ROOT = pathlib.Path(__file__).resolve().parent
 ARCHIVE = ROOT / "archive"
@@ -267,6 +267,11 @@ def short(d: dt.date) -> str:
     return d.strftime("%b %-d, %Y")
 
 
+def long_date(d: dt.date) -> str:
+    """Weekday + month + day + year, matching the homepage <time> text."""
+    return d.strftime("%A, %B %-d, %Y")
+
+
 def li(items):
     return "\n        ".join(f"<li>{html.escape(x)}</li>" for x in items)
 
@@ -286,10 +291,75 @@ def sym_row(sym, data, extra_prefix=""):
     )
 
 
+def patch_homepage(home_path: pathlib.Path, d: dt.date, title: str) -> str:
+    """Update the homepage Harbor section's machine-readable date and latest
+    markers so future editions never leave a stale "today" claim behind.
+
+    Updates, scoped to the #harbor-now section:
+      * data-harbor-asof  -> the new ISO date
+      * every <time datetime=...> stamp (heading + "As of close") -> new date
+        and matching visible text
+      * the "Read the full Harbor Now" link -> this edition's archive page
+      * prepends a new entry to the "Past Harbor Nows" list
+
+    The editorial weather/body prose is intentionally left untouched (it is a
+    human paste — see the printed snippet); only dates, links and the latest
+    marker are rewritten here.
+    """
+    iso = d.isoformat()
+    html_text = home_path.read_text(encoding="utf-8")
+
+    sec_re = re.compile(r'(<section[^>]*id="harbor-now".*?</section>)', re.S)
+    m = sec_re.search(html_text)
+    if not m:
+        raise SystemExit(f"could not find #harbor-now section in {home_path}")
+    section = m.group(1)
+
+    # Machine-readable as-of.
+    section = re.sub(r'(data-harbor-asof=")\d{4}-\d{2}-\d{2}(")', rf'\g<1>{iso}\g<2>', section)
+    # <time> stamps: datetime attribute + visible label.
+    section = re.sub(r'(<time[^>]*\bdatetime=")\d{4}-\d{2}-\d{2}("[^>]*>)[^<]*(</time>)',
+                     rf'\g<1>{iso}\g<2>{long_date(d)}\g<3>', section)
+    # "Read the full Harbor Now" link -> this edition's archive page.
+    section = re.sub(r'(<div class="hn-body"[^>]*>.*?href=")harbor-now/(?:index\.html|archive/\d{4}-\d{2}-\d{2}\.html)(")',
+                     rf'\g<1>harbor-now/archive/{iso}.html\g<2>', section, flags=re.S)
+    # Prepend the latest entry to the Past Harbor Nows list.
+    entry = (f'\n            <li><a href="harbor-now/archive/{iso}.html">'
+             f'<span class="date">{short(d)}</span>'
+             f'<span class="title">{html.escape(title)}</span>'
+             f'<span class="arr">&rarr;</span></a></li>')
+    section = re.sub(r'(<ul class="hn-list">)', rf'\g<1>{entry}', section, count=1)
+
+    html_text = html_text[:m.start()] + section + html_text[m.end():]
+    home_path.write_text(html_text, encoding="utf-8")
+    return iso
+
+
+def prepend_index_entry(index_path: pathlib.Path, d: dt.date, title: str) -> bool:
+    """Prepend the latest edition to harbor-now/index.html's list, if present."""
+    if not index_path.is_file():
+        return False
+    text = index_path.read_text(encoding="utf-8")
+    entry = (f'      <li><a href="archive/{d.isoformat()}.html">'
+             f'<span class="date">{short(d)}</span>'
+             f'<span class="title">{html.escape(title)}</span>'
+             f'<span class="arr">&rarr;</span></a></li>\n')
+    m = re.search(r'(<ul[^>]*class="(?:[^"]*\b)?(?:list|hn-list)\b[^"]*"[^>]*>[ \t]*\n)', text)
+    if not m:
+        return False
+    text = text[:m.end()] + entry + text[m.end():]
+    index_path.write_text(text, encoding="utf-8")
+    return True
+
+
 def main():
     ap = argparse.ArgumentParser(description="Scaffold a full Harbor Now edition.")
     ap.add_argument("--date", required=True, help="ISO date, e.g. 2026-07-15")
     ap.add_argument("--data", required=True, help="Path to a JSON file matching the shape documented at the top of this script")
+    ap.add_argument("--homepage", default=str(ROOT.parent / "index.html"),
+                    help="Homepage to update (default: repo root index.html); pass '' to skip")
+    ap.add_argument("--index", default=str(ROOT / "index.html"),
+                    help="Harbor Now index to update (default: harbor-now/index.html); pass '' to skip")
     args = ap.parse_args()
 
     d = parse_date(args.date)
@@ -329,13 +399,34 @@ def main():
     out.write_text(page, encoding="utf-8")
     print(f"wrote {out.relative_to(ROOT)}")
 
+    # Machine-readable companion for the checker and future tooling.
+    data_out = ARCHIVE / f"{d.isoformat()}.data.json"
+    data_out.write_text(json.dumps(day, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"wrote {data_out.relative_to(ROOT)}")
+
+    title = day["title"]
+
+    # Update the homepage's machine-readable date + latest markers.
+    if args.homepage:
+        iso = patch_homepage(pathlib.Path(args.homepage), d, title)
+        print(f"updated homepage Harbor as-of -> {iso} ({args.homepage})")
+
+    # Prepend the edition to the Harbor Now index list.
+    if args.index:
+        if prepend_index_entry(pathlib.Path(args.index), d, title):
+            print(f"prepended edition to {args.index}")
+        else:
+            print(f"note: could not auto-update {args.index}; add the entry manually")
+
     entry = (
         f'      <li><a href="archive/{d.isoformat()}.html">'
         f'<span class="date">{short(d)}</span>'
-        f'<span class="title">{html.escape(day["title"])}</span>'
+        f'<span class="title">{html.escape(title)}</span>'
         f'<span class="arr">&rarr;</span></a></li>'
     )
-    print("\n--- prepend this list entry to harbor-now/index.html (and the homepage list) ---")
+    print("\n--- editorial paste: refresh the homepage weather/body prose by hand ---")
+    print("    (dates, links and the latest marker were updated automatically above)")
+    print("\n--- list entry (already applied to homepage + index if paths were writable) ---")
     print(entry)
 
 
