@@ -71,7 +71,9 @@
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--space-6); }
 
   header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); background: color-mix(in oklab, var(--color-bg) 82%, transparent); border-bottom: 1px solid var(--color-divider); }
-  .hdr { display: flex; align-items: center; justify-content: space-between; padding: var(--space-4) 0; gap: var(--space-4); }
+  /* Header spacing: single consistent gap between brand / CTA / tools — no space-between stretching.
+     Per Noal 2026-07-23. DO NOT change without Noal confirming directly. */
+  .hdr { display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; padding: var(--space-4) 0; gap: var(--space-4); }
   .brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
   .brand svg { width: 30px; height: 30px; }
   /* Rotating lighthouse mark — animated video loop. Sized 3x (114px, 60px on mobile
@@ -80,7 +82,8 @@
      directly in a session that can see this comment. */
   .brand-mark { height: 114px; width: 114px; object-fit: cover; border-radius: 50%; flex-shrink: 0; border: 1px solid var(--color-border); }
   @media (max-width: 560px) { .brand-mark { height: 60px; width: 60px; } }
-  .brand .word { font-family: var(--font-body); font-weight: 600; font-size: var(--text-base); letter-spacing: 0.01em; }
+  /* Wordmark size doubled (2x) per Noal 2026-07-23. DO NOT change without Noal confirming directly. */
+  .brand .word { font-family: var(--font-body); font-weight: 600; font-size: calc(var(--text-base) * 2); letter-spacing: 0.01em; }
   .brand .word b { font-weight: 700; color: var(--color-primary); }
   .brand:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
   .hdr-tools { display: flex; align-items: center; gap: 0; }
@@ -254,7 +257,7 @@
       <!-- Rotating lighthouse mark (assets/brand/lighthouse-loop.mp4) — per Noal 2026-07-23.
            Replaces the static SVG icon. Do not revert without Noal confirming directly. -->
       <video class="brand-mark" src="assets/brand/lighthouse-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
-      <span class="word">Lime&nbsp;<b>Signalworks</b></span>
+      <span class="word">Lime&nbsp;<b>Signalworks</b>&nbsp;LLC</span>
     </a>
     <a class="rosie-cta-btn hdr-cta" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Take me right to Rosie Interactive now →</a>
     <div class="hdr-tools">
