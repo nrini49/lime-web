@@ -93,6 +93,11 @@
      Gated to >=768px, where the header is a single row with headroom, so the centered header/body
      axis and the baseline responsive wrapping (single-row at 360/390/430/520/560/600/700) are preserved. */
   @media (min-width: 768px) { .brand .word { margin-inline: 2ch; } .hdr-tools { margin-left: 2ch; } }
+  /* Mobile (481–767px): the brand + CTA + tools exceed one row and wrap unpredictably, leaving the
+     CTA and right-side controls on different rows (560px misalignment). Pin the brand to its own
+     centered row so the CTA + tools cluster always share the next row, vertically centered together.
+     Scoped to keep the 480px CTA-hidden behavior and the >=768px desktop layout/spacing untouched. */
+  @media (min-width: 481px) and (max-width: 767px) { .hdr .brand { flex-basis: 100%; justify-content: center; } }
 
   .hero { padding: clamp(var(--space-16), 8vw, var(--space-24)) 0 var(--space-6); text-align: center; position: relative; overflow: hidden; }
   .rosy-way-img { width: 100%; max-width: 720px; display: block; margin: 0 auto; border-radius: 8px; }
