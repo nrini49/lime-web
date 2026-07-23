@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T16:16:01.788173+00:00",
+  "generated_at": "2026-07-23T18:22:01.156677+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "ed031b3",
-          "message": "Restore Rosy Way wrap-up caption cell beneath the bloom image",
+          "sha": "1a4875b",
+          "message": "Move The Rosy Way collapsible directly below The one promise (0px gap)",
           "author": "nrini49",
-          "date": "2026-07-23T15:48:31Z"
+          "date": "2026-07-23T18:03:43Z"
         },
         {
-          "sha": "bfd25cf",
-          "message": "Header CTA: uppercase the third cta-cap initial in DOM (n -> N)",
+          "sha": "f1770db",
+          "message": "Merge pull request #3 from nrini49/fix-seed-overflow-mobile",
           "author": "nrini49",
-          "date": "2026-07-23T16:01:12Z"
+          "date": "2026-07-23T17:30:05Z"
         },
         {
-          "sha": "e5bc39c",
-          "message": "Header CTA: group CTA+tools in .hdr-actions so they never split rows",
+          "sha": "524ff51",
+          "message": "Fix /seed/ mobile horizontal overflow: clip .cta decorative glow",
           "author": "nrini49",
-          "date": "2026-07-23T15:56:19Z"
+          "date": "2026-07-23T17:18:58Z"
         },
         {
-          "sha": "ccad0b4",
-          "message": "Header CTA: extend mobile row-alignment fix through 819px (768px band)",
+          "sha": "0977e00",
+          "message": "Merge pull request #2 from nrini49/consolidate-header-and-harbor-freshness",
           "author": "nrini49",
-          "date": "2026-07-23T15:50:48Z"
+          "date": "2026-07-23T17:02:09Z"
         },
         {
-          "sha": "75418f9",
-          "message": "Header CTA: fix mobile (481-767px) CTA/controls row alignment",
+          "sha": "8988500",
+          "message": "Remove duplicate translate click-handler on pyramid-dashboard",
           "author": "nrini49",
-          "date": "2026-07-23T15:43:17Z"
+          "date": "2026-07-23T16:54:21Z"
         }
       ]
     },
@@ -68,34 +68,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "6a7d56e",
-          "message": "Move SPY Live to top row beside Trading Permissions",
+          "sha": "d0bfa52",
+          "message": "Merge pull request #11 from nrini49/fix/spy-asset-paths-proxy",
           "author": "nrini49",
-          "date": "2026-07-23T16:14:08Z"
+          "date": "2026-07-23T18:06:38Z"
         },
         {
-          "sha": "85d9a54",
-          "message": "Merge pull request #7 from nrini49/move/trade-ticket-below-positions",
+          "sha": "2afce2c",
+          "message": "Merge pull request #12 from nrini49/gatekeeper/financial-technologies-heading",
           "author": "nrini49",
-          "date": "2026-07-23T15:50:41Z"
+          "date": "2026-07-23T18:05:48Z"
         },
         {
-          "sha": "7d0ef5b",
-          "message": "Move Trade Ticket directly below the Positions panel",
+          "sha": "c4fbcdb",
+          "message": "Sync brand link aria-label with Financial Technologies heading",
           "author": "nrini49",
-          "date": "2026-07-23T15:42:00Z"
+          "date": "2026-07-23T18:01:12Z"
         },
         {
-          "sha": "c589a6a",
-          "message": "Reorder dashboard grid for glanceable first-screen density",
+          "sha": "cad932b",
+          "message": "fix(spy): make Keeper asset deploy-proxy safe; drop dangling favicon 404",
           "author": "nrini49",
-          "date": "2026-07-23T15:13:38Z"
+          "date": "2026-07-23T17:57:53Z"
         },
         {
-          "sha": "85be4f5",
-          "message": "Rosie dashboard: place Unified Scanner exactly 16px below Positions",
+          "sha": "f23ba13",
+          "message": "Update brand heading to Lime Signalworks Financial Technologies",
           "author": "nrini49",
-          "date": "2026-07-23T14:55:54Z"
+          "date": "2026-07-23T17:54:59Z"
         }
       ]
     },
@@ -103,6 +103,18 @@
       "repo": "nrini49/schwab",
       "ok": true,
       "commits": [
+        {
+          "sha": "65c405e",
+          "message": "Merge pull request #4 from nrini49/feat/lime-global-header",
+          "author": "nrini49",
+          "date": "2026-07-23T17:01:18Z"
+        },
+        {
+          "sha": "24bb38d",
+          "message": "Add canonical LIME global header above operator masthead",
+          "author": "nrini49",
+          "date": "2026-07-23T16:15:13Z"
+        },
         {
           "sha": "6a9a5fa",
           "message": "Reorder dashboard panels by importance, per Noal 2026-07-22 ~1:02pm",
@@ -120,18 +132,6 @@
           "message": "Add live account-selector control to dashboard header (ACCT pills, wired to new /select-account route) so account choice happens on the dash",
           "author": "Perplexity Computer",
           "date": "2026-07-20T19:32:14Z"
-        },
-        {
-          "sha": "2ea417e",
-          "message": "Restore original CRLF line endings on schwab_login.py, schwab_service.py, schwab_startup.bat (no functional change, just formatting cleanup ",
-          "author": "Perplexity Computer",
-          "date": "2026-07-20T17:50:00Z"
-        },
-        {
-          "sha": "c51855b",
-          "message": "Remove accidentally committed __pycache__ files, add .gitignore",
-          "author": "Perplexity Computer",
-          "date": "2026-07-20T17:49:01Z"
         }
       ]
     },
@@ -139,6 +139,18 @@
       "repo": "nrini49/interactive",
       "ok": true,
       "commits": [
+        {
+          "sha": "26a6271",
+          "message": "Merge pull request #2 from nrini49/add-lime-global-header",
+          "author": "nrini49",
+          "date": "2026-07-23T17:01:53Z"
+        },
+        {
+          "sha": "55a677d",
+          "message": "Add canonical LIME global header band above the operator topbar",
+          "author": "nrini49",
+          "date": "2026-07-23T16:13:14Z"
+        },
         {
           "sha": "06279f2",
           "message": "Wire Harbor Now posture gate to the live homepage instead of a manual file",
@@ -156,18 +168,6 @@
           "message": "Add headless IB Gateway + IBC setup guide (no visible TWS window, auto-login, survives daily IBKR restart) per Noal's request",
           "author": "Noal Rini",
           "date": "2026-07-19T17:24:30Z"
-        },
-        {
-          "sha": "98620d8",
-          "message": "Restyle IB operator surfaces to Rosie Interactive design spec",
-          "author": "nrini49",
-          "date": "2026-07-16T21:56:59Z"
-        },
-        {
-          "sha": "340b71a",
-          "message": "Add Save/Reset Memory to the header with a new MEM light",
-          "author": "Plex",
-          "date": "2026-07-16T17:36:09Z"
         }
       ]
     }
