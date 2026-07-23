@@ -74,6 +74,11 @@
   .hdr { display: flex; align-items: center; justify-content: space-between; padding: var(--space-4) 0; gap: var(--space-4); }
   .brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
   .brand svg { width: 30px; height: 30px; }
+  /* Rotating lighthouse mark — animated video loop, locked to header button height (38px)
+     for tight header alignment. This is the approved header mark going forward.
+     DO NOT swap back to a static SVG icon, resize, or restyle without Noal confirming
+     directly in a session that can see this comment. */
+  .brand-mark { height: 38px; width: 38px; object-fit: cover; border-radius: 50%; flex-shrink: 0; border: 1px solid var(--color-border); }
   .brand .word { font-family: var(--font-body); font-weight: 600; font-size: var(--text-base); letter-spacing: 0.01em; }
   .brand .word b { font-weight: 700; color: var(--color-primary); }
   .brand:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
@@ -206,10 +211,13 @@
   .hn-list a:hover .arr { color: var(--color-primary); transform: translateX(3px); }
   .hn-all { display: inline-block; font-size: var(--text-sm); font-weight: 600; color: var(--color-primary); text-decoration: none; }
   .hn-all:hover { color: var(--color-primary-hover); }
-  details.collapsible > summary { list-style: none; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: var(--space-4); padding: var(--space-4) 0; margin-bottom: var(--space-2); }
+  details.collapsible > summary { list-style: none; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: var(--space-4); padding: var(--space-4) 0; margin-bottom: 0; }
   details.collapsible > summary::-webkit-details-marker { display: none; }
-  details.collapsible > summary h2 { font-size: var(--text-xl); margin: 0; text-align: center; }
-  details.collapsible > summary h3 { font-size: var(--text-lg); margin: 0; text-align: center; font-family: var(--font-display); font-weight: 400; letter-spacing: -0.01em; }
+  /* Uniform heading size across every homepage section header bar — locked per Noal 2026-07-23.
+     All .sec-bar h2/h3 render at the same size regardless of tag. Do not vary without Noal
+     confirming directly in a session that can see this comment. */
+  details.collapsible > summary h2, details.collapsible > summary h3,
+  .sec-bar h2, .sec-bar h3 { font-size: var(--text-xl); margin: 0; text-align: center; font-family: var(--font-display); font-weight: 400; letter-spacing: -0.01em; text-transform: none; color: var(--color-text); }
   details.collapsible > summary .chev { color: var(--color-text-muted); transition: transform var(--transition-interactive); flex: 0 0 auto; }
   details.collapsible[open] > summary .chev { transform: rotate(180deg); }
   details.collapsible > summary:hover h2, details.collapsible > summary:hover h3, details.collapsible > summary:hover .chev { color: var(--color-primary); }
@@ -233,7 +241,7 @@
   /* Continuous stack: One Promise -> Rosy Way image -> Rosy Way -> Wicket Gate.
      Remove the residual blank band (section bottom padding + summary margin)
      between these components while keeping each summary's own click padding. */
-  .keeper-hero, .hero { padding-bottom: 0 !important; }
+  .keeper-hero, .hero, .harbor-now { padding-bottom: 0 !important; }
   .keeper-hero > .wrap > details.collapsible > summary,
   .hero > .wrap > details.collapsible > summary { margin-bottom: 0; }
 </style>
@@ -242,12 +250,9 @@
 <header>
   <div class="wrap hdr">
     <a class="brand" href="index.html" aria-label="Lime Signalworks home">
-      <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
-        <g class="beam-sweep"><path d="M62 46 L118 22 L118 70 L62 58 Z" fill="var(--color-primary)" opacity="0.16"/><path d="M62 46 L6 22 L6 70 L62 58 Z" fill="var(--color-beam)" opacity="0.12"/></g>
-        <path d="M62 18 L72 30 L72 36 L66 36 L66 52 L70 52 L70 104 L54 104 L54 52 L58 52 L58 36 L52 36 L52 30 Z" fill="var(--color-text)"/>
-        <rect x="50" y="100" width="24" height="6" rx="2" fill="var(--color-text)"/>
-        <circle cx="62" cy="42" r="7" fill="var(--color-primary)"/><circle cx="62" cy="42" r="3" fill="var(--color-bg)"/>
-      </svg>
+      <!-- Rotating lighthouse mark (assets/brand/lighthouse-loop.mp4) — per Noal 2026-07-23.
+           Replaces the static SVG icon. Do not revert without Noal confirming directly. -->
+      <video class="brand-mark" src="assets/brand/lighthouse-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
       <span class="word">Lime&nbsp;<b>Signalworks</b></span>
     </a>
     <a class="rosie-cta-btn hdr-cta" href="https://limesignalworks.pplx.app" target="_blank" rel="noopener">Take me right to Rosie Interactive now →</a>
@@ -266,7 +271,7 @@
   <section class="lime-info">
     <div class="wrap">
       <details class="collapsible">
-    <summary class="sec-bar"><h2 class="foot-heading">Lime Signalworks</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+    <summary class="sec-bar"><h2>Lime Signalworks</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
     <div class="foot">
       <div>
         <p class="creed" data-i18n="creed">Different worlds, same problem: how to face market chaos without handing your life to a guru.</p>
@@ -380,7 +385,7 @@
     <div class="wrap">
       <img class="rosy-way-img" src="assets/bridge/rosy-way-bloom.webp" alt="A man and a woman beside a flowering rose tree, arms raised, gold dust around them, a path curving into the light">
       <details class="collapsible">
-        <summary class="sec-bar"><h2 class="kicker" data-i18n="kicker">The Rosy Way</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><h2 data-i18n="kicker">The Rosy Way</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <div class="beacon" aria-hidden="true">
             <svg viewBox="0 0 180 120" fill="none">
@@ -400,7 +405,7 @@
   <section class="harbor">
     <div class="wrap">
       <details class="collapsible">
-        <summary class="sec-bar"><h2 class="kicker" data-i18n="doors_h">The Wicket Gate</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><h2 data-i18n="doors_h">The Wicket Gate</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <p class="doors-sub" data-i18n="doors_sub">Nine doors. Start wherever fits you today.</p>
           <div class="grid">
