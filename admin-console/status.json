@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T12:16:54.484710+00:00",
+  "generated_at": "2026-07-23T14:11:46.911887+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "a84c639",
-          "message": "Admin Console: refresh status snapshot",
+          "sha": "b41a42d",
+          "message": "Header: step wordmark down one type token (--text-xl -> --text-lg)",
           "author": "nrini49",
-          "date": "2026-07-23T10:22:44Z"
+          "date": "2026-07-23T14:03:29Z"
         },
         {
-          "sha": "2c1d0da",
-          "message": "Admin Console: refresh status snapshot",
+          "sha": "75fb77c",
+          "message": "Header: shorten CTA to \"Rosie Interactive now\" and step wordmark down to --text-xl",
           "author": "nrini49",
-          "date": "2026-07-23T08:27:52Z"
+          "date": "2026-07-23T13:24:59Z"
         },
         {
-          "sha": "ec44902",
-          "message": "Admin Console: refresh status snapshot",
-          "author": "nrini49",
-          "date": "2026-07-23T06:12:59Z"
+          "sha": "e0fc7f3",
+          "message": "Header: allow 'LLC' to wrap onto its own line in the wordmark on narrow phone widths (kept 'Lime Signalworks' non-breaking) to prevent text ",
+          "author": "Noal Rini",
+          "date": "2026-07-23T13:12:05Z"
         },
         {
-          "sha": "dbd2f41",
-          "message": "Restore Rosy Way image and tighten stack spacing",
-          "author": "nrini49",
-          "date": "2026-07-23T05:19:49Z"
+          "sha": "e14a62e",
+          "message": "Header: rename wordmark to 'Lime Signalworks LLC' and double its size (2x); collapse header layout from space-between to a single consistent",
+          "author": "Noal Rini",
+          "date": "2026-07-23T13:09:59Z"
         },
         {
-          "sha": "7d837d1",
-          "message": "Image always visible above One Promise; zero all inter-section gaps",
+          "sha": "319af4a",
+          "message": "Homepage header: remove gap between translate and theme-toggle icons",
           "author": "nrini49",
-          "date": "2026-07-23T04:54:26Z"
+          "date": "2026-07-23T13:00:17Z"
         }
       ]
     },
@@ -67,6 +67,18 @@
       "repo": "nrini49/limesignalworks",
       "ok": true,
       "commits": [
+        {
+          "sha": "09ef0d7",
+          "message": "Merge pull request #3 from nrini49/fix/rosie-demo-perms-under-header",
+          "author": "nrini49",
+          "date": "2026-07-23T13:05:03Z"
+        },
+        {
+          "sha": "9b80ab5",
+          "message": "Rosie demo: pin Trading Permissions + power controls directly under header",
+          "author": "nrini49",
+          "date": "2026-07-23T05:34:30Z"
+        },
         {
           "sha": "219c38f",
           "message": "Rosie dashboard: move Trading Permissions to top of grid, above Account",
@@ -84,18 +96,6 @@
           "message": "Rosie dashboard: relocate Trading Permissions into the topbar under the operator button row",
           "author": "nrini49",
           "date": "2026-07-23T02:18:23Z"
-        },
-        {
-          "sha": "c79b515",
-          "message": "Rosie dashboard: all 8 panels start collapsed, open on hover, stay open until closed manually",
-          "author": "Perplexity Computer",
-          "date": "2026-07-21T03:42:19Z"
-        },
-        {
-          "sha": "d22ea84",
-          "message": "Match the homepage header badge fix here: 'checking who's here....' -> 'checking who's here?' and 'along the Rosy Way........' -> 'along the",
-          "author": "Plex (LIME session)",
-          "date": "2026-07-20T23:13:15Z"
         }
       ]
     },
