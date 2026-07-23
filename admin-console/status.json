@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T06:12:52.757273+00:00",
+  "generated_at": "2026-07-23T08:27:45.465092+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "ec44902",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-23T06:12:59Z"
+        },
+        {
           "sha": "dbd2f41",
           "message": "Restore Rosy Way image and tighten stack spacing",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Homepage: restore approved headings/spacing and make bloom photo always-visible under The One Promise",
           "author": "nrini49",
           "date": "2026-07-23T04:42:40Z"
-        },
-        {
-          "sha": "9be9797",
-          "message": "Place rosy-way-bloom image below The One Promise heading",
-          "author": "nrini49",
-          "date": "2026-07-23T04:35:31Z"
         }
       ]
     },
