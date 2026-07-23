@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T20:27:50.313344+00:00",
+  "generated_at": "2026-07-23T22:18:08.656465+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "7a46490",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-23T20:27:53Z"
+        },
+        {
           "sha": "baf443c",
           "message": "Merge pull request #5 from nrini49/constrain-top-and-invitation-width",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Fix five broken static-asset/template references",
           "author": "nrini49",
           "date": "2026-07-23T19:31:40Z"
-        },
-        {
-          "sha": "7927d9a",
-          "message": "Add \"Why Rosie Exists\" content cell between Fire Protocol intro and Wicket Gate",
-          "author": "nrini49",
-          "date": "2026-07-23T19:23:57Z"
         }
       ]
     },
@@ -67,6 +67,12 @@
       "repo": "nrini49/limesignalworks",
       "ok": true,
       "commits": [
+        {
+          "sha": "f30cae2",
+          "message": "Onboarding: disable IB signup CTA as 'Coming soon' until link is ready",
+          "author": "nrini49",
+          "date": "2026-07-23T20:33:03Z"
+        },
         {
           "sha": "d0bfa52",
           "message": "Merge pull request #11 from nrini49/fix/spy-asset-paths-proxy",
@@ -90,12 +96,6 @@
           "message": "fix(spy): make Keeper asset deploy-proxy safe; drop dangling favicon 404",
           "author": "nrini49",
           "date": "2026-07-23T17:57:53Z"
-        },
-        {
-          "sha": "f23ba13",
-          "message": "Update brand heading to Lime Signalworks Financial Technologies",
-          "author": "nrini49",
-          "date": "2026-07-23T17:54:59Z"
         }
       ]
     },
@@ -103,6 +103,12 @@
       "repo": "nrini49/schwab",
       "ok": true,
       "commits": [
+        {
+          "sha": "aa794c9",
+          "message": "fix: trusted loopback OAuth flow to end Schwab callback cert error",
+          "author": "nrini49",
+          "date": "2026-07-23T20:37:37Z"
+        },
         {
           "sha": "65c405e",
           "message": "Merge pull request #4 from nrini49/feat/lime-global-header",
@@ -126,12 +132,6 @@
           "message": "Force a fresh schwab.com browser login on every service start, per Noal 2026-07-21 ~5:27pm",
           "author": "Perplexity Computer",
           "date": "2026-07-21T21:31:43Z"
-        },
-        {
-          "sha": "02dccc4",
-          "message": "Add live account-selector control to dashboard header (ACCT pills, wired to new /select-account route) so account choice happens on the dash",
-          "author": "Perplexity Computer",
-          "date": "2026-07-20T19:32:14Z"
         }
       ]
     },
