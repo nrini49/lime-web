@@ -332,6 +332,37 @@
   <a href="../index.html">← Return to the harbor</a>
 </div></footer>
 
+<script type="text/template" id="harborTemplate"><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{RECIPI_NAME}} — Your Harbor · Lime Signalworks</title>
+<style>
+  :root{--bg:#0a131c;--surface:#0f1c28;--border:#1f3346;--text:#e6edf2;--muted:#8fa3b3;--primary:#9ad14a;--fire:#ff6a45;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{min-height:100dvh;line-height:1.6;font-family:Georgia,'Times New Roman',serif;color:var(--text);background:var(--bg);display:flex;align-items:center;justify-content:center;padding:2rem 1.25rem;}
+  .harbor{max-width:640px;width:100%;background:var(--surface);border:1px solid var(--border);border-radius:1rem;padding:clamp(1.75rem,5vw,3rem);box-shadow:0 18px 50px rgba(0,0,0,0.45);}
+  .kicker{font-family:Helvetica,Arial,sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--primary);}
+  h1{font-size:clamp(1.9rem,1.2rem+2.4vw,3rem);line-height:1.15;margin:0.75rem 0 1rem;}
+  .lime{color:var(--primary);}
+  p{color:var(--muted);font-size:1.125rem;margin-bottom:1rem;}
+  .invite-note{color:var(--text);background:rgba(154,209,74,0.12);border-left:3px solid var(--primary);border-radius:0.5rem;padding:1rem 1.25rem;margin:1.5rem 0;font-style:italic;}
+  .beacon{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);font-family:Helvetica,Arial,sans-serif;font-size:0.9rem;color:var(--muted);}
+  .beacon strong{color:var(--primary);font-weight:600;}
+</style>
+</head>
+<body>
+  <main class="harbor">
+    <span class="kicker">Your personal harbor</span>
+    <h1>Welcome, <span class="lime">{{RECIPI_FIRST}}</span>.</h1>
+    <p>This harbor was prepared for {{RECIPI_NAME}} — a calm place to watch the storm from. Four disciplined tools, one lighthouse beacon, nothing armed until you say so.</p>
+    <div class="invite-note">{{INVITE_NOTE}}</div>
+    <p>Rosie watches the market weather so a family's money can rest. When you are ready, return to the harbor and step through the gate.</p>
+    <div class="beacon"><strong>Lime Signalworks</strong> · Rosie watches the storm so a family's money can rest.</div>
+  </main>
+</body>
+</html></script>
 <script>(function(){var tr=document.querySelector('[data-translate]');if(tr){tr.addEventListener('click',function(){var _tl=(navigator.language||navigator.userLanguage||'es').split('-')[0];window.open('https://translate.google.com/translate?sl=auto&tl='+_tl+'&u='+encodeURIComponent(window.location.href),'_blank','noopener');});}})();</script>
 <script>
 (function(){
@@ -359,14 +390,11 @@
     const note = $('note').value.trim();
     const name = last ? (first + ' ' + last) : first;
     lastName = first;
-    let res;
-    try{
-      res = await fetch('template.html', {cache:'no-store'});
-    }catch(e){
-      throw new Error('Could not load the template. If you opened this file directly, it needs to be on a server — ask your inviter for the hosted link, or use the downloaded copy.');
+    const tpl = document.getElementById('harborTemplate');
+    if(!tpl || !tpl.textContent.trim()){
+      throw new Error('Could not load the template. Please reload this page and try again.');
     }
-    if(!res.ok) throw new Error('Template could not be reached (' + res.status + ').');
-    let html = await res.text();
+    let html = tpl.textContent;
     html = html.split('{{RECIPI_FIRST}}').join(escapeHtml(first))
                .split('{{RECIPI_NAME}}').join(escapeHtml(name))
                .split('{{INVITE_NOTE}}').join(escapeHtml(note));
