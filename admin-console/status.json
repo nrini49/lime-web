@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T04:14:56.996711+00:00",
+  "generated_at": "2026-07-23T06:12:52.757273+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "436446e",
-          "message": "Homepage: rename 'Past Harbor Nows' heading to 'Past Market Daily Reports'",
+          "sha": "dbd2f41",
+          "message": "Restore Rosy Way image and tighten stack spacing",
           "author": "nrini49",
-          "date": "2026-07-23T03:28:36Z"
+          "date": "2026-07-23T05:19:49Z"
         },
         {
-          "sha": "3863456",
-          "message": "Homepage: rename 'Read July 23' heading to 'Read July 23rd Market Weather'",
+          "sha": "7d837d1",
+          "message": "Image always visible above One Promise; zero all inter-section gaps",
           "author": "nrini49",
-          "date": "2026-07-23T03:10:59Z"
+          "date": "2026-07-23T04:54:26Z"
         },
         {
-          "sha": "871bb48",
-          "message": "Homepage: remove gap between Read July 23 and Past Harbor Nows",
+          "sha": "33c2ed2",
+          "message": "Tight spacing under image; Wicket Gate styled to match Rosy Way",
           "author": "nrini49",
-          "date": "2026-07-23T03:06:48Z"
+          "date": "2026-07-23T04:52:06Z"
         },
         {
-          "sha": "3e98601",
-          "message": "Admin Console: refresh status snapshot",
+          "sha": "5a947a1",
+          "message": "Homepage: restore approved headings/spacing and make bloom photo always-visible under The One Promise",
           "author": "nrini49",
-          "date": "2026-07-23T02:31:08Z"
+          "date": "2026-07-23T04:42:40Z"
         },
         {
-          "sha": "c1f762a",
-          "message": "Homepage: compact Past Harbor Nows + Introduction + The one promise into one continuous heading block",
+          "sha": "9be9797",
+          "message": "Place rosy-way-bloom image below The One Promise heading",
           "author": "nrini49",
-          "date": "2026-07-23T02:29:17Z"
+          "date": "2026-07-23T04:35:31Z"
         }
       ]
     },
