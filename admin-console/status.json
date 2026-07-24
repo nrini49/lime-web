@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T06:30:57.528740+00:00",
+  "generated_at": "2026-07-24T08:17:35.851252+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "26ddf0f",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-24T06:31:04Z"
+        },
+        {
           "sha": "c352dc8",
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Add Fire Protocol message cell; rename top heading; align text cells to canonical width",
           "author": "nrini49",
           "date": "2026-07-24T01:01:38Z"
-        },
-        {
-          "sha": "e2c02eb",
-          "message": "Generate real July 23, 2026 close Harbor Now report and update homepage",
-          "author": "nrini49",
-          "date": "2026-07-24T00:38:44Z"
         }
       ]
     },
