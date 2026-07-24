@@ -100,10 +100,6 @@
 
   .hero { padding: clamp(var(--space-16), 8vw, var(--space-24)) 0 var(--space-6); text-align: center; position: relative; overflow: hidden; }
   .rosy-way-img { width: 100%; max-width: 720px; display: block; margin: 0 auto; border-radius: 8px; }
-  /* Rosy Way wrap-up caption cell: same width/edges as .rosy-way-img (width:100%,
-     max-width:720px, centered) so it sits flush under the image. Text treatment
-     restored from the historical .bridge-scene-caption (8963fed). */
-  .rosy-way-caption { width: 100%; max-width: 720px; margin: var(--space-3) auto 0; text-align: center; font-family: var(--font-display); font-style: italic; color: var(--color-text-muted); font-size: var(--text-base); }
   .beacon { width: clamp(120px, 22vw, 180px); margin: 0 auto var(--space-8); }
   .beacon svg { width: 100%; }
   .beam-sweep { transform-origin: 90px 70px; animation: sweep 9s ease-in-out infinite; }
@@ -131,15 +127,7 @@
   .intro-cells { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
   .intro-cell { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); min-height: 90px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; text-align: left; font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; }
   .intro-cell strong { color: var(--color-text); font-size: var(--text-xs); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--space-2); display: block; }
-  #fp-invitation { max-width: 720px; margin: var(--space-4) auto; }
   @media (max-width: 640px) { .intro-cells { grid-template-columns: 1fr; } }
-  /* Why Rosie Exists — readable content cell between Fire Protocol intro and Wicket Gate */
-  .why-rosie { padding: var(--space-8) 0; }
-  .why-rosie .intro-cell { padding: var(--space-8); }
-  .why-rosie h2 { font-size: var(--text-xl); color: var(--color-text); margin-bottom: var(--space-5); }
-  .why-rosie p { font-size: var(--text-base); color: var(--color-text); line-height: 1.7; margin-bottom: var(--space-4); }
-  .why-rosie p:last-child { margin-bottom: 0; }
-  .why-rosie .why-founder { color: var(--color-text-muted); font-style: italic; }
   .rosie-cta-wrap { padding: var(--space-6) 0 var(--space-10); margin-top: var(--space-4); text-align: center; }
   .rosie-cta-btn { display: inline-block; background: linear-gradient(135deg, var(--color-primary), var(--color-beam, #a0e080)); color: #04140c; font-weight: 700; font-size: var(--text-sm); letter-spacing: 0.04em; text-transform: uppercase; padding: 0.85rem 2rem; border-radius: 999px; text-decoration: none; box-shadow: 0 0 16px color-mix(in oklab, var(--color-primary) 40%, transparent); transition: filter 0.2s, box-shadow 0.2s; }
   .rosie-cta-btn:hover { filter: brightness(1.1); box-shadow: 0 0 24px color-mix(in oklab, var(--color-primary) 60%, transparent); }
@@ -223,9 +211,6 @@
   .hn-weather strong { color: var(--color-primary); font-weight: 600; }
   .hn-report p:last-child { color: var(--color-text-muted); margin-bottom: 0; }
   .hn-asof { font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-muted); font-weight: 600; margin-bottom: var(--space-4); }
-  .hn-asof time { text-transform: none; letter-spacing: normal; }
-  .hn-stale-note { font-size: var(--text-sm); color: var(--color-text-muted); font-style: italic; margin-bottom: var(--space-3); }
-  .hn-stale-note[hidden] { display: none; }
   .hn-body p { font-size: var(--text-base); color: var(--color-text); margin-bottom: var(--space-4); }
   .hn-body p:last-child { color: var(--color-text-muted); margin-bottom: 0; }
   .hn-body strong { color: var(--color-primary); font-weight: 600; }
@@ -256,10 +241,6 @@
   @media (prefers-reduced-motion: reduce) { details.collapsible > .sec-body { animation: none; } details.collapsible > summary .chev { transition: none; } }
   footer { padding: 0; background: var(--color-surface); }
   .foot { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--space-12); align-items: start; }
-  /* Top "Lime Signal Works" section: constrain its content block to the same
-     720px measure and centered edges as the image below (.rosy-way-img), so the
-     top section aligns with the established readable content width. */
-  .lime-info .foot { max-width: 720px; margin-left: auto; margin-right: auto; }
   @media (max-width: 700px) { .foot { grid-template-columns: 1fr; gap: var(--space-8); } }
   .foot-collapsible { border-top: 1px solid var(--color-divider); }
   .foot-bar { padding: var(--space-4) 0; }
@@ -307,7 +288,7 @@
   <section class="lime-info">
     <div class="wrap">
       <details class="collapsible" open>
-    <summary class="sec-bar"><h2>Lime Signal Works. Finance. Technologies.</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+    <summary class="sec-bar"><h2>Lime Signalworks</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
     <div class="foot">
       <div>
         <p class="creed" data-i18n="creed">Different worlds, same problem: how to face market chaos without handing your life to a guru.</p>
@@ -332,16 +313,15 @@
 
 
   <!-- Single rotating Keeper portrait + promise text — collapses as one card -->
-  <section id="harbor-now" class="harbor-now" data-harbor-asof="2026-07-22">
+  <section id="harbor-now" class="harbor-now">
     <div class="wrap">
       <details class="collapsible" id="hn-details">
-        <summary class="sec-bar"><h2 data-i18n="hn_h" class="hn-heading"><span class="hn-heading-label">Most recent harbor read</span> — <time class="hn-heading-date" datetime="2026-07-22">Wednesday, July 22, 2026</time></h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <summary class="sec-bar"><h2 data-i18n="hn_h">Today’s harbor — Thursday, July 23, 2026</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
           <div class="hn-report">
-            <p class="hn-stale-note" data-i18n="hn_stale" hidden>Showing the most recent completed harbor read — live market data may be newer.</p>
-            <p class="hn-asof" data-i18n="hn_asof">As of close · <time datetime="2026-07-22">Wednesday, July 22, 2026</time></p>
+            <p class="hn-asof" data-i18n="hn_asof">As of close · Thursday, July 16, 2026</p>
             <p class="hn-weather" data-i18n="hn_weather">Market weather: <strong>uncertain</strong>. Posture: <strong>patience</strong>.</p>
-            <div class="hn-body" data-i18n="hn_body"><p>IWM led the downside (-0.93%) with QQQ (-0.51%) also soft, while SPY (-0.12%) and DIA (-0.01%) finished near flat. Volatility eased; the VIX slipped to 16.64, down 2.40% on the day.</p><p><a href="harbor-now/index.html">Read the full Harbor Now →</a></p></div>
+            <div class="hn-body" data-i18n="hn_body"><p>QQQ led the downside (-1.64%) while SPY (-0.54%), DIA (-0.21%), and IWM (-0.06%) held steadier. Volatility rose; the VIX sits at 16.73, up 6.76% on the day.</p><p><a href="harbor-now/archive/2026-07-16.html">Read the full Harbor Now →</a></p></div>
           </div>
         </div>
       </details>
@@ -379,6 +359,20 @@
           </div>
         </div>
       </details>
+      <!-- CTA + Fire Protocol cells — inside promise section -->
+      <div class="rosie-cta-wrap" id="rosie-cta-wrap">
+        <div class="intro-cells">
+          <div class="intro-cell" id="intro-cell-1"><strong>The Setup</strong><br>The burdens you have actually been carrying — and the 33-day protocol designed to hand them over.</div>
+          <div class="intro-cell" id="intro-cell-2"><strong>The Mitigation</strong><br>Three returns in the morning. Six at midday. Nine at close. One word a day. This is the practice.</div>
+          <div class="intro-cell" id="intro-cell-3"><strong>The Conclusion</strong><br>Everything you have ever wanted is looking for a place to land. You are no longer the ship. You have become the shore.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero">
+    <div class="wrap">
+      <img class="rosy-way-img" src="assets/bridge/rosy-way-bloom.webp" alt="A man and a woman beside a flowering rose tree, arms raised, gold dust around them, a path curving into the light">
       <details class="collapsible">
         <summary class="sec-bar"><h2 data-i18n="kicker">The Rosy Way</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
@@ -394,31 +388,11 @@
           <p class="lede" data-i18n="lede"><strong>A safety suit — not a cape.</strong> Loss-prevention-first AI trading assistance for real households and real companies — a clear environment for clarity, discipline, and wise decisions in markets and in life. Not a guru to follow.</p>
         </div>
       </details>
-      <!-- CTA + Fire Protocol cells — inside promise section -->
-      <div class="rosie-cta-wrap" id="rosie-cta-wrap">
-        <div class="intro-cells">
-          <div class="intro-cell" id="intro-cell-1"><strong>The Setup</strong><br>The burdens you have actually been carrying — and the 33-day protocol designed to hand them over.</div>
-          <div class="intro-cell" id="intro-cell-2"><strong>The Mitigation</strong><br>Three returns in the morning. Six at midday. Nine at close. One word a day. This is the practice.</div>
-          <div class="intro-cell" id="intro-cell-3"><strong>The Conclusion</strong><br>Everything you have ever wanted is looking for a place to land. You are no longer the ship. You have become the shore.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="hero">
-    <div class="wrap">
-      <img class="rosy-way-img" src="assets/bridge/rosy-way-bloom.webp" alt="A man and a woman beside a flowering rose tree, arms raised, gold dust around them, a path curving into the light">
-      <!-- Wrap-up cell restored verbatim from 8963fed (removed by a6d307f
-           "Reorder sections"); line breaks per Noal's 2026-07-19 dictation. -->
-      <p class="rosy-way-caption">This is what happens along the Rosy Way. Life changes.<br>
-      Your true purpose finds you &mdash; and it amplifies you.<br>
-      You've reached the end of the harbor &mdash; for now.</p>
     </div>
   </section>
 
     <section class="fire-protocol">
     <div class="wrap">
-      <div class="intro-cell" id="fp-invitation">If you have lost hope for your trading and investing future, I invite you to peruse the 33-Day Fire Protocol. It doesn't appear to have anything to do with financial intelligence. That's because this information is superior to financial intelligence, which, if you apprehend it, enables you to control and to draw the future that you wanted into your present.</div>
       <details class="collapsible">
         <summary class="sec-bar"><h2>Introduction to the 33-Day Fire Protocol</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
         <div class="sec-body">
@@ -445,21 +419,6 @@
     </div>
   </section>
 
-  <section class="why-rosie" id="why-rosie">
-    <div class="wrap">
-      <div class="intro-cell">
-        <h2>Why Rosie Exists</h2>
-        <p>The homepage routes to the Gate. The Gate is where system access happens, and the high-voltage work stays behind it.</p>
-        <p>Rosie was built with serendipity in action. The financial world has not seen anything quite like her, because institutions rarely show ordinary people how these systems actually work. This website does — it explains, plainly and specifically, how to approach the common trading and investing opportunities available to you.</p>
-        <p>One of Rosie's main achievements is casting down the candlestick as the center of the trading method. Candles belong to an older age. Rosie replaces that antique view with a disciplined system designed for the market as it exists now.</p>
-        <p>Rosie and the 33-Day Fire Protocol work together. One trains the operation; the other trains the operator. You may skip the Fire Protocol, but if you want to become more significant to yourself, your mate, your family, and your community, consider adopting it. It is a way to build posture, discipline, and rules of guidance that can leave a positive mark in the world.</p>
-        <p class="why-founder">The people referenced throughout this website are my heroes. They are not trading heroes. They are people who carried posture and discipline far enough to become extraordinary — sometimes almost by accident.</p>
-        <p class="why-founder">That is what Rosie is for me: an accident worth sharing.</p>
-        <p class="why-founder">Riding with Rosie is the difference between the Wright brothers' airplane and a modern fighter jet. I hope you find the gumption to try her for 33 days. I believe the experience will prove the point.</p>
-      </div>
-    </div>
-  </section>
-
   <section class="harbor">
     <div class="wrap">
       <details class="collapsible">
@@ -475,7 +434,7 @@
         <a class="card" href="offer/index.html"><div class="num">06</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Esther" style="background-image:url('assets/keepers/06_esther.webp')"></div><div class="keeper-name" data-slot="5">Esther</div><h3 data-i18n="d_sub_t">The Offer</h3><p data-i18n="d_sub_d">What you get, what it costs, how to join. Loss-prevention-first AI assistance.</p><p class="card-fire">Held the position until the right moment. Did not move before the setup was clear.</p></a>
         <a class="card" href="https://spy-pipeline-rosie.pplx.app" target="_blank" rel="noopener"><div class="num">07</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — Ruth" style="background-image:url('assets/keepers/07_ruth.webp')"></div><div class="keeper-name" data-slot="6">Ruth</div><h3 data-i18n="d_spy_t">SPY Harbor Watch</h3><p data-i18n="d_spy_d">Live SPY tracking since Rosie's first trade — price, alerts, and the 90-day dashboard.</p><p class="card-fire">Stayed when leaving was the easier, more reasonable choice.</p></a>
         <a class="card" href="laugh-lounge/index.html"><div class="num">08</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — David" style="background-image:url('assets/keepers/08_david.webp')"></div><div class="keeper-name" data-slot="7">David</div><h3 data-i18n="d_laugh_t">The Laugh Lounge</h3><p data-i18n="d_laugh_d">A lighter door. Harbor and lighthouse humor, and a library you can browse at your own pace.</p><p class="card-fire">Wrote songs in caves. Praised in the dark before the light arrived. Laughter in that frequency is not a distraction — it is praise.</p></a>
-        <a class="card" href="metaphor-gate/index.html"><div class="num">09</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — John the Baptist"></div><div class="keeper-name" data-slot="8">John the Baptist</div><h3>The Metaphor Gate</h3><p>The teaching layer. Learn to hear what is actually being said — in markets, in leadership, in scripture.</p><p class="card-fire">Wore camel's hair in the wilderness and pointed at someone else the entire time. Spoke until the wilderness filled up. Cut the noise. Left only the signal.</p></a>
+        <a class="card" href="metaphor-gate/index.html"><div class="num">09</div><span class="arrow" aria-hidden="true">→</span><div class="keeper-portrait" role="img" aria-label="Keeper portrait — John the Baptist" style="background-image:url('assets/keepers/09_john_the_baptist.webp')"></div><div class="keeper-name" data-slot="8">John the Baptist</div><h3>The Metaphor Gate</h3><p>The teaching layer. Learn to hear what is actually being said — in markets, in leadership, in scripture.</p><p class="card-fire">Wore camel's hair in the wilderness and pointed at someone else the entire time. Spoke until the wilderness filled up. Cut the noise. Left only the signal.</p></a>
       </div>
       <a class="sage-library-link" href="fire-spirit/index.html#song">Explore the full Sage Missions Library →</a>
         </div>
@@ -508,54 +467,6 @@
 (function(){
   var cta=document.querySelector('.hero-cta .btn');
   if(cta){cta.addEventListener('click',function(){var d=document.getElementById('hn-details');if(d){d.open=true;}});}
-})();
-</script>
-<script>
-/* Harbor freshness guard. The static markup is honest by default — it labels
- * the read "Most recent harbor read" and dates it to the machine-readable
- * data-harbor-asof close date, so a no-JS viewer never sees a false "today"
- * claim. When the read is genuinely fresh relative to the viewer's own clock
- * (within ~4 business days, tolerating weekends), we upgrade the label to
- * "Today's harbor" and stamp it with the live date. When it is stale, we keep
- * the honest label and reveal a muted stale-data notice. Real data is never
- * altered — only the framing around it. */
-(function(){
-  var sec = document.getElementById('harbor-now');
-  if(!sec) return;
-  var asofStr = sec.getAttribute('data-harbor-asof');
-  if(!asofStr) return;
-  var parts = asofStr.split('-');
-  if(parts.length !== 3) return;
-  var asof = new Date(+parts[0], +parts[1]-1, +parts[2]);
-  var now = new Date(); now.setHours(0,0,0,0);
-  var MS_DAY = 86400000;
-  var calGap = Math.round((now - asof) / MS_DAY);
-  // Business-day gap: subtract weekend days in (asof, now].
-  var weekend = 0;
-  for(var t = asof.getTime() + MS_DAY; t <= now.getTime(); t += MS_DAY){
-    var wd = new Date(t).getDay();
-    if(wd === 0 || wd === 6) weekend++;
-  }
-  var businessGap = calGap - weekend;
-  var FRESH_MAX_BUSINESS_DAYS = 4;
-  var fresh = calGap < 0 || businessGap <= FRESH_MAX_BUSINESS_DAYS;
-  var label = sec.querySelector('.hn-heading-label');
-  var dateEl = sec.querySelector('.hn-heading-date');
-  var note = sec.querySelector('.hn-stale-note');
-  if(fresh){
-    if(label) label.textContent = 'Today’s harbor';
-    if(dateEl){
-      try {
-        dateEl.textContent = now.toLocaleDateString('en-US', {weekday:'long', month:'long', day:'numeric', year:'numeric'});
-      } catch(e){}
-      var iso = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
-      dateEl.setAttribute('datetime', iso);
-    }
-    if(note) note.hidden = true;
-  } else {
-    if(label) label.textContent = 'Most recent harbor read';
-    if(note) note.hidden = false;
-  }
 })();
 </script>
 
