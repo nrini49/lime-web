@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-23T22:18:08.656465+00:00",
+  "generated_at": "2026-07-24T00:23:10.510589+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
     "latest": "2026-07-17",
-    "checked_date": "2026-07-23"
+    "checked_date": "2026-07-24"
   },
   "site_health": [
     {
@@ -32,6 +32,18 @@
       "ok": true,
       "commits": [
         {
+          "sha": "b112e21",
+          "message": "Restore homepage to verified baseline bfd25cf",
+          "author": "nrini49",
+          "date": "2026-07-24T00:20:41Z"
+        },
+        {
+          "sha": "9ac4ed9",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-23T22:18:14Z"
+        },
+        {
           "sha": "7a46490",
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
@@ -48,18 +60,6 @@
           "message": "Align top section and Fire Protocol invitation to content measure",
           "author": "nrini49",
           "date": "2026-07-23T19:31:25Z"
-        },
-        {
-          "sha": "f4e7af7",
-          "message": "Constrain Fire Protocol invitation cell to Rosy Way image width",
-          "author": "nrini49",
-          "date": "2026-07-23T19:58:58Z"
-        },
-        {
-          "sha": "2a85ebc",
-          "message": "Fix five broken static-asset/template references",
-          "author": "nrini49",
-          "date": "2026-07-23T19:31:40Z"
         }
       ]
     },
@@ -104,34 +104,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "aa794c9",
-          "message": "fix: trusted loopback OAuth flow to end Schwab callback cert error",
+          "sha": "c55ab35",
+          "message": "Merge pull request #2 from nrini49/feature/administrator-panel",
           "author": "nrini49",
-          "date": "2026-07-23T20:37:37Z"
+          "date": "2026-07-24T00:16:35Z"
         },
         {
-          "sha": "65c405e",
-          "message": "Merge pull request #4 from nrini49/feat/lime-global-header",
+          "sha": "f675023",
+          "message": "Expand Controls panel into an Administrator panel",
+          "author": "Noal Rini",
+          "date": "2026-07-20T15:42:29Z"
+        },
+        {
+          "sha": "de30af9",
+          "message": "Merge pull request #5 from nrini49/fix/schwab-oauth-account-race",
           "author": "nrini49",
-          "date": "2026-07-23T17:01:18Z"
+          "date": "2026-07-23T23:21:05Z"
         },
         {
-          "sha": "24bb38d",
-          "message": "Add canonical LIME global header above operator masthead",
+          "sha": "f4de76a",
+          "message": "Render Schwab auth state as visible dashboard banner",
           "author": "nrini49",
-          "date": "2026-07-23T16:15:13Z"
+          "date": "2026-07-23T21:03:14Z"
         },
         {
-          "sha": "6a9a5fa",
-          "message": "Reorder dashboard panels by importance, per Noal 2026-07-22 ~1:02pm",
-          "author": "Perplexity Computer",
-          "date": "2026-07-22T17:04:18Z"
-        },
-        {
-          "sha": "64432a2",
-          "message": "Force a fresh schwab.com browser login on every service start, per Noal 2026-07-21 ~5:27pm",
-          "author": "Perplexity Computer",
-          "date": "2026-07-21T21:31:43Z"
+          "sha": "69c8e4a",
+          "message": "Gate Schwab account init on explicit OAuth auth state",
+          "author": "nrini49",
+          "date": "2026-07-23T20:50:08Z"
         }
       ]
     },
@@ -139,6 +139,12 @@
       "repo": "nrini49/interactive",
       "ok": true,
       "commits": [
+        {
+          "sha": "09d6384",
+          "message": "Merge pull request #1 from nrini49/feature/administrator-panel",
+          "author": "nrini49",
+          "date": "2026-07-24T00:16:52Z"
+        },
         {
           "sha": "26a6271",
           "message": "Merge pull request #2 from nrini49/add-lime-global-header",
@@ -152,22 +158,16 @@
           "date": "2026-07-23T16:13:14Z"
         },
         {
+          "sha": "99a2348",
+          "message": "Add Administrator panel (mirrors the Schwab workstation)",
+          "author": "Noal Rini",
+          "date": "2026-07-20T17:09:38Z"
+        },
+        {
           "sha": "06279f2",
           "message": "Wire Harbor Now posture gate to the live homepage instead of a manual file",
           "author": "Noal Rini",
           "date": "2026-07-20T01:35:14Z"
-        },
-        {
-          "sha": "cd89349",
-          "message": "Add Rosie's autonomous paper-trading loop (propose-only by default)",
-          "author": "Noal Rini",
-          "date": "2026-07-20T01:15:37Z"
-        },
-        {
-          "sha": "8be2128",
-          "message": "Add headless IB Gateway + IBC setup guide (no visible TWS window, auto-login, survives daily IBKR restart) per Noal's request",
-          "author": "Noal Rini",
-          "date": "2026-07-19T17:24:30Z"
         }
       ]
     }
