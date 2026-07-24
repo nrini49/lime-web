@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T02:22:14.417279+00:00",
+  "generated_at": "2026-07-24T04:18:15.818548+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "ad7cdd9",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-24T02:22:21Z"
+        },
+        {
           "sha": "2816fb2",
           "message": "Span top Lime info block to full 720px canonical width at desktop/tablet",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Restore Rosy Way wrap-up caption and Harbor freshness guard (auto-dating), refreshed to real July 17 close data",
           "author": "nrini49",
           "date": "2026-07-24T00:33:02Z"
-        },
-        {
-          "sha": "cdb1c92",
-          "message": "Lock homepage heading to 'Fully Automated Financial Investing Technologies' (per Noal, do not revert)",
-          "author": "nrini49",
-          "date": "2026-07-24T00:28:54Z"
         }
       ]
     },
@@ -68,34 +68,34 @@
       "ok": true,
       "commits": [
         {
+          "sha": "048b184",
+          "message": "Merge pull request #17 from nrini49/layout/scanner-above-access",
+          "author": "nrini49",
+          "date": "2026-07-24T03:00:30Z"
+        },
+        {
+          "sha": "1e8de91",
+          "message": "Move Unified Scanner panel directly above Access",
+          "author": "nrini49",
+          "date": "2026-07-24T02:53:31Z"
+        },
+        {
+          "sha": "97f6714",
+          "message": "Merge pull request #16 from nrini49/security/static-fetch-gate-and-csp-meta",
+          "author": "nrini49",
+          "date": "2026-07-24T02:38:28Z"
+        },
+        {
+          "sha": "14ed0a5",
+          "message": "Gate root static market fetches behind shared broker state; add static-client CSP meta",
+          "author": "nrini49",
+          "date": "2026-07-24T02:29:09Z"
+        },
+        {
           "sha": "eaf67d6",
           "message": "Merge pull request #15 from nrini49/security/dashboard-xss-and-csp",
           "author": "nrini49",
           "date": "2026-07-24T01:58:51Z"
-        },
-        {
-          "sha": "03403c0",
-          "message": "Harden dashboard: escape XSS render paths and enable least-privilege CSP",
-          "author": "nrini49",
-          "date": "2026-07-24T01:45:38Z"
-        },
-        {
-          "sha": "a72483f",
-          "message": "Merge pull request #14 from nrini49/gatekeeper/spy-live-ib-connection-gate",
-          "author": "nrini49",
-          "date": "2026-07-24T01:21:22Z"
-        },
-        {
-          "sha": "273321c",
-          "message": "Gate SPY Live behind a verified Interactive Brokers connection",
-          "author": "nrini49",
-          "date": "2026-07-24T01:08:07Z"
-        },
-        {
-          "sha": "9df0d66",
-          "message": "Collapse redundant local header bands to one global header; standardize wordmark",
-          "author": "nrini49",
-          "date": "2026-07-24T00:42:10Z"
         }
       ]
     },
