@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-24T00:23:10.510589+00:00",
+  "generated_at": "2026-07-24T02:22:14.417279+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
-    "latest": "2026-07-17",
+    "latest": "2026-07-23",
     "checked_date": "2026-07-24"
   },
   "site_health": [
@@ -32,34 +32,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "b112e21",
-          "message": "Restore homepage to verified baseline bfd25cf",
+          "sha": "2816fb2",
+          "message": "Span top Lime info block to full 720px canonical width at desktop/tablet",
           "author": "nrini49",
-          "date": "2026-07-24T00:20:41Z"
+          "date": "2026-07-24T01:23:44Z"
         },
         {
-          "sha": "9ac4ed9",
-          "message": "Admin Console: refresh status snapshot",
+          "sha": "06fc830",
+          "message": "Add Fire Protocol message cell; rename top heading; align text cells to canonical width",
           "author": "nrini49",
-          "date": "2026-07-23T22:18:14Z"
+          "date": "2026-07-24T01:01:38Z"
         },
         {
-          "sha": "7a46490",
-          "message": "Admin Console: refresh status snapshot",
+          "sha": "e2c02eb",
+          "message": "Generate real July 23, 2026 close Harbor Now report and update homepage",
           "author": "nrini49",
-          "date": "2026-07-23T20:27:53Z"
+          "date": "2026-07-24T00:38:44Z"
         },
         {
-          "sha": "baf443c",
-          "message": "Merge pull request #5 from nrini49/constrain-top-and-invitation-width",
+          "sha": "24ba0fe",
+          "message": "Restore Rosy Way wrap-up caption and Harbor freshness guard (auto-dating), refreshed to real July 17 close data",
           "author": "nrini49",
-          "date": "2026-07-23T20:14:44Z"
+          "date": "2026-07-24T00:33:02Z"
         },
         {
-          "sha": "5e34ac8",
-          "message": "Align top section and Fire Protocol invitation to content measure",
+          "sha": "cdb1c92",
+          "message": "Lock homepage heading to 'Fully Automated Financial Investing Technologies' (per Noal, do not revert)",
           "author": "nrini49",
-          "date": "2026-07-23T19:31:25Z"
+          "date": "2026-07-24T00:28:54Z"
         }
       ]
     },
@@ -68,34 +68,34 @@
       "ok": true,
       "commits": [
         {
-          "sha": "f30cae2",
-          "message": "Onboarding: disable IB signup CTA as 'Coming soon' until link is ready",
+          "sha": "eaf67d6",
+          "message": "Merge pull request #15 from nrini49/security/dashboard-xss-and-csp",
           "author": "nrini49",
-          "date": "2026-07-23T20:33:03Z"
+          "date": "2026-07-24T01:58:51Z"
         },
         {
-          "sha": "d0bfa52",
-          "message": "Merge pull request #11 from nrini49/fix/spy-asset-paths-proxy",
+          "sha": "03403c0",
+          "message": "Harden dashboard: escape XSS render paths and enable least-privilege CSP",
           "author": "nrini49",
-          "date": "2026-07-23T18:06:38Z"
+          "date": "2026-07-24T01:45:38Z"
         },
         {
-          "sha": "2afce2c",
-          "message": "Merge pull request #12 from nrini49/gatekeeper/financial-technologies-heading",
+          "sha": "a72483f",
+          "message": "Merge pull request #14 from nrini49/gatekeeper/spy-live-ib-connection-gate",
           "author": "nrini49",
-          "date": "2026-07-23T18:05:48Z"
+          "date": "2026-07-24T01:21:22Z"
         },
         {
-          "sha": "c4fbcdb",
-          "message": "Sync brand link aria-label with Financial Technologies heading",
+          "sha": "273321c",
+          "message": "Gate SPY Live behind a verified Interactive Brokers connection",
           "author": "nrini49",
-          "date": "2026-07-23T18:01:12Z"
+          "date": "2026-07-24T01:08:07Z"
         },
         {
-          "sha": "cad932b",
-          "message": "fix(spy): make Keeper asset deploy-proxy safe; drop dangling favicon 404",
+          "sha": "9df0d66",
+          "message": "Collapse redundant local header bands to one global header; standardize wordmark",
           "author": "nrini49",
-          "date": "2026-07-23T17:57:53Z"
+          "date": "2026-07-24T00:42:10Z"
         }
       ]
     },
