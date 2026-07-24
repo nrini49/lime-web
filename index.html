@@ -268,7 +268,10 @@
   .fp-message p:last-child { margin-bottom: 0; }
   .fp-message strong { color: var(--color-primary); font-weight: 600; }
   .hero > .wrap > details.collapsible > .sec-body { max-width: 720px; margin-left: auto; margin-right: auto; }
-  .lime-info .foot { max-width: 720px; margin-left: auto; margin-right: auto; }
+  /* Top info block: single column at every width so its visible content/paragraph
+     region spans the full 720px canonical edges (not the 1.4fr first column, which
+     ended at ~392px). Base .foot 2-col grid is overridden here only. Per Noal 2026-07-24. */
+  .lime-info .foot { max-width: 720px; margin-left: auto; margin-right: auto; grid-template-columns: 1fr; }
   /* Zero inter-section gaps */
   section { margin-top: 0 !important; padding-top: 0 !important; }
   .sec-bar { margin-top: 0 !important; }
