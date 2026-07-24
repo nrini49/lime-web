@@ -258,6 +258,17 @@
   .foot .meta a { color: var(--color-text-muted); text-decoration: none; border-bottom: 1px solid var(--color-border); }
   .foot .meta a:hover { color: var(--color-primary); border-color: var(--color-primary); }
   .foot .copy { font-size: var(--text-xs); color: var(--color-text-faint); margin-top: var(--space-6); }
+  /* Canonical content width (720px) — matches .rosy-way-img. Applied to the new Fire
+     Protocol message cell, the Rosy Way text cell, and the top info block so their
+     left/right edges align across desktop and mobile. Per Noal 2026-07-24. */
+  .fp-message { max-width: 720px; margin: var(--space-8) auto 0; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: clamp(var(--space-6), 4vw, var(--space-10)); box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .fp-message::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: linear-gradient(in oklab, var(--color-primary), var(--color-beam)); }
+  .fp-message h2 { font-size: var(--text-xl); margin-bottom: var(--space-5); color: var(--color-text); font-family: var(--font-display); font-weight: 400; letter-spacing: -0.01em; text-align: left; }
+  .fp-message p { font-size: var(--text-base); color: var(--color-text); line-height: 1.7; margin-bottom: var(--space-5); max-width: none; }
+  .fp-message p:last-child { margin-bottom: 0; }
+  .fp-message strong { color: var(--color-primary); font-weight: 600; }
+  .hero > .wrap > details.collapsible > .sec-body { max-width: 720px; margin-left: auto; margin-right: auto; }
+  .lime-info .foot { max-width: 720px; margin-left: auto; margin-right: auto; }
   /* Zero inter-section gaps */
   section { margin-top: 0 !important; padding-top: 0 !important; }
   .sec-bar { margin-top: 0 !important; }
@@ -296,11 +307,11 @@
   <section class="lime-info">
     <div class="wrap">
       <details class="collapsible" open>
-    <!-- Homepage top heading — locked wording per Noal 2026-07-23. Must read exactly
-         "Fully Automated Financial Investing Technologies". Do NOT revert, rewrite,
-         or restore to any prior wording (e.g. "Lime Signalworks") without Noal
-         confirming directly. This line has been reverted by mistake before. -->
-    <summary class="sec-bar"><h2>Fully Automated Financial Investing Technologies</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+    <!-- Homepage top heading — locked wording per Noal 2026-07-24. Must read exactly
+         "Lime Signalworks Financial Technologies". Noal directly confirmed this wording
+         on 2026-07-24, superseding the prior "Fully Automated Financial Investing
+         Technologies" line. Do NOT revert or rewrite without Noal confirming directly. -->
+    <summary class="sec-bar"><h2>Lime Signalworks Financial Technologies</h2><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
     <div class="foot">
       <div>
         <p class="creed" data-i18n="creed">Different worlds, same problem: how to face market chaos without handing your life to a guru.</p>
@@ -438,6 +449,23 @@
           </div>
         </div>
       </details>
+    </div>
+  </section>
+
+  <!-- Fire Protocol message cell — always-visible text card between the Introduction
+       section and the Wicket Gate. Copy from Noal's 2026-07-24 dictation. Canonical
+       720px width (.fp-message) matches .rosy-way-img. -->
+  <section class="fire-protocol-message">
+    <div class="wrap">
+      <div class="fp-message">
+        <h2>If you have lost hope for your trading and investing future</h2>
+        <p>If you have lost hope for your trading and investing future, you are exactly who this is for. We invite you to explore the <strong>33-Day Fire Protocol</strong>. It may not look like financial intelligence at first — and that is on purpose. Its guidance runs deeper than the usual market commentary, because inner posture and clarity come before any signal.</p>
+        <p>What you learn to apprehend here can help you shape the future you actually want and draw it into the present, one disciplined day at a time. Rosie sets a new bar for what an honest trading companion can be, and makes disciplined trading and investing far more accessible than it has ever been.</p>
+        <p>The common opportunities in these markets are too often obscured — dressed up by institutions in language meant to keep them just out of reach. Here we explain, plainly, how they actually work. Rosie also moves beyond candlestick reading, an antique method, toward something steadier and more coherent.</p>
+        <p>Together, Rosie and the 33-Day Protocol can support a genuine renaissance in your financial life. The Protocol is built to develop significance, posture, and discipline — not only for you, but for your mate, your family, and your community.</p>
+        <p>The historical figures you meet along the way are not trading heroes. They are heroes of posture and disciplined guidance — reminders of how to stand before you act. Rosie herself emerged through serendipity, and she carries that same spirit forward.</p>
+        <p>Think of the Wright brothers' first airplane set beside a modern F-22 — the same principle of flight, a different world of capability. That is the leap we are inviting you into. Try Rosie for 33 days. <strong>We cannot and do not promise profits or guaranteed returns — no honest system can</strong> — but we can offer clear teaching, honest tools, and a disciplined path worth walking.</p>
+      </div>
     </div>
   </section>
 
