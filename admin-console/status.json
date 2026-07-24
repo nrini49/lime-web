@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T04:18:15.818548+00:00",
+  "generated_at": "2026-07-24T06:30:57.528740+00:00",
   "harbor_now": {
     "ok": true,
     "posted_today": false,
@@ -32,6 +32,12 @@
       "ok": true,
       "commits": [
         {
+          "sha": "c352dc8",
+          "message": "Admin Console: refresh status snapshot",
+          "author": "nrini49",
+          "date": "2026-07-24T04:18:22Z"
+        },
+        {
           "sha": "ad7cdd9",
           "message": "Admin Console: refresh status snapshot",
           "author": "nrini49",
@@ -54,12 +60,6 @@
           "message": "Generate real July 23, 2026 close Harbor Now report and update homepage",
           "author": "nrini49",
           "date": "2026-07-24T00:38:44Z"
-        },
-        {
-          "sha": "24ba0fe",
-          "message": "Restore Rosy Way wrap-up caption and Harbor freshness guard (auto-dating), refreshed to real July 17 close data",
-          "author": "nrini49",
-          "date": "2026-07-24T00:33:02Z"
         }
       ]
     },
